@@ -33,9 +33,88 @@ export interface ModelPricing {
   units?: PricingUnit[];
 }
 
+export type CompatReasoningLevel = "minimal" | "low" | "medium" | "high";
+
+export interface OpenRouterRouting {
+  only?: string[];
+  order?: string[];
+}
+
+export interface VercelGatewayRouting {
+  only?: string[];
+  order?: string[];
+}
+
+export interface OpenAICompletionsCompat {
+  supportsStore?: boolean;
+  supportsDeveloperRole?: boolean;
+  supportsReasoningEffort?: boolean;
+  supportsUsageInStreaming?: boolean;
+  maxTokensField?: "max_completion_tokens" | "max_tokens";
+  requiresToolResultName?: boolean;
+  requiresAssistantAfterToolResult?: boolean;
+  requiresThinkingAsText?: boolean;
+  requiresMistralToolIds?: boolean;
+  thinkingFormat?: "openai" | "zai" | "qwen";
+  openRouterRouting?: OpenRouterRouting;
+  vercelGatewayRouting?: VercelGatewayRouting;
+  supportsStrictMode?: boolean;
+  assistantContentFormat?: "string" | "parts";
+  toolCallIdStrategy?: "preserve" | "openai-40" | "pipe-call-40" | "mistral-9";
+}
+
+export interface OpenAIResponsesCompat {
+  toolCallIdStrategy?: "preserve" | "responses-fc64";
+  longPromptCacheTtl?: "24h";
+}
+
+export interface AnthropicCompat {
+  longPromptCacheTtl?: "1h";
+  supportsAdaptiveThinking?: boolean;
+  xHighReasoningEffort?: "high" | "max";
+}
+
+export interface BedrockCompat {
+  supportsAdaptiveThinking?: boolean;
+  supportsPromptCaching?: boolean;
+  supportsThinkingSignature?: boolean;
+  xHighReasoningEffort?: "high" | "max";
+}
+
+export interface GoogleCompat {
+  requiresToolCallId?: boolean;
+  supportsMultimodalFunctionResponse?: boolean;
+  reasoningMode?: "level" | "budget";
+  reasoningLevelMap?: Partial<
+    Record<CompatReasoningLevel, "MINIMAL" | "LOW" | "MEDIUM" | "HIGH">
+  >;
+  defaultThinkingBudgets?: Partial<Record<CompatReasoningLevel, number>>;
+}
+
+export interface GoogleGeminiCliCompat {
+  toolSchemaFormat?: "parameters" | "input_schema";
+  reasoningMode?: "level" | "budget";
+  reasoningLevelMap?: Partial<
+    Record<CompatReasoningLevel, "MINIMAL" | "LOW" | "MEDIUM" | "HIGH">
+  >;
+  defaultThinkingBudgets?: Partial<Record<CompatReasoningLevel, number>>;
+}
+
+export interface ModelCompat {
+  openaiCompletions?: OpenAICompletionsCompat;
+  openaiResponses?: OpenAIResponsesCompat;
+  anthropic?: AnthropicCompat;
+  bedrock?: BedrockCompat;
+  google?: GoogleCompat;
+  googleGeminiCli?: GoogleGeminiCliCompat;
+}
+
 export interface Model {
   id: string;
   name: string;
+  api?: string;
+  baseUrl?: string;
+  headers?: Record<string, string>;
   description?: string;
   type?: string;
   family?: string;
@@ -56,6 +135,7 @@ export interface Model {
   };
 
   pricing?: ModelPricing;
+  compat?: ModelCompat;
 }
 
 export interface Provider {
@@ -63,6 +143,7 @@ export interface Provider {
   name: string;
   api?: string;
   baseUrl?: string;
+  headers?: Record<string, string>;
   description?: string;
   url?: string;
   env?: string[];
@@ -73,6 +154,7 @@ export interface Provider {
   modelsUrl?: string;
   apiKeyUrl?: string;
   settings?: Record<string, unknown>;
+  compat?: ModelCompat;
 }
 
 export interface SourceMeta {
