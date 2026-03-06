@@ -157,7 +157,7 @@ Example:
 
 ### Pricing fields
 
-- `pricing.currency`: pricing currency
+- `pricing.currency`: pricing currency, such as `USD` or `CNY`
 - `pricing.units`: list of pricing units
 
 ## Pricing Schema
@@ -165,11 +165,67 @@ Example:
 Pricing is intentionally more expressive than a flat
 `input/output/cacheRead/cacheWrite` object.
 
+The schema is designed to describe billing behavior:
+
+- what is being billed: `name`
+- how the price is chosen: `strategy`
+- what denominator the price applies to: `unit`
+
 Each `PricingUnit` contains:
 
-- `name`: semantic unit name such as `textInput` or `textOutput`
+- `name`: semantic unit name such as `textInput` or `imageGeneration`
 - `strategy`: `fixed`, `tiered`, or `lookup`
-- `unit`: billing unit, typically `millionTokens`
+- `unit`: billing denominator for `rate` / `tiers[].rate`, such as
+  `millionTokens` or `image`
+
+Strategy-specific fields:
+
+- `fixed`: requires `rate`
+- `tiered`: requires `tiers`; tiers should be ordered from low to high usage,
+  and the final tier should usually end with `upTo: "infinity"`
+- `lookup`: requires `lookup.prices` and `lookup.pricingParams`; `prices` keys
+  should match the parameter values in the same order as `pricingParams`
+
+Choose `name` based on the behavior being billed, and choose `unit` based on
+the provider's billing denominator.
+
+### `name` enum
+
+| `name` | Meaning |
+| --- | --- |
+| `textInput` | prompt or other input text billing |
+| `textOutput` | generated text billing |
+| `textInput_cacheRead` | prompt cache read / cache hit billing |
+| `textInput_cacheWrite` | prompt cache write billing |
+| `audioInput` | audio input billing |
+| `audioOutput` | audio output billing |
+| `audioInput_cacheRead` | cached audio input read billing |
+| `imageInput` | image input billing |
+| `imageInput_cacheRead` | cached image input read billing |
+| `imageOutput` | image output billing |
+| `imageGeneration` | image generation billing |
+| `videoGeneration` | video generation billing |
+
+### `unit` enum
+
+| `unit` | Meaning |
+| --- | --- |
+| `millionTokens` | price per 1,000,000 tokens |
+| `millionCharacters` | price per 1,000,000 characters |
+| `image` | price per image |
+| `megapixel` | price per megapixel |
+| `second` | price per second |
+
+Use the billing denominator that matches the provider's published pricing. For
+example:
+
+- text and most chat models use `millionTokens`
+- some TTS models bill `textInput` by `millionCharacters`
+- image generation may bill by `image` or `megapixel`
+- audio or video duration-based pricing may bill by `second`
+
+Common `lookup.pricingParams` include `ttl`, `size`, `quality`,
+`textInputRange`, `textOutputRange`, and `generateAudio`.
 
 ### `fixed`
 
@@ -200,6 +256,8 @@ Use when pricing changes after a threshold:
 }
 ```
 
+In this example, `upTo: 0.2` means `0.2 millionTokens`, i.e. 200,000 tokens.
+
 ### `lookup`
 
 Use when pricing depends on external parameters such as TTL or combined input
@@ -216,6 +274,25 @@ and output buckets:
       "5m": 6.25
     },
     "pricingParams": ["ttl"]
+  }
+}
+```
+
+Multi-parameter lookup is also supported. This is common for image generation
+pricing keyed by quality and size:
+
+```json
+{
+  "name": "imageGeneration",
+  "strategy": "lookup",
+  "unit": "image",
+  "lookup": {
+    "prices": {
+      "standard_1024x1024": 0.04,
+      "standard_1024x1792": 0.08,
+      "hd_1024x1024": 0.08
+    },
+    "pricingParams": ["quality", "size"]
   }
 }
 ```
