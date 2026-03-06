@@ -46,7 +46,7 @@ Generation metadata:
 - `sources.modelsDev`: provider and model counts from `models.dev`
 - `sources.lobehub`: provider and model counts from Lobehub, plus `commitHash`
 - `merged`: counts after merge and normalization
-- `overridesApplied`: number of local overrides applied from `src/overrides.ts`
+- `overridesApplied`: number of local overrides applied from `src/generate/overrides.ts`
 
 ### `providers`
 

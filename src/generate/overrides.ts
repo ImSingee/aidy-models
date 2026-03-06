@@ -1,4 +1,4 @@
-import type { Model, ModelPricing, Provider } from "./types.ts";
+import type { Model, ModelPricing, Provider } from "../types.ts";
 
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
