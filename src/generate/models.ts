@@ -10,7 +10,7 @@ import {
   OPENCODE_ANTHROPIC_BASE_URL,
   OPENCODE_BASE_URL,
 } from "./shared.ts";
-import { convertFlatCostPricing, convertLegacyPricing } from "./pricing.ts";
+import { convertFlatCostPricing, convertLobehubPricing } from "./pricing.ts";
 import { clone, compactObject, mergeCompat, mergeHeaders } from "./utils.ts";
 
 function resolveOpencodeRuntime(rawModel: Record<string, any>): Partial<Model> {
@@ -66,7 +66,6 @@ export function normalizeModelsDevModel(
     pricing: convertFlatCostPricing(
       rawModel.cost,
       rawModel,
-      `${providerId}/${rawModel.id}`,
     ),
   };
 
@@ -95,7 +94,7 @@ export function normalizeLobehubModel(rawModel: Record<string, any>): Model {
     },
     contextWindow: rawModel.contextWindowTokens,
     maxOutput: rawModel.maxOutput,
-    pricing: convertLegacyPricing(rawModel.pricing, rawModel, rawModel.id),
+    pricing: convertLobehubPricing(rawModel.pricing, rawModel, rawModel.id),
   };
 }
 

@@ -6,12 +6,12 @@ import type {
 } from "../types.ts";
 import { roundNumber } from "./utils.ts";
 
-type LegacyPricingTier = {
+type LobehubPricingTier = {
   rate: number;
   upTo: number | "infinity";
 };
 
-type LegacyPricingUnit = {
+type LobehubPricingUnit = {
   lookup?: {
     prices: Record<string, number>;
     pricingParams: string[];
@@ -19,28 +19,28 @@ type LegacyPricingUnit = {
   name: string;
   rate?: number;
   strategy: "fixed" | "tiered" | "lookup";
-  tiers?: LegacyPricingTier[];
+  tiers?: LobehubPricingTier[];
   unit: string;
 };
 
-type LegacyModelPricing = {
+type LobehubModelPricing = {
   currency?: string;
-  units?: LegacyPricingUnit[];
+  units?: LobehubPricingUnit[];
 };
 
-type LegacyPricingParam = {
+type PricingParam = {
   normalizedName: string;
   originalName: string;
 };
 
-type LegacyRateRow = {
+type PricingRateRow = {
   rate: number;
   when: Record<string, PricingConditionValue>;
 };
 
-type LegacyUnitRows = {
-  params: LegacyPricingParam[];
-  rows: LegacyRateRow[];
+type PricingUnitRows = {
+  params: PricingParam[];
+  rows: PricingRateRow[];
 };
 
 const MULTIPLIER_FRIENDLY_CONDITIONS = new Set([
@@ -51,7 +51,7 @@ const MULTIPLIER_FRIENDLY_CONDITIONS = new Set([
   "thinkingMode",
 ]);
 
-function resolveSinglePricingUnit(units: LegacyPricingUnit[], modelId: string): string {
+function resolveSinglePricingUnit(units: LobehubPricingUnit[], modelId: string): string {
   const uniqueUnits = [...new Set(units.map((unit) => unit.unit).filter(Boolean))];
 
   if (uniqueUnits.length === 0) {
@@ -182,10 +182,10 @@ function inferTieredConditionName(target: string): string {
   return `${target}Range`;
 }
 
-function legacyPricingUnitToRows(
-  unit: LegacyPricingUnit,
+function lobehubPricingUnitToRows(
+  unit: LobehubPricingUnit,
   modelId: string,
-): LegacyUnitRows {
+): PricingUnitRows {
   if (unit.strategy === "fixed") {
     if (typeof unit.rate !== "number") {
       throw new Error(`Missing fixed pricing rate for ${modelId}/${unit.name}`);
@@ -209,7 +209,7 @@ function legacyPricingUnitToRows(
             ? "infinity"
             : normalizeThresholdNumber(tier.upTo, unit.unit);
 
-        const row: LegacyRateRow = {
+        const row: PricingRateRow = {
           rate: tier.rate,
           when: {
             [conditionName]: [
@@ -230,8 +230,8 @@ function legacyPricingUnitToRows(
 
   const pricingParams = unit.lookup?.pricingParams ?? [];
   const prices = unit.lookup?.prices ?? {};
-  const rows: LegacyRateRow[] = [];
-  const params = new Map<string, LegacyPricingParam>();
+  const rows: PricingRateRow[] = [];
+  const params = new Map<string, PricingParam>();
 
   for (const [lookupKey, rate] of Object.entries(prices)) {
     const segments = parseLookupKeySegments(lookupKey, pricingParams.length);
@@ -301,7 +301,7 @@ function compareRanges(left: PricingRange, right: PricingRange): number {
 }
 
 function countPreferenceMismatches(
-  row: LegacyRateRow,
+  row: PricingRateRow,
   preferences: Map<string, PricingConditionValue>,
 ): number {
   let mismatches = 0;
@@ -314,10 +314,10 @@ function countPreferenceMismatches(
 }
 
 function selectBaseRow(
-  unitRows: LegacyUnitRows,
+  unitRows: PricingUnitRows,
   rawModel: Record<string, any> | undefined,
   unit: string,
-): LegacyRateRow {
+): PricingRateRow {
   if (unitRows.rows.length === 1) return unitRows.rows[0];
 
   const preferences = new Map<string, PricingConditionValue>();
@@ -385,7 +385,7 @@ function selectBaseRow(
 }
 
 function shouldUseAbsoluteAdjustment(
-  params: LegacyPricingParam[],
+  params: PricingParam[],
   baseRate: number,
 ): boolean {
   if (baseRate === 0) return true;
@@ -402,8 +402,8 @@ function cloneWhen(
   ) as Record<string, PricingConditionValue>;
 }
 
-export function convertLegacyPricing(
-  pricing: LegacyModelPricing | undefined,
+export function convertLobehubPricing(
+  pricing: LobehubModelPricing | undefined,
   rawModel: Record<string, any> | undefined,
   modelId: string,
 ): ModelPricing | undefined {
@@ -414,13 +414,13 @@ export function convertLegacyPricing(
   const basePricing: Record<string, number> = {};
   const adjustments = new Map<string, PricingAdjustment>();
 
-  for (const legacyUnit of units) {
-    const unitRows = legacyPricingUnitToRows(legacyUnit, modelId);
+  for (const lobehubUnit of units) {
+    const unitRows = lobehubPricingUnitToRows(lobehubUnit, modelId);
     if (unitRows.rows.length === 0) continue;
 
     const baseRow = selectBaseRow(unitRows, rawModel, pricingUnit);
     const baseRate = roundNumber(baseRow.rate);
-    basePricing[legacyUnit.name] = baseRate;
+    basePricing[lobehubUnit.name] = baseRate;
 
     const absoluteMode = shouldUseAbsoluteAdjustment(unitRows.params, baseRate);
 
@@ -442,7 +442,7 @@ export function convertLegacyPricing(
           when: cloneWhen(row.when),
         };
 
-      adjustment.values[legacyUnit.name] = value;
+      adjustment.values[lobehubUnit.name] = value;
       adjustments.set(adjustmentKey, adjustment);
     }
   }
@@ -461,10 +461,56 @@ export function convertLegacyPricing(
   };
 }
 
-function flatCostToLegacyUnits(cost: Record<string, any>): LegacyPricingUnit[] {
-  const contextOver200k = cost.context_over_200k;
-  const unit = "millionTokens";
+function resolveFlatCostLongContextThreshold(
+  rawModel: Record<string, any> | undefined,
+  unit: string,
+): number {
+  const inputLimit = rawModel?.limit?.input;
+  if (typeof inputLimit === "number" && Number.isFinite(inputLimit) && inputLimit > 0) {
+    return normalizeThresholdNumber(inputLimit, unit);
+  }
 
+  return normalizeThresholdNumber(200_000, unit);
+}
+
+export function convertFlatCostPricing(
+  cost: Record<string, any> | undefined,
+  rawModel: Record<string, any> | undefined,
+): ModelPricing | undefined {
+  if (!cost) return undefined;
+
+  const unit = "millionTokens";
+  const basePricing = Object.fromEntries(
+    [
+      ["textInput", cost.input],
+      ["textOutput", cost.output],
+      ["textInput_cacheRead", cost.cache_read],
+      ["textInput_cacheWrite", cost.cache_write],
+    ].filter((entry): entry is [string, number] => typeof entry[1] === "number"),
+  );
+
+  if (Object.keys(basePricing).length === 0) {
+    return undefined;
+  }
+
+  const longContext = cost.context_over_200k;
+  if (!longContext) {
+    return {
+      basePricing,
+      currency: "USD",
+      unit,
+    };
+  }
+
+  const when = {
+    totalInput: [
+      resolveFlatCostLongContextThreshold(rawModel, unit),
+      "infinity",
+    ] satisfies PricingRange,
+  };
+
+  const absoluteValues: Record<string, number> = {};
+  const multiplierValues: Record<string, number> = {};
   const pairs: [string, string][] = [
     ["textInput", "input"],
     ["textOutput", "output"],
@@ -472,42 +518,43 @@ function flatCostToLegacyUnits(cost: Record<string, any>): LegacyPricingUnit[] {
     ["textInput_cacheWrite", "cache_write"],
   ];
 
-  const units: LegacyPricingUnit[] = [];
-  for (const [name, flat] of pairs) {
-    const base = cost[flat];
-    if (base == null) continue;
+  for (const [target, key] of pairs) {
+    const baseRate = basePricing[target];
+    const longContextRate = longContext[key];
+    if (typeof baseRate !== "number" || typeof longContextRate !== "number") continue;
+    if (baseRate === longContextRate) continue;
 
-    const over200k = contextOver200k?.[flat];
-    if (over200k != null && over200k !== base) {
-      units.push({
-        name,
-        strategy: "tiered",
-        tiers: [
-          { rate: base, upTo: 0.2 },
-          { rate: over200k, upTo: "infinity" },
-        ],
-        unit,
-      });
-    } else {
-      units.push({ name, rate: base, strategy: "fixed", unit });
+    if (baseRate === 0) {
+      absoluteValues[target] = roundNumber(longContextRate);
+      continue;
     }
+
+    multiplierValues[target] = roundNumber(longContextRate / baseRate);
   }
 
-  return units;
-}
+  const adjustments: PricingAdjustment[] = [];
+  if (Object.keys(absoluteValues).length > 0) {
+    adjustments.push({
+      mode: "absolute",
+      values: absoluteValues,
+      when,
+    });
+  }
 
-export function convertFlatCostPricing(
-  cost: Record<string, any> | undefined,
-  rawModel: Record<string, any> | undefined,
-  modelId: string,
-): ModelPricing | undefined {
-  if (!cost) return undefined;
+  if (Object.keys(multiplierValues).length > 0) {
+    adjustments.push({
+      mode: "multiplier",
+      values: multiplierValues,
+      when,
+    });
+  }
 
-  return convertLegacyPricing(
-    { currency: "USD", units: flatCostToLegacyUnits(cost) },
-    rawModel,
-    modelId,
-  );
+  return {
+    adjustments: adjustments.length > 0 ? adjustments : undefined,
+    basePricing,
+    currency: "USD",
+    unit,
+  };
 }
 
 export function validatePricing(modelId: string, pricing: ModelPricing): void {
