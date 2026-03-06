@@ -11,26 +11,21 @@ export interface ModelAbilities {
   interleaved?: boolean;
 }
 
-export interface PricingTier {
-  rate: number;
-  upTo: number | "infinity";
-}
+export type PricingRange = [number, number | "infinity"];
 
-export interface PricingUnit {
-  name: string;
-  rate?: number;
-  strategy: "fixed" | "tiered" | "lookup";
-  unit: string;
-  tiers?: PricingTier[];
-  lookup?: {
-    prices: Record<string, number>;
-    pricingParams: string[];
-  };
+export type PricingConditionValue = string | number | boolean | PricingRange;
+
+export interface PricingAdjustment {
+  mode: "multiplier" | "absolute";
+  when: Record<string, PricingConditionValue>;
+  values: Record<string, number>;
 }
 
 export interface ModelPricing {
   currency: string;
-  units?: PricingUnit[];
+  unit: string;
+  basePricing: Record<string, number>;
+  adjustments?: PricingAdjustment[];
 }
 
 export type CompatReasoningLevel = "minimal" | "low" | "medium" | "high";

@@ -2,10 +2,10 @@ import type { Model, ModelPricing, Provider } from "./types.ts";
 
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
-  ? DeepPartial<U>[]
-  : T[P] extends object
-  ? DeepPartial<T[P]>
-  : T[P];
+    ? DeepPartial<U>[]
+    : T[P] extends object
+      ? DeepPartial<T[P]>
+      : T[P];
 };
 
 export interface Overrides {
@@ -16,66 +16,39 @@ export interface Overrides {
 
 function anthropicLongContextPricing(baseInput: number, baseOutput: number): ModelPricing {
   const roundPrice = (value: number) => Number(value.toFixed(6));
-  const premiumInput = roundPrice(baseInput * 2);
-  const premiumOutput = roundPrice(baseOutput * 1.5);
-  // Anthropic bills the premium tier when total input tokens
-  // (input + cache creation + cache read) exceed 200K.
-  // These buckets should be read as <= 200K and > 200K respectively.
-  const standardRange = "[0, 0.2]";
-  const premiumRange = "[0.2, infinity]";
+  const baseCacheRead = roundPrice(baseInput * 0.1);
+  const baseCacheWrite = roundPrice(baseInput * 1.25);
 
   return {
     currency: "USD",
-    units: [
+    unit: "millionTokens",
+    basePricing: {
+      textInput: baseInput,
+      textInput_cacheRead: baseCacheRead,
+      textInput_cacheWrite: baseCacheWrite,
+      textOutput: baseOutput,
+    },
+    adjustments: [
       {
-        lookup: {
-          prices: {
-            [premiumRange]: premiumInput,
-            [standardRange]: baseInput,
-          },
-          pricingParams: ["textInputRange"],
+        mode: "multiplier",
+        values: {
+          textInput: 2,
+          textInput_cacheRead: 2,
+          textInput_cacheWrite: 2,
+          textOutput: 1.5,
         },
-        name: "textInput",
-        strategy: "lookup" as const,
-        unit: "millionTokens",
+        when: {
+          totalInput: [0.2, "infinity"],
+        },
       },
       {
-        lookup: {
-          prices: {
-            [premiumRange]: premiumOutput,
-            [standardRange]: baseOutput,
-          },
-          pricingParams: ["textInputRange"],
+        mode: "multiplier",
+        values: {
+          textInput_cacheWrite: roundPrice((baseInput * 2) / baseCacheWrite),
         },
-        name: "textOutput",
-        strategy: "lookup" as const,
-        unit: "millionTokens",
-      },
-      {
-        lookup: {
-          prices: {
-            [premiumRange]: roundPrice(premiumInput * 0.1),
-            [standardRange]: roundPrice(baseInput * 0.1),
-          },
-          pricingParams: ["textInputRange"],
+        when: {
+          cacheTtl: "1h",
         },
-        name: "textInput_cacheRead",
-        strategy: "lookup" as const,
-        unit: "millionTokens",
-      },
-      {
-        lookup: {
-          prices: {
-            [`${premiumRange}_1h`]: roundPrice(premiumInput * 2),
-            [`${premiumRange}_5m`]: roundPrice(premiumInput * 1.25),
-            [`${standardRange}_1h`]: roundPrice(baseInput * 2),
-            [`${standardRange}_5m`]: roundPrice(baseInput * 1.25),
-          },
-          pricingParams: ["textInputRange", "ttl"],
-        },
-        name: "textInput_cacheWrite",
-        strategy: "lookup" as const,
-        unit: "millionTokens",
       },
     ],
   };

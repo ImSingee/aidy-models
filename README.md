@@ -158,40 +158,49 @@ Example:
 ### Pricing fields
 
 - `pricing.currency`: pricing currency, such as `USD` or `CNY`
-- `pricing.units`: list of pricing units
+- `pricing.unit`: billing unit used by this pricing definition
+- `pricing.basePricing`: base rates by pricing target
+- `pricing.adjustments`: conditional pricing adjustments
 
 ## Pricing Schema
 
-Pricing is intentionally more expressive than a flat
-`input/output/cacheRead/cacheWrite` object.
+`pricing` contains:
 
-The schema is designed to describe billing behavior:
+- `unit`: billing denominator such as `millionTokens` or `image`
+- `basePricing`: default rates keyed by pricing target such as `textInput`
+- `adjustments`: conditional changes applied on top of `basePricing`
 
-- what is being billed: `name`
-- how the price is chosen: `strategy`
-- what denominator the price applies to: `unit`
+The current schema assumes a single `unit` per model pricing definition.
 
-Each `PricingUnit` contains:
+Each `adjustment` contains:
 
-- `name`: semantic unit name such as `textInput` or `imageGeneration`
-- `strategy`: `fixed`, `tiered`, or `lookup`
-- `unit`: billing denominator for `rate` / `tiers[].rate`, such as
-  `millionTokens` or `image`
+- `mode`: `multiplier` or `absolute`
+- `when`: condition map
+- `values`: target -> factor or final rate
 
-Strategy-specific fields:
+Condition values may be:
 
-- `fixed`: requires `rate`
-- `tiered`: requires `tiers`; tiers should be ordered from low to high usage,
-  and the final tier should usually end with `upTo: "infinity"`
-- `lookup`: requires `lookup.prices` and `lookup.pricingParams`; `prices` keys
-  should match the parameter values in the same order as `pricingParams`
+- `string`, `number`, or `boolean` for a matching condition
+- `[number, number | "infinity"]` for ranges such as `totalInput: [0.2, "infinity"]`
 
-Choose `name` based on the behavior being billed, and choose `unit` based on
-the provider's billing denominator.
+Adjustment application order:
 
-### `name` enum
+1. Start from `basePricing`
+2. Iterate over `adjustments` in array order
+3. For each matching adjustment and target:
+   - if `mode` is `absolute`, replace the current rate
+   - if `mode` is `multiplier`, multiply the current rate
 
-| `name` | Meaning |
+This means adjustment order is significant:
+
+- `absolute` followed by `multiplier`: both apply, because the later multiplier
+  multiplies the overridden rate
+- `multiplier` followed by `absolute`: only the later absolute result remains,
+  because it replaces the already-multiplied rate
+
+### Pricing target enum
+
+| key | Meaning |
 | --- | --- |
 | `textInput` | prompt or other input text billing |
 | `textOutput` | generated text billing |
@@ -224,76 +233,106 @@ example:
 - image generation may bill by `image` or `megapixel`
 - audio or video duration-based pricing may bill by `second`
 
-Common `lookup.pricingParams` include `ttl`, `size`, `quality`,
-`textInputRange`, `textOutputRange`, and `generateAudio`.
+### `when` key enum
 
-### `fixed`
+The `when` object uses condition keys to describe when an adjustment applies.
 
-Use when one constant rate applies:
+| key | Value type | Meaning |
+| --- | --- | --- |
+| `cacheTtl` | `string` | prompt cache TTL such as `5m`, `1h`, or `24h` |
+| `totalInput` | `[number, number \| "infinity"]` | total input-token bucket, including `textInput` + `textInput_cacheRead` + `textInput_cacheWrite`, using `pricing.unit` as the denominator |
+| `textOutput` | `[number, number \| "infinity"]` | output-token bucket, using `pricing.unit` as the denominator |
+| `quality` | `string` | image quality variant such as `standard` or `hd` |
+| `size` | `string` | image size such as `1024x1024` |
+| `generateAudio` | `boolean` | whether audio generation is enabled |
+| `thinkingMode` | `boolean` | whether a model is in thinking / reasoning mode |
+
+Other condition keys may appear if upstream pricing introduces more dimensions.
+When that happens, the value type still follows `PricingConditionValue`.
+
+### `values` key enum
+
+The keys in `basePricing` and `adjustments.values` use the same enum:
+
+| key | Meaning |
+| --- | --- |
+| `textInput` | prompt or other input text billing |
+| `textOutput` | generated text billing |
+| `textInput_cacheRead` | prompt cache read / cache hit billing |
+| `textInput_cacheWrite` | prompt cache write billing |
+| `audioInput` | audio input billing |
+| `audioOutput` | audio output billing |
+| `audioInput_cacheRead` | cached audio input read billing |
+| `imageInput` | image input billing |
+| `imageInput_cacheRead` | cached image input read billing |
+| `imageOutput` | image output billing |
+| `imageGeneration` | image generation billing |
+| `videoGeneration` | video generation billing |
+
+`values` means different things depending on `mode`:
+
+- if `mode` is `multiplier`, `values[target]` is a factor such as `1.5` or `2`
+- if `mode` is `absolute`, `values[target]` is the final rate in `pricing.unit`
+
+### Example: multiplier
 
 ```json
 {
-  "name": "textInput",
-  "strategy": "fixed",
-  "rate": 2,
-  "unit": "millionTokens"
-}
-```
-
-### `tiered`
-
-Use when pricing changes after a threshold:
-
-```json
-{
-  "name": "textInput",
-  "strategy": "tiered",
+  "currency": "USD",
   "unit": "millionTokens",
-  "tiers": [
-    { "rate": 2, "upTo": 0.2 },
-    { "rate": 4, "upTo": "infinity" }
+  "basePricing": {
+    "textInput": 3,
+    "textOutput": 15,
+    "textInput_cacheRead": 0.3,
+    "textInput_cacheWrite": 3.75
+  },
+  "adjustments": [
+    {
+      "mode": "multiplier",
+      "when": {
+        "totalInput": [0.2, "infinity"]
+      },
+      "values": {
+        "textInput": 2,
+        "textOutput": 1.5,
+        "textInput_cacheRead": 2,
+        "textInput_cacheWrite": 2
+      }
+    },
+    {
+      "mode": "multiplier",
+      "when": {
+        "cacheTtl": "1h"
+      },
+      "values": {
+        "textInput_cacheWrite": 1.6
+      }
+    }
   ]
 }
 ```
 
-In this example, `upTo: 0.2` means `0.2 millionTokens`, i.e. 200,000 tokens.
-
-### `lookup`
-
-Use when pricing depends on external parameters such as TTL or combined input
-and output buckets:
+### Example: absolute
 
 ```json
 {
-  "name": "textInput_cacheWrite",
-  "strategy": "lookup",
-  "unit": "millionTokens",
-  "lookup": {
-    "prices": {
-      "1h": 10,
-      "5m": 6.25
-    },
-    "pricingParams": ["ttl"]
-  }
-}
-```
-
-Multi-parameter lookup is also supported. This is common for image generation
-pricing keyed by quality and size:
-
-```json
-{
-  "name": "imageGeneration",
-  "strategy": "lookup",
+  "currency": "USD",
   "unit": "image",
-  "lookup": {
-    "prices": {
-      "standard_1024x1024": 0.04,
-      "standard_1024x1792": 0.08,
-      "hd_1024x1024": 0.08
-    },
-    "pricingParams": ["quality", "size"]
-  }
+  "basePricing": {
+    "imageGeneration": 0.04
+  },
+  "adjustments": [
+    {
+      "mode": "absolute",
+      "when": {
+        "quality": "hd",
+        "size": "1024x1024"
+      },
+      "values": {
+        "imageGeneration": 0.08
+      }
+    }
+  ]
 }
 ```
 
