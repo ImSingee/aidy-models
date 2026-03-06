@@ -107,14 +107,10 @@ Example:
 
 - `description`: provider description
 - `url`: provider homepage
-- `env`: suggested environment variable names for credentials
-- `npm`: associated SDK package or adapter package
 - `doc`: docs URL
 - `enabled`: upstream enablement flag if available
 - `checkModel`: model id suitable for health checks or API verification
-- `modelsUrl`: model list or pricing page
 - `apiKeyUrl`: API key management page
-- `settings`: upstream provider-specific settings preserved as raw metadata
 
 ## Model Fields
 
@@ -137,8 +133,7 @@ Example:
 - `releasedAt`: release date string
 - `knowledge`: knowledge cutoff string if available
 - `openWeights`: whether the model has open weights
-- `status`: upstream lifecycle status
-- `enabled`: upstream enablement flag
+- `deprecated`: whether the model is deprecated upstream
 
 ### Capability fields
 
@@ -319,5 +314,4 @@ Current `api` values used in this registry include:
 
 - Not every field is present on every provider or model.
 - Some upstream fields that are useful but not yet normalized may still live
-  under `settings`. But these fields are unstable and may change at any time.
-
+  under `_`. These fields are unstable and may change at any time.

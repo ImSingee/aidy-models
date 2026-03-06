@@ -121,8 +121,7 @@ export interface Model {
   releasedAt?: string;
   knowledge?: string;
   openWeights?: boolean;
-  status?: string;
-  enabled?: boolean;
+  deprecated?: boolean;
 
   abilities: ModelAbilities;
 
@@ -146,14 +145,11 @@ export interface Provider {
   headers?: Record<string, string>;
   description?: string;
   url?: string;
-  env?: string[];
-  npm?: string;
   doc?: string;
   enabled?: boolean;
   checkModel?: string;
-  modelsUrl?: string;
   apiKeyUrl?: string;
-  settings?: Record<string, unknown>;
+  _?: Record<string, unknown>;
   compat?: ModelCompat;
 }
 

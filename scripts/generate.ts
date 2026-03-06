@@ -406,7 +406,7 @@ function normalizeModelsDevModel(
     releasedAt: m.release_date,
     knowledge: m.knowledge,
     openWeights: m.open_weights,
-    status: m.status,
+    deprecated: m.status === "deprecated" || undefined,
     abilities: {
       toolCall: m.tool_call ?? undefined,
       reasoning: m.reasoning ?? undefined,
@@ -438,7 +438,6 @@ function normalizeLobehubModel(m: Record<string, any>): Model {
     description: m.description,
     type: m.type,
     releasedAt: m.releasedAt,
-    enabled: m.enabled,
     abilities: {
       toolCall: m.abilities?.functionCall ?? undefined,
       reasoning: m.abilities?.reasoning ?? undefined,
@@ -480,8 +479,7 @@ function mergeModels(lh: Model | undefined, md: Model | undefined): Model {
     releasedAt: lh.releasedAt ?? md.releasedAt,
     knowledge: md.knowledge,
     openWeights: md.openWeights,
-    status: md.status,
-    enabled: lh.enabled,
+    deprecated: lh.deprecated ?? md.deprecated,
     abilities: {
       toolCall: lh.abilities.toolCall ?? md.abilities.toolCall,
       reasoning: lh.abilities.reasoning ?? md.abilities.reasoning,
@@ -712,6 +710,14 @@ for (const mdId of mdProviderIds) {
   const lhBaseUrl: string | undefined = lhProv?.proxyUrl?.placeholder;
   const resolvedApi = defaults?.api ?? lhApi ?? inferApi(mdBaseUrl);
   const resolvedBaseUrl = defaults?.baseUrl ?? mdBaseUrl ?? lhBaseUrl;
+  const rawMeta = mergeRecords(
+    isRecord(lhProv?.settings) ? lhProv.settings : undefined,
+    compactObject({
+      ...(mdProv.env ? { env: mdProv.env } : {}),
+      ...(mdProv.npm ? { npm: mdProv.npm } : {}),
+      ...(lhProv?.modelsUrl ? { modelsUrl: lhProv.modelsUrl } : {}),
+    }),
+  );
 
   mergedProviders[canonical] = {
     id: canonical,
@@ -721,14 +727,11 @@ for (const mdId of mdProviderIds) {
     headers: mergeHeaders(defaults?.headers),
     description: lhProv?.description,
     url: lhProv?.url,
-    env: mdProv.env,
-    npm: mdProv.npm,
     doc: mdProv.doc,
     enabled: lhProv?.enabled,
     checkModel: lhProv?.checkModel,
-    modelsUrl: lhProv?.modelsUrl,
     apiKeyUrl: lhProv?.apiKeyUrl,
-    settings: lhProv?.settings,
+    _: rawMeta,
     compat: mergeCompat(
       defaults?.compat,
       createProviderCompat({
@@ -750,6 +753,12 @@ for (const lhId of lhProviderIds) {
   const lhApiVal = lhSdk ? SDK_TO_API[lhSdk] : undefined;
   const resolvedApi = lhDefaults?.api ?? lhApiVal;
   const resolvedBaseUrl = lhDefaults?.baseUrl ?? lhProv.proxyUrl?.placeholder;
+  const rawMeta = mergeRecords(
+    isRecord(lhProv.settings) ? lhProv.settings : undefined,
+    compactObject({
+      ...(lhProv.modelsUrl ? { modelsUrl: lhProv.modelsUrl } : {}),
+    }),
+  );
 
   mergedProviders[canonical] = {
     id: canonical,
@@ -761,9 +770,8 @@ for (const lhId of lhProviderIds) {
     url: lhProv.url,
     enabled: lhProv.enabled,
     checkModel: lhProv.checkModel,
-    modelsUrl: lhProv.modelsUrl,
     apiKeyUrl: lhProv.apiKeyUrl,
-    settings: lhProv.settings,
+    _: rawMeta,
     compat: mergeCompat(
       lhDefaults?.compat,
       createProviderCompat({
