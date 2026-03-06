@@ -6,6 +6,8 @@ export const LOBEHUB_URL =
 export const COPILOT_BASE_URL = "https://api.individual.githubcopilot.com";
 export const OPENCODE_BASE_URL = "https://opencode.ai/zen/v1";
 export const OPENCODE_ANTHROPIC_BASE_URL = "https://opencode.ai/zen";
+export const OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1";
+export const VERCEL_AI_GATEWAY_BASE_URL = "https://ai-gateway.vercel.sh/v1";
 
 const COPILOT_STATIC_HEADERS = {
   "User-Agent": "GitHubCopilotChat/0.35.0",
@@ -19,7 +21,18 @@ export type ProviderDefaults = Pick<
   "api" | "baseUrl" | "headers" | "compat"
 >;
 
-// models.dev provider ID -> lobehub provider ID
+// models.dev provider ID -> canonical provider ID
+export const MODELS_DEV_TO_CANONICAL: Record<string, string> = {
+  "vercel": "vercel-ai-gateway",
+};
+
+// canonical provider ID -> models.dev provider ID
+export const CANONICAL_TO_MODELS_DEV: Record<string, string> = {};
+for (const [modelsDevId, canonicalId] of Object.entries(MODELS_DEV_TO_CANONICAL)) {
+  CANONICAL_TO_MODELS_DEV[canonicalId] = modelsDevId;
+}
+
+// canonical provider ID -> lobehub provider ID
 export const PROVIDER_ID_MAP: Record<string, string> = {
   "302ai": "ai302",
   "amazon-bedrock": "bedrock",
@@ -34,7 +47,7 @@ export const PROVIDER_ID_MAP: Record<string, string> = {
   "zhipuai": "zhipu",
   "cloudflare-workers-ai": "cloudflare",
   "moonshotai": "moonshot",
-  "vercel": "vercelaigateway",
+  "vercel-ai-gateway": "vercelaigateway",
   "xiaomi": "xiaomimimo",
 };
 
@@ -104,7 +117,10 @@ export const PROVIDER_DEFAULTS: Record<string, ProviderDefaults> = {
   "sap-ai-core": { api: "openai-completions" },
   "cloudflare-ai-gateway": { api: "openai-completions" },
   "lobehub": { api: "openai-completions" },
-  "vercel": { api: "openai-completions" },
+  "vercel-ai-gateway": {
+    api: "openai-completions",
+    baseUrl: VERCEL_AI_GATEWAY_BASE_URL,
+  },
   "fal": { api: "openai-completions" },
   "bfl": { api: "openai-completions" },
 };
@@ -135,10 +151,23 @@ export function canonicalProviderId(
   id: string,
   source: "modelsDev" | "lobehub",
 ): string {
+  if (source === "modelsDev") {
+    return MODELS_DEV_TO_CANONICAL[id] ?? id;
+  }
   if (source === "lobehub") {
     return LOBEHUB_TO_CANONICAL[id] ?? id;
   }
   return id;
+}
+
+export function modelsDevIdFor(
+  canonicalId: string,
+  modelsDevProviders: Record<string, unknown>,
+): string | undefined {
+  return (
+    CANONICAL_TO_MODELS_DEV[canonicalId] ??
+    (modelsDevProviders[canonicalId] ? canonicalId : undefined)
+  );
 }
 
 export function lobehubIdFor(

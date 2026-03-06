@@ -1,5 +1,17 @@
-import type { Model, ModelsDatabase, Provider } from "../types.ts";
-import { finalizeModel, mergeModels, normalizeLobehubModel, normalizeModelsDevModel } from "./models.ts";
+import type { Model, ModelsDatabase, Provider, SourceMeta } from "../types.ts";
+import {
+  fallbackDerivedProviders,
+  kimiCodingFallbackModels,
+  manualModels,
+  manualProviders,
+} from "./manual.ts";
+import {
+  finalizeModel,
+  mergeAuthoritativeModel,
+  mergeModels,
+  normalizeLobehubModel,
+  normalizeModelsDevModel,
+} from "./models.ts";
 import { overrides } from "./overrides.ts";
 import { validatePricing } from "./pricing.ts";
 import { mergeProviders } from "./providers.ts";
@@ -8,8 +20,11 @@ import {
   MODELS_DEV_URL,
   canonicalProviderId,
   lobehubIdFor,
+  modelsDevIdFor,
 } from "./shared.ts";
-import { deepAssign } from "./utils.ts";
+import { clone, deepAssign } from "./utils.ts";
+import { fetchOpenRouterCatalog } from "./openrouter.ts";
+import { fetchVercelAiGatewayCatalog } from "./vercel-ai-gateway.ts";
 
 type Logger = Pick<Console, "log">;
 
@@ -18,6 +33,18 @@ type RawLobehub = {
   _meta?: { commitHash?: string };
   providers?: Record<string, any>;
   models?: Record<string, any[]>;
+};
+
+type SourceStats = {
+  lobehubMeta: SourceMeta & { commitHash: string };
+  lobehubRaw: RawLobehub;
+  manualMeta: SourceMeta;
+  modelsDevMeta: SourceMeta;
+  modelsDevRaw: RawModelsDev;
+  openRouterMeta: SourceMeta;
+  openRouterModels: Model[];
+  vercelAiGatewayMeta: SourceMeta;
+  vercelAiGatewayModels: Model[];
 };
 
 export interface GenerateResult {
@@ -31,76 +58,120 @@ export interface WriteGeneratedModelsOptions {
   logger?: Logger;
 }
 
-type SourceStats = {
-  lobehubModelCount: number;
-  lobehubProviderIds: string[];
-  lobehubRaw: RawLobehub;
-  modelsDevModelCount: number;
-  modelsDevProviderIds: string[];
-  modelsDevRaw: RawModelsDev;
-};
+function sumModelCount(modelsByProvider: Record<string, Model[]>): number {
+  return Object.values(modelsByProvider).reduce(
+    (sum, models) => sum + models.length,
+    0,
+  );
+}
 
 async function fetchSources(logger: Logger): Promise<SourceStats> {
   logger.log("Fetching data sources...");
-  const [modelsDevRaw, lobehubRaw] = await Promise.all([
+
+  const [
+    modelsDevRaw,
+    lobehubRaw,
+    openRouterCatalog,
+    vercelAiGatewayCatalog,
+  ] = await Promise.all([
     fetch(MODELS_DEV_URL).then((response) => response.json() as Promise<RawModelsDev>),
     fetch(LOBEHUB_URL).then((response) => response.json() as Promise<RawLobehub>),
+    fetchOpenRouterCatalog(),
+    fetchVercelAiGatewayCatalog(),
   ]);
 
   const modelsDevProviderIds = Object.keys(modelsDevRaw);
-  const lobehubProviderIds = Object.keys(lobehubRaw.providers ?? {});
   const modelsDevModelCount = modelsDevProviderIds.reduce(
     (sum, providerId) =>
       sum + Object.keys(modelsDevRaw[providerId]?.models ?? {}).length,
     0,
   );
+  const lobehubProviderIds = Object.keys(lobehubRaw.providers ?? {});
   const lobehubModelCount = Object.values(lobehubRaw.models ?? {}).reduce(
     (sum: number, models: unknown) => sum + (Array.isArray(models) ? models.length : 0),
     0,
   );
 
+  const manualProviderIds = new Set([
+    ...Object.keys(manualProviders),
+    ...Object.keys(manualModels),
+  ]);
+  const manualModelCount = Object.values(manualModels).reduce(
+    (sum, models) => sum + models.length,
+    0,
+  );
+
   logger.log(
-    `  models.dev: ${modelsDevProviderIds.length} providers, ${modelsDevModelCount} models`,
+    `  models.dev:           ${modelsDevProviderIds.length} providers, ${modelsDevModelCount} models`,
   );
   logger.log(
-    `  lobehub:    ${lobehubProviderIds.length} providers, ${lobehubModelCount} models`,
+    `  lobehub:              ${lobehubProviderIds.length} providers, ${lobehubModelCount} models`,
+  );
+  logger.log(
+    `  openrouter official:  ${openRouterCatalog.providerCount} providers, ${openRouterCatalog.modelCount} models`,
+  );
+  logger.log(
+    `  vercel official:      ${vercelAiGatewayCatalog.providerCount} providers, ${vercelAiGatewayCatalog.modelCount} models`,
+  );
+  logger.log(
+    `  manual manifests:     ${manualProviderIds.size} providers, ${manualModelCount} models`,
   );
 
   return {
-    lobehubModelCount,
-    lobehubProviderIds,
+    lobehubMeta: {
+      commitHash: lobehubRaw._meta?.commitHash ?? "unknown",
+      providerCount: lobehubProviderIds.length,
+      modelCount: lobehubModelCount,
+    },
     lobehubRaw,
-    modelsDevModelCount,
-    modelsDevProviderIds,
+    manualMeta: {
+      providerCount: manualProviderIds.size,
+      modelCount: manualModelCount,
+    },
+    modelsDevMeta: {
+      providerCount: modelsDevProviderIds.length,
+      modelCount: modelsDevModelCount,
+    },
     modelsDevRaw,
+    openRouterMeta: {
+      providerCount: openRouterCatalog.providerCount,
+      modelCount: openRouterCatalog.modelCount,
+    },
+    openRouterModels: openRouterCatalog.models,
+    vercelAiGatewayMeta: {
+      providerCount: vercelAiGatewayCatalog.providerCount,
+      modelCount: vercelAiGatewayCatalog.modelCount,
+    },
+    vercelAiGatewayModels: vercelAiGatewayCatalog.models,
   };
 }
 
-function buildMergedModels(input: {
+function buildBaseModels(input: {
   lobehubRaw: RawLobehub;
   mergedProviders: Record<string, Provider>;
-  modelsDevProviderIds: string[];
   modelsDevRaw: RawModelsDev;
-}): { mergedModels: Record<string, Model[]>; totalModels: number } {
-  const { lobehubRaw, mergedProviders, modelsDevProviderIds, modelsDevRaw } = input;
+}): Record<string, Model[]> {
+  const { lobehubRaw, mergedProviders, modelsDevRaw } = input;
   const lobehubProviders = lobehubRaw.providers ?? {};
   const mergedModels: Record<string, Model[]> = {};
-  let totalModels = 0;
-
   const allProviderIds = new Set<string>();
-  for (const modelsDevId of modelsDevProviderIds) {
-    if (Object.keys(modelsDevRaw[modelsDevId]?.models ?? {}).length > 0) {
-      allProviderIds.add(modelsDevId);
+
+  for (const modelsDevId of Object.keys(modelsDevRaw)) {
+    if (Object.keys(modelsDevRaw[modelsDevId]?.models ?? {}).length === 0) {
+      continue;
     }
+    allProviderIds.add(canonicalProviderId(modelsDevId, "modelsDev"));
   }
+
   for (const lobehubId of Object.keys(lobehubRaw.models ?? {})) {
     allProviderIds.add(canonicalProviderId(lobehubId, "lobehub"));
   }
 
   for (const canonicalId of allProviderIds) {
-    const provider = mergedProviders[canonicalId];
-
-    const mdModelsRaw: Record<string, any> = modelsDevRaw[canonicalId]?.models ?? {};
+    const mdProviderId = modelsDevIdFor(canonicalId, modelsDevRaw);
+    const mdModelsRaw: Record<string, any> = mdProviderId
+      ? (modelsDevRaw[mdProviderId]?.models ?? {})
+      : {};
     const mdMap = new Map<string, Model>();
     for (const [modelId, rawModel] of Object.entries(mdModelsRaw)) {
       mdMap.set(modelId, normalizeModelsDevModel(canonicalId, { id: modelId, ...rawModel }));
@@ -118,24 +189,157 @@ function buildMergedModels(input: {
     }
 
     const allModelIds = new Set([...mdMap.keys(), ...lhMap.keys()]);
-    if (allModelIds.size === 0) continue;
+    if (allModelIds.size === 0 || !mergedProviders[canonicalId]) {
+      continue;
+    }
 
-    const models: Model[] = [];
-    for (const modelId of allModelIds) {
-      models.push(
-        finalizeModel(
-          canonicalId,
-          provider,
-          mergeModels(lhMap.get(modelId), mdMap.get(modelId)),
-        ),
+    mergedModels[canonicalId] = [...allModelIds].map((modelId) =>
+      mergeModels(lhMap.get(modelId), mdMap.get(modelId)),
+    );
+  }
+
+  return mergedModels;
+}
+
+function applyAuthoritativeCatalog(
+  mergedModels: Record<string, Model[]>,
+  providerId: string,
+  authoritativeModels: Model[],
+): void {
+  const supplementalMap = new Map(
+    (mergedModels[providerId] ?? []).map((model) => [model.id, model]),
+  );
+
+  mergedModels[providerId] = authoritativeModels.map((model) =>
+    mergeAuthoritativeModel(model, supplementalMap.get(model.id)),
+  );
+}
+
+function upsertProviders(
+  mergedProviders: Record<string, Provider>,
+  providers: Record<string, Provider>,
+): void {
+  for (const [providerId, provider] of Object.entries(providers)) {
+    if (mergedProviders[providerId]) {
+      deepAssign(mergedProviders[providerId], clone(provider) as Record<string, any>);
+      continue;
+    }
+
+    mergedProviders[providerId] = clone(provider);
+  }
+}
+
+function upsertModels(
+  mergedModels: Record<string, Model[]>,
+  modelsByProvider: Record<string, Model[]>,
+): void {
+  for (const [providerId, models] of Object.entries(modelsByProvider)) {
+    const modelMap = new Map(
+      (mergedModels[providerId] ?? []).map((model) => [model.id, model]),
+    );
+
+    for (const model of models) {
+      modelMap.set(
+        model.id,
+        mergeAuthoritativeModel(model, modelMap.get(model.id)),
       );
     }
 
-    mergedModels[canonicalId] = models;
-    totalModels += models.length;
+    mergedModels[providerId] = [...modelMap.values()];
+  }
+}
+
+function resolveModelApi(
+  provider: Provider | undefined,
+  model: Model,
+): string | undefined {
+  return model.api ?? provider?.api;
+}
+
+function deriveAzureOpenAIResponses(input: {
+  mergedModels: Record<string, Model[]>;
+  mergedProviders: Record<string, Provider>;
+}): SourceMeta {
+  const { mergedModels, mergedProviders } = input;
+  const openAIProvider = mergedProviders["openai"];
+  if (!openAIProvider) {
+    return { providerCount: 0, modelCount: 0 };
   }
 
-  return { mergedModels, totalModels };
+  const providerSeed =
+    mergedProviders["azure"] ??
+    mergedProviders["azure-cognitive-services"] ??
+    fallbackDerivedProviders["azure-openai-responses"];
+  const derivedProvider = clone(providerSeed);
+  derivedProvider.id = "azure-openai-responses";
+  derivedProvider.name = "Azure OpenAI Responses";
+  derivedProvider.api = "azure-openai-responses";
+  derivedProvider.baseUrl = "";
+  mergedProviders["azure-openai-responses"] = derivedProvider;
+
+  const derivedModels = (mergedModels["openai"] ?? [])
+    .filter(
+      (model) => resolveModelApi(openAIProvider, model) === "openai-responses",
+    )
+    .map((model) => ({
+      ...clone(model),
+      api: "azure-openai-responses",
+      baseUrl: "",
+    }));
+
+  mergedModels["azure-openai-responses"] = derivedModels;
+
+  return {
+    providerCount: derivedModels.length > 0 ? 1 : 0,
+    modelCount: derivedModels.length,
+  };
+}
+
+function deriveKimiCoding(input: {
+  mergedModels: Record<string, Model[]>;
+  mergedProviders: Record<string, Provider>;
+}): SourceMeta {
+  const { mergedModels, mergedProviders } = input;
+  const providerSeed =
+    mergedProviders["kimi-for-coding"] ?? fallbackDerivedProviders["kimi-coding"];
+  const derivedProvider = clone(providerSeed);
+  derivedProvider.id = "kimi-coding";
+  derivedProvider.name = "Kimi Coding";
+  derivedProvider.api = "anthropic-messages";
+  derivedProvider.baseUrl = "https://api.kimi.com/coding";
+  mergedProviders["kimi-coding"] = derivedProvider;
+
+  const sourceModels: Model[] = (mergedModels["kimi-for-coding"] ?? []).map(
+    (model) => ({
+      ...clone(model),
+      api: "anthropic-messages",
+      baseUrl: "https://api.kimi.com/coding",
+    }),
+  );
+
+  const fallbackMap = new Map<string, Model>(
+    sourceModels.map((model) => [model.id, model]),
+  );
+  for (const model of kimiCodingFallbackModels) {
+    fallbackMap.set(
+      model.id,
+      mergeAuthoritativeModel(
+        {
+          ...clone(model),
+          api: "anthropic-messages",
+          baseUrl: "https://api.kimi.com/coding",
+        },
+        fallbackMap.get(model.id),
+      ),
+    );
+  }
+
+  mergedModels["kimi-coding"] = [...fallbackMap.values()];
+
+  return {
+    providerCount: mergedModels["kimi-coding"].length > 0 ? 1 : 0,
+    modelCount: mergedModels["kimi-coding"].length,
+  };
 }
 
 function applyOverrides(input: {
@@ -157,7 +361,11 @@ function applyOverrides(input: {
 
   if (overrides.models) {
     for (const [key, patch] of Object.entries(overrides.models)) {
-      const [providerId, modelId] = key.split("/", 2);
+      const slashIndex = key.indexOf("/");
+      if (slashIndex < 0) continue;
+
+      const providerId = key.slice(0, slashIndex);
+      const modelId = key.slice(slashIndex + 1);
       const models = mergedModels[providerId];
       if (!models) continue;
 
@@ -174,6 +382,17 @@ function applyOverrides(input: {
   }
 
   return overridesApplied;
+}
+
+function finalizeAllModels(
+  mergedModels: Record<string, Model[]>,
+  mergedProviders: Record<string, Provider>,
+): void {
+  for (const [providerId, models] of Object.entries(mergedModels)) {
+    mergedModels[providerId] = models.map((model) =>
+      finalizeModel(providerId, mergedProviders[providerId], model),
+    );
+  }
 }
 
 function logPricingStats(mergedModels: Record<string, Model[]>, logger: Logger): void {
@@ -207,65 +426,116 @@ function logPricingStats(mergedModels: Record<string, Model[]>, logger: Logger):
   logger.log(`  with absolute adjustments: ${pricingAbsoluteCount}`);
 }
 
+function sortProviders(
+  providers: Record<string, Provider>,
+): Record<string, Provider> {
+  return Object.fromEntries(
+    Object.entries(providers).sort(([left], [right]) => left.localeCompare(right)),
+  );
+}
+
+function sortModels(modelsByProvider: Record<string, Model[]>): Record<string, Model[]> {
+  return Object.fromEntries(
+    Object.entries(modelsByProvider)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([providerId, models]) => [
+        providerId,
+        [...models].sort((left, right) => left.id.localeCompare(right.id)),
+      ]),
+  );
+}
+
 export async function generateModelsDatabase(
   logger: Logger = console,
 ): Promise<GenerateResult> {
   const {
-    lobehubModelCount,
-    lobehubProviderIds,
+    lobehubMeta,
     lobehubRaw,
-    modelsDevModelCount,
-    modelsDevProviderIds,
+    manualMeta,
+    modelsDevMeta,
     modelsDevRaw,
+    openRouterMeta,
+    openRouterModels,
+    vercelAiGatewayMeta,
+    vercelAiGatewayModels,
   } = await fetchSources(logger);
 
-  logger.log("\nMerging providers...");
+  logger.log("\nMerging base providers...");
   const mergedProviders = mergeProviders(modelsDevRaw, lobehubRaw);
   logger.log(`  ${Object.keys(mergedProviders).length} providers`);
 
-  logger.log("\nMerging models...");
-  const { mergedModels, totalModels } = buildMergedModels({
+  logger.log("\nMerging base models...");
+  const mergedModels = buildBaseModels({
     lobehubRaw,
     mergedProviders,
-    modelsDevProviderIds,
     modelsDevRaw,
   });
   logger.log(
-    `  ${totalModels} models across ${Object.keys(mergedModels).length} providers`,
+    `  ${sumModelCount(mergedModels)} models across ${Object.keys(mergedModels).length} providers`,
   );
+
+  logger.log("\nApplying official catalogs...");
+  applyAuthoritativeCatalog(mergedModels, "openrouter", openRouterModels);
+  applyAuthoritativeCatalog(
+    mergedModels,
+    "vercel-ai-gateway",
+    vercelAiGatewayModels,
+  );
+
+  logger.log("\nApplying manual manifests...");
+  upsertProviders(mergedProviders, manualProviders);
+  upsertModels(mergedModels, manualModels);
+
+  logger.log("\nDeriving providers...");
+  const azureDerivedMeta = deriveAzureOpenAIResponses({
+    mergedModels,
+    mergedProviders,
+  });
+  const kimiDerivedMeta = deriveKimiCoding({
+    mergedModels,
+    mergedProviders,
+  });
+
+  const derivedMeta: SourceMeta = {
+    providerCount: azureDerivedMeta.providerCount + kimiDerivedMeta.providerCount,
+    modelCount: azureDerivedMeta.modelCount + kimiDerivedMeta.modelCount,
+  };
 
   const overridesApplied = applyOverrides({
     logger,
     mergedModels,
     mergedProviders,
   });
+
+  finalizeAllModels(mergedModels, mergedProviders);
   logPricingStats(mergedModels, logger);
+
+  const sortedProviders = sortProviders(mergedProviders);
+  const sortedModels = sortModels(mergedModels);
+  const totalModels = sumModelCount(sortedModels);
 
   return {
     output: {
       _meta: {
         generatedAt: new Date().toISOString(),
         sources: {
-          modelsDev: {
-            providerCount: modelsDevProviderIds.length,
-            modelCount: modelsDevModelCount,
-          },
-          lobehub: {
-            commitHash: lobehubRaw._meta?.commitHash ?? "unknown",
-            providerCount: lobehubProviderIds.length,
-            modelCount: lobehubModelCount,
-          },
+          modelsDev: modelsDevMeta,
+          lobehub: lobehubMeta,
+          openRouter: openRouterMeta,
+          vercelAiGateway: vercelAiGatewayMeta,
+          manual: manualMeta,
+          derived: derivedMeta,
         },
         merged: {
-          providerCount: Object.keys(mergedProviders).length,
+          providerCount: Object.keys(sortedProviders).length,
           modelCount: totalModels,
         },
         overridesApplied,
       },
-      providers: mergedProviders,
-      models: mergedModels,
+      providers: sortedProviders,
+      models: sortedModels,
     },
-    providerCount: Object.keys(mergedProviders).length,
+    providerCount: Object.keys(sortedProviders).length,
     totalModels,
   };
 }
@@ -278,7 +548,7 @@ export async function writeGeneratedModels(
 
   await Bun.write(options.outputPath, JSON.stringify(result.output, null, 2));
   logger.log(
-    `\nDone: models.json (${result.providerCount} providers, ${result.totalModels} models)`,
+    `\nDone: ${options.outputPath} (${result.providerCount} providers, ${result.totalModels} models)`,
   );
 
   return result;

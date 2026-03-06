@@ -153,13 +153,14 @@ export interface SourceMeta {
   modelCount: number;
 }
 
+export interface ModelsDatabaseSourceMeta extends SourceMeta {
+  commitHash?: string;
+}
+
 export interface ModelsDatabase {
   _meta: {
     generatedAt: string;
-    sources: {
-      modelsDev: SourceMeta;
-      lobehub: SourceMeta & { commitHash: string };
-    };
+    sources: Record<string, ModelsDatabaseSourceMeta>;
     merged: SourceMeta;
     overridesApplied: number;
   };

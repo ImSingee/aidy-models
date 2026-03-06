@@ -9,6 +9,7 @@ import {
   inferApi,
   canonicalProviderId,
   lobehubIdFor,
+  modelsDevIdFor,
 } from "./shared.ts";
 import {
   compactObject,
@@ -137,8 +138,11 @@ export function mergeProviders(
   const lhProviderIds = Object.keys(lhProviders);
 
   for (const modelsDevId of mdProviderIds) {
-    const mdProvider = modelsDevRaw[modelsDevId];
-    const canonicalId = modelsDevId;
+    const canonicalId = canonicalProviderId(modelsDevId, "modelsDev");
+    const sourceModelsDevId = modelsDevIdFor(canonicalId, modelsDevRaw);
+    if (!sourceModelsDevId) continue;
+
+    const mdProvider = modelsDevRaw[sourceModelsDevId];
     const lobehubProviderId = lobehubIdFor(canonicalId, lhProviders);
     const lhProvider = lobehubProviderId ? lhProviders[lobehubProviderId] : undefined;
 

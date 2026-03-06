@@ -156,6 +156,65 @@ export function mergeModels(
   };
 }
 
+export function mergeAuthoritativeModel(
+  authoritativeModel: Model,
+  supplementalModel: Model | undefined,
+): Model {
+  if (!supplementalModel) {
+    return clone(authoritativeModel);
+  }
+
+  return {
+    id: authoritativeModel.id,
+    name: authoritativeModel.name || supplementalModel.name,
+    api: authoritativeModel.api ?? supplementalModel.api,
+    baseUrl: authoritativeModel.baseUrl ?? supplementalModel.baseUrl,
+    headers: mergeHeaders(supplementalModel.headers, authoritativeModel.headers),
+    description: authoritativeModel.description ?? supplementalModel.description,
+    type: authoritativeModel.type ?? supplementalModel.type,
+    family: supplementalModel.family ?? authoritativeModel.family,
+    releasedAt: authoritativeModel.releasedAt ?? supplementalModel.releasedAt,
+    knowledge: supplementalModel.knowledge ?? authoritativeModel.knowledge,
+    openWeights: supplementalModel.openWeights ?? authoritativeModel.openWeights,
+    deprecated: authoritativeModel.deprecated ?? supplementalModel.deprecated,
+    abilities: {
+      toolCall:
+        authoritativeModel.abilities.toolCall ??
+        supplementalModel.abilities.toolCall,
+      reasoning:
+        authoritativeModel.abilities.reasoning ??
+        supplementalModel.abilities.reasoning,
+      vision:
+        authoritativeModel.abilities.vision ?? supplementalModel.abilities.vision,
+      structuredOutput:
+        authoritativeModel.abilities.structuredOutput ??
+        supplementalModel.abilities.structuredOutput,
+      search:
+        authoritativeModel.abilities.search ?? supplementalModel.abilities.search,
+      imageOutput:
+        authoritativeModel.abilities.imageOutput ??
+        supplementalModel.abilities.imageOutput,
+      video:
+        authoritativeModel.abilities.video ?? supplementalModel.abilities.video,
+      attachment:
+        authoritativeModel.abilities.attachment ??
+        supplementalModel.abilities.attachment,
+      temperature:
+        authoritativeModel.abilities.temperature ??
+        supplementalModel.abilities.temperature,
+      interleaved:
+        authoritativeModel.abilities.interleaved ??
+        supplementalModel.abilities.interleaved,
+    },
+    contextWindow:
+      authoritativeModel.contextWindow ?? supplementalModel.contextWindow,
+    maxOutput: authoritativeModel.maxOutput ?? supplementalModel.maxOutput,
+    modalities: authoritativeModel.modalities ?? supplementalModel.modalities,
+    pricing: authoritativeModel.pricing ?? supplementalModel.pricing,
+    compat: mergeCompat(supplementalModel.compat, authoritativeModel.compat),
+  };
+}
+
 function createAnthropicModelCompat(modelId: string): ModelCompat | undefined {
   const normalized = modelId.toLowerCase();
   const supportsAdaptiveThinking =
@@ -225,7 +284,9 @@ function createBedrockModelCompat(model: Model): ModelCompat | undefined {
   return bedrock ? { bedrock } : undefined;
 }
 
-function createGoogleReasoningCompat(modelId: string): ModelCompat | undefined {
+function buildGoogleReasoningCompat(
+  modelId: string,
+): NonNullable<ModelCompat["google"]> | undefined {
   const normalized = modelId.toLowerCase();
   const google: NonNullable<ModelCompat["google"]> = {};
 
@@ -267,8 +328,19 @@ function createGoogleReasoningCompat(modelId: string): ModelCompat | undefined {
     };
   }
 
-  const compat = compactObject(google);
+  return compactObject(google);
+}
+
+function createGoogleReasoningCompat(modelId: string): ModelCompat | undefined {
+  const compat = buildGoogleReasoningCompat(modelId);
   return compat ? { google: compat } : undefined;
+}
+
+function createGoogleGeminiCliReasoningCompat(
+  modelId: string,
+): ModelCompat | undefined {
+  const compat = buildGoogleReasoningCompat(modelId);
+  return compat ? { googleGeminiCli: compat } : undefined;
 }
 
 function resolveGitHubCopilotModelRuntime(
@@ -318,6 +390,9 @@ export function finalizeModel(
       : undefined,
     providerId === "google" || providerId === "google-vertex"
       ? createGoogleReasoningCompat(finalized.id)
+      : undefined,
+    providerId === "google-gemini-cli" || providerId === "google-antigravity"
+      ? createGoogleGeminiCliReasoningCompat(finalized.id)
       : undefined,
   );
 
