@@ -1,15 +1,15 @@
 {
   "_meta": {
-    "generatedAt": "2026-03-06T10:21:33.797Z",
+    "generatedAt": "2026-03-07T04:27:18.907Z",
     "sources": {
       "modelsDev": {
         "providerCount": 98,
         "modelCount": 3079
       },
       "lobehub": {
-        "commitHash": "6c1c60ee27d7d637366b33bfcc08a84ac86f7d1a",
+        "commitHash": "169d5afa939f4ceff2b1704ae30b71508b9b836e",
         "providerCount": 72,
-        "modelCount": 1919
+        "modelCount": 1924
       },
       "openRouter": {
         "providerCount": 1,
@@ -17,7 +17,7 @@
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 235
+        "modelCount": 236
       },
       "manual": {
         "providerCount": 7,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 136,
-      "modelCount": 4715
+      "modelCount": 4720
     },
     "overridesApplied": 8
   },
@@ -13746,7 +13746,7 @@
           "temperature": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 200000,
         "maxOutput": 128000,
         "modalities": {
           "input": [
@@ -14344,7 +14344,7 @@
           "temperature": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 200000,
         "maxOutput": 128000,
         "modalities": {
           "input": [
@@ -14643,7 +14643,7 @@
           "temperature": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 200000,
         "maxOutput": 128000,
         "modalities": {
           "input": [
@@ -44227,10 +44227,16 @@
       {
         "id": "gemini-3.1-flash-lite-preview",
         "name": "Gemini 3.1 Flash Lite Preview",
+        "description": "Gemini 3.1 Flash-Lite Preview is Google's most cost-efficient multimodal model, optimized for high-volume agentic tasks, translation, and data processing.",
+        "type": "chat",
+        "releasedAt": "2026-03-04",
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "video": true
         },
         "contextWindow": 1048576,
         "maxOutput": 65536,
@@ -46338,6 +46344,37 @@
         "pricing": {
           "basePricing": {
             "imageOutput": 60,
+            "textInput": 0.25,
+            "textOutput": 1.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "google": {
+            "supportsMultimodalFunctionResponse": true
+          }
+        }
+      },
+      {
+        "id": "gemini-3.1-flash-lite-preview",
+        "name": "Gemini 3.1 Flash-Lite Preview",
+        "description": "Gemini 3.1 Flash-Lite Preview is Google's most cost-efficient multimodal model, optimized for high-volume agentic tasks, translation, and data processing.",
+        "type": "chat",
+        "releasedAt": "2026-03-04",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "video": true
+        },
+        "contextWindow": 1114112,
+        "maxOutput": 65536,
+        "pricing": {
+          "basePricing": {
+            "textInput_cacheRead": 0.025,
             "textInput": 0.25,
             "textOutput": 1.5
           },
@@ -69324,6 +69361,32 @@
         }
       },
       {
+        "id": "gemini-3.1-flash-lite-preview",
+        "name": "Gemini 3.1 Flash-Lite Preview",
+        "description": "Gemini 3.1 Flash-Lite Preview is Google's most cost-efficient multimodal model, optimized for high-volume agentic tasks, translation, and data processing.",
+        "type": "chat",
+        "releasedAt": "2026-03-04",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "video": true
+        },
+        "contextWindow": 1114112,
+        "maxOutput": 65536,
+        "pricing": {
+          "basePricing": {
+            "textInput_cacheRead": 0.025,
+            "textInput": 0.25,
+            "textOutput": 1.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "gemini-3.1-pro-preview",
         "name": "Gemini 3.1 Pro Preview",
         "description": "Gemini 3.1 Pro Preview improves on Gemini 3 Pro with enhanced reasoning capabilities (ARC-AGI-2 77.1%) and adds medium thinking level support.",
@@ -69640,6 +69703,106 @@
             "textInput": 1.75,
             "textInput_cacheRead": 0.175,
             "textOutput": 14
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-5.4",
+        "name": "GPT-5.4",
+        "description": "GPT-5.4 is OpenAI's latest model for complex professional work and a drop-in replacement for GPT-5.2 and GPT-5.3 Codex.",
+        "type": "chat",
+        "releasedAt": "2026-03-05",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "search": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textOutput": 1.5
+              },
+              "when": {
+                "textOutput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "totalInput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 2.5,
+            "textInput_cacheRead": 0.25,
+            "textOutput": 15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-5.4-pro",
+        "name": "GPT-5.4 Pro",
+        "description": "GPT-5.4 Pro uses more compute to think harder and provide the best answers for the hardest problems.",
+        "type": "chat",
+        "releasedAt": "2026-03-05",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "search": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textOutput": 1.5
+              },
+              "when": {
+                "textOutput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2
+              },
+              "when": {
+                "totalInput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 30,
+            "textOutput": 180
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -92771,7 +92934,7 @@
           "basePricing": {
             "textInput": 0.27,
             "textOutput": 0.95,
-            "textInput_cacheRead": 0.0299999997
+            "textInput_cacheRead": 0.0290000007
           }
         }
       },
@@ -97908,14 +98071,14 @@
           "reasoning": true,
           "vision": false,
           "structuredOutput": true,
-          "search": true,
+          "search": false,
           "imageOutput": false,
           "video": false,
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 131072,
-        "maxOutput": 81920,
+        "contextWindow": 262144,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text"
@@ -97928,8 +98091,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
+            "textInput": 0.11,
+            "textOutput": 0.6,
+            "textInput_cacheRead": 0.055
           }
         }
       },
@@ -127947,6 +128111,34 @@
         }
       },
       {
+        "id": "minimax/minimax-m2.5-highspeed",
+        "name": "MiniMax M2.5 High Speed",
+        "description": "M2.5 highspeed: Same performance, faster and more agile (output speed approximately 100 tps)",
+        "type": "language",
+        "releasedAt": "2026-02-12",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false
+        },
+        "contextWindow": 0,
+        "maxOutput": 0,
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.6,
+            "textOutput": 2.4,
+            "textInput_cacheRead": 0.03,
+            "textInput_cacheWrite": 0.375
+          }
+        }
+      },
+      {
         "id": "mistral/codestral",
         "name": "Mistral Codestral",
         "description": "Mistral's cutting-edge language model for coding released end of July 2025, Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM), code correction and test generation.",
@@ -130186,7 +130378,7 @@
           "imageOutput": false,
           "video": false
         },
-        "contextWindow": 1050000,
+        "contextWindow": 200000,
         "maxOutput": 128000,
         "pricing": {
           "currency": "USD",
@@ -130201,7 +130393,7 @@
       {
         "id": "openai/gpt-5.4-pro",
         "name": "GPT 5.4 Pro",
-        "description": "GPT-5.4 pro uses more compute to think harder and provide consistently better answers. It's designed to tackle tough problems.",
+        "description": "GPT-5.4 Pro uses more compute to think harder and provide consistently better answers. It's designed to tackle tough problems.",
         "type": "language",
         "releasedAt": "2026-03-05",
         "abilities": {
