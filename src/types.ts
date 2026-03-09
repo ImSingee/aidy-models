@@ -32,6 +32,7 @@ export interface ModelPricing {
 }
 
 export type CompatReasoningLevel = "minimal" | "low" | "medium" | "high";
+export type OpenAIServiceTier = "flex" | "priority";
 
 export interface OpenRouterRouting {
   only?: string[];
@@ -64,7 +65,8 @@ export interface OpenAICompletionsCompat {
 export interface OpenAIResponsesCompat {
   toolCallIdStrategy?: "preserve" | "responses-fc64";
   longPromptCacheTtl?: "24h";
-  supportsFastMode?: boolean;
+  supportsServiceTier?: boolean;
+  supportsAdditionalServiceTiers?: OpenAIServiceTier[];
 }
 
 export interface AnthropicCompat {
@@ -123,7 +125,7 @@ export interface ModelReasoningEffort {
 }
 
 export interface ModelPrivateMeta extends Record<string, unknown> {
-  supportsFastMode?: boolean;
+  supportsAdditionalServiceTiers?: OpenAIServiceTier[];
   reasoningEffort?: ModelReasoningEffort;
 }
 

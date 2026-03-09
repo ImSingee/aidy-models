@@ -2,6 +2,7 @@ import type {
   Model,
   ModelPricing,
   OpenAIReasoningEffort,
+  OpenAIServiceTier,
   Provider,
 } from "../types.ts";
 import { clone, deepAssign } from "./utils.ts";
@@ -97,10 +98,18 @@ function mergeModelOverrides(
 
   for (const patch of patches) {
     if (!patch) continue;
+    const existingPricingAdjustments = result.pricing?.adjustments;
+    const incomingPricingAdjustments = patch.pricing?.adjustments;
     deepAssign(
       result as Record<string, unknown>,
       clone(patch) as Record<string, unknown>,
     );
+    if (existingPricingAdjustments && incomingPricingAdjustments) {
+      result.pricing = {
+        ...result.pricing,
+        adjustments: [...existingPricingAdjustments, ...incomingPricingAdjustments],
+      };
+    }
   }
 
   return result;
@@ -241,45 +250,56 @@ function anthropicLongContextOverride(
   };
 }
 
-function openAIGpt54FastModeOverride(): DeepPartial<Model> {
+function createOpenAIServiceTierAdjustments(
+  targets: string[],
+  serviceTiers: OpenAIServiceTier[],
+): NonNullable<ModelPricing["adjustments"]> {
+  const adjustments: NonNullable<ModelPricing["adjustments"]> = [];
+
+  for (const serviceTier of serviceTiers) {
+    adjustments.push({
+      mode: "multiplier",
+      values: Object.fromEntries(
+        targets.map((target) => [target, serviceTier === "priority" ? 2 : 0.5]),
+      ),
+      when: {
+        serviceTier,
+      },
+    });
+  }
+  return adjustments;
+}
+
+function createOpenAIServiceTierOverride(
+  targets: string[],
+  serviceTiers: OpenAIServiceTier[],
+): DeepPartial<Model> {
   return {
     _: {
-      supportsFastMode: true,
+      supportsAdditionalServiceTiers: serviceTiers,
     },
     compat: {
       openaiResponses: {
-        supportsFastMode: true,
+        supportsAdditionalServiceTiers: serviceTiers,
       },
     },
     pricing: {
-      currency: "USD",
-      unit: "millionTokens",
-      basePricing: {
-        textInput: 2.5,
-        textOutput: 15,
-        textInput_cacheRead: 0.25,
-      },
+      adjustments: createOpenAIServiceTierAdjustments(targets, serviceTiers),
+    },
+  };
+}
+
+function createOpenAILongContextOverride(targets: string[]): DeepPartial<Model> {
+  return {
+    pricing: {
       adjustments: [
         {
           mode: "multiplier",
-          values: {
-            textInput: 2,
-            textOutput: 1.5,
-            textInput_cacheRead: 2,
-          },
+          values: Object.fromEntries(
+            targets.map((target) => [target, target === "textOutput" ? 1.5 : 2]),
+          ),
           when: {
             textTotalInput: [0.272, "infinity"],
-          },
-        },
-        {
-          mode: "multiplier",
-          values: {
-            textInput: 2,
-            textOutput: 2,
-            textInput_cacheRead: 2,
-          },
-          when: {
-            fastMode: true,
           },
         },
       ],
@@ -438,11 +458,142 @@ const openAIReasoningEffortModels: Array<[string, DeepPartial<Model>]> = [
   ),
 ];
 
+const openAILongContextModels: Array<[string, DeepPartial<Model>]> = [
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5.4"],
+    createOpenAILongContextOverride(["textInput", "textOutput", "textInput_cacheRead"]),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5.4-pro"],
+    createOpenAILongContextOverride(["textInput", "textOutput"]),
+  ),
+];
+
+const openAIServiceTierModels: Array<[string, DeepPartial<Model>]> = [
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5.4"],
+    createOpenAIServiceTierOverride(["textInput", "textOutput", "textInput_cacheRead"], [
+      "flex",
+      "priority",
+    ]),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5.4-pro"],
+    createOpenAIServiceTierOverride(["textInput", "textOutput"], [
+      "flex",
+      "priority",
+    ]),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5.2"],
+    createOpenAIServiceTierOverride(["textInput", "textOutput", "textInput_cacheRead"], [
+      "flex",
+      "priority",
+    ]),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5.1", "openai/gpt-5"],
+    createOpenAIServiceTierOverride(["textInput", "textOutput", "textInput_cacheRead"], [
+      "flex",
+      "priority",
+    ]),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5-mini"],
+    createOpenAIServiceTierOverride(["textInput", "textOutput", "textInput_cacheRead"], [
+      "flex",
+      "priority",
+    ]),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5.3-codex", "openai/gpt-5.2-codex"],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput", "textInput_cacheRead"],
+      ["priority"],
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    [
+      "openai/gpt-5.1-codex-max",
+      "openai/gpt-5.1-codex",
+      "openai/gpt-5-codex",
+    ],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput", "textInput_cacheRead"],
+      ["priority"],
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-4.1"],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput", "textInput_cacheRead"],
+      ["priority"],
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-4.1-mini"],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput", "textInput_cacheRead"],
+      ["priority"],
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-4.1-nano"],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput", "textInput_cacheRead"],
+      ["priority"],
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-4o"],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput", "textInput_cacheRead"],
+      ["priority"],
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-4o-2024-05-13"],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput"],
+      ["priority"],
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-4o-mini"],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput", "textInput_cacheRead"],
+      ["priority"],
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/o3"],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput", "textInput_cacheRead"],
+      ["flex", "priority"],
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/o4-mini"],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput", "textInput_cacheRead"],
+      ["flex", "priority"],
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5-nano"],
+    createOpenAIServiceTierOverride(
+      ["textInput", "textOutput", "textInput_cacheRead"],
+      ["flex"],
+    ),
+  ),
+];
+
 export const overrides: Overrides = {
   providers: createProviderFlagOverrides(),
   models: createModelOverrideRecord([
     ...openAIReasoningEffortModels,
-    ["openai/gpt-5.4", openAIGpt54FastModeOverride()],
+    ...openAILongContextModels,
+    ...openAIServiceTierModels,
     ...anthropicPromptCachingModels,
     ...anthropicLongContextModels,
   ]),

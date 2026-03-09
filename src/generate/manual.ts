@@ -35,7 +35,7 @@ function createTextPricingWithoutCacheWrite(
   };
 }
 
-function createOpenAIGpt54FastModePricing(): ModelPricing {
+function createOpenAIGpt54ServiceTierPricing(): ModelPricing {
   return {
     ...createTextPricingWithoutCacheWrite(2.5, 15, 0.25),
     adjustments: [
@@ -58,7 +58,7 @@ function createOpenAIGpt54FastModePricing(): ModelPricing {
           textInput_cacheRead: 2,
         },
         when: {
-          fastMode: true,
+          serviceTier: "priority",
         },
       },
     ],
@@ -142,7 +142,7 @@ export const manualProviders: Record<string, Provider> = {
       "OpenAI Codex routes ChatGPT-authenticated coding models through the Codex backend.",
     compat: {
       openaiResponses: {
-        supportsFastMode: true,
+        supportsServiceTier: true,
       },
     },
   },
@@ -240,16 +240,16 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.4",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createOpenAIGpt54FastModePricing(),
+      pricing: createOpenAIGpt54ServiceTierPricing(),
       input: ["text", "image"],
       reasoning: true,
       compat: {
         openaiResponses: {
-          supportsFastMode: true,
+          supportsAdditionalServiceTiers: ["priority"],
         },
       },
       meta: {
-        supportsFastMode: true,
+        supportsAdditionalServiceTiers: ["priority"],
       },
     }),
     createManualModel({

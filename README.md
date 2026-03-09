@@ -167,7 +167,7 @@ OpenAI reasoning models may include:
 
 - `_.reasoningEffort.enum`: supported reasoning effort values
 - `_.reasoningEffort.default`: default reasoning effort value
-- `_.supportsFastMode`: whether the model supports fast-mode
+- `_.supportsAdditionalServiceTiers`: additional OpenAI service tiers supported by the model
 
 `reasoningEffort` constrains effort on reasoning for reasoning models.
 Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, and
@@ -176,7 +176,7 @@ Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, and
 Reducing reasoning effort can result in faster responses and fewer tokens used
 on reasoning in a response.
 
-`supportsFastMode` indicates whether the model supports fast-mode.
+`supportsAdditionalServiceTiers` currently uses values from `flex` and `priority`.
 
 ### Pricing fields
 
@@ -271,6 +271,7 @@ The `when` object uses condition keys to describe when an adjustment applies.
 | --- | --- | --- |
 | `cacheTtl` | `string` | prompt cache TTL such as `5m`, `1h`, or `24h` |
 | `fastMode` | `boolean` | whether provider fast mode is enabled |
+| `serviceTier` | `"flex" \| "priority"` | OpenAI service tier selector |
 | `textTotalInput` | `[number, number \| "infinity"]` | total input-token bucket, including `textInput` + `textInput_cacheRead` + `textInput_cacheWrite`, using `pricing.unit` as the denominator |
 | `textOutput` | `[number, number \| "infinity"]` | output-token bucket, using `pricing.unit` as the denominator |
 | `quality` | `string` | image quality variant such as `standard` or `hd` |
@@ -280,6 +281,12 @@ The `when` object uses condition keys to describe when an adjustment applies.
 
 Other condition keys may appear if upstream pricing introduces more dimensions.
 When that happens, the value type still follows `PricingConditionValue`.
+
+`serviceTier` is currently intended for OpenAI-style responses runtimes. The
+known values are:
+
+- `flex`: lower-cost background or latency-tolerant service tier
+- `priority`: premium higher-priority service tier
 
 ### `values` key enum
 
@@ -321,16 +328,23 @@ The keys in `basePricing` and `adjustments.values` use the same enum:
     {
       "mode": "multiplier",
       "when": {
-        "textTotalInput": [0.2, "infinity"]
-      },
-      "unless": {
-        "fastMode": true
+        "textTotalInput": [0.272, "infinity"]
       },
       "values": {
         "textInput": 2,
         "textOutput": 1.5,
-        "textInput_cacheRead": 2,
-        "textInput_cacheWrite": 2
+        "textInput_cacheRead": 2
+      }
+    },
+    {
+      "mode": "multiplier",
+      "when": {
+        "serviceTier": "priority"
+      },
+      "values": {
+        "textInput": 2,
+        "textOutput": 2,
+        "textInput_cacheRead": 2
       }
     },
     {
@@ -414,7 +428,8 @@ For OpenAI Responses-style APIs.
 
 - `toolCallIdStrategy`: `preserve` or `responses-fc64`
 - `longPromptCacheTtl`: currently `24h`
-- `supportsFastMode`
+- `supportsServiceTier`
+- `supportsAdditionalServiceTiers`: array of `flex` or `priority`
 
 ### `anthropic`
 

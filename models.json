@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-03-09T08:54:19.372Z",
+    "generatedAt": "2026-03-09T09:21:01.333Z",
     "sources": {
       "modelsDev": {
         "providerCount": 101,
@@ -32,7 +32,7 @@
       "providerCount": 139,
       "modelCount": 4799
     },
-    "overridesApplied": 105
+    "overridesApplied": 111
   },
   "providers": {
     "302ai": {
@@ -1723,7 +1723,7 @@
       "compat": {
         "openaiResponses": {
           "longPromptCacheTtl": "24h",
-          "supportsFastMode": true,
+          "supportsServiceTier": true,
           "toolCallIdStrategy": "responses-fc64"
         }
       }
@@ -1738,7 +1738,7 @@
       "description": "OpenAI Codex routes ChatGPT-authenticated coding models through the Codex backend.",
       "compat": {
         "openaiResponses": {
-          "supportsFastMode": true
+          "supportsServiceTier": true
         }
       }
     },
@@ -86358,6 +86358,19 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput_cacheRead": 0.5,
             "textInput": 2,
@@ -86365,6 +86378,18 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
+          }
+        },
+        "_": {
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
         }
       },
       {
@@ -86397,6 +86422,19 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput_cacheRead": 0.1,
             "textInput": 0.4,
@@ -86404,6 +86442,18 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
+          }
+        },
+        "_": {
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
         }
       },
       {
@@ -86435,6 +86485,19 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput_cacheRead": 0.025,
             "textInput": 0.1,
@@ -86442,6 +86505,18 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
+          }
+        },
+        "_": {
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
         }
       },
       {
@@ -86474,6 +86549,19 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput_cacheRead": 1.25,
             "textInput": 2.5,
@@ -86481,6 +86569,18 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
+          }
+        },
+        "_": {
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
         }
       },
       {
@@ -86513,12 +86613,36 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 5,
             "textOutput": 15
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
+          }
+        },
+        "_": {
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
         }
       },
       {
@@ -86646,6 +86770,19 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput_cacheRead": 0.075,
             "textInput": 0.15,
@@ -86653,6 +86790,18 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
+          }
+        },
+        "_": {
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
         }
       },
       {
@@ -86884,6 +87033,30 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 0.5,
+                "textOutput": 0.5,
+                "textInput_cacheRead": 0.5
+              },
+              "when": {
+                "serviceTier": "flex"
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 10,
@@ -86891,6 +87064,14 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "flex",
+              "priority"
+            ]
+          }
         },
         "_": {
           "reasoningEffort": {
@@ -86901,7 +87082,11 @@
               "high"
             ],
             "default": "medium"
-          }
+          },
+          "supportsAdditionalServiceTiers": [
+            "flex",
+            "priority"
+          ]
         }
       },
       {
@@ -86983,6 +87168,19 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 10,
@@ -86990,6 +87188,13 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
+          }
         },
         "_": {
           "reasoningEffort": {
@@ -87000,7 +87205,10 @@
               "high"
             ],
             "default": "medium"
-          }
+          },
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
         }
       },
       {
@@ -87033,6 +87241,30 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 0.5,
+                "textOutput": 0.5,
+                "textInput_cacheRead": 0.5
+              },
+              "when": {
+                "serviceTier": "flex"
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 0.25,
             "textOutput": 2,
@@ -87040,6 +87272,14 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "flex",
+              "priority"
+            ]
+          }
         },
         "_": {
           "reasoningEffort": {
@@ -87050,7 +87290,11 @@
               "high"
             ],
             "default": "medium"
-          }
+          },
+          "supportsAdditionalServiceTiers": [
+            "flex",
+            "priority"
+          ]
         }
       },
       {
@@ -87082,6 +87326,19 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 0.5,
+                "textOutput": 0.5,
+                "textInput_cacheRead": 0.5
+              },
+              "when": {
+                "serviceTier": "flex"
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 0.05,
             "textOutput": 0.4,
@@ -87089,6 +87346,13 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "flex"
+            ]
+          }
         },
         "_": {
           "reasoningEffort": {
@@ -87099,7 +87363,10 @@
               "high"
             ],
             "default": "medium"
-          }
+          },
+          "supportsAdditionalServiceTiers": [
+            "flex"
+          ]
         }
       },
       {
@@ -87178,6 +87445,30 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 0.5,
+                "textOutput": 0.5,
+                "textInput_cacheRead": 0.5
+              },
+              "when": {
+                "serviceTier": "flex"
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 1.25,
             "textInput_cacheRead": 0.125,
@@ -87185,6 +87476,14 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "flex",
+              "priority"
+            ]
+          }
         },
         "_": {
           "reasoningEffort": {
@@ -87195,7 +87494,11 @@
               "high"
             ],
             "default": "none"
-          }
+          },
+          "supportsAdditionalServiceTiers": [
+            "flex",
+            "priority"
+          ]
         }
       },
       {
@@ -87277,6 +87580,19 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 1.25,
             "textInput_cacheRead": 0.125,
@@ -87284,6 +87600,13 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
+          }
         },
         "_": {
           "reasoningEffort": {
@@ -87294,7 +87617,10 @@
               "high"
             ],
             "default": "none"
-          }
+          },
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
         }
       },
       {
@@ -87330,7 +87656,20 @@
             "textInput_cacheRead": 0.125
           },
           "currency": "USD",
-          "unit": "millionTokens"
+          "unit": "millionTokens",
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ]
         },
         "_": {
           "reasoningEffort": {
@@ -87341,6 +87680,16 @@
               "xhigh"
             ],
             "default": "medium"
+          },
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
           }
         }
       },
@@ -87424,6 +87773,30 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 0.5,
+                "textOutput": 0.5,
+                "textInput_cacheRead": 0.5
+              },
+              "when": {
+                "serviceTier": "flex"
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 1.75,
             "textInput_cacheRead": 0.175,
@@ -87431,6 +87804,14 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "flex",
+              "priority"
+            ]
+          }
         },
         "_": {
           "reasoningEffort": {
@@ -87442,7 +87823,11 @@
               "xhigh"
             ],
             "default": "none"
-          }
+          },
+          "supportsAdditionalServiceTiers": [
+            "flex",
+            "priority"
+          ]
         }
       },
       {
@@ -87529,7 +87914,20 @@
             "textInput_cacheRead": 0.175
           },
           "currency": "USD",
-          "unit": "millionTokens"
+          "unit": "millionTokens",
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ]
         },
         "_": {
           "reasoningEffort": {
@@ -87540,6 +87938,16 @@
               "xhigh"
             ],
             "default": "medium"
+          },
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
           }
         }
       },
@@ -87625,7 +88033,20 @@
             "textInput_cacheRead": 0.175
           },
           "currency": "USD",
-          "unit": "millionTokens"
+          "unit": "millionTokens",
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ]
         },
         "_": {
           "reasoningEffort": {
@@ -87636,6 +88057,16 @@
               "xhigh"
             ],
             "default": "medium"
+          },
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ]
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
           }
         }
       },
@@ -87732,12 +88163,23 @@
             {
               "mode": "multiplier",
               "values": {
+                "textInput": 0.5,
+                "textOutput": 0.5,
+                "textInput_cacheRead": 0.5
+              },
+              "when": {
+                "serviceTier": "flex"
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
                 "textInput": 2,
                 "textOutput": 2,
                 "textInput_cacheRead": 2
               },
               "when": {
-                "fastMode": true
+                "serviceTier": "priority"
               }
             }
           ],
@@ -87760,11 +88202,17 @@
             ],
             "default": "none"
           },
-          "supportsFastMode": true
+          "supportsAdditionalServiceTiers": [
+            "flex",
+            "priority"
+          ]
         },
         "compat": {
           "openaiResponses": {
-            "supportsFastMode": true
+            "supportsAdditionalServiceTiers": [
+              "flex",
+              "priority"
+            ]
           }
         }
       },
@@ -87808,6 +88256,26 @@
                   "infinity"
                 ]
               }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 0.5,
+                "textOutput": 0.5
+              },
+              "when": {
+                "serviceTier": "flex"
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
             }
           ],
           "basePricing": {
@@ -87825,6 +88293,18 @@
               "xhigh"
             ],
             "default": "medium"
+          },
+          "supportsAdditionalServiceTiers": [
+            "flex",
+            "priority"
+          ]
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "flex",
+              "priority"
+            ]
           }
         }
       },
@@ -88145,6 +88625,30 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 0.5,
+                "textOutput": 0.5,
+                "textInput_cacheRead": 0.5
+              },
+              "when": {
+                "serviceTier": "flex"
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput_cacheRead": 0.5,
             "textInput": 2,
@@ -88152,6 +88656,14 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "flex",
+              "priority"
+            ]
+          }
         },
         "_": {
           "reasoningEffort": {
@@ -88161,7 +88673,11 @@
               "high"
             ],
             "default": "medium"
-          }
+          },
+          "supportsAdditionalServiceTiers": [
+            "flex",
+            "priority"
+          ]
         }
       },
       {
@@ -88336,6 +88852,30 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 0.5,
+                "textOutput": 0.5,
+                "textInput_cacheRead": 0.5
+              },
+              "when": {
+                "serviceTier": "flex"
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ],
           "basePricing": {
             "textInput_cacheRead": 0.275,
             "textInput": 1.1,
@@ -88343,6 +88883,14 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "flex",
+              "priority"
+            ]
+          }
         },
         "_": {
           "reasoningEffort": {
@@ -88352,7 +88900,11 @@
               "high"
             ],
             "default": "medium"
-          }
+          },
+          "supportsAdditionalServiceTiers": [
+            "flex",
+            "priority"
+          ]
         }
       },
       {
@@ -88875,18 +89427,22 @@
                 "textInput_cacheRead": 2
               },
               "when": {
-                "fastMode": true
+                "serviceTier": "priority"
               }
             }
           ]
         },
         "compat": {
           "openaiResponses": {
-            "supportsFastMode": true
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
           }
         },
         "_": {
-          "supportsFastMode": true,
+          "supportsAdditionalServiceTiers": [
+            "priority"
+          ],
           "reasoningEffort": {
             "enum": [
               "none",

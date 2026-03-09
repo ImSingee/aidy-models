@@ -47,6 +47,7 @@ type PricingUnitRows = {
 const MULTIPLIER_FRIENDLY_CONDITIONS = new Set([
   "cacheTtl",
   "fastMode",
+  "serviceTier",
   "generateAudio",
   "textOutput",
   "textTotalInput",

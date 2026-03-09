@@ -109,7 +109,7 @@ function createProviderCompat(input: {
   if (input.providerId === "openai") {
     compat.openaiResponses = mergeRecords(compat.openaiResponses, {
       longPromptCacheTtl: "24h",
-      supportsFastMode: true,
+      supportsServiceTier: true,
       toolCallIdStrategy: "responses-fc64",
     });
   }
