@@ -135,6 +135,8 @@ export interface Model {
 export interface Provider {
   id: string;
   name: string;
+  official: boolean;
+  featured: boolean;
   api?: string;
   baseUrl?: string;
   headers?: Record<string, string>;

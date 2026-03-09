@@ -105,6 +105,8 @@ Example:
 
 ### Metadata fields
 
+- `official`: whether the provider is treated as an official first-party source
+- `featured`: whether the provider should be highlighted in consumer UIs
 - `description`: provider description
 - `url`: provider homepage
 - `doc`: docs URL

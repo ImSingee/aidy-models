@@ -165,6 +165,8 @@ export function mergeProviders(
     mergedProviders[canonicalId] = {
       id: canonicalId,
       name: lhProvider?.name ?? mdProvider.name ?? canonicalId,
+      official: false,
+      featured: false,
       api: resolvedApi,
       baseUrl: resolvedBaseUrl,
       headers: mergeHeaders(defaults?.headers),
@@ -206,6 +208,8 @@ export function mergeProviders(
     mergedProviders[canonicalId] = {
       id: canonicalId,
       name: lhProvider.name ?? canonicalId,
+      official: false,
+      featured: false,
       api: resolvedApi,
       baseUrl: resolvedBaseUrl,
       headers: mergeHeaders(defaults?.headers),

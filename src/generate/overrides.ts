@@ -5,8 +5,78 @@ type DeepPartial<T> = {
     ? DeepPartial<U>[]
     : T[P] extends object
       ? DeepPartial<T[P]>
-      : T[P];
+    : T[P];
 };
+
+const officialFeaturedProviderIds = [
+  "anthropic",
+  "deepseek",
+  "google",
+  "jina",
+  "llama",
+  "minimax",
+  "mistral",
+  "moonshotai",
+  "openai",
+  "xai",
+  "zai",
+] as const;
+
+const officialOnlyProviderIds = [
+  "ai21",
+  "alibaba",
+  "alibaba-cn",
+  "baichuan",
+  "bfl",
+  "cohere",
+  "hunyuan",
+  "internlm",
+  "minimax-cn",
+  "moonshotai-cn",
+  "nova",
+  "perplexity",
+  "sensenova",
+  "spark",
+  "stepfun",
+  "taichu",
+  "upstage",
+  "wenxin",
+  "xiaomi",
+  "zeroone",
+  "zhipuai",
+] as const;
+
+const unofficialFeaturedProviderIds = [
+  "amazon-bedrock",
+  "azure",
+  "azure-cognitive-services",
+  "azureai",
+  "cloudflare-workers-ai",
+  "github-models",
+  "google-vertex",
+  "cloudflare-ai-gateway",
+  "helicone",
+  "openrouter",
+  "vercel-ai-gateway",
+  "volcengine",
+] as const;
+
+function createProviderFlagOverrides(): Record<string, DeepPartial<Provider>> {
+  return Object.fromEntries([
+    ...officialFeaturedProviderIds.map((providerId) => [
+      providerId,
+      { official: true, featured: true },
+    ]),
+    ...officialOnlyProviderIds.map((providerId) => [
+      providerId,
+      { official: true, featured: false },
+    ]),
+    ...unofficialFeaturedProviderIds.map((providerId) => [
+      providerId,
+      { official: false, featured: true },
+    ]),
+  ]);
+}
 
 export interface Overrides {
   providers?: Record<string, DeepPartial<Provider>>;
@@ -133,6 +203,7 @@ const anthropicLongContextModels: Array<[string, DeepPartial<Model>]> = [
 ];
 
 export const overrides: Overrides = {
+  providers: createProviderFlagOverrides(),
   models: {
     ...Object.fromEntries(anthropicPromptCachingModels),
     ...Object.fromEntries(anthropicLongContextModels),

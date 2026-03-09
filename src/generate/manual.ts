@@ -62,6 +62,8 @@ export const manualProviders: Record<string, Provider> = {
   "vercel-ai-gateway": {
     id: "vercel-ai-gateway",
     name: "Vercel AI Gateway",
+    official: false,
+    featured: false,
     api: "openai-completions",
     baseUrl: VERCEL_AI_GATEWAY_BASE_URL,
     description:
@@ -82,6 +84,8 @@ export const manualProviders: Record<string, Provider> = {
   "openai-codex": {
     id: "openai-codex",
     name: "OpenAI Codex",
+    official: false,
+    featured: false,
     api: "openai-codex-responses",
     baseUrl: openAICodexBaseUrl,
     description:
@@ -90,6 +94,8 @@ export const manualProviders: Record<string, Provider> = {
   "google-gemini-cli": {
     id: "google-gemini-cli",
     name: "Google Gemini CLI",
+    official: false,
+    featured: false,
     api: "google-gemini-cli",
     baseUrl: googleCliBaseUrl,
     description:
@@ -98,6 +104,8 @@ export const manualProviders: Record<string, Provider> = {
   "google-antigravity": {
     id: "google-antigravity",
     name: "Google Antigravity",
+    official: false,
+    featured: false,
     api: "google-gemini-cli",
     baseUrl: googleAntigravityBaseUrl,
     description:
@@ -388,12 +396,16 @@ export const fallbackDerivedProviders: Record<string, Provider> = {
   "kimi-coding": {
     id: "kimi-coding",
     name: "Kimi Coding",
+    official: false,
+    featured: false,
     api: "anthropic-messages",
     baseUrl: kimiCodingBaseUrl,
   },
   "azure-openai-responses": {
     id: "azure-openai-responses",
     name: "Azure OpenAI Responses",
+    official: false,
+    featured: false,
     api: "azure-openai-responses",
     baseUrl: "",
   },

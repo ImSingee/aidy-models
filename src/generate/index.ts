@@ -395,6 +395,13 @@ function finalizeAllModels(
   }
 }
 
+function normalizeProviderFlags(mergedProviders: Record<string, Provider>): void {
+  for (const provider of Object.values(mergedProviders)) {
+    provider.official = provider.official ?? false;
+    provider.featured = provider.featured ?? false;
+  }
+}
+
 function logPricingStats(mergedModels: Record<string, Model[]>, logger: Logger): void {
   let pricingBaseOnlyCount = 0;
   let pricingAbsoluteCount = 0;
@@ -507,6 +514,7 @@ export async function generateModelsDatabase(
     mergedProviders,
   });
 
+  normalizeProviderFlags(mergedProviders);
   finalizeAllModels(mergedModels, mergedProviders);
   logPricingStats(mergedModels, logger);
 
