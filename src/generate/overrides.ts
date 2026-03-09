@@ -14,10 +14,19 @@ export interface Overrides {
   models?: Record<string, DeepPartial<Model>>;
 }
 
-function anthropicLongContextPricing(baseInput: number, baseOutput: number): ModelPricing {
+function anthropicPromptCachingPricing(
+  baseInput: number,
+  baseOutput: number,
+  options?: {
+    cacheRead?: number;
+    cacheWrite5m?: number;
+    cacheWrite1h?: number;
+  },
+): ModelPricing {
   const roundPrice = (value: number) => Number(value.toFixed(6));
-  const baseCacheRead = roundPrice(baseInput * 0.1);
-  const baseCacheWrite = roundPrice(baseInput * 1.25);
+  const baseCacheRead = roundPrice(options?.cacheRead ?? baseInput * 0.1);
+  const baseCacheWrite = roundPrice(options?.cacheWrite5m ?? baseInput * 1.25);
+  const oneHourCacheWrite = roundPrice(options?.cacheWrite1h ?? baseInput * 2);
 
   return {
     currency: "USD",
@@ -32,19 +41,7 @@ function anthropicLongContextPricing(baseInput: number, baseOutput: number): Mod
       {
         mode: "multiplier",
         values: {
-          textInput: 2,
-          textInput_cacheRead: 2,
-          textInput_cacheWrite: 2,
-          textOutput: 1.5,
-        },
-        when: {
-          totalInput: [0.2, "infinity"],
-        },
-      },
-      {
-        mode: "multiplier",
-        values: {
-          textInput_cacheWrite: roundPrice((baseInput * 2) / baseCacheWrite),
+          textInput_cacheWrite: roundPrice(oneHourCacheWrite / baseCacheWrite),
         },
         when: {
           cacheTtl: "1h",
@@ -54,26 +51,91 @@ function anthropicLongContextPricing(baseInput: number, baseOutput: number): Mod
   };
 }
 
+function anthropicLongContextPricing(
+  baseInput: number,
+  baseOutput: number,
+): ModelPricing {
+  const promptCachingPricing = anthropicPromptCachingPricing(baseInput, baseOutput);
+
+  return {
+    ...promptCachingPricing,
+    adjustments: [
+      {
+        mode: "multiplier",
+        values: {
+          textInput: 2,
+          textInput_cacheRead: 2,
+          textInput_cacheWrite: 2,
+          textOutput: 1.5,
+        },
+        when: {
+          totalInput: [0.2, "infinity"],
+        },
+      },
+      ...(promptCachingPricing.adjustments ?? []),
+    ],
+  };
+}
+
+function anthropicPromptCachingOverride(
+  baseInput: number,
+  baseOutput: number,
+  options?: Parameters<typeof anthropicPromptCachingPricing>[2],
+): DeepPartial<Model> {
+  return {
+    pricing: anthropicPromptCachingPricing(baseInput, baseOutput, options),
+  };
+}
+
+function anthropicLongContextOverride(
+  baseInput: number,
+  baseOutput: number,
+): DeepPartial<Model> {
+  return {
+    contextWindow: 1000000,
+    pricing: anthropicLongContextPricing(baseInput, baseOutput),
+  };
+}
+
+const anthropicPromptCachingModels: Array<[string, DeepPartial<Model>]> = [
+  [
+    "anthropic/claude-3-haiku-20240307",
+    anthropicPromptCachingOverride(0.25, 1.25, {
+      cacheRead: 0.03,
+      cacheWrite5m: 0.3,
+      cacheWrite1h: 0.5,
+    }),
+  ],
+  ["anthropic/claude-3-opus-20240229", anthropicPromptCachingOverride(15, 75)],
+  ["anthropic/claude-3-5-haiku-20241022", anthropicPromptCachingOverride(0.8, 4)],
+  ["anthropic/claude-3-5-haiku-latest", anthropicPromptCachingOverride(0.8, 4)],
+  ["anthropic/claude-3-5-sonnet-20240620", anthropicPromptCachingOverride(3, 15)],
+  ["anthropic/claude-3-5-sonnet-20241022", anthropicPromptCachingOverride(3, 15)],
+  ["anthropic/claude-3-7-sonnet-20250219", anthropicPromptCachingOverride(3, 15)],
+  ["anthropic/claude-3-7-sonnet-latest", anthropicPromptCachingOverride(3, 15)],
+  ["anthropic/claude-haiku-4-5", anthropicPromptCachingOverride(1, 5)],
+  ["anthropic/claude-haiku-4-5-20251001", anthropicPromptCachingOverride(1, 5)],
+  ["anthropic/claude-opus-4-0", anthropicPromptCachingOverride(15, 75)],
+  ["anthropic/claude-opus-4-20250514", anthropicPromptCachingOverride(15, 75)],
+  ["anthropic/claude-opus-4-1", anthropicPromptCachingOverride(15, 75)],
+  ["anthropic/claude-opus-4-1-20250805", anthropicPromptCachingOverride(15, 75)],
+  ["anthropic/claude-opus-4-5", anthropicPromptCachingOverride(5, 25)],
+  ["anthropic/claude-opus-4-5-20251101", anthropicPromptCachingOverride(5, 25)],
+];
+
+const anthropicLongContextModels: Array<[string, DeepPartial<Model>]> = [
+  ["anthropic/claude-opus-4-6", anthropicLongContextOverride(5, 25)],
+  ["anthropic/claude-sonnet-4-0", anthropicLongContextOverride(3, 15)],
+  ["anthropic/claude-sonnet-4-20250514", anthropicLongContextOverride(3, 15)],
+  ["anthropic/claude-sonnet-4-5", anthropicLongContextOverride(3, 15)],
+  ["anthropic/claude-sonnet-4-5-20250929", anthropicLongContextOverride(3, 15)],
+  ["anthropic/claude-sonnet-4-6", anthropicLongContextOverride(3, 15)],
+];
+
 export const overrides: Overrides = {
   models: {
-    "anthropic/claude-opus-4-6": {
-      pricing: anthropicLongContextPricing(5, 25),
-    },
-    "anthropic/claude-sonnet-4-0": {
-      pricing: anthropicLongContextPricing(3, 15),
-    },
-    "anthropic/claude-sonnet-4-5": {
-      pricing: anthropicLongContextPricing(3, 15),
-    },
-    "anthropic/claude-sonnet-4-5-20250929": {
-      pricing: anthropicLongContextPricing(3, 15),
-    },
-    "anthropic/claude-sonnet-4-20250514": {
-      pricing: anthropicLongContextPricing(3, 15),
-    },
-    "anthropic/claude-sonnet-4-6": {
-      pricing: anthropicLongContextPricing(3, 15),
-    },
+    ...Object.fromEntries(anthropicPromptCachingModels),
+    ...Object.fromEntries(anthropicLongContextModels),
     "opencode/claude-sonnet-4": { contextWindow: 200000 },
     "opencode/claude-sonnet-4-5": { contextWindow: 200000 },
   },
