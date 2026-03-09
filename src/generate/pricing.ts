@@ -51,6 +51,11 @@ const MULTIPLIER_FRIENDLY_CONDITIONS = new Set([
   "thinkingMode",
 ]);
 
+const FLAT_COST_LONG_CONTEXT_THRESHOLD_OVERRIDES: Record<string, number> = {
+  "gpt-5.4": 272_000,
+  "gpt-5.4-pro": 272_000,
+};
+
 function resolveSinglePricingUnit(units: LobehubPricingUnit[], modelId: string): string {
   const uniqueUnits = [...new Set(units.map((unit) => unit.unit).filter(Boolean))];
 
@@ -465,9 +470,12 @@ function resolveFlatCostLongContextThreshold(
   rawModel: Record<string, any> | undefined,
   unit: string,
 ): number {
-  const inputLimit = rawModel?.limit?.input;
-  if (typeof inputLimit === "number" && Number.isFinite(inputLimit) && inputLimit > 0) {
-    return normalizeThresholdNumber(inputLimit, unit);
+  const modelId = rawModel?.id;
+  if (typeof modelId === "string") {
+    const threshold = FLAT_COST_LONG_CONTEXT_THRESHOLD_OVERRIDES[modelId];
+    if (typeof threshold === "number") {
+      return normalizeThresholdNumber(threshold, unit);
+    }
   }
 
   return normalizeThresholdNumber(200_000, unit);
