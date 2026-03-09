@@ -221,7 +221,7 @@ function upsertProviders(
 ): void {
   for (const [providerId, provider] of Object.entries(providers)) {
     if (mergedProviders[providerId]) {
-      deepAssign(mergedProviders[providerId], clone(provider) as Record<string, any>);
+      deepAssign(mergedProviders[providerId], clone(provider));
       continue;
     }
 
@@ -353,7 +353,7 @@ function applyOverrides(input: {
   if (overrides.providers) {
     for (const [providerId, patch] of Object.entries(overrides.providers)) {
       if (mergedProviders[providerId]) {
-        deepAssign(mergedProviders[providerId], patch as Record<string, any>);
+        deepAssign(mergedProviders[providerId], patch);
         overridesApplied += 1;
       }
     }
@@ -374,7 +374,7 @@ function applyOverrides(input: {
         if (typeof patch === "function") {
           Object.assign(model, clone(patch(clone(model))));
         } else {
-          deepAssign(model, clone(patch) as Record<string, any>);
+          deepAssign(model, clone(patch));
         }
         overridesApplied += 1;
       }

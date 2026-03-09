@@ -91,10 +91,7 @@ function applyDeepPartialModelPatch(
   target: DeepPartial<Model>,
   patch: DeepPartial<Model>,
 ): void {
-  deepAssign(
-    target as unknown as Record<string, unknown>,
-    clone(patch) as Record<string, unknown>,
-  );
+  deepAssign(target, clone(patch));
 }
 
 function applyModelOverride(target: Model, override: ModelOverride): void {
