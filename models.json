@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-03-09T08:03:19.730Z",
+    "generatedAt": "2026-03-09T08:07:16.710Z",
     "sources": {
       "modelsDev": {
         "providerCount": 101,
@@ -1735,7 +1735,12 @@
       "featured": false,
       "api": "openai-codex-responses",
       "baseUrl": "https://chatgpt.com/backend-api",
-      "description": "OpenAI Codex routes ChatGPT-authenticated coding models through the Codex backend."
+      "description": "OpenAI Codex routes ChatGPT-authenticated coding models through the Codex backend.",
+      "compat": {
+        "openaiResponses": {
+          "supportsFastMode": true
+        }
+      }
     },
     "opencode": {
       "id": "opencode",
@@ -88220,8 +88225,7 @@
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 10,
-            "textInput_cacheRead": 0.125,
-            "textInput_cacheWrite": 0
+            "textInput_cacheRead": 0.125
           }
         }
       },
@@ -88250,8 +88254,7 @@
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 10,
-            "textInput_cacheRead": 0.125,
-            "textInput_cacheWrite": 0
+            "textInput_cacheRead": 0.125
           }
         }
       },
@@ -88280,8 +88283,7 @@
           "basePricing": {
             "textInput": 0.25,
             "textOutput": 2,
-            "textInput_cacheRead": 0.025,
-            "textInput_cacheWrite": 0
+            "textInput_cacheRead": 0.025
           }
         }
       },
@@ -88310,8 +88312,7 @@
           "basePricing": {
             "textInput": 1.75,
             "textOutput": 14,
-            "textInput_cacheRead": 0.175,
-            "textInput_cacheWrite": 0
+            "textInput_cacheRead": 0.175
           }
         }
       },
@@ -88340,8 +88341,7 @@
           "basePricing": {
             "textInput": 1.75,
             "textOutput": 14,
-            "textInput_cacheRead": 0.175,
-            "textInput_cacheWrite": 0
+            "textInput_cacheRead": 0.175
           }
         }
       },
@@ -88370,8 +88370,7 @@
           "basePricing": {
             "textInput": 1.75,
             "textOutput": 14,
-            "textInput_cacheRead": 0.175,
-            "textInput_cacheWrite": 0
+            "textInput_cacheRead": 0.175
           }
         }
       },
@@ -88399,8 +88398,7 @@
           "basePricing": {
             "textInput": 0,
             "textOutput": 0,
-            "textInput_cacheRead": 0,
-            "textInput_cacheWrite": 0
+            "textInput_cacheRead": 0
           }
         }
       },
@@ -88429,9 +88427,35 @@
           "basePricing": {
             "textInput": 2.5,
             "textOutput": 15,
-            "textInput_cacheRead": 0.25,
-            "textInput_cacheWrite": 0
+            "textInput_cacheRead": 0.25
+          },
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 1.5,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "textTotalInput": [
+                  0.272,
+                  "infinity"
+                ]
+              },
+              "unless": {
+                "fastMode": true
+              }
+            }
+          ]
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsFastMode": true
           }
+        },
+        "_": {
+          "supportsFastMode": true
         }
       }
     ],

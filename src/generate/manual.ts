@@ -19,6 +19,44 @@ function createTextPricing(
   };
 }
 
+function createTextPricingWithoutCacheWrite(
+  input: number,
+  output: number,
+  cacheRead = 0,
+): ModelPricing {
+  return {
+    currency: "USD",
+    unit: "millionTokens",
+    basePricing: {
+      textInput: input,
+      textOutput: output,
+      textInput_cacheRead: cacheRead,
+    },
+  };
+}
+
+function createOpenAIGpt54FastModePricing(): ModelPricing {
+  return {
+    ...createTextPricingWithoutCacheWrite(2.5, 15, 0.25),
+    adjustments: [
+      {
+        mode: "multiplier",
+        values: {
+          textInput: 2,
+          textOutput: 1.5,
+          textInput_cacheRead: 2,
+        },
+        when: {
+          textTotalInput: [0.272, "infinity"],
+        },
+        unless: {
+          fastMode: true,
+        },
+      },
+    ],
+  };
+}
+
 type ManualModelInput = {
   id: string;
   name: string;
@@ -27,6 +65,8 @@ type ManualModelInput = {
   pricing: ModelPricing;
   input: string[];
   reasoning: boolean;
+  compat?: Model["compat"];
+  meta?: Model["_"];
 };
 
 function createManualModel(input: ManualModelInput): Model {
@@ -45,6 +85,8 @@ function createManualModel(input: ManualModelInput): Model {
       output: ["text"],
     },
     pricing: input.pricing,
+    compat: input.compat,
+    _: input.meta,
   };
 }
 
@@ -90,6 +132,11 @@ export const manualProviders: Record<string, Provider> = {
     baseUrl: openAICodexBaseUrl,
     description:
       "OpenAI Codex routes ChatGPT-authenticated coding models through the Codex backend.",
+    compat: {
+      openaiResponses: {
+        supportsFastMode: true,
+      },
+    },
   },
   "google-gemini-cli": {
     id: "google-gemini-cli",
@@ -131,7 +178,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.1",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createTextPricing(1.25, 10, 0.125),
+      pricing: createTextPricingWithoutCacheWrite(1.25, 10, 0.125),
       input: ["text", "image"],
       reasoning: true,
     }),
@@ -140,7 +187,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.1 Codex Max",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createTextPricing(1.25, 10, 0.125),
+      pricing: createTextPricingWithoutCacheWrite(1.25, 10, 0.125),
       input: ["text", "image"],
       reasoning: true,
     }),
@@ -149,7 +196,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.1 Codex Mini",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createTextPricing(0.25, 2, 0.025),
+      pricing: createTextPricingWithoutCacheWrite(0.25, 2, 0.025),
       input: ["text", "image"],
       reasoning: true,
     }),
@@ -158,7 +205,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.2",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createTextPricing(1.75, 14, 0.175),
+      pricing: createTextPricingWithoutCacheWrite(1.75, 14, 0.175),
       input: ["text", "image"],
       reasoning: true,
     }),
@@ -167,7 +214,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.2 Codex",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createTextPricing(1.75, 14, 0.175),
+      pricing: createTextPricingWithoutCacheWrite(1.75, 14, 0.175),
       input: ["text", "image"],
       reasoning: true,
     }),
@@ -176,7 +223,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.3 Codex",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createTextPricing(1.75, 14, 0.175),
+      pricing: createTextPricingWithoutCacheWrite(1.75, 14, 0.175),
       input: ["text", "image"],
       reasoning: true,
     }),
@@ -185,16 +232,24 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.4",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createTextPricing(2.5, 15, 0.25),
+      pricing: createOpenAIGpt54FastModePricing(),
       input: ["text", "image"],
       reasoning: true,
+      compat: {
+        openaiResponses: {
+          supportsFastMode: true,
+        },
+      },
+      meta: {
+        supportsFastMode: true,
+      },
     }),
     createManualModel({
       id: "gpt-5.3-codex-spark",
       name: "GPT-5.3 Codex Spark",
       contextWindow: 128000,
       maxOutput: codexMaxOutput,
-      pricing: createTextPricing(0, 0, 0, 0),
+      pricing: createTextPricingWithoutCacheWrite(0, 0, 0),
       input: ["text"],
       reasoning: true,
     }),
