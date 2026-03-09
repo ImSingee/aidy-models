@@ -1,3 +1,4 @@
+import type { PartialDeep } from "type-fest";
 import type {
   Model,
   ModelPricing,
@@ -7,13 +8,7 @@ import type {
 } from "../types.ts";
 import { clone, deepAssign } from "./utils.ts";
 
-type DeepPartial<T> = {
-  [P in keyof T]?: T[P] extends (infer U)[]
-  ? DeepPartial<U>[]
-  : T[P] extends object
-  ? DeepPartial<T[P]>
-  : T[P];
-};
+type DeepPartial<T> = PartialDeep<T, { recurseIntoArrays: true }>;
 
 const officialFeaturedProviderIds = [
   "anthropic",
