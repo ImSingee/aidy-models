@@ -8,10 +8,10 @@ import { clone, deepAssign } from "./utils.ts";
 
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
-    ? DeepPartial<U>[]
-    : T[P] extends object
-      ? DeepPartial<T[P]>
-    : T[P];
+  ? DeepPartial<U>[]
+  : T[P] extends object
+  ? DeepPartial<T[P]>
+  : T[P];
 };
 
 const officialFeaturedProviderIds = [
@@ -176,26 +176,26 @@ function anthropicLongContextPricing(
     },
     ...(options?.supportsFastMode
       ? {
-          unless: {
-            fastMode: true,
-          },
-        }
+        unless: {
+          fastMode: true,
+        },
+      }
       : {}),
   };
   const fastModeAdjustment =
     options?.supportsFastMode
       ? {
-          mode: "multiplier" as const,
-          values: {
-            textInput: 12,
-            textInput_cacheRead: 12,
-            textInput_cacheWrite: 12,
-            textOutput: 12,
-          },
-          when: {
-            fastMode: true,
-          },
-        }
+        mode: "multiplier" as const,
+        values: {
+          textInput: 12,
+          textInput_cacheRead: 12,
+          textInput_cacheWrite: 12,
+          textOutput: 12,
+        },
+        when: {
+          fastMode: true,
+        },
+      }
       : undefined;
 
   return {
@@ -228,15 +228,15 @@ function anthropicLongContextOverride(
     pricing: anthropicLongContextPricing(baseInput, baseOutput, options),
     ...(options?.supportsFastMode
       ? {
-          _: {
+        _: {
+          supportsFastMode: true,
+        },
+        compat: {
+          anthropic: {
             supportsFastMode: true,
           },
-          compat: {
-            anthropic: {
-              supportsFastMode: true,
-            },
-          },
-        }
+        },
+      }
       : {}),
   };
 }
@@ -445,7 +445,5 @@ export const overrides: Overrides = {
     ["openai/gpt-5.4", openAIGpt54FastModeOverride()],
     ...anthropicPromptCachingModels,
     ...anthropicLongContextModels,
-    ["opencode/claude-sonnet-4", { contextWindow: 200000 }],
-    ["opencode/claude-sonnet-4-5", { contextWindow: 200000 }],
   ]),
 };
