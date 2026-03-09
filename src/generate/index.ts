@@ -371,7 +371,11 @@ function applyOverrides(input: {
 
       const model = models.find((entry) => entry.id === modelId);
       if (model) {
-        deepAssign(model, patch as Record<string, any>);
+        if (typeof patch === "function") {
+          Object.assign(model, clone(patch(clone(model))));
+        } else {
+          deepAssign(model, clone(patch) as Record<string, any>);
+        }
         overridesApplied += 1;
       }
     }
