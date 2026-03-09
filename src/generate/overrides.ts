@@ -139,7 +139,7 @@ function anthropicLongContextPricing(
           textOutput: 1.5,
         },
         when: {
-          totalInput: [0.2, "infinity"],
+          textTotalInput: [0.2, "infinity"],
         },
       },
       ...(promptCachingPricing.adjustments ?? []),

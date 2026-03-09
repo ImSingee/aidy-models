@@ -47,7 +47,7 @@ const MULTIPLIER_FRIENDLY_CONDITIONS = new Set([
   "cacheTtl",
   "generateAudio",
   "textOutput",
-  "totalInput",
+  "textTotalInput",
   "thinkingMode",
 ]);
 
@@ -127,9 +127,9 @@ function normalizeConditionName(
   value: PricingConditionValue,
 ): string {
   if (name === "ttl") return "cacheTtl";
-  if (name === "textInputRange") return "totalInput";
+  if (name === "textInputRange") return "textTotalInput";
   if (name === "textOutputRange") return "textOutput";
-  if (Array.isArray(value) && name === "textInput") return "totalInput";
+  if (Array.isArray(value) && name === "textInput") return "textTotalInput";
   if (Array.isArray(value) && name === "textOutput") return "textOutput";
   return name;
 }
@@ -176,7 +176,7 @@ function inferTieredConditionName(target: string): string {
     target === "textInput_cacheRead" ||
     target === "textInput_cacheWrite"
   ) {
-    return "totalInput";
+    return "textTotalInput";
   }
 
   return `${target}Range`;
@@ -503,7 +503,7 @@ export function convertFlatCostPricing(
   }
 
   const when = {
-    totalInput: [
+    textTotalInput: [
       resolveFlatCostLongContextThreshold(rawModel, unit),
       "infinity",
     ] satisfies PricingRange,

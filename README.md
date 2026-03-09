@@ -183,7 +183,7 @@ Each `adjustment` contains:
 Condition values may be:
 
 - `string`, `number`, or `boolean` for a matching condition
-- `[number, number | "infinity"]` for ranges such as `totalInput: [0.2, "infinity"]`
+- `[number, number | "infinity"]` for ranges such as `textTotalInput: [0.2, "infinity"]`
 
 Adjustment application order:
 
@@ -242,7 +242,7 @@ The `when` object uses condition keys to describe when an adjustment applies.
 | key | Value type | Meaning |
 | --- | --- | --- |
 | `cacheTtl` | `string` | prompt cache TTL such as `5m`, `1h`, or `24h` |
-| `totalInput` | `[number, number \| "infinity"]` | total input-token bucket, including `textInput` + `textInput_cacheRead` + `textInput_cacheWrite`, using `pricing.unit` as the denominator |
+| `textTotalInput` | `[number, number \| "infinity"]` | total input-token bucket, including `textInput` + `textInput_cacheRead` + `textInput_cacheWrite`, using `pricing.unit` as the denominator |
 | `textOutput` | `[number, number \| "infinity"]` | output-token bucket, using `pricing.unit` as the denominator |
 | `quality` | `string` | image quality variant such as `standard` or `hd` |
 | `size` | `string` | image size such as `1024x1024` |
@@ -292,7 +292,7 @@ The keys in `basePricing` and `adjustments.values` use the same enum:
     {
       "mode": "multiplier",
       "when": {
-        "totalInput": [0.2, "infinity"]
+        "textTotalInput": [0.2, "infinity"]
       },
       "values": {
         "textInput": 2,
