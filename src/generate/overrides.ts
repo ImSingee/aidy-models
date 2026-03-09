@@ -231,8 +231,8 @@ function anthropicLongContextPricing(
     ...promptCachingPricing,
     adjustments: [
       longContextAdjustment,
-      ...(fastModeAdjustment ? [fastModeAdjustment] : []),
       ...(promptCachingPricing.adjustments ?? []),
+      ...(fastModeAdjustment ? [fastModeAdjustment] : []),
     ],
   };
 }
