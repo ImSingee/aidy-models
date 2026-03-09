@@ -109,6 +109,24 @@ export interface ModelCompat {
   googleGeminiCli?: GoogleGeminiCliCompat;
 }
 
+export type OpenAIReasoningEffort =
+  | "none"
+  | "minimal"
+  | "low"
+  | "medium"
+  | "high"
+  | "xhigh";
+
+export interface ModelReasoningEffort {
+  enum: OpenAIReasoningEffort[];
+  default: OpenAIReasoningEffort;
+}
+
+export interface ModelPrivateMeta extends Record<string, unknown> {
+  supportsFastMode?: boolean;
+  reasoningEffort?: ModelReasoningEffort;
+}
+
 export interface Model {
   id: string;
   name: string;
@@ -122,7 +140,7 @@ export interface Model {
   knowledge?: string;
   openWeights?: boolean;
   deprecated?: boolean;
-  _?: Record<string, unknown>;
+  _?: ModelPrivateMeta;
 
   abilities: ModelAbilities;
 

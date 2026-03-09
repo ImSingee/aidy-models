@@ -1,4 +1,10 @@
-import type { Model, ModelPricing, Provider } from "../types.ts";
+import type {
+  Model,
+  ModelPricing,
+  OpenAIReasoningEffort,
+  Provider,
+} from "../types.ts";
+import { clone, deepAssign } from "./utils.ts";
 
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
@@ -82,6 +88,34 @@ export interface Overrides {
   providers?: Record<string, DeepPartial<Provider>>;
   /** Key format: "providerId/modelId" */
   models?: Record<string, DeepPartial<Model>>;
+}
+
+function mergeModelOverrides(
+  ...patches: Array<DeepPartial<Model> | undefined>
+): DeepPartial<Model> {
+  const result: DeepPartial<Model> = {};
+
+  for (const patch of patches) {
+    if (!patch) continue;
+    deepAssign(
+      result as Record<string, unknown>,
+      clone(patch) as Record<string, unknown>,
+    );
+  }
+
+  return result;
+}
+
+function createModelOverrideRecord(
+  entries: Array<[string, DeepPartial<Model>]>,
+): Record<string, DeepPartial<Model>> {
+  const result: Record<string, DeepPartial<Model>> = {};
+
+  for (const [key, patch] of entries) {
+    result[key] = mergeModelOverrides(result[key], patch);
+  }
+
+  return result;
 }
 
 function anthropicPromptCachingPricing(
@@ -253,6 +287,27 @@ function openAIGpt54FastModeOverride(): DeepPartial<Model> {
   };
 }
 
+function openAIReasoningEffortOverride(
+  enumValues: OpenAIReasoningEffort[],
+  defaultValue: OpenAIReasoningEffort,
+): DeepPartial<Model> {
+  return {
+    _: {
+      reasoningEffort: {
+        enum: enumValues,
+        default: defaultValue,
+      },
+    },
+  };
+}
+
+function mapModelIdsToOverride(
+  modelIds: string[],
+  override: DeepPartial<Model>,
+): Array<[string, DeepPartial<Model>]> {
+  return modelIds.map((modelId) => [modelId, override]);
+}
+
 const anthropicPromptCachingModels: Array<[string, DeepPartial<Model>]> = [
   [
     "anthropic/claude-3-haiku-20240307",
@@ -291,13 +346,106 @@ const anthropicLongContextModels: Array<[string, DeepPartial<Model>]> = [
   ["anthropic/claude-sonnet-4-6", anthropicLongContextOverride(3, 15)],
 ];
 
+const openAIReasoningEffortModels: Array<[string, DeepPartial<Model>]> = [
+  ...mapModelIdsToOverride(
+    [
+      "openai/o1",
+      "openai/o1-mini",
+      "openai/o1-preview",
+      "openai/o1-pro",
+      "openai/o3",
+      "openai/o3-mini",
+      "openai/o3-pro",
+      "openai/o3-deep-research",
+      "openai/o4-mini",
+      "openai/o4-mini-deep-research",
+      "openai/codex-mini-latest",
+      "openai/computer-use-preview",
+    ],
+    openAIReasoningEffortOverride(["low", "medium", "high"], "medium"),
+  ),
+  ...mapModelIdsToOverride(
+    [
+      "openai/gpt-5",
+      "openai/gpt-5-chat-latest",
+      "openai/gpt-5-codex",
+      "openai/gpt-5-mini",
+      "openai/gpt-5-nano",
+    ],
+    openAIReasoningEffortOverride(
+      ["minimal", "low", "medium", "high"],
+      "medium",
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5-pro"],
+    openAIReasoningEffortOverride(["high"], "high"),
+  ),
+  ...mapModelIdsToOverride(
+    [
+      "openai/gpt-5.1",
+      "openai/gpt-5.1-chat-latest",
+      "openai/gpt-5.1-codex",
+      "openai/gpt-5.1-codex-mini",
+      "openai-codex/gpt-5.1",
+      "openai-codex/gpt-5.1-codex-mini",
+    ],
+    openAIReasoningEffortOverride(
+      ["none", "low", "medium", "high"],
+      "none",
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5.1-codex-max", "openai-codex/gpt-5.1-codex-max"],
+    openAIReasoningEffortOverride(
+      ["none", "medium", "high", "xhigh"],
+      "medium",
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    [
+      "openai/gpt-5.2",
+      "openai/gpt-5.2-chat-latest",
+      "openai/gpt-5.4",
+      "openai-codex/gpt-5.2",
+      "openai-codex/gpt-5.4",
+    ],
+    openAIReasoningEffortOverride(
+      ["none", "low", "medium", "high", "xhigh"],
+      "none",
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    [
+      "openai/gpt-5.2-codex",
+      "openai/gpt-5.3-codex",
+      "openai/gpt-5.3-codex-spark",
+      "openai-codex/gpt-5.2-codex",
+      "openai-codex/gpt-5.3-codex",
+      "openai-codex/gpt-5.3-codex-spark",
+    ],
+    openAIReasoningEffortOverride(
+      ["low", "medium", "high", "xhigh"],
+      "medium",
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5.2-pro", "openai/gpt-5.4-pro"],
+    openAIReasoningEffortOverride(
+      ["medium", "high", "xhigh"],
+      "medium",
+    ),
+  ),
+];
+
 export const overrides: Overrides = {
   providers: createProviderFlagOverrides(),
-  models: {
-    "openai/gpt-5.4": openAIGpt54FastModeOverride(),
-    ...Object.fromEntries(anthropicPromptCachingModels),
-    ...Object.fromEntries(anthropicLongContextModels),
-    "opencode/claude-sonnet-4": { contextWindow: 200000 },
-    "opencode/claude-sonnet-4-5": { contextWindow: 200000 },
-  },
+  models: createModelOverrideRecord([
+    ...openAIReasoningEffortModels,
+    ["openai/gpt-5.4", openAIGpt54FastModeOverride()],
+    ...anthropicPromptCachingModels,
+    ...anthropicLongContextModels,
+    ["opencode/claude-sonnet-4", { contextWindow: 200000 }],
+    ["opencode/claude-sonnet-4-5", { contextWindow: 200000 }],
+  ]),
 };

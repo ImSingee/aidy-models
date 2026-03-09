@@ -158,6 +158,26 @@ Example:
 - `modalities.input`: accepted input modalities
 - `modalities.output`: supported output modalities
 
+### `_` metadata
+
+`_` is reserved for unstable local metadata that is useful to runtime consumers
+but not normalized as first-class schema yet.
+
+OpenAI reasoning models may include:
+
+- `_.reasoningEffort.enum`: supported reasoning effort values
+- `_.reasoningEffort.default`: default reasoning effort value
+- `_.supportsFastMode`: whether the model supports fast-mode
+
+`reasoningEffort` constrains effort on reasoning for reasoning models.
+Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, and
+`xhigh`.
+
+Reducing reasoning effort can result in faster responses and fewer tokens used
+on reasoning in a response.
+
+`supportsFastMode` indicates whether the model supports fast-mode.
+
 ### Pricing fields
 
 - `pricing.currency`: pricing currency, such as `USD` or `CNY`
@@ -445,5 +465,6 @@ Current `api` values used in this registry include:
 ## Notes
 
 - Not every field is present on every provider or model.
-- Some upstream fields that are useful but not yet normalized may still live
-  under `_`. These fields are unstable and may change at any time.
+- Some upstream fields and local override metadata that are useful but not yet
+  normalized may live under `_`. These fields are unstable and may change at
+  any time.
