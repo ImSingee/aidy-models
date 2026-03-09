@@ -216,10 +216,10 @@ function anthropicLongContextPricing(
       ? {
         mode: "multiplier" as const,
         values: {
-          textInput: 12,
-          textInput_cacheRead: 12,
-          textInput_cacheWrite: 12,
-          textOutput: 12,
+          textInput: 6,
+          textInput_cacheRead: 6,
+          textInput_cacheWrite: 6,
+          textOutput: 6,
         },
         when: {
           fastMode: true,
