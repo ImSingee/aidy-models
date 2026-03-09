@@ -1,6 +1,7 @@
 import type {
   ModelPricing,
   PricingAdjustment,
+  PricingConditionMap,
   PricingConditionValue,
   PricingRange,
 } from "../types.ts";
@@ -45,6 +46,7 @@ type PricingUnitRows = {
 
 const MULTIPLIER_FRIENDLY_CONDITIONS = new Set([
   "cacheTtl",
+  "fastMode",
   "generateAudio",
   "textOutput",
   "textTotalInput",
@@ -565,6 +567,40 @@ export function convertFlatCostPricing(
   };
 }
 
+function isConditionMap(value: unknown): value is PricingConditionMap {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function validateConditionValue(
+  modelId: string,
+  value: PricingConditionValue,
+  label: string,
+): void {
+  if (!Array.isArray(value)) return;
+
+  if (value.length !== 2) {
+    throw new Error(`Invalid pricing range for ${modelId}/${label}`);
+  }
+
+  if (typeof value[0] !== "number") {
+    throw new Error(`Invalid pricing range lower bound for ${modelId}/${label}`);
+  }
+
+  if (typeof value[1] !== "number" && value[1] !== "infinity") {
+    throw new Error(`Invalid pricing range upper bound for ${modelId}/${label}`);
+  }
+}
+
+function validateConditionMap(
+  modelId: string,
+  conditions: PricingConditionMap,
+  label: string,
+): void {
+  for (const [key, value] of Object.entries(conditions)) {
+    validateConditionValue(modelId, value, `${label}.${key}`);
+  }
+}
+
 export function validatePricing(modelId: string, pricing: ModelPricing): void {
   if (!pricing.unit) {
     throw new Error(`Missing pricing.unit for ${modelId}`);
@@ -587,20 +623,30 @@ export function validatePricing(modelId: string, pricing: ModelPricing): void {
       }
     }
 
-    for (const value of Object.values(adjustment.when)) {
-      if (Array.isArray(value)) {
-        if (value.length !== 2) {
-          throw new Error(`Invalid pricing range for ${modelId}`);
-        }
-
-        if (typeof value[0] !== "number") {
-          throw new Error(`Invalid pricing range lower bound for ${modelId}`);
-        }
-
-        if (typeof value[1] !== "number" && value[1] !== "infinity") {
-          throw new Error(`Invalid pricing range upper bound for ${modelId}`);
-        }
-      }
+    if (!isConditionMap(adjustment.when)) {
+      throw new Error(`Invalid pricing when clause for ${modelId}`);
     }
+    validateConditionMap(modelId, adjustment.when, "when");
+
+    if (adjustment.unless === undefined) continue;
+
+    if (Array.isArray(adjustment.unless)) {
+      if (adjustment.unless.length === 0) {
+        throw new Error(`Empty pricing unless clause list for ${modelId}`);
+      }
+
+      for (const [index, conditions] of adjustment.unless.entries()) {
+        if (!isConditionMap(conditions)) {
+          throw new Error(`Invalid pricing unless clause for ${modelId}`);
+        }
+        validateConditionMap(modelId, conditions, `unless[${index}]`);
+      }
+      continue;
+    }
+
+    if (!isConditionMap(adjustment.unless)) {
+      throw new Error(`Invalid pricing unless clause for ${modelId}`);
+    }
+    validateConditionMap(modelId, adjustment.unless, "unless");
   }
 }

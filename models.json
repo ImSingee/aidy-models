@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-03-09T07:23:32.820Z",
+    "generatedAt": "2026-03-09T08:03:19.730Z",
     "sources": {
       "modelsDev": {
         "providerCount": 101,
@@ -32,7 +32,7 @@
       "providerCount": 139,
       "modelCount": 4799
     },
-    "overridesApplied": 68
+    "overridesApplied": 69
   },
   "providers": {
     "302ai": {
@@ -253,7 +253,8 @@
       },
       "compat": {
         "anthropic": {
-          "longPromptCacheTtl": "1h"
+          "longPromptCacheTtl": "1h",
+          "supportsFastMode": true
         }
       }
     },
@@ -1722,6 +1723,7 @@
       "compat": {
         "openaiResponses": {
           "longPromptCacheTtl": "24h",
+          "supportsFastMode": true,
           "toolCallIdStrategy": "responses-fc64"
         }
       }
@@ -19190,6 +19192,9 @@
                   0.2,
                   "infinity"
                 ]
+              },
+              "unless": {
+                "fastMode": true
               }
             },
             {
@@ -19213,9 +19218,13 @@
         },
         "compat": {
           "anthropic": {
+            "supportsFastMode": true,
             "supportsAdaptiveThinking": true,
             "xHighReasoningEffort": "max"
           }
+        },
+        "_": {
+          "supportsFastMode": true
         }
       },
       {
@@ -87496,6 +87505,9 @@
                   0.272,
                   "infinity"
                 ]
+              },
+              "unless": {
+                "fastMode": true
               }
             }
           ],
@@ -87506,6 +87518,14 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "_": {
+          "supportsFastMode": true
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsFastMode": true
+          }
         }
       },
       {

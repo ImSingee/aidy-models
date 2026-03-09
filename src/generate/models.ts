@@ -63,10 +63,7 @@ export function normalizeModelsDevModel(
     contextWindow: rawModel.limit?.context,
     maxOutput: rawModel.limit?.output,
     modalities: rawModel.modalities,
-    pricing: convertFlatCostPricing(
-      rawModel.cost,
-      rawModel,
-    ),
+    pricing: convertFlatCostPricing(rawModel.cost, rawModel),
   };
 
   if (providerId === "opencode") {

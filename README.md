@@ -126,6 +126,7 @@ Example:
 - `baseUrl`: optional model-level base URL override
 - `headers`: optional model-level static headers
 - `compat`: optional model-level compatibility overrides
+- `_`: optional unstable passthrough metadata
 
 ### Descriptive fields
 
@@ -178,6 +179,7 @@ Each `adjustment` contains:
 
 - `mode`: `multiplier` or `absolute`
 - `when`: condition map
+- `unless`: optional exception condition map, or a list of exception condition maps
 - `values`: target -> factor or final rate
 
 Condition values may be:
@@ -189,9 +191,15 @@ Adjustment application order:
 
 1. Start from `basePricing`
 2. Iterate over `adjustments` in array order
-3. For each matching adjustment and target:
+3. For each adjustment, first match `when`
+4. Skip the adjustment if any `unless` clause also matches
+5. For each matching target:
    - if `mode` is `absolute`, replace the current rate
    - if `mode` is `multiplier`, multiply the current rate
+
+If `unless` is a single object, all keys in that object must match to suppress the
+adjustment. If `unless` is an array, matching any one entry suppresses the
+adjustment.
 
 This means adjustment order is significant:
 
@@ -242,6 +250,7 @@ The `when` object uses condition keys to describe when an adjustment applies.
 | key | Value type | Meaning |
 | --- | --- | --- |
 | `cacheTtl` | `string` | prompt cache TTL such as `5m`, `1h`, or `24h` |
+| `fastMode` | `boolean` | whether provider fast mode is enabled |
 | `textTotalInput` | `[number, number \| "infinity"]` | total input-token bucket, including `textInput` + `textInput_cacheRead` + `textInput_cacheWrite`, using `pricing.unit` as the denominator |
 | `textOutput` | `[number, number \| "infinity"]` | output-token bucket, using `pricing.unit` as the denominator |
 | `quality` | `string` | image quality variant such as `standard` or `hd` |
@@ -293,6 +302,9 @@ The keys in `basePricing` and `adjustments.values` use the same enum:
       "mode": "multiplier",
       "when": {
         "textTotalInput": [0.2, "infinity"]
+      },
+      "unless": {
+        "fastMode": true
       },
       "values": {
         "textInput": 2,
@@ -382,10 +394,12 @@ For OpenAI Responses-style APIs.
 
 - `toolCallIdStrategy`: `preserve` or `responses-fc64`
 - `longPromptCacheTtl`: currently `24h`
+- `supportsFastMode`
 
 ### `anthropic`
 
 - `longPromptCacheTtl`: currently `1h`
+- `supportsFastMode`
 - `supportsAdaptiveThinking`
 - `xHighReasoningEffort`: `high` or `max`
 

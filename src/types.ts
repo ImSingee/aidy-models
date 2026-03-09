@@ -14,10 +14,13 @@ export interface ModelAbilities {
 export type PricingRange = [number, number | "infinity"];
 
 export type PricingConditionValue = string | number | boolean | PricingRange;
+export type PricingConditionMap = Record<string, PricingConditionValue>;
+export type PricingUnless = PricingConditionMap | PricingConditionMap[];
 
 export interface PricingAdjustment {
   mode: "multiplier" | "absolute";
-  when: Record<string, PricingConditionValue>;
+  when: PricingConditionMap;
+  unless?: PricingUnless;
   values: Record<string, number>;
 }
 
@@ -61,10 +64,12 @@ export interface OpenAICompletionsCompat {
 export interface OpenAIResponsesCompat {
   toolCallIdStrategy?: "preserve" | "responses-fc64";
   longPromptCacheTtl?: "24h";
+  supportsFastMode?: boolean;
 }
 
 export interface AnthropicCompat {
   longPromptCacheTtl?: "1h";
+  supportsFastMode?: boolean;
   supportsAdaptiveThinking?: boolean;
   xHighReasoningEffort?: "high" | "max";
 }
@@ -117,6 +122,7 @@ export interface Model {
   knowledge?: string;
   openWeights?: boolean;
   deprecated?: boolean;
+  _?: Record<string, unknown>;
 
   abilities: ModelAbilities;
 

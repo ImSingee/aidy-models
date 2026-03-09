@@ -124,24 +124,35 @@ function anthropicPromptCachingPricing(
 function anthropicLongContextPricing(
   baseInput: number,
   baseOutput: number,
+  options?: {
+    supportsFastMode?: boolean;
+  },
 ): ModelPricing {
   const promptCachingPricing = anthropicPromptCachingPricing(baseInput, baseOutput);
+  const longContextAdjustment: NonNullable<ModelPricing["adjustments"]>[number] = {
+    mode: "multiplier",
+    values: {
+      textInput: 2,
+      textInput_cacheRead: 2,
+      textInput_cacheWrite: 2,
+      textOutput: 1.5,
+    },
+    when: {
+      textTotalInput: [0.2, "infinity"],
+    },
+    ...(options?.supportsFastMode
+      ? {
+          unless: {
+            fastMode: true,
+          },
+        }
+      : {}),
+  };
 
   return {
     ...promptCachingPricing,
     adjustments: [
-      {
-        mode: "multiplier",
-        values: {
-          textInput: 2,
-          textInput_cacheRead: 2,
-          textInput_cacheWrite: 2,
-          textOutput: 1.5,
-        },
-        when: {
-          textTotalInput: [0.2, "infinity"],
-        },
-      },
+      longContextAdjustment,
       ...(promptCachingPricing.adjustments ?? []),
     ],
   };
@@ -160,10 +171,61 @@ function anthropicPromptCachingOverride(
 function anthropicLongContextOverride(
   baseInput: number,
   baseOutput: number,
+  options?: Parameters<typeof anthropicLongContextPricing>[2],
 ): DeepPartial<Model> {
   return {
     contextWindow: 1000000,
-    pricing: anthropicLongContextPricing(baseInput, baseOutput),
+    pricing: anthropicLongContextPricing(baseInput, baseOutput, options),
+    ...(options?.supportsFastMode
+      ? {
+          _: {
+            supportsFastMode: true,
+          },
+          compat: {
+            anthropic: {
+              supportsFastMode: true,
+            },
+          },
+        }
+      : {}),
+  };
+}
+
+function openAIGpt54FastModeOverride(): DeepPartial<Model> {
+  return {
+    _: {
+      supportsFastMode: true,
+    },
+    compat: {
+      openaiResponses: {
+        supportsFastMode: true,
+      },
+    },
+    pricing: {
+      currency: "USD",
+      unit: "millionTokens",
+      basePricing: {
+        textInput: 2.5,
+        textOutput: 15,
+        textInput_cacheRead: 0.25,
+      },
+      adjustments: [
+        {
+          mode: "multiplier",
+          values: {
+            textInput: 2,
+            textOutput: 1.5,
+            textInput_cacheRead: 2,
+          },
+          when: {
+            textTotalInput: [0.272, "infinity"],
+          },
+          unless: {
+            fastMode: true,
+          },
+        },
+      ],
+    },
   };
 }
 
@@ -194,7 +256,10 @@ const anthropicPromptCachingModels: Array<[string, DeepPartial<Model>]> = [
 ];
 
 const anthropicLongContextModels: Array<[string, DeepPartial<Model>]> = [
-  ["anthropic/claude-opus-4-6", anthropicLongContextOverride(5, 25)],
+  [
+    "anthropic/claude-opus-4-6",
+    anthropicLongContextOverride(5, 25, { supportsFastMode: true }),
+  ],
   ["anthropic/claude-sonnet-4-0", anthropicLongContextOverride(3, 15)],
   ["anthropic/claude-sonnet-4-20250514", anthropicLongContextOverride(3, 15)],
   ["anthropic/claude-sonnet-4-5", anthropicLongContextOverride(3, 15)],
@@ -205,6 +270,7 @@ const anthropicLongContextModels: Array<[string, DeepPartial<Model>]> = [
 export const overrides: Overrides = {
   providers: createProviderFlagOverrides(),
   models: {
+    "openai/gpt-5.4": openAIGpt54FastModeOverride(),
     ...Object.fromEntries(anthropicPromptCachingModels),
     ...Object.fromEntries(anthropicLongContextModels),
     "opencode/claude-sonnet-4": { contextWindow: 200000 },

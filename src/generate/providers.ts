@@ -109,6 +109,7 @@ function createProviderCompat(input: {
   if (input.providerId === "openai") {
     compat.openaiResponses = mergeRecords(compat.openaiResponses, {
       longPromptCacheTtl: "24h",
+      supportsFastMode: true,
       toolCallIdStrategy: "responses-fc64",
     });
   }
@@ -122,6 +123,7 @@ function createProviderCompat(input: {
   if (input.providerId === "anthropic") {
     compat.anthropic = mergeRecords(compat.anthropic, {
       longPromptCacheTtl: "1h",
+      supportsFastMode: true,
     });
   }
 
