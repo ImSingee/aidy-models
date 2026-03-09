@@ -148,11 +148,27 @@ function anthropicLongContextPricing(
         }
       : {}),
   };
+  const fastModeAdjustment =
+    options?.supportsFastMode
+      ? {
+          mode: "multiplier" as const,
+          values: {
+            textInput: 12,
+            textInput_cacheRead: 12,
+            textInput_cacheWrite: 12,
+            textOutput: 12,
+          },
+          when: {
+            fastMode: true,
+          },
+        }
+      : undefined;
 
   return {
     ...promptCachingPricing,
     adjustments: [
       longContextAdjustment,
+      ...(fastModeAdjustment ? [fastModeAdjustment] : []),
       ...(promptCachingPricing.adjustments ?? []),
     ],
   };
@@ -220,7 +236,15 @@ function openAIGpt54FastModeOverride(): DeepPartial<Model> {
           when: {
             textTotalInput: [0.272, "infinity"],
           },
-          unless: {
+        },
+        {
+          mode: "multiplier",
+          values: {
+            textInput: 2,
+            textOutput: 2,
+            textInput_cacheRead: 2,
+          },
+          when: {
             fastMode: true,
           },
         },

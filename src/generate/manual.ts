@@ -49,7 +49,15 @@ function createOpenAIGpt54FastModePricing(): ModelPricing {
         when: {
           textTotalInput: [0.272, "infinity"],
         },
-        unless: {
+      },
+      {
+        mode: "multiplier",
+        values: {
+          textInput: 2,
+          textOutput: 2,
+          textInput_cacheRead: 2,
+        },
+        when: {
           fastMode: true,
         },
       },
