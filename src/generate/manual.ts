@@ -248,9 +248,6 @@ export const manualModels: Record<string, Model[]> = {
           supportsAdditionalServiceTiers: ["priority"],
         },
       },
-      meta: {
-        supportsAdditionalServiceTiers: ["priority"],
-      },
     }),
     createManualModel({
       id: "gpt-5.3-codex-spark",

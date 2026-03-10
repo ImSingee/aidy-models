@@ -310,10 +310,6 @@ function createOpenAIServiceTierOverride(
     const adjustments = createOpenAIServiceTierAdjustments(targets, serviceTiers);
 
     return {
-      _: {
-        ...(prev._ ?? {}),
-        supportsAdditionalServiceTiers: serviceTiers,
-      },
       compat: {
         ...(prev.compat ?? {}),
         openaiResponses: {

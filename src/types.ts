@@ -125,7 +125,6 @@ export interface ModelReasoningEffort {
 }
 
 export interface ModelPrivateMeta extends Record<string, unknown> {
-  supportsAdditionalServiceTiers?: OpenAIServiceTier[];
   reasoningEffort?: ModelReasoningEffort;
 }
 

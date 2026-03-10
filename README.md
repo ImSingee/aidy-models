@@ -167,7 +167,6 @@ OpenAI reasoning models may include:
 
 - `_.reasoningEffort.enum`: supported reasoning effort values
 - `_.reasoningEffort.default`: default reasoning effort value
-- `_.supportsAdditionalServiceTiers`: additional OpenAI service tiers supported by the model
 
 `reasoningEffort` constrains effort on reasoning for reasoning models.
 Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, and
@@ -175,8 +174,6 @@ Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, and
 
 Reducing reasoning effort can result in faster responses and fewer tokens used
 on reasoning in a response.
-
-`supportsAdditionalServiceTiers` currently uses values from `flex` and `priority`.
 
 ### Pricing fields
 
