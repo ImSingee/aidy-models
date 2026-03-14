@@ -189,28 +189,32 @@ function anthropicLongContextPricing(
   baseOutput: number,
   options?: {
     supportsFastMode?: boolean;
+    longContextSurcharge?: boolean;
   },
 ): ModelPricing {
   const promptCachingPricing = anthropicPromptCachingPricing(baseInput, baseOutput);
-  const longContextAdjustment: NonNullable<ModelPricing["adjustments"]>[number] = {
-    mode: "multiplier",
-    values: {
-      textInput: 2,
-      textInput_cacheRead: 2,
-      textInput_cacheWrite: 2,
-      textOutput: 1.5,
-    },
-    when: {
-      textTotalInput: [0.2, "infinity"],
-    },
-    ...(options?.supportsFastMode
+  const longContextAdjustment: NonNullable<ModelPricing["adjustments"]>[number] | undefined =
+    options?.longContextSurcharge ?? true
       ? {
-        unless: {
-          fastMode: true,
+        mode: "multiplier",
+        values: {
+          textInput: 2,
+          textInput_cacheRead: 2,
+          textInput_cacheWrite: 2,
+          textOutput: 1.5,
         },
+        when: {
+          textTotalInput: [0.2, "infinity"],
+        },
+        ...(options?.supportsFastMode
+          ? {
+            unless: {
+              fastMode: true,
+            },
+          }
+          : {}),
       }
-      : {}),
-  };
+      : undefined;
   const fastModeAdjustment =
     options?.supportsFastMode
       ? {
@@ -230,7 +234,7 @@ function anthropicLongContextPricing(
   return {
     ...promptCachingPricing,
     adjustments: [
-      longContextAdjustment,
+      ...(longContextAdjustment ? [longContextAdjustment] : []),
       ...(promptCachingPricing.adjustments ?? []),
       ...(fastModeAdjustment ? [fastModeAdjustment] : []),
     ],
@@ -405,13 +409,21 @@ const anthropicPromptCachingModels: Array<[string, ModelOverride]> = [
 const anthropicLongContextModels: Array<[string, ModelOverride]> = [
   [
     "anthropic/claude-opus-4-6",
-    anthropicLongContextOverride(5, 25, { supportsFastMode: true }),
+    anthropicLongContextOverride(5, 25, {
+      supportsFastMode: true,
+      longContextSurcharge: false,
+    }),
   ],
   ["anthropic/claude-sonnet-4-0", anthropicLongContextOverride(3, 15)],
   ["anthropic/claude-sonnet-4-20250514", anthropicLongContextOverride(3, 15)],
   ["anthropic/claude-sonnet-4-5", anthropicLongContextOverride(3, 15)],
   ["anthropic/claude-sonnet-4-5-20250929", anthropicLongContextOverride(3, 15)],
-  ["anthropic/claude-sonnet-4-6", anthropicLongContextOverride(3, 15)],
+  [
+    "anthropic/claude-sonnet-4-6",
+    anthropicLongContextOverride(3, 15, {
+      longContextSurcharge: false,
+    }),
+  ],
 ];
 
 const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
