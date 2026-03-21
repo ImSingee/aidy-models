@@ -65,6 +65,22 @@ function sumModelCount(modelsByProvider: Record<string, Model[]>): number {
   );
 }
 
+function sanitizeLobehubSource(raw: RawLobehub): RawLobehub {
+  const providers = { ...(raw.providers ?? {}) };
+  const models = { ...(raw.models ?? {}) };
+
+  // Lobehub includes its own aggregation endpoint in the upstream catalog.
+  // We do not want to surface that self-referential provider in this registry.
+  delete providers.lobehub;
+  delete models.lobehub;
+
+  return {
+    ...raw,
+    providers,
+    models,
+  };
+}
+
 async function fetchSources(logger: Logger): Promise<SourceStats> {
   logger.log("Fetching data sources...");
 
@@ -79,6 +95,7 @@ async function fetchSources(logger: Logger): Promise<SourceStats> {
     fetchOpenRouterCatalog(),
     fetchVercelAiGatewayCatalog(),
   ]);
+  const sanitizedLobehubRaw = sanitizeLobehubSource(lobehubRaw);
 
   const modelsDevProviderIds = Object.keys(modelsDevRaw);
   const modelsDevModelCount = modelsDevProviderIds.reduce(
@@ -86,8 +103,8 @@ async function fetchSources(logger: Logger): Promise<SourceStats> {
       sum + Object.keys(modelsDevRaw[providerId]?.models ?? {}).length,
     0,
   );
-  const lobehubProviderIds = Object.keys(lobehubRaw.providers ?? {});
-  const lobehubModelCount = Object.values(lobehubRaw.models ?? {}).reduce(
+  const lobehubProviderIds = Object.keys(sanitizedLobehubRaw.providers ?? {});
+  const lobehubModelCount = Object.values(sanitizedLobehubRaw.models ?? {}).reduce(
     (sum: number, models: unknown) => sum + (Array.isArray(models) ? models.length : 0),
     0,
   );
@@ -119,11 +136,11 @@ async function fetchSources(logger: Logger): Promise<SourceStats> {
 
   return {
     lobehubMeta: {
-      commitHash: lobehubRaw._meta?.commitHash ?? "unknown",
+      commitHash: sanitizedLobehubRaw._meta?.commitHash ?? "unknown",
       providerCount: lobehubProviderIds.length,
       modelCount: lobehubModelCount,
     },
-    lobehubRaw,
+    lobehubRaw: sanitizedLobehubRaw,
     manualMeta: {
       providerCount: manualProviderIds.size,
       modelCount: manualModelCount,
