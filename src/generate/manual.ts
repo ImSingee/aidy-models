@@ -250,6 +250,15 @@ export const manualModels: Record<string, Model[]> = {
       },
     }),
     createManualModel({
+      id: "gpt-5.4-mini",
+      name: "GPT-5.4 Mini",
+      contextWindow: codexContextWindow,
+      maxOutput: codexMaxOutput,
+      pricing: createTextPricingWithoutCacheWrite(0.75, 4.5, 0.075),
+      input: ["text", "image"],
+      reasoning: true,
+    }),
+    createManualModel({
       id: "gpt-5.3-codex-spark",
       name: "GPT-5.3 Codex Spark",
       contextWindow: 128000,

@@ -556,7 +556,7 @@ const openAIServiceTierModels: Array<[string, ModelOverride]> = [
     createOpenAIServiceTierOverride(["priority"]),
   ),
   ...mapModelIdsToOverride(
-    ["openai/gpt-5-nano"],
+    ["openai/gpt-5-nano", "openai/gpt-5.4-mini", "openai/gpt-5.4-nano"],
     createOpenAIServiceTierOverride(["flex"]),
   ),
 ];
