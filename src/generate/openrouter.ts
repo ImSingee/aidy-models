@@ -11,6 +11,7 @@ type RawOpenRouterModel = {
   id: string;
   name?: string;
   created?: number;
+  knowledge_cutoff?: string;
   description?: string;
   context_length?: number;
   pricing?: Record<string, string | number | undefined>;
@@ -61,6 +62,7 @@ function normalizeModel(rawModel: RawOpenRouterModel): Model {
     name: rawModel.name || rawModel.id,
     description: rawModel.description,
     releasedAt: normalizeReleasedAt(rawModel.created),
+    knowledge: rawModel.knowledge_cutoff,
     abilities: {
       toolCall: supportedParameters.includes("tools"),
       reasoning:
