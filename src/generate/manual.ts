@@ -35,9 +35,14 @@ function createTextPricingWithoutCacheWrite(
   };
 }
 
-function createOpenAIGpt54ServiceTierPricing(): ModelPricing {
+function createOpenAIPriorityPricing(
+  input: number,
+  output: number,
+  cacheRead: number,
+  priorityMultiplier: number,
+): ModelPricing {
   return {
-    ...createTextPricingWithoutCacheWrite(2.5, 15, 0.25),
+    ...createTextPricingWithoutCacheWrite(input, output, cacheRead),
     adjustments: [
       {
         mode: "multiplier",
@@ -53,9 +58,9 @@ function createOpenAIGpt54ServiceTierPricing(): ModelPricing {
       {
         mode: "multiplier",
         values: {
-          textInput: 2,
-          textOutput: 2,
-          textInput_cacheRead: 2,
+          textInput: priorityMultiplier,
+          textOutput: priorityMultiplier,
+          textInput_cacheRead: priorityMultiplier,
         },
         when: {
           serviceTier: "priority",
@@ -182,65 +187,25 @@ export const manualModels: Record<string, Model[]> = {
   ],
   "openai-codex": [
     createManualModel({
-      id: "gpt-5.1",
-      name: "GPT-5.1",
+      id: "gpt-5.5",
+      name: "GPT-5.5",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createTextPricingWithoutCacheWrite(1.25, 10, 0.125),
+      pricing: createOpenAIPriorityPricing(5, 30, 0.5, 2.5),
       input: ["text", "image"],
       reasoning: true,
-    }),
-    createManualModel({
-      id: "gpt-5.1-codex-max",
-      name: "GPT-5.1 Codex Max",
-      contextWindow: codexContextWindow,
-      maxOutput: codexMaxOutput,
-      pricing: createTextPricingWithoutCacheWrite(1.25, 10, 0.125),
-      input: ["text", "image"],
-      reasoning: true,
-    }),
-    createManualModel({
-      id: "gpt-5.1-codex-mini",
-      name: "GPT-5.1 Codex Mini",
-      contextWindow: codexContextWindow,
-      maxOutput: codexMaxOutput,
-      pricing: createTextPricingWithoutCacheWrite(0.25, 2, 0.025),
-      input: ["text", "image"],
-      reasoning: true,
-    }),
-    createManualModel({
-      id: "gpt-5.2",
-      name: "GPT-5.2",
-      contextWindow: codexContextWindow,
-      maxOutput: codexMaxOutput,
-      pricing: createTextPricingWithoutCacheWrite(1.75, 14, 0.175),
-      input: ["text", "image"],
-      reasoning: true,
-    }),
-    createManualModel({
-      id: "gpt-5.2-codex",
-      name: "GPT-5.2 Codex",
-      contextWindow: codexContextWindow,
-      maxOutput: codexMaxOutput,
-      pricing: createTextPricingWithoutCacheWrite(1.75, 14, 0.175),
-      input: ["text", "image"],
-      reasoning: true,
-    }),
-    createManualModel({
-      id: "gpt-5.3-codex",
-      name: "GPT-5.3 Codex",
-      contextWindow: codexContextWindow,
-      maxOutput: codexMaxOutput,
-      pricing: createTextPricingWithoutCacheWrite(1.75, 14, 0.175),
-      input: ["text", "image"],
-      reasoning: true,
+      compat: {
+        openaiResponses: {
+          supportsAdditionalServiceTiers: ["priority"],
+        },
+      },
     }),
     createManualModel({
       id: "gpt-5.4",
       name: "GPT-5.4",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createOpenAIGpt54ServiceTierPricing(),
+      pricing: createOpenAIPriorityPricing(2.5, 15, 0.25, 2),
       input: ["text", "image"],
       reasoning: true,
       compat: {
@@ -259,12 +224,30 @@ export const manualModels: Record<string, Model[]> = {
       reasoning: true,
     }),
     createManualModel({
+      id: "gpt-5.3-codex",
+      name: "GPT-5.3 Codex",
+      contextWindow: codexContextWindow,
+      maxOutput: codexMaxOutput,
+      pricing: createTextPricingWithoutCacheWrite(1.75, 14, 0.175),
+      input: ["text", "image"],
+      reasoning: true,
+    }),
+    createManualModel({
       id: "gpt-5.3-codex-spark",
       name: "GPT-5.3 Codex Spark",
       contextWindow: 128000,
       maxOutput: codexMaxOutput,
       pricing: createTextPricingWithoutCacheWrite(0, 0, 0),
       input: ["text"],
+      reasoning: true,
+    }),
+    createManualModel({
+      id: "gpt-5.2",
+      name: "GPT-5.2",
+      contextWindow: codexContextWindow,
+      maxOutput: codexMaxOutput,
+      pricing: createTextPricingWithoutCacheWrite(1.75, 14, 0.175),
+      input: ["text", "image"],
       reasoning: true,
     }),
   ],
