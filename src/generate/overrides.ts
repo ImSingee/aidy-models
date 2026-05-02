@@ -289,14 +289,20 @@ function getOpenAIAdjustmentTargets(model: Model): string[] {
 function createOpenAIServiceTierAdjustments(
   targets: string[],
   serviceTiers: OpenAIServiceTier[],
+  options?: {
+    priorityMultiplier?: number;
+  },
 ): NonNullable<ModelPricing["adjustments"]> {
   const adjustments: NonNullable<ModelPricing["adjustments"]> = [];
 
   for (const serviceTier of serviceTiers) {
+    const multiplier =
+      serviceTier === "priority" ? (options?.priorityMultiplier ?? 2) : 0.5;
+
     adjustments.push({
       mode: "multiplier",
       values: Object.fromEntries(
-        targets.map((target) => [target, serviceTier === "priority" ? 2 : 0.5]),
+        targets.map((target) => [target, multiplier]),
       ),
       when: {
         serviceTier,
@@ -308,10 +314,17 @@ function createOpenAIServiceTierAdjustments(
 
 function createOpenAIServiceTierOverride(
   serviceTiers: OpenAIServiceTier[],
+  options?: {
+    priorityMultiplier?: number;
+  },
 ): ModelOverride {
   return (prev: Model) => {
     const targets = getOpenAIAdjustmentTargets(prev);
-    const adjustments = createOpenAIServiceTierAdjustments(targets, serviceTiers);
+    const adjustments = createOpenAIServiceTierAdjustments(
+      targets,
+      serviceTiers,
+      options,
+    );
 
     return {
       compat: {
@@ -529,7 +542,7 @@ const openAIServiceTierModels: Array<[string, ModelOverride]> = [
   ...mapModelIdsToOverride(
     [
       "openai/gpt-5.4",
-      "openai/gpt-5.4-pro",
+      "openai/gpt-5.4-mini",
       "openai/gpt-5.2",
       "openai/gpt-5.1",
       "openai/gpt-5",
@@ -538,6 +551,12 @@ const openAIServiceTierModels: Array<[string, ModelOverride]> = [
       "openai/o4-mini",
     ],
     createOpenAIServiceTierOverride(["flex", "priority"]),
+  ),
+  ...mapModelIdsToOverride(
+    ["openai/gpt-5.5"],
+    createOpenAIServiceTierOverride(["flex", "priority"], {
+      priorityMultiplier: 2.5,
+    }),
   ),
   ...mapModelIdsToOverride(
     [
@@ -556,7 +575,12 @@ const openAIServiceTierModels: Array<[string, ModelOverride]> = [
     createOpenAIServiceTierOverride(["priority"]),
   ),
   ...mapModelIdsToOverride(
-    ["openai/gpt-5-nano", "openai/gpt-5.4-mini", "openai/gpt-5.4-nano"],
+    [
+      "openai/gpt-5.5-pro",
+      "openai/gpt-5.4-pro",
+      "openai/gpt-5-nano",
+      "openai/gpt-5.4-nano",
+    ],
     createOpenAIServiceTierOverride(["flex"]),
   ),
 ];
