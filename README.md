@@ -11,6 +11,15 @@ the data shaped for runtime consumers:
 - pricing metadata
 - runtime compatibility metadata
 
+## Agent Skill
+
+Install the Model Pricing skill to help agents answer pricing questions from the
+latest registry data:
+
+```bash
+npx skills add ImSingee/aidy-models
+```
+
 ## Data Sources
 
 The current generator merges:
