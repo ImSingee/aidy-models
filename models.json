@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-02T05:28:53.565Z",
+    "generatedAt": "2026-06-03T05:33:04.617Z",
     "sources": {
       "modelsDev": {
-        "providerCount": 138,
-        "modelCount": 4999
+        "providerCount": 139,
+        "modelCount": 5015
       },
       "lobehub": {
         "commitHash": "049c81d53b0c2282eabf1edca2d90d58ad1f60f0",
@@ -17,7 +17,7 @@
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 280
+        "modelCount": 282
       },
       "manual": {
         "providerCount": 7,
@@ -29,8 +29,8 @@
       }
     },
     "merged": {
-      "providerCount": 184,
-      "modelCount": 6561
+      "providerCount": 185,
+      "modelCount": 6579
     },
     "overridesApplied": 109
   },
@@ -213,6 +213,21 @@
       "_": {
         "env": [
           "ALIBABA_CODING_PLAN_API_KEY"
+        ],
+        "npm": "@ai-sdk/openai-compatible"
+      }
+    },
+    "alibaba-token-plan": {
+      "id": "alibaba-token-plan",
+      "name": "Alibaba Token Plan",
+      "official": false,
+      "featured": false,
+      "api": "openai-completions",
+      "baseUrl": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
+      "doc": "https://www.alibabacloud.com/help/en/model-studio/token-plan-overview",
+      "_": {
+        "env": [
+          "ALIBABA_TOKEN_PLAN_API_KEY"
         ],
         "npm": "@ai-sdk/openai-compatible"
       }
@@ -18252,6 +18267,533 @@
         }
       }
     ],
+    "alibaba-token-plan": [
+      {
+        "id": "deepseek-v3.2",
+        "name": "DeepSeek V3.2",
+        "family": "deepseek",
+        "releasedAt": "2025-12-03",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "deepseek-v4-flash",
+        "name": "DeepSeek V4 Flash",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-04-24",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "deepseek-v4-pro",
+        "name": "DeepSeek V4 Pro",
+        "family": "deepseek-thinking",
+        "releasedAt": "2026-04-24",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "glm-5",
+        "name": "GLM-5",
+        "family": "glm",
+        "releasedAt": "2026-02-11",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 202752,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "glm-5.1",
+        "name": "GLM-5.1",
+        "family": "glm",
+        "releasedAt": "2026-03-27",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 202752,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2.5",
+        "name": "Kimi K2.5",
+        "family": "kimi",
+        "releasedAt": "2026-01",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2.6",
+        "name": "Kimi K2.6",
+        "family": "kimi",
+        "releasedAt": "2026-04-21",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "MiniMax-M2.5",
+        "name": "MiniMax-M2.5",
+        "family": "minimax",
+        "releasedAt": "2026-02-12",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 196608,
+        "maxOutput": 24576,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen-image-2.0",
+        "name": "Qwen Image 2.0",
+        "family": "qwen",
+        "releasedAt": "2026-03-03",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 8192,
+        "maxOutput": 0,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen-image-2.0-pro",
+        "name": "Qwen Image 2.0 Pro",
+        "family": "qwen",
+        "releasedAt": "2026-03-03",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 8192,
+        "maxOutput": 0,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3.6-flash",
+        "name": "Qwen3.6 Flash",
+        "family": "qwen3.6",
+        "releasedAt": "2026-04-27",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3.6-plus",
+        "name": "Qwen3.6 Plus",
+        "family": "qwen",
+        "releasedAt": "2026-04-02",
+        "knowledge": "2025-04",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3.7-max",
+        "name": "Qwen3.7 Max",
+        "family": "qwen",
+        "releasedAt": "2026-05-21",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "wan2.7-image",
+        "name": "Wan2.7 Image",
+        "releasedAt": "2026-05-29",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 8192,
+        "maxOutput": 0,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "wan2.7-image-pro",
+        "name": "Wan2.7 Image Pro",
+        "releasedAt": "2026-05-29",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 8192,
+        "maxOutput": 0,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      }
+    ],
     "amazon-bedrock": [
       {
         "id": "amazon.nova-2-lite-v1:0",
@@ -23781,6 +24323,7 @@
         "releasedAt": "2025-12-09",
         "knowledge": "2025-12",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -38031,7 +38574,9 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "audio",
+            "video"
           ],
           "output": [
             "text"
@@ -38041,7 +38586,7 @@
           "basePricing": {
             "textInput": 0.5,
             "textOutput": 2,
-            "textInput_cacheRead": 0.05
+            "textInput_cacheRead": 0.15
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -88409,6 +88954,7 @@
         "releasedAt": "2025-12-09",
         "knowledge": "2025-12",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -88441,6 +88987,7 @@
         "releasedAt": "2025-07-10",
         "knowledge": "2025-05",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -96540,6 +97087,7 @@
         "releasedAt": "2025-12-09",
         "knowledge": "2025-12",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -96572,6 +97120,7 @@
         "releasedAt": "2025-07-10",
         "knowledge": "2025-05",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -96604,6 +97153,7 @@
         "releasedAt": "2025-12-02",
         "knowledge": "2025-12",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -96636,6 +97186,7 @@
         "releasedAt": "2025-07-10",
         "knowledge": "2025-05",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -98661,7 +99212,7 @@
           "vision": true
         },
         "contextWindow": 512000,
-        "maxOutput": 131072,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text",
@@ -98674,10 +99225,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 1.2,
-            "textInput_cacheRead": 0.06,
-            "textInput_cacheWrite": 0.375
+            "textInput": 0.6,
+            "textOutput": 2.4,
+            "textInput_cacheRead": 0.12
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -98938,7 +99488,7 @@
           "vision": true
         },
         "contextWindow": 512000,
-        "maxOutput": 131072,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text",
@@ -98951,10 +99501,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 1.2,
-            "textInput_cacheRead": 0.06,
-            "textInput_cacheWrite": 0.375
+            "textInput": 0.6,
+            "textOutput": 2.4,
+            "textInput_cacheRead": 0.12
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -99170,7 +99719,7 @@
           "vision": true
         },
         "contextWindow": 512000,
-        "maxOutput": 131072,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text",
@@ -99402,7 +99951,7 @@
           "vision": true
         },
         "contextWindow": 512000,
-        "maxOutput": 131072,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text",
@@ -99543,6 +100092,40 @@
         "releasedAt": "2025-12-09",
         "knowledge": "2025-12",
         "openWeights": true,
+        "deprecated": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.4,
+            "textOutput": 2
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "devstral-latest",
+        "name": "Devstral 2",
+        "family": "devstral",
+        "releasedAt": "2025-12-09",
+        "knowledge": "2025-12",
+        "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -99575,6 +100158,7 @@
         "releasedAt": "2025-07-10",
         "knowledge": "2025-05",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -99607,6 +100191,7 @@
         "releasedAt": "2025-12-02",
         "knowledge": "2025-12",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -99639,6 +100224,7 @@
         "releasedAt": "2025-05-07",
         "knowledge": "2025-05",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -99671,6 +100257,7 @@
         "releasedAt": "2025-07-10",
         "knowledge": "2025-05",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -99705,6 +100292,7 @@
         "releasedAt": "2025-12-09",
         "knowledge": "2025-12",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -100408,11 +100996,28 @@
         "name": "Mistral Nemo",
         "description": "Mistral Nemo is a 12B model co-developed with Nvidia, offering strong reasoning and coding performance with easy integration.",
         "type": "chat",
+        "family": "mistral-nemo",
+        "releasedAt": "2024-07-01",
+        "knowledge": "2024-07",
+        "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
-          "vision": true
+          "reasoning": false,
+          "vision": true,
+          "attachment": false,
+          "temperature": true
         },
         "contextWindow": 131072,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
         "pricing": {
           "basePricing": {
             "textInput": 0.15,
@@ -135498,6 +136103,7 @@
         "releasedAt": "2026-05-31",
         "knowledge": "2025-01",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -139251,44 +139857,6 @@
         }
       },
       {
-        "id": "baidu/ernie-4.5-300b-a47b",
-        "name": "Baidu: ERNIE 4.5 300B A47B ",
-        "description": "ERNIE-4.5-300B-A47B is a 300B parameter Mixture-of-Experts (MoE) language model developed by Baidu as part of the ERNIE 4.5 series. It activates 47B parameters per token and supports text generation in...",
-        "family": "ernie",
-        "releasedAt": "2025-06-30",
-        "knowledge": "2025-03-31",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": true,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 131072,
-        "maxOutput": 12000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.28,
-            "textOutput": 1.1
-          }
-        }
-      },
-      {
         "id": "baidu/ernie-4.5-vl-28b-a3b",
         "name": "Baidu: ERNIE 4.5 VL 28B A3B",
         "description": "A powerful multimodal Mixture-of-Experts chat model featuring 28B total parameters with 3B activated per token, delivering exceptional text and vision understanding through its innovative heterogeneous MoE structure with modality-isolated routing....",
@@ -141666,9 +142234,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 2.5,
-            "textInput_cacheRead": 0.06
+            "textInput": 0.075,
+            "textOutput": 0.625,
+            "textInput_cacheRead": 0.015
           }
         }
       },
@@ -142873,7 +143441,7 @@
         "id": "minimax/minimax-m3",
         "name": "MiniMax: MiniMax M3",
         "description": "MiniMax-M3 is a multimodal foundation model from MiniMax. It supports text, image, and video inputs with text output, a 1M-token context window, and is suited for long-horizon agentic work, coding,...",
-        "family": "minimax-m3",
+        "family": "minimax",
         "releasedAt": "2026-05-31",
         "knowledge": null,
         "openWeights": true,
@@ -142958,6 +143526,7 @@
         "releasedAt": "2025-12-09",
         "knowledge": "2025-12",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -147292,6 +147861,42 @@
           "basePricing": {
             "textInput": 0,
             "textOutput": 0
+          }
+        }
+      },
+      {
+        "id": "openrouter/fusion",
+        "name": "OpenRouter: Fusion",
+        "description": "Fusion turns your prompt into a small multi-model deliberation. A panel of expert models (see below) analyzes your prompt in parallel with web search and web fetch enabled, then a...",
+        "releasedAt": "2026-05-12",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 128000,
+        "maxOutput": null,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": -1000000,
+            "textOutput": -1000000
           }
         }
       },
@@ -171190,6 +171795,7 @@
         "releasedAt": "2026-01-07",
         "knowledge": "2025-12",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -189334,6 +189940,32 @@
         }
       },
       {
+        "id": "google/gemini-3.1-flash-image",
+        "name": "Gemini 3.1 Flash Image (Nano Banana 2)",
+        "description": "Gemini 3.1 Flash Image is optimized for image understanding and generation and offers a balance of price and performance.",
+        "type": "language",
+        "releasedAt": "2026-05-28",
+        "abilities": {
+          "toolCall": false,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false
+        },
+        "contextWindow": 131072,
+        "maxOutput": 32768,
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.5,
+            "textInput_cacheRead": 0.05
+          }
+        }
+      },
+      {
         "id": "google/gemini-3.1-flash-image-preview",
         "name": "Gemini 3.1 Flash Image Preview (Nano Banana 2)",
         "description": "Gemini 3.1 Flash Image is optimized for image understanding and generation and offers a balance of price and performance.",
@@ -189622,7 +190254,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "vision": true,
           "structuredOutput": false,
           "search": false,
@@ -189647,8 +190279,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.13,
-            "textOutput": 0.4
+            "textInput": 0.15,
+            "textOutput": 0.6,
+            "textInput_cacheRead": 0.015
           }
         }
       },
@@ -195303,6 +195936,24 @@
         "description": "State-of-the-art video generation across quality, cost, and latency. Grok Imagine is x.AI's most powerful video-audio generative model yet. Bring an image to life, start from a simple text prompt, or even refine a complex cinematic sequence.",
         "type": "video",
         "releasedAt": "2026-01-28",
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": true
+        },
+        "contextWindow": 0,
+        "maxOutput": 0
+      },
+      {
+        "id": "xai/grok-imagine-video-1.5-preview",
+        "name": "Grok Imagine Video 1.5 Preview",
+        "description": "",
+        "type": "video",
+        "releasedAt": "2026-05-30",
         "abilities": {
           "toolCall": false,
           "reasoning": false,
@@ -201003,6 +201654,7 @@
           "input": [
             "text",
             "image",
+            "video",
             "pdf"
           ],
           "output": [
