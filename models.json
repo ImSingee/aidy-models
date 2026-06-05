@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-04T05:30:40.810Z",
+    "generatedAt": "2026-06-05T05:25:53.406Z",
     "sources": {
       "modelsDev": {
         "providerCount": 139,
-        "modelCount": 5113
+        "modelCount": 5122
       },
       "lobehub": {
         "commitHash": "248a4dcab5a62da6bb4784a7a6ae194fcc1b994f",
@@ -13,11 +13,11 @@
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 343
+        "modelCount": 346
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 282
+        "modelCount": 283
       },
       "manual": {
         "providerCount": 7,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 185,
-      "modelCount": 6678
+      "modelCount": 6689
     },
     "overridesApplied": 109
   },
@@ -2766,7 +2766,7 @@
     },
     "stepfun-ai": {
       "id": "stepfun-ai",
-      "name": "StepFun",
+      "name": "StepFun AI",
       "official": false,
       "featured": false,
       "api": "openai-completions",
@@ -14717,13 +14717,16 @@
           "toolCall": true,
           "reasoning": true,
           "attachment": false,
-          "temperature": true
+          "temperature": true,
+          "vision": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 1000000,
         "maxOutput": 16384,
         "modalities": {
           "input": [
-            "text"
+            "text",
+            "image",
+            "video"
           ],
           "output": [
             "text"
@@ -18484,7 +18487,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -21616,6 +21619,122 @@
         }
       },
       {
+        "id": "openai.gpt-5.4",
+        "name": "GPT-5.4",
+        "family": "gpt",
+        "releasedAt": "2026-03-05",
+        "knowledge": "2025-08-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 272000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2.75,
+            "textOutput": 16.5,
+            "textInput_cacheRead": 0.275
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
+            "supportsPromptCaching": true
+          }
+        }
+      },
+      {
+        "id": "openai.gpt-5.5",
+        "name": "GPT-5.5",
+        "family": "gpt",
+        "releasedAt": "2026-04-23",
+        "knowledge": "2025-12-01",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 272000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 5.5,
+            "textOutput": 33,
+            "textInput_cacheRead": 0.55
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
+            "supportsPromptCaching": true
+          }
+        }
+      },
+      {
+        "id": "openai.gpt-oss-120b",
+        "name": "gpt-oss-120b",
+        "family": "gpt-oss",
+        "releasedAt": "2025-08-05",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 128000,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 0.6
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "openai.gpt-oss-120b-1:0",
         "name": "gpt-oss-120b",
         "family": "gpt-oss",
@@ -21642,6 +21761,38 @@
           "basePricing": {
             "textInput": 0.15,
             "textOutput": 0.6
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "openai.gpt-oss-20b",
+        "name": "gpt-oss-20b",
+        "family": "gpt-oss",
+        "releasedAt": "2025-08-05",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 128000,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.07,
+            "textOutput": 0.3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -22386,7 +22537,7 @@
         "family": "deepseek-thinking",
         "releasedAt": "2025-01-20",
         "knowledge": "2024-07",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -22693,7 +22844,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -25298,7 +25449,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -36885,7 +37036,8 @@
         "id": "deepseek-ai/DeepSeek-R1-0528-TEE",
         "name": "DeepSeek R1 0528 TEE",
         "family": "deepseek-thinking",
-        "releasedAt": "2025-12-29",
+        "releasedAt": "2025-01-20",
+        "knowledge": "2024-07",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -37062,7 +37214,7 @@
         "id": "google/gemma-4-31B-turbo-TEE",
         "name": "gemma 4 31B turbo TEE",
         "family": "gemma",
-        "releasedAt": "2026-04-25",
+        "releasedAt": "2026-04-02",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -37097,7 +37249,7 @@
         "id": "MiniMaxAI/MiniMax-M2.5-TEE",
         "name": "MiniMax M2.5 TEE",
         "family": "minimax",
-        "releasedAt": "2026-02-15",
+        "releasedAt": "2026-02-12",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -37132,8 +37284,8 @@
       {
         "id": "moonshotai/Kimi-K2.5-TEE",
         "name": "Kimi K2.5 TEE",
-        "family": "kimi",
-        "releasedAt": "2026-01-27",
+        "family": "kimi-k2.5",
+        "releasedAt": "2026-01",
         "knowledge": "2024-10",
         "openWeights": true,
         "abilities": {
@@ -37172,8 +37324,8 @@
       {
         "id": "moonshotai/Kimi-K2.6-TEE",
         "name": "Kimi K2.6 TEE",
-        "family": "kimi",
-        "releasedAt": "2026-04-20",
+        "family": "kimi-k2.6",
+        "releasedAt": "2026-04-21",
         "knowledge": "2025-12",
         "openWeights": true,
         "abilities": {
@@ -37419,7 +37571,8 @@
         "id": "Qwen/Qwen3-235B-A22B-Instruct-2507-TEE",
         "name": "Qwen3 235B A22B Instruct 2507 TEE",
         "family": "qwen",
-        "releasedAt": "2025-12-29",
+        "releasedAt": "2025-04",
+        "knowledge": "2025-04",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -37524,7 +37677,8 @@
         "id": "Qwen/Qwen3-32B-TEE",
         "name": "Qwen3 32B TEE",
         "family": "qwen",
-        "releasedAt": "2026-04-25",
+        "releasedAt": "2025-04",
+        "knowledge": "2025-04",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -37623,7 +37777,7 @@
         "id": "Qwen/Qwen3.5-397B-A17B-TEE",
         "name": "Qwen3.5 397B A17B TEE",
         "family": "qwen",
-        "releasedAt": "2026-02-18",
+        "releasedAt": "2026-02-15",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -37661,7 +37815,7 @@
         "id": "Qwen/Qwen3.6-27B-TEE",
         "name": "Qwen3.6 27B TEE",
         "family": "qwen",
-        "releasedAt": "2026-04-25",
+        "releasedAt": "2026-04-22",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -37997,7 +38151,8 @@
         "id": "XiaomiMiMo/MiMo-V2-Flash-TEE",
         "name": "MiMo V2 Flash TEE",
         "family": "mimo",
-        "releasedAt": "2026-04-25",
+        "releasedAt": "2025-12-16",
+        "knowledge": "2024-12-01",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -38101,7 +38256,8 @@
         "id": "zai-org/GLM-4.7-TEE",
         "name": "GLM 4.7 TEE",
         "family": "glm",
-        "releasedAt": "2025-12-29",
+        "releasedAt": "2025-12-22",
+        "knowledge": "2025-04",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -38137,7 +38293,7 @@
         "id": "zai-org/GLM-5-TEE",
         "name": "GLM 5 TEE",
         "family": "glm",
-        "releasedAt": "2026-02-14",
+        "releasedAt": "2026-02-11",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -38209,7 +38365,7 @@
         "id": "zai-org/GLM-5.1-TEE",
         "name": "GLM 5.1 TEE",
         "family": "glm",
-        "releasedAt": "2026-04-08",
+        "releasedAt": "2026-03-27",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -43889,6 +44045,43 @@
         }
       },
       {
+        "id": "gpt-5.4",
+        "name": "GPT-5.4",
+        "family": "gpt",
+        "releasedAt": "2026-03-05",
+        "knowledge": "2025-08-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 16.13,
+            "textInput_cacheRead": 0.25
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "gpt-oss-120b",
         "name": "GPT Oss 120b",
         "family": "gpt-oss",
@@ -45032,7 +45225,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -50747,7 +50940,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -58369,7 +58562,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -72443,7 +72636,7 @@
         "name": "GLM 5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -89813,7 +90006,7 @@
         "family": "glm-flash",
         "releasedAt": "2025-07-28",
         "knowledge": "2025-04",
-        "openWeights": true,
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -90193,7 +90386,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -94057,7 +94250,7 @@
         "family": "qwen",
         "releasedAt": "2025-07-23",
         "knowledge": "2025-04",
-        "openWeights": true,
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -97226,7 +97419,7 @@
         "family": "devstral",
         "releasedAt": "2025-07-10",
         "knowledge": "2025-05",
-        "openWeights": true,
+        "openWeights": false,
         "deprecated": true,
         "abilities": {
           "toolCall": true,
@@ -97325,7 +97518,7 @@
         "family": "magistral-medium",
         "releasedAt": "2025-03-17",
         "knowledge": "2025-06",
-        "openWeights": true,
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -97489,14 +97682,14 @@
         "id": "mistral/mistral-medium-latest",
         "name": "Mistral Medium (latest)",
         "family": "mistral-medium",
-        "releasedAt": "2026-04-29",
-        "openWeights": true,
+        "releasedAt": "2025-08-12",
+        "knowledge": "2025-05",
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": true,
           "temperature": true,
-          "structuredOutput": true,
           "vision": true
         },
         "contextWindow": 262144,
@@ -97512,8 +97705,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 7.5
+            "textInput": 0.4,
+            "textOutput": 2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -98877,7 +99070,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -100913,14 +101106,14 @@
         "id": "mistral-medium-latest",
         "name": "Mistral Medium (latest)",
         "family": "mistral-medium",
-        "releasedAt": "2026-04-29",
-        "openWeights": true,
+        "releasedAt": "2025-08-12",
+        "knowledge": "2025-05",
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": true,
           "temperature": true,
-          "structuredOutput": true,
           "vision": true
         },
         "contextWindow": 262144,
@@ -100936,8 +101129,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 7.5
+            "textInput": 0.4,
+            "textOutput": 2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -110921,36 +111114,6 @@
             "textInput": 0.25,
             "textOutput": 0.75,
             "textInput_cacheRead": 0.025
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "mercury-coder-small",
-        "name": "Mercury Coder Small",
-        "releasedAt": "2024-01-01",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "structuredOutput": false
-        },
-        "contextWindow": 32768,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.25,
-            "textOutput": 1
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -139410,6 +139573,7 @@
         "releasedAt": "2026-03-11",
         "knowledge": "2026-02",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -139420,6 +139584,44 @@
           }
         },
         "contextWindow": 204800,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "api": "openai-completions",
+        "baseUrl": "https://opencode.ai/zen/v1"
+      },
+      {
+        "id": "nemotron-3-ultra-free",
+        "name": "Nemotron 3 Ultra Free",
+        "family": "nemotron-free",
+        "releasedAt": "2026-06-04",
+        "knowledge": "2026-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1000000,
         "maxOutput": 128000,
         "modalities": {
           "input": [
@@ -145957,7 +146159,7 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.02,
-            "textOutput": 0.05
+            "textOutput": 0.03
           }
         }
       },
@@ -146748,7 +146950,7 @@
         "family": "minimax",
         "releasedAt": "2026-05-31",
         "knowledge": null,
-        "openWeights": true,
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -148345,6 +148547,122 @@
         "modalities": {
           "input": [
             "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          }
+        }
+      },
+      {
+        "id": "nvidia/nemotron-3-ultra-550b-a55b",
+        "name": "NVIDIA: Nemotron 3 Ultra",
+        "description": "NVIDIA Nemotron 3 Ultra is an open frontier-reasoning and orchestration model from NVIDIA, with 55B active parameters out of 550B total (MoE). Built on a hybrid Transformer-Mamba mixture-of-experts architecture, it...",
+        "family": "nemotron",
+        "releasedAt": "2026-06-04",
+        "knowledge": null,
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.5,
+            "textOutput": 2.5,
+            "textInput_cacheRead": 0.15
+          }
+        }
+      },
+      {
+        "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "name": "NVIDIA: Nemotron 3 Ultra (free)",
+        "description": "NVIDIA Nemotron 3 Ultra is an open frontier-reasoning and orchestration model from NVIDIA, with 55B active parameters out of 550B total (MoE). Built on a hybrid Transformer-Mamba mixture-of-experts architecture, it...",
+        "family": "nemotron",
+        "releasedAt": "2026-06-04",
+        "knowledge": null,
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          }
+        }
+      },
+      {
+        "id": "nvidia/nemotron-3.5-content-safety:free",
+        "name": "NVIDIA: Nemotron 3.5 Content Safety (free)",
+        "description": "NVIDIA Nemotron 3.5 Content Safety is a compact 4B-parameter multimodal guardrail model from NVIDIA, fine-tuned from Google Gemma-3-4B. It moderates both inputs to and responses from LLMs and VLMs, accepting...",
+        "family": "nemotron",
+        "releasedAt": "2026-06-04",
+        "knowledge": null,
+        "openWeights": true,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 128000,
+        "maxOutput": 8192,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
           ],
           "output": [
             "text"
@@ -152090,8 +152408,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.0428,
-            "textOutput": 0.1716
+            "textInput": 0.04815,
+            "textOutput": 0.19305
           }
         }
       },
@@ -155055,7 +155373,7 @@
         "family": "glm",
         "releasedAt": "2026-04-07",
         "knowledge": null,
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -158171,7 +158489,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -173089,7 +173407,7 @@
         "name": "GLM 5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -173126,7 +173444,7 @@
         "name": "GLM 5.1 6bit",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -186020,7 +186338,7 @@
         "description": "DeepSeek-R1 improves reasoning with RL and cold-start data, setting new open-model multi-task benchmarks and surpassing OpenAI-o1-mini.",
         "type": "chat",
         "family": "deepseek-thinking",
-        "releasedAt": "2024-12-26",
+        "releasedAt": "2025-01-20",
         "knowledge": "2024-07",
         "openWeights": true,
         "abilities": {
@@ -186084,7 +186402,7 @@
         "description": "The latest DeepSeek-V3 surpasses open models like Qwen2.5-72B and Llama-3.1-405B on many benchmarks, aligning with leading closed models GPT-4o and Claude-3.5-Sonnet.",
         "type": "chat",
         "family": "deepseek",
-        "releasedAt": "2025-01-20",
+        "releasedAt": "2024-12-26",
         "knowledge": "2024-07",
         "openWeights": true,
         "abilities": {
@@ -186666,6 +186984,39 @@
         "contextWindow": 32768
       },
       {
+        "id": "nvidia/nemotron-3-ultra-550b-a55b",
+        "name": "Nemotron 3 Ultra 550B A55B",
+        "family": "nemotron",
+        "releasedAt": "2026-06-04",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 512300,
+        "maxOutput": 512300,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.6,
+            "textOutput": 3.6,
+            "textInput_cacheRead": 0.2
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "openai/gpt-oss-120b",
         "name": "GPT OSS 120B",
         "family": "gpt-oss",
@@ -187062,7 +187413,7 @@
         "name": "GLM 5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -188172,7 +188523,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.155,
-            "textOutput": 0.44
+            "textOutput": 0.44,
+            "textInput_cacheRead": 0.12
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -188669,11 +189021,12 @@
           "vision": true
         },
         "contextWindow": 500000,
-        "maxOutput": 32768,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "video"
           ],
           "output": [
             "text"
@@ -189341,6 +189694,60 @@
             "textOutput": 8.05,
             "textInput_cacheRead": 0.27,
             "textInput_cacheWrite": 3.35
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen-3-7-plus",
+        "name": "Qwen 3.7 Plus",
+        "family": "qwen",
+        "releasedAt": "2026-06-02",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 3,
+                "textOutput": 3,
+                "textInput_cacheRead": 3,
+                "textInput_cacheWrite": 3
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 0.5,
+            "textOutput": 2,
+            "textInput_cacheRead": 0.05,
+            "textInput_cacheWrite": 0.625
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -193978,9 +194385,7 @@
         "name": "Mercury Coder Small Beta",
         "description": "Mercury Coder Small is ideal for code generation, debugging, and refactoring tasks with minimal latency.",
         "type": "language",
-        "family": "mercury",
         "releasedAt": "2025-02-26",
-        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -193988,20 +194393,10 @@
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
+          "video": false
         },
         "contextWindow": 32000,
         "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "currency": "USD",
           "unit": "millionTokens",
@@ -196102,6 +196497,33 @@
           "basePricing": {
             "textInput": 0.15,
             "textOutput": 0.65
+          }
+        }
+      },
+      {
+        "id": "nvidia/nemotron-3-ultra-550b-a55b",
+        "name": "Nemotron 3 Ultra",
+        "description": "A 550B parameter (55B active) open reasoning model from NVIDIA, built for long-running agent workflows. It uses a hybrid Mamba-Transformer MoE architecture and supports a 1M token context window.",
+        "type": "language",
+        "releasedAt": "2026-06-04",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 65000,
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.6,
+            "textOutput": 2.4,
+            "textInput_cacheRead": 0.12
           }
         }
       },
@@ -202040,7 +202462,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -202896,7 +203318,7 @@
         "name": "GLM-5.1",
         "family": "glm",
         "releasedAt": "2026-03-27",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
