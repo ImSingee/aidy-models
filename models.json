@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-05T05:25:53.406Z",
+    "generatedAt": "2026-06-06T05:13:28.966Z",
     "sources": {
       "modelsDev": {
         "providerCount": 139,
-        "modelCount": 5122
+        "modelCount": 5124
       },
       "lobehub": {
         "commitHash": "248a4dcab5a62da6bb4784a7a6ae194fcc1b994f",
@@ -13,7 +13,7 @@
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 346
+        "modelCount": 344
       },
       "vercelAiGateway": {
         "providerCount": 1,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 185,
-      "modelCount": 6689
+      "modelCount": 6690
     },
     "overridesApplied": 109
   },
@@ -51487,7 +51487,7 @@
           "attachment": false
         },
         "contextWindow": 40960,
-        "maxOutput": 40960,
+        "maxOutput": 4096,
         "modalities": {
           "input": [
             "text"
@@ -52982,6 +52982,43 @@
             "textInput": 2.8,
             "textOutput": 8.8,
             "textInput_cacheRead": 0.52
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "accounts/fireworks/routers/kimi-k2p6-fast",
+        "name": "Kimi K2.6 Fast",
+        "family": "kimi-thinking",
+        "releasedAt": "2026-04-17",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 262000,
+        "maxOutput": 262000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 8,
+            "textInput_cacheRead": 0.3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -58956,6 +58993,49 @@
         }
       },
       {
+        "id": "gemini-2.5-flash-tts",
+        "name": "Gemini 2.5 Flash TTS",
+        "family": "gemini-flash",
+        "releasedAt": "2025-09-30",
+        "knowledge": "2025-01",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 32768,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "audio"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.5,
+            "textOutput": 10
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "google": {
+            "reasoningMode": "budget",
+            "defaultThinkingBudgets": {
+              "minimal": 128,
+              "low": 2048,
+              "medium": 8192,
+              "high": 24576
+            }
+          }
+        }
+      },
+      {
         "id": "gemini-2.5-pro",
         "name": "Gemini 2.5 Pro",
         "description": "Gemini 2.5 Pro is Google’s most advanced reasoning model, able to reason over code, math, and STEM problems and analyze large datasets, codebases, and documents with long context.",
@@ -59183,15 +59263,31 @@
         "name": "Nano Banana Pro",
         "description": "Gemini 3 Pro Image (Nano Banana Pro) is Google’s image generation model and also supports multimodal chat.",
         "type": "chat",
+        "family": "gemini-pro",
         "releasedAt": "2025-11-20",
+        "knowledge": "2025-01",
+        "openWeights": false,
         "abilities": {
+          "toolCall": false,
           "reasoning": true,
           "vision": true,
           "search": true,
-          "imageOutput": true
+          "imageOutput": true,
+          "attachment": true,
+          "temperature": true
         },
         "contextWindow": 163840,
         "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text",
+            "image"
+          ]
+        },
         "pricing": {
           "basePricing": {
             "imageOutput": 120,
@@ -140418,7 +140514,7 @@
           "temperature": true,
           "vision": true
         },
-        "contextWindow": 262144,
+        "contextWindow": 1000000,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -140431,6 +140527,23 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 4,
+                "textOutput": 2,
+                "textInput_cacheRead": 4,
+                "textInput_cacheWrite": 4
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 0.5,
             "textOutput": 3,
@@ -140487,7 +140600,7 @@
           "temperature": true,
           "vision": true
         },
-        "contextWindow": 262144,
+        "contextWindow": 1000000,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -140500,6 +140613,23 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 3,
+                "textOutput": 3,
+                "textInput_cacheRead": 3,
+                "textInput_cacheWrite": 3
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 0.4,
             "textOutput": 1.6,
@@ -144738,9 +144868,9 @@
         "name": "Google: Nano Banana Pro (Gemini 3 Pro Image Preview)",
         "description": "Nano Banana Pro is Google’s most advanced image-generation and editing model, built on Gemini 3 Pro. It extends the original Nano Banana with significantly improved multimodal reasoning, real-world grounding, and...",
         "type": "chat",
-        "family": "gemini",
+        "family": "gemini-pro",
         "releasedAt": "2025-11-20",
-        "knowledge": null,
+        "knowledge": "2025-01",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -145336,7 +145466,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 16384,
+        "maxOutput": 8192,
         "modalities": {
           "input": [
             "image",
@@ -145352,7 +145482,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.12,
-            "textOutput": 0.37
+            "textOutput": 0.36,
+            "textInput_cacheRead": 0.09
           }
         }
       },
@@ -146925,7 +147056,7 @@
           "temperature": true
         },
         "contextWindow": 204800,
-        "maxOutput": 131072,
+        "maxOutput": 196608,
         "modalities": {
           "input": [
             "text"
@@ -148099,44 +148230,6 @@
           "basePricing": {
             "textInput": 0.135,
             "textOutput": 0.5
-          }
-        }
-      },
-      {
-        "id": "nousresearch/hermes-2-pro-llama-3-8b",
-        "name": "NousResearch: Hermes 2 Pro - Llama-3 8B",
-        "description": "Hermes 2 Pro is an upgraded, retrained version of Nous Hermes 2, consisting of an updated and cleaned version of the OpenHermes 2.5 Dataset, as well as a newly introduced...",
-        "family": "nousresearch",
-        "releasedAt": "2024-05-27",
-        "knowledge": "2023-12-31",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": true,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 8192,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.14
           }
         }
       },
@@ -152357,7 +152450,7 @@
           "temperature": true
         },
         "contextWindow": 131072,
-        "maxOutput": 20000,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text"
@@ -153982,44 +154075,6 @@
           "basePricing": {
             "textInput": 1,
             "textOutput": 3
-          }
-        }
-      },
-      {
-        "id": "sao10k/l3-euryale-70b",
-        "name": "Sao10k: Llama 3 Euryale 70B v2.1",
-        "description": "Euryale 70B v2.1 is a model focused on creative roleplay from [Sao10k](https://ko-fi.com/sao10k). - Better prompt adherence. - Better anatomy / spatial awareness. - Adapts much better to unique and custom...",
-        "family": "llama",
-        "releasedAt": "2024-06-18",
-        "knowledge": "2023-12-31",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 8192,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 1.48,
-            "textOutput": 1.48
           }
         }
       },
@@ -206734,6 +206789,45 @@
             "textInput": 1.5,
             "textOutput": 6,
             "textInput_cacheRead": 0.15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "xpersona-gpt-5.5",
+        "name": "GPT-5.5",
+        "family": "gpt",
+        "releasedAt": "2026-05-29",
+        "knowledge": "2025-12-30",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 18,
+            "textInput_cacheRead": 0.3
           },
           "currency": "USD",
           "unit": "millionTokens"
