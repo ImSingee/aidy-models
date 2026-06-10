@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-09T05:17:23.027Z",
+    "generatedAt": "2026-06-10T05:25:51.403Z",
     "sources": {
       "modelsDev": {
         "providerCount": 140,
-        "modelCount": 5153
+        "modelCount": 5154
       },
       "lobehub": {
         "commitHash": "248a4dcab5a62da6bb4784a7a6ae194fcc1b994f",
@@ -13,11 +13,11 @@
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 341
+        "modelCount": 339
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 281
+        "modelCount": 282
       },
       "manual": {
         "providerCount": 7,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 186,
-      "modelCount": 6683
+      "modelCount": 6688
     },
     "overridesApplied": 107
   },
@@ -14736,7 +14736,7 @@
           "vision": true
         },
         "contextWindow": 1000000,
-        "maxOutput": 16384,
+        "maxOutput": 65536,
         "modalities": {
           "input": [
             "text",
@@ -14748,6 +14748,23 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 4,
+                "textOutput": 2,
+                "textInput_cacheRead": 4,
+                "textInput_cacheWrite": 4
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 0.5,
             "textOutput": 3,
@@ -19937,6 +19954,48 @@
         }
       },
       {
+        "id": "eu.anthropic.claude-fable-5",
+        "name": "Claude Fable 5 (EU)",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 11,
+            "textOutput": 55,
+            "textInput_cacheRead": 1.1,
+            "textInput_cacheWrite": 13.75
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
+            "supportsPromptCaching": true,
+            "supportsThinkingSignature": true
+          }
+        }
+      },
+      {
         "id": "eu.anthropic.claude-haiku-4-5-20251001-v1:0",
         "name": "Claude Haiku 4.5 (EU)",
         "family": "claude-haiku",
@@ -20240,6 +20299,48 @@
           "bedrock": {
             "supportsAdaptiveThinking": true,
             "xHighReasoningEffort": "high",
+            "supportsPromptCaching": true,
+            "supportsThinkingSignature": true
+          }
+        }
+      },
+      {
+        "id": "global.anthropic.claude-fable-5",
+        "name": "Claude Fable 5 (Global)",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
             "supportsPromptCaching": true,
             "supportsThinkingSignature": true
           }
@@ -22233,6 +22334,48 @@
         }
       },
       {
+        "id": "us.anthropic.claude-fable-5",
+        "name": "Claude Fable 5 (US)",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
+            "supportsPromptCaching": true,
+            "supportsThinkingSignature": true
+          }
+        }
+      },
+      {
         "id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
         "name": "Claude Haiku 4.5 (US)",
         "family": "claude-haiku",
@@ -23306,6 +23449,42 @@
             "textOutput": 15,
             "textInput_cacheRead": 0.3,
             "textInput_cacheWrite": 0.3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "claude-fable-5",
+        "name": "Claude Fable 5",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -26476,6 +26655,72 @@
           "basePricing": {
             "textInput": 0.58,
             "textOutput": 1.68
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "deepseek-v4-flash",
+        "name": "DeepSeek-V4-Flash",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-04-24",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.74,
+            "textOutput": 3.48
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "deepseek-v4-pro",
+        "name": "DeepSeek-V4-Pro",
+        "family": "deepseek-thinking",
+        "releasedAt": "2026-04-24",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.19,
+            "textOutput": 0.51
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -39004,6 +39249,43 @@
         }
       },
       {
+        "id": "anthropic/claude-fable-5",
+        "name": "Claude Fable 5",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "anthropic/claude-haiku-4-5",
         "name": "Claude Haiku 4.5 (latest)",
         "family": "claude-haiku",
@@ -41466,6 +41748,7 @@
           "attachment": true,
           "temperature": true,
           "structuredOutput": true,
+          "interleaved": true,
           "vision": true
         },
         "contextWindow": 256000,
@@ -41843,9 +42126,7 @@
           "attachment": false,
           "temperature": true,
           "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
+          "interleaved": true
         },
         "contextWindow": 256000,
         "maxOutput": 256000,
@@ -42054,7 +42335,10 @@
           "reasoning": true,
           "attachment": false,
           "temperature": true,
-          "structuredOutput": true
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
         },
         "contextWindow": 131072,
         "maxOutput": 131072,
@@ -42246,6 +42530,41 @@
         "modalities": {
           "input": [
             "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2.5,
+            "textOutput": 10
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "command-a-plus-05-2026",
+        "name": "Command A Plus",
+        "family": "command-a",
+        "releasedAt": "2026-05-20",
+        "knowledge": "2025-04-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 128000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
           ],
           "output": [
             "text"
@@ -42578,6 +42897,42 @@
           "basePricing": {
             "textInput": 0.0375,
             "textOutput": 0.15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "north-mini-code-1-0",
+        "name": "North Mini Code",
+        "family": "north",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2025-09-23",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 256000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -126595,12 +126950,11 @@
         "abilities": {
           "toolCall": true,
           "reasoning": false,
-          "structuredOutput": true,
           "attachment": false,
           "temperature": true
         },
         "contextWindow": 131072,
-        "maxOutput": 131072,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -128740,68 +129094,24 @@
         "name": "DeepSeek V3.1 Terminus",
         "description": "DeepSeek V3.1 is a next-gen reasoning model with stronger complex reasoning and chain-of-thought for deep analysis tasks.",
         "type": "chat",
-        "family": "deepseek",
-        "releasedAt": "2025-09-22",
-        "knowledge": "2025-01",
-        "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true
+          "reasoning": true
         },
         "contextWindow": 131072,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
+        "maxOutput": 16384
       },
       {
         "id": "deepseek-ai/deepseek-v3.2",
         "name": "DeepSeek V3.2",
         "description": "DeepSeek V3.2 is a next-gen reasoning model with stronger complex reasoning and chain-of-thought capabilities.",
         "type": "chat",
-        "family": "deepseek",
-        "releasedAt": "2025-12-01",
-        "knowledge": "2024-07",
-        "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true
+          "reasoning": true
         },
         "contextWindow": 131072,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
+        "maxOutput": 65536
       },
       {
         "id": "deepseek-ai/deepseek-v4-flash",
@@ -128896,40 +129206,6 @@
         "modalities": {
           "input": [
             "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "google/gemma-3-27b-it",
-        "name": "Gemma-3-27B-IT",
-        "family": "gemma",
-        "releasedAt": "2024-12-01",
-        "knowledge": "2024-12",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
           ],
           "output": [
             "text"
@@ -129452,21 +129728,18 @@
         "family": "phi",
         "releasedAt": "2024-12-01",
         "knowledge": "2024-12",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
         },
         "contextWindow": 131072,
         "maxOutput": 8192,
         "modalities": {
           "input": [
-            "text",
-            "image",
-            "audio"
+            "text"
           ],
           "output": [
             "text"
@@ -129515,34 +129788,12 @@
         "id": "minimaxai/minimax-m2.5",
         "name": "MiniMax-M2.5",
         "type": "chat",
-        "family": "minimax",
-        "releasedAt": "2026-02-12",
-        "knowledge": "2025-08",
-        "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true
+          "reasoning": true
         },
         "contextWindow": 204800,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
+        "maxOutput": 131072
       },
       {
         "id": "minimaxai/minimax-m2.7",
@@ -129559,39 +129810,6 @@
         },
         "contextWindow": 204800,
         "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "mistralai/devstral-2-123b-instruct-2512",
-        "name": "Devstral-2-123B-Instruct-2512",
-        "family": "devstral",
-        "releasedAt": "2025-12-08",
-        "knowledge": "2025-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text"
@@ -129776,15 +129994,18 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
         },
         "contextWindow": 128000,
         "maxOutput": 8192,
         "modalities": {
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "output": [
             "text"
@@ -129860,38 +130081,6 @@
         }
       },
       {
-        "id": "moonshotai/kimi-k2-instruct",
-        "name": "Kimi K2 Instruct",
-        "family": "kimi",
-        "releasedAt": "2025-01-01",
-        "knowledge": "2024-01",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "moonshotai/kimi-k2-instruct-0905",
         "name": "Kimi K2 0905",
         "family": "kimi",
@@ -129918,42 +130107,6 @@
           "basePricing": {
             "textInput": 0,
             "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "moonshotai/kimi-k2-thinking",
-        "name": "Kimi K2 Thinking",
-        "family": "kimi-thinking",
-        "releasedAt": "2025-11",
-        "knowledge": "2025-07",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0,
-            "textInput_cacheRead": 0,
-            "textInput_cacheWrite": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -130243,70 +130396,6 @@
         },
         "contextWindow": 32768,
         "maxOutput": 2048,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "nvidia/llama-3_3-nemotron-super-49b-v1",
-        "name": "Llama 3.3 Nemotron Super 49B v1",
-        "family": "nemotron",
-        "releasedAt": "2025-04-07",
-        "knowledge": "2023-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "nvidia/llama-3_3-nemotron-super-49b-v1_5",
-        "name": "Llama 3.3 Nemotron Super 49B v1.5",
-        "family": "nemotron",
-        "releasedAt": "2025-07-25",
-        "knowledge": "2023-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -131033,12 +131122,13 @@
         "family": "gpt-oss",
         "releasedAt": "2025-08-04",
         "knowledge": "2025-08",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
-          "attachment": true,
-          "temperature": true
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
         },
         "contextWindow": 128000,
         "maxOutput": 8192,
@@ -131307,38 +131397,6 @@
         }
       },
       {
-        "id": "qwen/qwen3-next-80b-a3b-thinking",
-        "name": "Qwen3-Next-80B-A3B-Thinking",
-        "family": "qwen",
-        "releasedAt": "2024-12-01",
-        "knowledge": "2024-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "qwen/qwen3.5-122b-a10b",
         "name": "Qwen3.5 122B-A10B",
         "family": "qwen",
@@ -131571,37 +131629,12 @@
         "name": "GLM-4.7",
         "description": "GLM-4.7 is Zhipu latest flagship model, enhanced for Agentic Coding scenarios with improved coding capabilities.",
         "type": "chat",
-        "family": "glm",
-        "releasedAt": "2025-12-22",
-        "knowledge": "2025-04",
-        "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
+          "reasoning": true
         },
         "contextWindow": 200000,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
+        "maxOutput": 131072
       },
       {
         "id": "z-ai/glm5",
@@ -136892,6 +136925,45 @@
         "baseUrl": "https://opencode.ai/zen"
       },
       {
+        "id": "claude-fable-5",
+        "name": "Claude Fable 5",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "api": "anthropic-messages",
+        "baseUrl": "https://opencode.ai/zen"
+      },
+      {
         "id": "claude-haiku-4-5",
         "name": "Claude Haiku 4.5",
         "family": "claude-haiku",
@@ -139275,6 +139347,44 @@
         "baseUrl": "https://opencode.ai/zen/v1"
       },
       {
+        "id": "north-mini-code-free",
+        "name": "North Mini Code Free",
+        "family": "north-free",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2025-09-23",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 256000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "api": "openai-completions",
+        "baseUrl": "https://opencode.ai/zen/v1"
+      },
+      {
         "id": "qwen3-coder",
         "name": "Qwen3 Coder",
         "family": "qwen",
@@ -141342,6 +141452,48 @@
     ],
     "openrouter": [
       {
+        "id": "~anthropic/claude-fable-latest",
+        "name": "Anthropic: Claude Fable Latest",
+        "description": "This model always redirects to the latest model in the Claude Fable family.",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": null,
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          }
+        }
+      },
+      {
         "id": "~anthropic/claude-haiku-latest",
         "name": "Anthropic Claude Haiku Latest",
         "description": "This model always redirects to the latest model in the Anthropic Claude Haiku family.",
@@ -142151,7 +142303,7 @@
           "reasoning": false,
           "vision": true,
           "structuredOutput": false,
-          "search": false,
+          "search": true,
           "imageOutput": false,
           "video": false,
           "attachment": false,
@@ -142218,6 +142370,48 @@
             "textOutput": 4,
             "textInput_cacheRead": 0.08,
             "textInput_cacheWrite": 1
+          }
+        }
+      },
+      {
+        "id": "anthropic/claude-fable-5",
+        "name": "Anthropic: Claude Fable 5",
+        "description": "Claude Fable 5 is a Mythos-class model from Anthropic, built for autonomous knowledge work and coding. It supports text, image, and file inputs with text output, with reasoning support and...",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
           }
         }
       },
@@ -142805,43 +142999,6 @@
           "basePricing": {
             "textInput": 0.5,
             "textOutput": 0.8
-          }
-        }
-      },
-      {
-        "id": "arcee-ai/maestro-reasoning",
-        "name": "Arcee AI: Maestro Reasoning",
-        "description": "Maestro Reasoning is Arcee's flagship analysis model: a 32 B‑parameter derivative of Qwen 2.5‑32 B tuned with DPO and chain‑of‑thought RL for step‑by‑step logic. Compared to the earlier 7 B...",
-        "releasedAt": "2025-05-05",
-        "knowledge": "2025-03-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.9,
-            "textOutput": 3.3
           }
         }
       },
@@ -146490,7 +146647,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.15,
-            "textOutput": 1.15
+            "textOutput": 0.9,
+            "textInput_cacheRead": 0.05
           }
         }
       },
@@ -146514,7 +146672,7 @@
           "temperature": true
         },
         "contextWindow": 204800,
-        "maxOutput": 196608,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -146527,8 +146685,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.279,
-            "textOutput": 1.2
+            "textInput": 0.27,
+            "textOutput": 1.08,
+            "textInput_cacheRead": 0.054
           }
         }
       },
@@ -147486,9 +147645,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 1.9,
-            "textInput_cacheRead": 0.09
+            "textInput": 0.35,
+            "textOutput": 1.89
           }
         }
       },
@@ -154398,44 +154556,6 @@
         }
       },
       {
-        "id": "z-ai/glm-4-32b",
-        "name": "Z.ai: GLM 4 32B ",
-        "description": "GLM 4 32B is a cost-effective foundation language model. It can efficiently perform complex tasks and has significantly enhanced capabilities in tool use, online search, and code-related intelligent tasks. It...",
-        "family": "glm",
-        "releasedAt": "2025-07-24",
-        "knowledge": "2024-06-30",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.1
-          }
-        }
-      },
-      {
         "id": "z-ai/glm-4.5",
         "name": "Z.ai: GLM 4.5",
         "description": "GLM-4.5 is our latest flagship foundation model, purpose-built for agent-based applications. It leverages a Mixture-of-Experts (MoE) architecture and supports a context length of up to 128k tokens. GLM-4.5 delivers significantly...",
@@ -154510,44 +154630,6 @@
             "textInput": 0.125,
             "textOutput": 0.85,
             "textInput_cacheRead": 0.06
-          }
-        }
-      },
-      {
-        "id": "z-ai/glm-4.5-air:free",
-        "name": "Z.ai: GLM 4.5 Air (free)",
-        "description": "GLM-4.5-Air is the lightweight variant of our latest flagship model family, also purpose-built for agent-centric applications. Like GLM-4.5, it adopts the Mixture-of-Experts (MoE) architecture but with a more compact parameter...",
-        "family": "glm-air",
-        "releasedAt": "2025-07-25",
-        "knowledge": "2025-04",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 96000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
           }
         }
       },
@@ -154650,7 +154732,7 @@
           "temperature": true
         },
         "contextWindow": 131072,
-        "maxOutput": 24000,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "image",
@@ -154667,7 +154749,7 @@
           "basePricing": {
             "textInput": 0.3,
             "textOutput": 0.9,
-            "textInput_cacheRead": 0.05
+            "textInput_cacheRead": 0.055
           }
         }
       },
@@ -154819,7 +154901,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 202752,
+        "contextWindow": 262144,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -154878,50 +154960,6 @@
             "textInput": 0.98,
             "textOutput": 3.08,
             "textInput_cacheRead": 0.182
-          }
-        }
-      },
-      {
-        "id": "z-ai/glm-5v-turbo",
-        "name": "Z.ai: GLM 5V Turbo",
-        "description": "GLM-5V-Turbo is Z.ai’s first native multimodal agent foundation model, built for vision-based coding and agent-driven tasks. It natively handles image, video, and text inputs, excels at long-horizon planning, complex coding,...",
-        "family": "glm",
-        "releasedAt": "2026-04-01",
-        "knowledge": null,
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": true,
-          "search": false,
-          "imageOutput": false,
-          "video": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 202752,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "image",
-            "text",
-            "video"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 1.2,
-            "textOutput": 4,
-            "textInput_cacheRead": 0.24
           }
         }
       }
@@ -191432,6 +191470,49 @@
         }
       },
       {
+        "id": "anthropic/claude-fable-5",
+        "name": "Claude Fable 5",
+        "description": "Claude Fable 5 is a Mythos-class model with robust safeguards. It can handle long-running, complex, and asynchronous tasks where previous models would have needed more frequent check-ins.",
+        "type": "language",
+        "family": "claude",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          }
+        }
+      },
+      {
         "id": "anthropic/claude-haiku-4.5",
         "name": "Claude Haiku 4.5",
         "description": "Claude Haiku 4.5 matches Sonnet 4's performance on coding, computer use, and agent tasks at substantially lower cost and faster speeds. It delivers near-frontier performance and Claude’s unique character at a price point that works for scaled sub-agent deployments, free tier products, and intelligence-sensitive applications with budget constraints.",
@@ -205895,6 +205976,42 @@
           "currency": "CNY",
           "unit": "millionTokens"
         }
+      },
+      {
+        "id": "mimo-v2.5-pro-ultraspeed",
+        "name": "MiMo-V2.5-Pro-UltraSpeed",
+        "family": "mimo",
+        "releasedAt": "2026-06-08",
+        "knowledge": "2024-12",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.305,
+            "textOutput": 2.61,
+            "textInput_cacheRead": 0.0108
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
       }
     ],
     "xiaomi-token-plan-ams": [
@@ -207674,6 +207791,43 @@
           "basePricing": {
             "textInput": 3,
             "textOutput": 15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "anthropic/claude-fable-5",
+        "name": "Claude Fable 5",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
           "unit": "millionTokens"
