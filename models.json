@@ -1,15 +1,15 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-14T05:29:09.552Z",
+    "generatedAt": "2026-06-15T05:41:17.054Z",
     "sources": {
       "modelsDev": {
         "providerCount": 145,
         "modelCount": 5262
       },
       "lobehub": {
-        "commitHash": "553d3d8fc784196a680529a7868bf782b5276bd7",
-        "providerCount": 80,
-        "modelCount": 1947
+        "commitHash": "8992df31871d0d3548a5f1f609cc1cad2c2c4dfb",
+        "providerCount": 81,
+        "modelCount": 1928
       },
       "openRouter": {
         "providerCount": 1,
@@ -29,8 +29,8 @@
       }
     },
     "merged": {
-      "providerCount": 191,
-      "modelCount": 6762
+      "providerCount": 192,
+      "modelCount": 6744
     },
     "overridesApplied": 107
   },
@@ -283,6 +283,21 @@
           "AMBIENT_API_KEY"
         ],
         "npm": "@ai-sdk/openai-compatible"
+      }
+    },
+    "antgroup": {
+      "id": "antgroup",
+      "name": "AntGroup",
+      "official": false,
+      "featured": false,
+      "api": "openai-completions",
+      "description": "Ant Ling is the core foundation model series of Ant Group’s Artificial General Intelligence (AGI) initiative, dedicated to building and opening up cutting-edge foundational model capabilities. We believe that the development of intelligence must move toward openness, sharing, and scalability—starting from small, practical steps to drive the steady evolution and real-world deployment of AGI.",
+      "url": "https://ling.tbox.cn/open",
+      "checkModel": "Ling-2.6-flash",
+      "_": {
+        "sdkType": "openai",
+        "showModelFetcher": false,
+        "modelsUrl": "https://alipaytbox.yuque.com/sxs0ba/ling/model_overview"
       }
     },
     "anthropic": {
@@ -1679,14 +1694,14 @@
       "api": "openai-completions",
       "description": "LongCat is a series of generative AI large models independently developed by Meituan. It is designed to enhance internal enterprise productivity and enable innovative applications through an efficient computational architecture and strong multimodal capabilities.",
       "url": "https://longcat.chat/platform/usage",
-      "checkModel": "LongCat-Flash-Lite",
+      "checkModel": "LongCat-2.0-Preview",
       "_": {
         "disableBrowserRequest": false,
         "proxyUrl": {
           "placeholder": "https://api.longcat.chat/openai/v1"
         },
         "sdkType": "openai",
-        "showModelFetcher": false,
+        "showModelFetcher": true,
         "modelsUrl": "https://longcat.chat/platform/docs/zh/#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A8%A1%E5%9E%8B"
       }
     },
@@ -2693,16 +2708,15 @@
       "featured": false,
       "api": "openai-completions",
       "description": "SenseNova delivers efficient, easy-to-use full-stack LLM services backed by SenseTime infrastructure.",
-      "url": "https://platform.sensenova.cn/home",
-      "checkModel": "SenseChat-Turbo",
+      "url": "https://platform.sensenova.cn",
+      "checkModel": "sensenova-6.7-flash-lite",
       "_": {
-        "disableBrowserRequest": true,
         "proxyUrl": {
-          "placeholder": "https://api.sensenova.cn/compatible-mode/v2"
+          "placeholder": "https://token.sensenova.cn/v1"
         },
         "sdkType": "openai",
         "showModelFetcher": true,
-        "modelsUrl": "https://platform.sensenova.cn/pricing"
+        "modelsUrl": "https://www.sensenova.cn/models"
       }
     },
     "siliconflow": {
@@ -23697,6 +23711,111 @@
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
+          "unit": "millionTokens"
+        }
+      }
+    ],
+    "antgroup": [
+      {
+        "id": "Ling-2.5-1T",
+        "name": "Ling-2.5-1T",
+        "description": "As the latest flagship real-time model in the Ling series, Ling-2.5-1T introduces comprehensive upgrades in model architecture, token efficiency, and preference alignment, aiming to elevate the quality of accessible AI to a new level.",
+        "type": "chat",
+        "releasedAt": "2026-02-16",
+        "abilities": {
+          "toolCall": true,
+          "search": true
+        },
+        "contextWindow": 131072,
+        "pricing": {
+          "basePricing": {
+            "textInput": 4,
+            "textOutput": 8
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "Ling-2.6-1T",
+        "name": "Ling-2.6-1T",
+        "description": "The latest flagship large language model, featuring support for a 1M-token context window and enabling an end-to-end workflow from logical reasoning to task execution.",
+        "type": "chat",
+        "releasedAt": "2026-04-29",
+        "abilities": {
+          "toolCall": true,
+          "structuredOutput": true,
+          "search": true
+        },
+        "contextWindow": 262144,
+        "pricing": {
+          "basePricing": {
+            "textInput": 4.5,
+            "textOutput": 18
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "Ling-2.6-flash",
+        "name": "Ling-2.6-flash",
+        "description": "Ling-2.6-flash is the latest generation high cost-performance model in the Ling series. It adopts a Mixture-of-Experts (MoE) architecture, with a total parameter count of 100B and 6.1B activated parameters per token, achieving an optimal balance between inference performance and computational cost.",
+        "type": "chat",
+        "releasedAt": "2026-04-22",
+        "abilities": {
+          "toolCall": true,
+          "structuredOutput": true,
+          "search": true
+        },
+        "contextWindow": 262144,
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.6,
+            "textOutput": 1.8
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "Ring-2.5-1T",
+        "name": "Ring-2.5-1T",
+        "description": "Compared to the previously released Ring-1T, Ring-2.5-1T achieves significant improvements across three key dimensions: generation efficiency, reasoning depth, and long-horizon task execution capability: Generation Efficiency**: By leveraging a high proportion of linear attention mechanisms, Ring-2.5-1T reduces memory access overhead by more than 10×. When processing sequences exceeding 32K tokens, it delivers over 3× higher generation throughput, making it particularly well-suited for deep reasoning and long-horizon task execution. Deep Reasoning**: Building on RLVR, a dense reward mechanism is introduced to provide feedback on the rigor of the reasoning process. This enables Ring-2.5-1T to achieve gold-medal-level performance in both IMO 2025 and CMO 2025 (self-evaluated). Long-Horizon Task Execution**: Through large-scale fully asynchronous agent-based reinforcement learning training, the model significantly enhances its ability to autonomously execute complex tasks over extended periods. This allows Ring-2.5-1T to seamlessly integrate with agent programming frameworks such as Claude Code and OpenClaw personal AI assistants.",
+        "type": "chat",
+        "releasedAt": "2026-02-15",
+        "abilities": {
+          "reasoning": true,
+          "search": true
+        },
+        "contextWindow": 131072,
+        "pricing": {
+          "basePricing": {
+            "textInput": 4,
+            "textOutput": 8
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "Ring-2.6-1T",
+        "name": "Ring-2.6-1T",
+        "description": "Ring-2.6-1T is a trillion-parameter-scale reasoning model that activates approximately 63B parameters per inference. Designed for Agent workflows, it focuses on agent capabilities, tool use, and long-horizon task execution, achieving leading performance on benchmarks such as PinchBench, ClawEval, TAU2-Bench, and GAIA2-search. The model is optimized across execution quality, latency, and cost, making it well suited for advanced coding agents, complex reasoning pipelines, and large-scale autonomous systems.",
+        "type": "chat",
+        "releasedAt": "2026-05-15",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "search": true
+        },
+        "contextWindow": 262144,
+        "pricing": {
+          "basePricing": {
+            "textInput": 4.5,
+            "textOutput": 18
+          },
+          "currency": "CNY",
           "unit": "millionTokens"
         }
       }
@@ -61764,6 +61883,60 @@
         }
       },
       {
+        "id": "gemma-4-E2B-it",
+        "name": "Gemma 4 E2B IT",
+        "family": "gemma",
+        "releasedAt": "2026-04-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 8192,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        }
+      },
+      {
+        "id": "gemma-4-E4B-it",
+        "name": "Gemma 4 E4B IT",
+        "family": "gemma",
+        "releasedAt": "2026-04-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 8192,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        }
+      },
+      {
         "id": "imagen-4.0-fast-generate-001",
         "name": "Imagen 4 Fast",
         "description": "Imagen fourth-generation text-to-image fast variant.",
@@ -93216,6 +93389,58 @@
         }
       },
       {
+        "id": "grok-build-0-1",
+        "name": "Grok Build 0.1",
+        "family": "grok-build",
+        "releasedAt": "2026-04-16",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 256000,
+        "maxOutput": 256000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 1,
+            "textOutput": 2,
+            "textInput_cacheRead": 0.2
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "hermes-2-pro-llama-3-8b",
         "name": "Hermes 2 Pro Llama 3 8B",
         "family": "hermes",
@@ -93427,6 +93652,46 @@
             "textInput": 0.95,
             "textOutput": 4,
             "textInput_cacheRead": 0.16
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2.7-code",
+        "name": "Kimi K2.7 Code",
+        "family": "kimi-k2",
+        "releasedAt": "2026-06-12",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.95,
+            "textOutput": 4,
+            "textInput_cacheRead": 0.19
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -94256,7 +94521,7 @@
         "name": "MiniMax-M3",
         "family": "minimax",
         "releasedAt": "2026-06-01",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -94517,6 +94782,38 @@
           "basePricing": {
             "textInput": 0.1,
             "textOutput": 0.3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "nemotron-3-ultra-550b",
+        "name": "Nemotron 3 Ultra 550B A55B",
+        "family": "nemotron",
+        "releasedAt": "2026-06-04",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.5,
+            "textOutput": 2.5,
+            "textInput_cacheRead": 0.15
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96769,88 +97066,6 @@
         },
         "contextWindow": 1000000,
         "maxOutput": 128000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "LongCat-Flash-Chat",
-        "name": "LongCat-Flash-Chat",
-        "description": "The LongCat-Flash-Chat model has been upgraded to a new version. This update involves enhancements to model capabilities only; the model name and API invocation method remain unchanged. Building upon its hallmark “extreme efficiency” and “lightning-fast response,” the new version further strengthens contextual understanding and real-world programming performance: Significantly Enhanced Coding Capabilities: Deeply optimized for developer-centric scenarios, the model delivers substantial improvements in code generation, debugging, and explanation tasks. Developers are strongly encouraged to evaluate and benchmark these enhancements. Support for 256K Ultra-Long Context: The context window has doubled from the previous generation (128K) to 256K, enabling efficient processing of massive documents and long-sequence tasks. Comprehensively Improved Multilingual Performance: Provides strong support for nine languages, including Spanish, French, Arabic, Portuguese, Russian, and Indonesian. More Powerful Agent Capabilities: Demonstrates greater robustness and efficiency in complex tool invocation and multi-step task execution.",
-        "type": "chat",
-        "releasedAt": "2025-12-12",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "LongCat-Flash-Lite",
-        "name": "LongCat-Flash-Lite",
-        "description": "The LongCat-Flash-Lite model has been officially released. It adopts an efficient Mixture-of-Experts (MoE) architecture, with 68.5 billion total parameters and approximately 3 billion activated parameters. Through the use of an N-gram embedding table, it achieves highly efficient parameter utilization, and it is deeply optimized for inference efficiency and specific application scenarios. Compared to models of a similar scale, its core features are as follows:Outstanding Inference Efficiency: By leveraging the N-gram embedding table to fundamentally alleviate the I/O bottleneck inherent in MoE architectures, combined with dedicated caching mechanisms and kernel-level optimizations, it significantly reduces inference latency and improves overall efficiency. Strong Agent and Code Performance: It demonstrates highly competitive capabilities in tool invocation and software development tasks, delivering exceptional performance relative to its model size.",
-        "type": "chat",
-        "releasedAt": "2026-02-05",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 327680,
-        "maxOutput": 262144,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "LongCat-Flash-Thinking",
-        "name": "LongCat-Flash-Thinking",
-        "description": "To ensure you receive top-tier reasoning performance, the LongCat API platform has unified and upgraded calls to the LongCat-Flash-Thinking model. All existing requests using `model=LongCat-Flash-Thinking` will be automatically routed to the latest version, LongCat-Flash-Thinking-2601, with no code changes required.",
-        "type": "chat",
-        "releasedAt": "2026-01-14",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "LongCat-Flash-Thinking-2601",
-        "name": "LongCat-Flash-Thinking-2601",
-        "description": "The LongCat-Flash-Thinking-2601 model has been officially released. As an upgraded reasoning model built on a Mixture-of-Experts (MoE) architecture, it features a total of 560 billion parameters. While maintaining strong competitiveness across traditional reasoning benchmarks, it systematically enhances Agent-level reasoning capabilities through large-scale multi-environment reinforcement learning. Compared to the LongCat-Flash-Thinking model, the key upgrades are as follows: Extreme Robustness in Noisy Environments: Through systematic curriculum-style training targeting noise and uncertainty in real-world settings, the model demonstrates outstanding performance in Agent tool invocation, Agent-based search, and tool-integrated reasoning, with significantly improved generalization. Powerful Agent Capabilities: By constructing a tightly coupled dependency graph encompassing more than 60 tools, and scaling training through multi-environment expansion and large-scale exploratory learning, the model markedly improves its ability to generalize to complex and out-of-distribution real-world scenarios. Advanced Deep Thinking Mode: It expands the breadth of reasoning via parallel inference and deepens analytical capability through recursive feedback-driven summarization and abstraction mechanisms, effectively addressing highly challenging problems.",
-        "type": "chat",
-        "releasedAt": "2026-01-14",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
         "pricing": {
           "basePricing": {
             "textInput": 0,
@@ -149000,7 +149215,7 @@
         "family": "minimax",
         "releasedAt": "2026-05-31",
         "knowledge": null,
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -176039,7 +176254,7 @@
         }
       },
       {
-        "id": "Llama-3.2-90B-Vision-Instruct\t",
+        "id": "Llama-3.2-90B-Vision-Instruct",
         "name": "Meta Llama 3.2 90B Vision Instruct",
         "description": "Advanced image reasoning for visual-understanding agent applications.",
         "type": "chat",
@@ -177801,32 +178016,16 @@
     ],
     "sensenova": [
       {
-        "id": "DeepSeek-R1",
-        "name": "DeepSeek R1",
-        "description": "DeepSeek-R1 applies large-scale reinforcement learning during post-training, greatly boosting reasoning with very little labeled data. It matches the OpenAI o1 production model on math, code, and natural language reasoning tasks.",
+        "id": "deepseek-v4-flash",
+        "name": "DeepSeek V4 Flash",
+        "description": "A high-performance conversational model from DeepSeek, supporting both reasoning and non-reasoning modes, with a 256K-token context window and up to 64K output tokens. Built-in capabilities include JSON Output and Tool Calls.",
         "type": "chat",
         "abilities": {
+          "toolCall": true,
           "reasoning": true
         },
-        "contextWindow": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 4,
-            "textOutput": 16
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "DeepSeek-R1-Distill-Qwen-14B",
-        "name": "DeepSeek R1 Distill Qwen 14B",
-        "description": "DeepSeek-R1-Distill models are fine-tuned from open-source models using sample data generated by DeepSeek-R1.",
-        "type": "chat",
-        "abilities": {
-          "reasoning": true
-        },
-        "contextWindow": 32768,
+        "contextWindow": 262144,
+        "maxOutput": 65536,
         "pricing": {
           "basePricing": {
             "textInput": 0,
@@ -177837,387 +178036,40 @@
         }
       },
       {
-        "id": "DeepSeek-R1-Distill-Qwen-32B",
-        "name": "DeepSeek R1 Distill Qwen 32B",
-        "description": "DeepSeek-R1-Distill models are fine-tuned from open-source models using sample data generated by DeepSeek-R1.",
+        "id": "sensenova-6.7-flash-lite",
+        "name": "SenseNova 6.7 Flash Lite",
+        "description": "A lightweight multimodal agent model designed for real-world workflows, supporting both text-based conversations and image understanding. Lightweight and efficient, balancing performance, cost, and deployability. Native multimodal architecture with support for image understanding, including OCR and chart interpretation. Enhanced for office and productivity scenarios, with stable support for complex long-chain tasks. Improved token efficiency, enabling better cost control for complex workloads. Context length of 256K tokens (maximum input: 252K, maximum output: 64K)",
         "type": "chat",
+        "releasedAt": "2026-05-08",
         "abilities": {
-          "reasoning": true
-        },
-        "contextWindow": 8192,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "DeepSeek-V3",
-        "name": "DeepSeek V3",
-        "description": "DeepSeek-V3 is a MoE model developed by DeepSeek. It surpasses other open models like Qwen2.5-72B and Llama-3.1-405B on many benchmarks and is competitive with leading closed models such as GPT-4o and Claude 3.5 Sonnet.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2,
-            "textOutput": 8
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen3-235B",
-        "name": "Qwen3 235B A22B",
-        "description": "Qwen3-235B-A22B is a MoE model that introduces a hybrid reasoning mode, letting users switch seamlessly between thinking and non-thinking. It supports understanding and reasoning across 119 languages and dialects and has strong tool-calling capabilities, competing with mainstream models like DeepSeek R1, OpenAI o1, o3-mini, Grok 3, and Google Gemini 2.5 Pro across benchmarks in general ability, code and math, multilingual capability, and knowledge reasoning.",
-        "type": "chat",
-        "releasedAt": "2025-05-27",
-        "abilities": {
-          "reasoning": true
-        },
-        "contextWindow": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen3-32B",
-        "name": "Qwen3 32B",
-        "description": "Qwen3-32B is a dense model that introduces a hybrid reasoning mode, letting users switch between thinking and non-thinking. With architecture improvements, more data, and better training, it performs on par with Qwen2.5-72B.",
-        "type": "chat",
-        "releasedAt": "2025-05-27",
-        "abilities": {
-          "reasoning": true
-        },
-        "contextWindow": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat",
-        "name": "SenseChat 4.0 4K",
-        "description": "Base V4 with 4K context and strong general capability.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 4096,
-        "maxOutput": 4096,
-        "pricing": {
-          "basePricing": {
-            "textInput": 12,
-            "textOutput": 12
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-128K",
-        "name": "SenseChat 4.0 128K",
-        "description": "Base V4 with 128K context, strong in long-text understanding and generation.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 131072,
-        "maxOutput": 131072,
-        "pricing": {
-          "basePricing": {
-            "textInput": 60,
-            "textOutput": 60
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-32K",
-        "name": "SenseChat 4.0 32K",
-        "description": "Base V4 with 32K context, flexible for many scenarios.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 32768,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 36,
-            "textOutput": 36
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-5",
-        "name": "SenseChat 5.5",
-        "description": "Latest V5.5 with 128K context; major gains in math reasoning, English chat, instruction following, and long-text understanding, comparable to GPT-4o.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 131072,
-        "pricing": {
-          "basePricing": {
-            "textInput": 8,
-            "textOutput": 20
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-5-1202",
-        "name": "SenseChat 5.5 1202",
-        "description": "Latest version based on V5.5, with significant gains in Chinese/English fundamentals, chat, STEM knowledge, humanities knowledge, writing, math/logic, and length control.",
-        "type": "chat",
-        "releasedAt": "2024-12-30",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 8,
-            "textOutput": 20
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-5-beta",
-        "name": "SenseChat 5.5 Beta",
-        "description": "Some performance exceeds SenseChat-5-1202.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 8,
-            "textOutput": 20
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-5-Cantonese",
-        "name": "SenseChat 5.0 Cantonese",
-        "description": "Designed for Hong Kong dialogue habits, slang, and local knowledge; surpasses GPT-4 in Cantonese understanding and rivals GPT-4 Turbo in knowledge, reasoning, math, and coding.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 32768,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 27,
-            "textOutput": 27
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-Character",
-        "name": "SenseChat Character",
-        "description": "Standard character chat model with 8K context and high response speed.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 8192,
-        "maxOutput": 1024,
-        "pricing": {
-          "basePricing": {
-            "textInput": 12,
-            "textOutput": 12
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-Character-Pro",
-        "name": "SenseChat Character Pro",
-        "description": "Advanced character chat model with 32K context, improved capability, and Chinese/English support.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 32768,
-        "maxOutput": 4096,
-        "pricing": {
-          "basePricing": {
-            "textInput": 15,
-            "textOutput": 15
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-Turbo",
-        "name": "SenseChat 5.0 Turbo",
-        "description": "Suitable for fast Q&A and model fine-tuning scenarios.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 0.6
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-Turbo-1202",
-        "name": "SenseChat Turbo 1202",
-        "description": "Latest lightweight model reaching 90%+ of full-model capability with significantly lower inference cost.",
-        "type": "chat",
-        "releasedAt": "2024-12-30",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 0.6
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseChat-Vision",
-        "name": "SenseChat 5.5 Vision",
-        "description": "Latest V5.5 with multi-image input and broad core improvements in attribute recognition, spatial relations, action/event detection, scene understanding, emotion recognition, commonsense reasoning, and text understanding/generation.",
-        "type": "chat",
-        "releasedAt": "2024-09-12",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 16384,
-        "maxOutput": 16384,
-        "pricing": {
-          "basePricing": {
-            "textInput": 10,
-            "textOutput": 60
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseNova-V6-5-Pro",
-        "name": "SenseNova V6.5 Pro",
-        "description": "With comprehensive updates to multimodal, language, and reasoning data plus training strategy optimization, the new model significantly improves multimodal reasoning and generalized instruction following, supports up to a 128k context window, and excels in OCR and cultural tourism IP recognition tasks.",
-        "type": "chat",
-        "releasedAt": "2025-07-23",
-        "abilities": {
+          "toolCall": true,
           "reasoning": true,
           "vision": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 262144,
+        "maxOutput": 65536,
         "pricing": {
           "basePricing": {
-            "textInput": 3,
-            "textOutput": 9
+            "textInput": 0,
+            "textOutput": 0
           },
           "currency": "CNY",
           "unit": "millionTokens"
         }
       },
       {
-        "id": "SenseNova-V6-5-Turbo",
-        "name": "SenseNova V6.5 Turbo",
-        "description": "With comprehensive updates to multimodal, language, and reasoning data plus training strategy optimization, the new model significantly improves multimodal reasoning and generalized instruction following, supports up to a 128k context window, and excels in OCR and cultural tourism IP recognition tasks.",
-        "type": "chat",
-        "releasedAt": "2025-07-23",
-        "abilities": {
-          "reasoning": true,
-          "vision": true
-        },
-        "contextWindow": 131072,
+        "id": "sensenova-u1-fast",
+        "name": "SenseNova U1 Fast",
+        "description": "An accelerated version based on SenseNova U1, specifically optimized for infographic generation.",
+        "type": "image",
+        "releasedAt": "2026-05-08",
+        "abilities": {},
         "pricing": {
           "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 4.5
+            "imageGeneration": 0
           },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseNova-V6-Pro",
-        "name": "SenseNova V6 Pro",
-        "description": "Natively unifies image, text, and video, breaking traditional multimodal silos; wins top spots on OpenCompass and SuperCLUE.",
-        "type": "chat",
-        "releasedAt": "2025-04-14",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 3,
-            "textOutput": 9
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseNova-V6-Reasoner",
-        "name": "SenseNova V6 Reasoner",
-        "description": "Combines vision and language deep reasoning, supporting slow thinking and full chain-of-thought.",
-        "type": "chat",
-        "releasedAt": "2025-04-14",
-        "abilities": {
-          "reasoning": true,
-          "vision": true
-        },
-        "contextWindow": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 4,
-            "textOutput": 16
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "SenseNova-V6-Turbo",
-        "name": "SenseNova V6 Turbo",
-        "description": "Natively unifies image, text, and video, breaking traditional multimodal silos. It leads across core multimodal and language capabilities and ranks top-tier in multiple evaluations.",
-        "type": "chat",
-        "releasedAt": "2025-04-14",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 4.5
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
+          "currency": "USD",
+          "unit": "image"
         }
       }
     ],
@@ -178740,6 +178592,70 @@
         }
       },
       {
+        "id": "google/gemma-4-26B-A4B-it",
+        "name": "Gemma 4 26B A4B IT",
+        "family": "gemma",
+        "releasedAt": "2026-04-02",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.12,
+            "textOutput": 0.4
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "google/gemma-4-31B-it",
+        "name": "Gemma 4 31B IT",
+        "family": "gemma",
+        "releasedAt": "2026-04-02",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.13,
+            "textOutput": 0.4
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "inclusionAI/Ling-flash-2.0",
         "name": "Ling Flash 2.0",
         "description": "Ling-flash-2.0 is the third Ling 2.0 architecture model from Ant Group’s Bailing team. It is an MoE model with 100B total parameters but only 6.1B active per token (4.8B non-embedding). Despite its lightweight configuration, it matches or exceeds 40B dense models and even larger MoE models on multiple benchmarks, exploring high efficiency through architecture and training strategy.",
@@ -178778,26 +178694,11 @@
         "name": "Ling Mini 2.0",
         "description": "Ling-mini-2.0 is a small, high-performance MoE LLM with 16B total parameters and only 1.4B active per token (789M non-embedding), delivering very fast generation. With efficient MoE design and large high-quality training data, it achieves top-tier performance comparable to dense models under 10B and larger MoE models.",
         "type": "chat",
-        "family": "ling",
         "releasedAt": "2025-09-09",
-        "openWeights": false,
         "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "structuredOutput": true,
-          "attachment": false,
-          "temperature": true
+          "toolCall": true
         },
         "contextWindow": 131072,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "basePricing": {
             "textInput": 0.5,
@@ -178808,108 +178709,12 @@
         }
       },
       {
-        "id": "inclusionAI/Ring-flash-2.0",
-        "name": "inclusionAI/Ring-flash-2.0",
-        "family": "ring",
-        "releasedAt": "2025-09-29",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.57
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "Kwai-Kolors/Kolors",
         "name": "Kolors",
         "description": "Kolors is a large-scale latent-diffusion text-to-image model by the Kuaishou Kolors team. Trained on billions of text-image pairs, it excels in visual quality, complex semantic accuracy, and Chinese/English text rendering, with strong Chinese content understanding and generation.",
         "type": "image",
         "releasedAt": "2024-07-06",
         "abilities": {}
-      },
-      {
-        "id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-        "name": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-        "family": "llama",
-        "releasedAt": "2025-04-23",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 33000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.06,
-            "textOutput": 0.06
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "MiniMaxAI/MiniMax-M2.1",
-        "name": "MiniMaxAI/MiniMax-M2.1",
-        "family": "minimax",
-        "releasedAt": "2025-12-23",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 197000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 1.2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
       },
       {
         "id": "MiniMaxAI/MiniMax-M2.5",
@@ -179112,38 +178917,6 @@
             "textInput": 0.95,
             "textOutput": 4,
             "textInput_cacheRead": 0.16
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "nex-agi/DeepSeek-V3.1-Nex-N1",
-        "name": "nex-agi/DeepSeek-V3.1-Nex-N1",
-        "family": "deepseek",
-        "releasedAt": "2025-01-01",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -181573,38 +181346,6 @@
     ],
     "siliconflow-cn": [
       {
-        "id": "ascend-tribe/pangu-pro-moe",
-        "name": "ascend-tribe/pangu-pro-moe",
-        "family": "pangu",
-        "releasedAt": "2025-07-02",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "baidu/ERNIE-4.5-300B-A47B",
         "name": "baidu/ERNIE-4.5-300B-A47B",
         "family": "ernie",
@@ -181992,70 +181733,6 @@
         }
       },
       {
-        "id": "inclusionAI/Ling-mini-2.0",
-        "name": "inclusionAI/Ling-mini-2.0",
-        "family": "ling",
-        "releasedAt": "2025-09-10",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.07,
-            "textOutput": 0.28
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "inclusionAI/Ring-flash-2.0",
-        "name": "inclusionAI/Ring-flash-2.0",
-        "family": "ring",
-        "releasedAt": "2025-09-29",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.57
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "Kwaipilot/KAT-Dev",
         "name": "Kwaipilot/KAT-Dev",
         "family": "kat-coder",
@@ -182146,38 +181823,6 @@
           "basePricing": {
             "textInput": 0.55,
             "textOutput": 2.5
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "PaddlePaddle/PaddleOCR-VL",
-        "name": "PaddlePaddle/PaddleOCR-VL",
-        "releasedAt": "2025-10-16",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 16384,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -186832,6 +186477,41 @@
         }
       },
       {
+        "id": "hf:MiniMaxAI/MiniMax-M3",
+        "name": "MiniMax-M3",
+        "family": "minimax",
+        "releasedAt": "2026-06-12",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 524288,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.6,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.6
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "hf:moonshotai/Kimi-K2-Instruct-0905",
         "name": "Kimi K2 0905",
         "family": "kimi-k2",
@@ -189031,6 +188711,39 @@
             "textInput": 1.2,
             "textOutput": 4.5,
             "textInput_cacheRead": 0.2
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "moonshotai/Kimi-K2.7-Code",
+        "name": "Kimi K2.7 Code",
+        "family": "kimi-k2",
+        "releasedAt": "2026-06-14",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.95,
+            "textOutput": 4,
+            "textInput_cacheRead": 0.19
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -191517,7 +191230,7 @@
         "name": "MiniMax M3",
         "family": "minimax-m3",
         "releasedAt": "2026-06-01",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -198411,7 +198124,7 @@
         "type": "language",
         "family": "minimax-m3",
         "releasedAt": "2026-05-31",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -212141,7 +211854,7 @@
         "name": "MiniMax-M3",
         "family": "minimax",
         "releasedAt": "2026-06-01",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
