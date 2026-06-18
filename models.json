@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-17T05:32:23.761Z",
+    "generatedAt": "2026-06-18T05:29:56.808Z",
     "sources": {
       "modelsDev": {
         "providerCount": 145,
-        "modelCount": 5277
+        "modelCount": 5276
       },
       "lobehub": {
         "commitHash": "8ec55f5941a684e0926b5d4daa6437da4a0d40dd",
@@ -13,7 +13,7 @@
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 337
+        "modelCount": 339
       },
       "vercelAiGateway": {
         "providerCount": 1,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 192,
-      "modelCount": 6760
+      "modelCount": 6761
     },
     "overridesApplied": 107
   },
@@ -127896,6 +127896,37 @@
         }
       },
       {
+        "id": "glm-5.2",
+        "name": "GLM 5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-17",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 1048560,
+        "maxOutput": 1048560,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.45,
+            "textOutput": 4.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "kimi-k2.5-fast",
         "name": "Kimi K2.5 Fast",
         "family": "kimi-k2",
@@ -127956,73 +127987,6 @@
           "basePricing": {
             "textInput": 0.69,
             "textOutput": 3.22
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "MiniMaxAI/MiniMax-M2.5",
-        "name": "MiniMax M2.5",
-        "family": "minimax",
-        "releasedAt": "2026-02-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 196592,
-        "maxOutput": 196592,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.35,
-            "textOutput": 1.38
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "mistralai/Devstral-Small-2-24B-Instruct-2512",
-        "name": "Devstral Small 2 24B Instruct 2512",
-        "family": "devstral",
-        "releasedAt": "2025-12-09",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 262128,
-        "maxOutput": 262128,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.12,
-            "textOutput": 0.35
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -128130,37 +128094,6 @@
           "basePricing": {
             "textInput": 0.95,
             "textOutput": 4
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "openai/gpt-oss-20b",
-        "name": "GPT OSS 20B",
-        "family": "gpt-oss",
-        "releasedAt": "2025-08-05",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 16368,
-        "maxOutput": 16368,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.03,
-            "textOutput": 0.16
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -142694,6 +142627,7 @@
         "releasedAt": "2026-02-11",
         "knowledge": "2025-04",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -142741,6 +142675,42 @@
         },
         "contextWindow": 202752,
         "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.26
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "glm-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -146562,6 +146532,42 @@
         }
       },
       {
+        "id": "cohere/north-mini-code:free",
+        "name": "Cohere: North Mini Code (free)",
+        "description": "North Mini Code is Cohere's first agentic coding model and the debut of its North family. A sparse mixture-of-experts model with 30B total parameters and 3B active, it is optimized...",
+        "releasedAt": "2026-06-17",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 256000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          }
+        }
+      },
+      {
         "id": "deepcogito/cogito-v2.1-671b",
         "name": "Deep Cogito: Cogito v2.1 671B",
         "description": "Cogito v2.1 671B MoE represents one of the strongest open models globally, matching performance of frontier closed and open models. This model is trained using self play with reinforcement learning...",
@@ -147137,7 +147143,7 @@
           "temperature": true
         },
         "contextWindow": 32768,
-        "maxOutput": 32768,
+        "maxOutput": 8192,
         "modalities": {
           "input": [
             "image",
@@ -147403,7 +147409,7 @@
           }
         },
         "contextWindow": 1048576,
-        "maxOutput": 65536,
+        "maxOutput": 65535,
         "modalities": {
           "input": [
             "text",
@@ -147424,6 +147430,46 @@
             "textOutput": 3,
             "textInput_cacheRead": 0.05,
             "textInput_cacheWrite": 0.083333333333
+          }
+        }
+      },
+      {
+        "id": "google/gemini-3-pro-image",
+        "name": "Google: Nano Banana Pro (Gemini 3 Pro Image)",
+        "description": "Nano Banana Pro is Google’s most advanced image-generation and editing model, built on Gemini 3 Pro. It extends the original Nano Banana with significantly improved multimodal reasoning, real-world grounding, and...",
+        "releasedAt": "2026-06-18",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": true,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 65536,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "image",
+            "text"
+          ],
+          "output": [
+            "image",
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 12,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 0.375
           }
         }
       },
@@ -147471,6 +147517,44 @@
         }
       },
       {
+        "id": "google/gemini-3.1-flash-image",
+        "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image)",
+        "description": "Gemini 3.1 Flash Image, a.k.a. \"Nano Banana 2,\" is Google’s latest state of the art image generation and editing model, delivering Pro-level visual quality at Flash speed. It combines advanced...",
+        "releasedAt": "2026-06-18",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": true,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 131072,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "image",
+            "text"
+          ],
+          "output": [
+            "image",
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.5,
+            "textOutput": 3
+          }
+        }
+      },
+      {
         "id": "google/gemini-3.1-flash-image-preview",
         "name": "Google: Nano Banana 2 (Gemini 3.1 Flash Image Preview)",
         "description": "Gemini 3.1 Flash Image Preview, a.k.a. \"Nano Banana 2,\" is Google’s latest state of the art image generation and editing model, delivering Pro-level visual quality at Flash speed. It combines...",
@@ -147491,7 +147575,7 @@
           "temperature": true
         },
         "contextWindow": 131072,
-        "maxOutput": 65536,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "image",
@@ -147904,7 +147988,7 @@
           "toolCall": false,
           "reasoning": false,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -148534,8 +148618,8 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 256000,
-        "maxOutput": 80000,
+        "contextWindow": 262144,
+        "maxOutput": 144000,
         "modalities": {
           "input": [
             "text"
@@ -148566,7 +148650,7 @@
           "toolCall": false,
           "reasoning": false,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -149622,7 +149706,7 @@
           "temperature": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 512000,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text",
@@ -150515,7 +150599,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.6,
-            "textOutput": 2.5
+            "textOutput": 2.5,
+            "textInput_cacheRead": 0.6
           }
         }
       },
@@ -151803,7 +151888,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 2.5,
-            "textOutput": 10
+            "textOutput": 10,
+            "textInput_cacheRead": 1.25
           }
         }
       },
@@ -152331,7 +152417,7 @@
           "basePricing": {
             "textInput": 0.25,
             "textOutput": 2,
-            "textInput_cacheRead": 0.025
+            "textInput_cacheRead": 0.03
           }
         }
       },
@@ -152477,7 +152563,7 @@
           "temperature": true
         },
         "contextWindow": 128000,
-        "maxOutput": 32000,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "file",
@@ -152494,7 +152580,7 @@
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 10,
-            "textInput_cacheRead": 0.13
+            "textInput_cacheRead": 0.125
           }
         }
       },
@@ -152679,7 +152765,7 @@
           "temperature": true
         },
         "contextWindow": 128000,
-        "maxOutput": 16384,
+        "maxOutput": 32000,
         "modalities": {
           "input": [
             "file",
@@ -153403,7 +153489,7 @@
           "temperature": true
         },
         "contextWindow": 131072,
-        "maxOutput": 8192,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -154346,7 +154432,7 @@
           "toolCall": true,
           "reasoning": true,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -154378,7 +154464,7 @@
       {
         "id": "poolside/laguna-xs.2:free",
         "name": "Poolside: Laguna XS.2 (free)",
-        "description": "Laguna XS.2 is the second-generation model in the XS size class from [Poolside](https://poolside.ai), their efficient coding agent series. It combines tool calling and reasoning capabilities with a compact footprint, offering...",
+        "description": "Laguna XS.2 is the second-generation model in the XS size class from [Poolside](https://poolside.ai/), their efficient coding agent series. It combines tool calling and reasoning capabilities with a compact footprint, offering...",
         "releasedAt": "2026-04-28",
         "knowledge": null,
         "openWeights": true,
@@ -154386,7 +154472,7 @@
           "toolCall": true,
           "reasoning": true,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -154500,10 +154586,10 @@
         "knowledge": "2024-06-30",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -155952,8 +156038,8 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
+        "contextWindow": 256000,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text",
@@ -157300,48 +157386,6 @@
         }
       },
       {
-        "id": "xiaomi/mimo-v2-flash",
-        "name": "Xiaomi: MiMo-V2-Flash",
-        "description": "MiMo-V2-Flash is an open-source foundation language model developed by Xiaomi. It is a Mixture-of-Experts model with 309B total parameters and 15B active parameters, adopting hybrid attention architecture. MiMo-V2-Flash supports a...",
-        "family": "mimo",
-        "releasedAt": "2025-12-14",
-        "knowledge": "2024-12-01",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": false,
-          "structuredOutput": true,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_details"
-          }
-        },
-        "contextWindow": 262144,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.3,
-            "textInput_cacheRead": 0.01
-          }
-        }
-      },
-      {
         "id": "xiaomi/mimo-v2.5",
         "name": "Xiaomi: MiMo-V2.5",
         "description": "MiMo-V2.5 is a native omnimodal model by Xiaomi. It delivers Pro-level agentic performance at roughly half the inference cost, while surpassing MiMo-V2-Omni in multimodal perception across image and video understanding...",
@@ -157839,7 +157883,7 @@
       {
         "id": "z-ai/glm-5.2",
         "name": "Z.ai: GLM 5.2",
-        "description": "GLM-5.2 is Z.ai’s flagship model for the era of long-horizon tasks. With a truly usable 1M-token context window, it can handle project-level engineering context, execute long-running tasks more reliably, follow...",
+        "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,...",
         "family": "glm",
         "releasedAt": "2026-06-16",
         "knowledge": null,
@@ -157859,7 +157903,7 @@
           }
         },
         "contextWindow": 1048576,
-        "maxOutput": 262144,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -199211,7 +199255,7 @@
       {
         "id": "mistral/mistral-nemo",
         "name": "Mistral Nemo 12B",
-        "description": "12B model trained jointly by Mistral AI and NVIDIA, it significantly outperforms existing models smaller or similar in size.",
+        "description": "A 12B parameter model with a 128k token context length built by Mistral in collaboration with NVIDIA. The model is multilingual, supporting English, French, German, Spanish, Italian, Portuguese, Chinese, Japanese, Korean, Arabic, and Hindi. It supports function calling and is released under the Apache 2.0 license.",
         "type": "language",
         "family": "mistral-nemo",
         "releasedAt": "2024-07-01",
@@ -199228,8 +199272,8 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 131072,
-        "maxOutput": 131072,
+        "contextWindow": 128000,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text"
@@ -199242,8 +199286,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.02,
-            "textOutput": 0.04
+            "textInput": 0.15,
+            "textOutput": 0.15
           }
         }
       },
@@ -199592,7 +199636,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text",
@@ -203935,9 +203979,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1.4,
-            "textOutput": 4.4,
-            "textInput_cacheRead": 0.26
+            "textInput": 1.5,
+            "textOutput": 4.5,
+            "textInput_cacheRead": 0.3
           }
         }
       },
