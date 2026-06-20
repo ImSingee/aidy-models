@@ -1,19 +1,19 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-19T05:37:30.523Z",
+    "generatedAt": "2026-06-20T05:24:42.177Z",
     "sources": {
       "modelsDev": {
         "providerCount": 145,
-        "modelCount": 5278
+        "modelCount": 5284
       },
       "lobehub": {
-        "commitHash": "a7fac87b02f5f57bc0c6bc4f75fda88f14116f81",
+        "commitHash": "30a7efa01bb65a3341ec78f2ba00272df1ca4070",
         "providerCount": 81,
         "modelCount": 1928
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 341
+        "modelCount": 340
       },
       "vercelAiGateway": {
         "providerCount": 1,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 192,
-      "modelCount": 6765
+      "modelCount": 6769
     },
     "overridesApplied": 107
   },
@@ -18633,6 +18633,43 @@
         }
       },
       {
+        "id": "glm-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "kimi-k2.5",
         "name": "Kimi K2.5",
         "family": "kimi-k2",
@@ -18691,6 +18728,46 @@
         },
         "contextWindow": 262144,
         "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2.7-code",
+        "name": "Kimi K2.7 Code",
+        "family": "kimi-k2",
+        "releasedAt": "2026-06-12",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text",
@@ -19200,7 +19277,7 @@
         "name": "GLM-5.2",
         "family": "glm",
         "releasedAt": "2026-06-13",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -19291,6 +19368,46 @@
         },
         "contextWindow": 262144,
         "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2.7-code",
+        "name": "Kimi K2.7 Code",
+        "family": "kimi-k2",
+        "releasedAt": "2026-06-12",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text",
@@ -34504,7 +34621,7 @@
         "id": "gpt-4o-mini-transcribe",
         "name": "GPT-4o Mini Transcribe",
         "description": "GPT-4o Mini Transcribe is a speech-to-text model that transcribes audio with GPT-4o, improving word error rate, language ID, and accuracy over the original Whisper model.",
-        "type": "stt",
+        "type": "asr",
         "abilities": {},
         "contextWindow": 16000,
         "maxOutput": 2000,
@@ -34635,7 +34752,7 @@
         "id": "gpt-4o-transcribe",
         "name": "GPT-4o Transcribe",
         "description": "GPT-4o Transcribe is a speech-to-text model that transcribes audio with GPT-4o, improving word error rate, language ID, and accuracy over the original Whisper model.",
-        "type": "stt",
+        "type": "asr",
         "abilities": {},
         "contextWindow": 16000,
         "maxOutput": 2000,
@@ -36386,7 +36503,7 @@
         "id": "whisper-1",
         "name": "Whisper",
         "description": "A general speech recognition model supporting multilingual ASR, speech translation, and language identification.",
-        "type": "stt",
+        "type": "asr",
         "abilities": {},
         "pricing": {
           "basePricing": {
@@ -37480,7 +37597,7 @@
         "name": "GLM 5.2",
         "family": "glm",
         "releasedAt": "2026-06-13",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -43255,7 +43372,7 @@
         "name": "Glm 5.2",
         "family": "glm",
         "releasedAt": "2026-06-13",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -45150,6 +45267,42 @@
         }
       },
       {
+        "id": "glm-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.44,
+            "textOutput": 4.53,
+            "textInput_cacheRead": 0.39
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "glm-5v-turbo",
         "name": "GLM-5V-Turbo",
         "family": "glm",
@@ -45487,6 +45640,46 @@
             "textInput": 0.81,
             "textOutput": 3.54,
             "textInput_cacheRead": 0.2
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2.7-code",
+        "name": "Kimi K2.7 Code",
+        "family": "kimi-k2",
+        "releasedAt": "2026-06-12",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.28,
+            "textOutput": 4.63,
+            "textInput_cacheRead": 0.32
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -46510,7 +46703,7 @@
         "name": "GLM-5.2",
         "family": "glm",
         "releasedAt": "2026-06-13",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -62351,60 +62544,6 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "gemma-4-E2B-it",
-        "name": "Gemma 4 E2B IT",
-        "family": "gemma",
-        "releasedAt": "2026-04-02",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio"
-          ],
-          "output": [
-            "text"
-          ]
-        }
-      },
-      {
-        "id": "gemma-4-E4B-it",
-        "name": "Gemma 4 E4B IT",
-        "family": "gemma",
-        "releasedAt": "2026-04-02",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio"
-          ],
-          "output": [
-            "text"
-          ]
         }
       },
       {
@@ -137219,7 +137358,7 @@
         "id": "gpt-4o-mini-transcribe",
         "name": "GPT-4o Mini Transcribe",
         "description": "GPT-4o Mini Transcribe is a speech-to-text model that transcribes audio with GPT-4o, improving word error rate, language ID, and accuracy over the original Whisper model.",
-        "type": "stt",
+        "type": "asr",
         "abilities": {},
         "contextWindow": 16000,
         "maxOutput": 2000,
@@ -137338,7 +137477,7 @@
         "id": "gpt-4o-transcribe",
         "name": "GPT-4o Transcribe",
         "description": "GPT-4o Transcribe is a speech-to-text model that transcribes audio with GPT-4o, improving word error rate, language ID, and accuracy over the original Whisper model.",
-        "type": "stt",
+        "type": "asr",
         "abilities": {},
         "contextWindow": 16000,
         "maxOutput": 2000,
@@ -139744,7 +139883,7 @@
         "id": "whisper-1",
         "name": "Whisper",
         "description": "A general speech recognition model supporting multilingual ASR, speech translation, and language identification.",
-        "type": "stt",
+        "type": "asr",
         "abilities": {},
         "pricing": {
           "basePricing": {
@@ -143004,7 +143143,7 @@
         "name": "GLM-5.2",
         "family": "glm",
         "releasedAt": "2026-06-13",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -149103,44 +149242,6 @@
         }
       },
       {
-        "id": "meta-llama/llama-3-70b-instruct",
-        "name": "Meta: Llama 3 70B Instruct",
-        "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 70B instruct-tuned version was optimized for high quality dialogue usecases. It has demonstrated strong...",
-        "family": "llama",
-        "releasedAt": "2024-04-18",
-        "knowledge": "2023-12-31",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": true,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 8192,
-        "maxOutput": 8000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.51,
-            "textOutput": 0.74
-          }
-        }
-      },
-      {
         "id": "meta-llama/llama-3-8b-instruct",
         "name": "Meta: Llama 3 8B Instruct",
         "description": "Meta's latest class of model (Llama 3) launched with a variety of sizes & flavors. This 8B instruct-tuned version was optimized for high quality dialogue usecases. It has demonstrated strong...",
@@ -151020,7 +151121,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 16384,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text",
@@ -151034,9 +151135,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.74,
-            "textOutput": 3.5,
-            "textInput_cacheRead": 0.15
+            "textInput": 0.612,
+            "textOutput": 3.069,
+            "textInput_cacheRead": 0.1296
           }
         }
       },
@@ -151120,6 +151221,7 @@
         "id": "nex-agi/nex-n2-pro:free",
         "name": "Nex AGI: Nex-N2-Pro (free)",
         "description": "Nex-N2-Pro is an agentic mixture-of-experts model from Nex AGI, with 17B active parameters out of 397B total. Built on the Qwen3.5 architecture, it accepts text and image input and produces...",
+        "family": "agi",
         "releasedAt": "2026-06-08",
         "knowledge": null,
         "openWeights": true,
@@ -154737,11 +154839,12 @@
         "description": "Laguna M.1 is the flagship coding agent model from [Poolside](https://poolside.ai/), optimized for complex software engineering tasks. Designed for agentic coding workflows, it supports tool calling and reasoning, with a 256K...",
         "releasedAt": "2026-04-28",
         "knowledge": null,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
           "vision": false,
-          "structuredOutput": true,
+          "structuredOutput": false,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -154774,7 +154877,7 @@
         "description": "Laguna M.1 is the flagship coding agent model from [Poolside](https://poolside.ai/), optimized for complex software engineering tasks. Designed for agentic coding workflows, it supports tool calling and reasoning, with a 256K...",
         "releasedAt": "2026-04-28",
         "knowledge": null,
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -154814,11 +154917,12 @@
         "description": "Laguna XS.2 is the second-generation model in the XS size class from [Poolside](https://poolside.ai/), their efficient coding agent series. It combines tool calling and reasoning capabilities with a compact footprint, offering...",
         "releasedAt": "2026-04-28",
         "knowledge": null,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
           "vision": false,
-          "structuredOutput": true,
+          "structuredOutput": false,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -156897,7 +157001,7 @@
           "toolCall": false,
           "reasoning": true,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -158269,7 +158373,7 @@
         "family": "glm",
         "releasedAt": "2026-06-16",
         "knowledge": null,
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -182108,6 +182212,42 @@
         }
       },
       {
+        "id": "zai-org/GLM-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 205000,
+        "maxOutput": 205000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "zai-org/GLM-5V-Turbo",
         "name": "zai-org/GLM-5V-Turbo",
         "family": "glm",
@@ -184555,6 +184695,42 @@
           "basePricing": {
             "textInput": 0.3,
             "textOutput": 0.9
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "zai-org/GLM-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 205000,
+        "maxOutput": 205000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheWrite": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -190035,7 +190211,7 @@
         "name": "GLM 5.2",
         "family": "glm",
         "releasedAt": "2026-06-13",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -190233,7 +190409,7 @@
         "name": "GLM 5.2",
         "family": "glm",
         "releasedAt": "2026-06-13",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -193297,7 +193473,7 @@
         "id": "zai-org-glm-5",
         "name": "GLM 5",
         "family": "glm",
-        "releasedAt": "2026-02-12",
+        "releasedAt": "2026-02-11",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -193379,7 +193555,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1000000,
-        "maxOutput": 24000,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -193390,9 +193566,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.75,
-            "textOutput": 5.5,
-            "textInput_cacheRead": 0.325
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.26
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -198044,7 +198220,7 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.03,
+            "textInput": 0.3,
             "textOutput": 1.2,
             "textInput_cacheRead": 0.06
           }
@@ -202437,7 +202613,7 @@
           "basePricing": {
             "textInput": 0.09,
             "textOutput": 0.3,
-            "textInput_cacheWrite": 0.02
+            "textInput_cacheRead": 0.02
           }
         }
       },
@@ -204077,7 +204253,7 @@
         "type": "language",
         "family": "glm",
         "releasedAt": "2026-06-16",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -210860,7 +211036,7 @@
         "name": "GLM-5.2",
         "family": "glm",
         "releasedAt": "2026-06-13",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -217480,7 +217656,7 @@
         "name": "GLM-5.2",
         "family": "glm",
         "releasedAt": "2026-06-13",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
