@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-20T05:24:42.177Z",
+    "generatedAt": "2026-06-21T05:31:10.801Z",
     "sources": {
       "modelsDev": {
-        "providerCount": 145,
-        "modelCount": 5284
+        "providerCount": 144,
+        "modelCount": 5288
       },
       "lobehub": {
         "commitHash": "30a7efa01bb65a3341ec78f2ba00272df1ca4070",
@@ -29,8 +29,8 @@
       }
     },
     "merged": {
-      "providerCount": 192,
-      "modelCount": 6769
+      "providerCount": 191,
+      "modelCount": 6773
     },
     "overridesApplied": 107
   },
@@ -929,21 +929,6 @@
       "_": {
         "env": [
           "FASTROUTER_API_KEY"
-        ],
-        "npm": "@ai-sdk/openai-compatible"
-      }
-    },
-    "firepass": {
-      "id": "firepass",
-      "name": "Fireworks (Firepass)",
-      "official": false,
-      "featured": false,
-      "api": "openai-completions",
-      "baseUrl": "https://api.fireworks.ai/inference/v1/",
-      "doc": "https://docs.fireworks.ai/firepass",
-      "_": {
-        "env": [
-          "FIREPASS_API_KEY"
         ],
         "npm": "@ai-sdk/openai-compatible"
       }
@@ -39832,6 +39817,41 @@
           "currency": "USD",
           "unit": "millionTokens"
         }
+      },
+      {
+        "id": "claudius",
+        "name": "Claudius",
+        "releasedAt": "2026-05-12",
+        "knowledge": "2026-05",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "vision": true
+        },
+        "contextWindow": 256000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "audio",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 8,
+            "textInput_cacheRead": 0.9
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
       }
     ],
     "cloudferro-sherlock": [
@@ -44959,39 +44979,6 @@
         }
       },
       {
-        "id": "devstral-small-2512",
-        "name": "Devstral Small 2 2512",
-        "releasedAt": "2025-12-09",
-        "knowledge": "2025-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "gemini-2.5-pro",
         "name": "Gemini 2.5 Pro",
         "family": "gemini-pro",
@@ -46484,7 +46471,7 @@
       },
       {
         "id": "deepseek-v4-pro-lightning",
-        "name": "DeepSeek V4 Pro",
+        "name": "DeepSeek V4 Pro Lightning",
         "family": "deepseek-thinking",
         "releasedAt": "2026-04-24",
         "knowledge": "2025-05",
@@ -54310,45 +54297,6 @@
           "basePricing": {
             "textInput": 1.05,
             "textOutput": 3.5
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      }
-    ],
-    "firepass": [
-      {
-        "id": "accounts/fireworks/routers/kimi-k2p6-turbo",
-        "name": "Kimi K2.6 Turbo",
-        "family": "kimi-thinking",
-        "releasedAt": "2026-04-17",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0,
-            "textInput_cacheRead": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -91916,6 +91864,74 @@
         }
       },
       {
+        "id": "gemma-4-26b-a4b-it",
+        "name": "Gemma 4 26B A4B IT",
+        "family": "gemma",
+        "releasedAt": "2026-04-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.07,
+            "textOutput": 0.34
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gemma-4-31b-it",
+        "name": "Gemma 4 31B IT",
+        "family": "gemma",
+        "releasedAt": "2026-04-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.13,
+            "textOutput": 0.38
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "glm-4-32b-0414-128k",
         "name": "GLM-4 32B (0414-128k)",
         "family": "glm",
@@ -92460,6 +92476,43 @@
             "textInput": 6,
             "textOutput": 24,
             "textInput_cacheRead": 1.3,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "glm-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.26,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -94302,6 +94355,46 @@
             "textInput": 0.95,
             "textOutput": 4,
             "textInput_cacheRead": 0.19
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2.7-code-highspeed",
+        "name": "Kimi K2.7 Code Highspeed",
+        "family": "kimi-k2",
+        "releasedAt": "2026-06-12",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.9,
+            "textOutput": 8,
+            "textInput_cacheRead": 0.38
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96853,6 +96946,38 @@
           "basePricing": {
             "textInput": 0.2,
             "textOutput": 1.6
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3.5-9b",
+        "name": "Qwen3.5 9B",
+        "family": "qwen",
+        "releasedAt": "2026-02-23",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.1,
+            "textOutput": 0.15
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -145131,7 +145256,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 262142,
         "modalities": {
           "input": [
             "text",
@@ -145145,9 +145270,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.67,
+            "textInput": 0.66,
             "textOutput": 3.5,
-            "textInput_cacheRead": 0.2
+            "textInput_cacheRead": 0.33
           }
         }
       },
@@ -146424,7 +146549,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 80000,
         "modalities": {
           "input": [
             "text"
@@ -146437,8 +146562,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.22,
-            "textOutput": 0.85,
+            "textInput": 0.25,
+            "textOutput": 0.8,
             "textInput_cacheRead": 0.06
           }
         }
@@ -148026,7 +148151,7 @@
           "temperature": true
         },
         "contextWindow": 131072,
-        "maxOutput": 65536,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "image",
@@ -151081,7 +151206,7 @@
           }
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 262142,
         "modalities": {
           "input": [
             "text",
@@ -151095,9 +151220,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.67,
+            "textInput": 0.66,
             "textOutput": 3.5,
-            "textInput_cacheRead": 0.2
+            "textInput_cacheRead": 0.33
           }
         }
       },
@@ -156510,7 +156635,7 @@
         "id": "qwen/qwen3.5-9b",
         "name": "Qwen: Qwen3.5-9B",
         "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design...",
-        "family": "qwen3.5",
+        "family": "qwen",
         "releasedAt": "2026-03-10",
         "knowledge": null,
         "openWeights": true,
@@ -157439,9 +157564,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.066,
-            "textOutput": 0.26,
-            "textInput_cacheRead": 0.029
+            "textInput": 0.063,
+            "textOutput": 0.21,
+            "textInput_cacheRead": 0.021
           }
         }
       },
@@ -158347,7 +158472,7 @@
           }
         },
         "contextWindow": 202752,
-        "maxOutput": 131072,
+        "maxOutput": 65535,
         "modalities": {
           "input": [
             "text"
@@ -158362,7 +158487,7 @@
           "basePricing": {
             "textInput": 0.98,
             "textOutput": 3.08,
-            "textInput_cacheRead": 0.182
+            "textInput_cacheRead": 0.49
           }
         }
       },
@@ -193037,6 +193162,7 @@
           "toolCall": true,
           "reasoning": true,
           "attachment": true,
+          "temperature": true,
           "structuredOutput": true,
           "vision": true
         },
@@ -199923,6 +200049,7 @@
         "type": "language",
         "family": "kimi-k2",
         "releasedAt": "2026-06-15",
+        "knowledge": "2025-01",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
