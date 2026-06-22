@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-21T05:31:10.801Z",
+    "generatedAt": "2026-06-22T05:42:10.491Z",
     "sources": {
       "modelsDev": {
         "providerCount": 144,
-        "modelCount": 5288
+        "modelCount": 5289
       },
       "lobehub": {
         "commitHash": "30a7efa01bb65a3341ec78f2ba00272df1ca4070",
@@ -17,7 +17,7 @@
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 282
+        "modelCount": 280
       },
       "manual": {
         "providerCount": 7,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 191,
-      "modelCount": 6773
+      "modelCount": 6774
     },
     "overridesApplied": 107
   },
@@ -145256,7 +145256,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 262142,
+        "maxOutput": 65535,
         "modalities": {
           "input": [
             "text",
@@ -145857,48 +145857,6 @@
             "textOutput": 1.25,
             "textInput_cacheRead": 0.03,
             "textInput_cacheWrite": 0.3
-          }
-        }
-      },
-      {
-        "id": "anthropic/claude-3.5-haiku",
-        "name": "Anthropic: Claude 3.5 Haiku",
-        "description": "Claude 3.5 Haiku features offers enhanced capabilities in speed, coding accuracy, and tool use. Engineered to excel in real-time applications, it delivers quick response times that are essential for dynamic...",
-        "type": "chat",
-        "family": "claude",
-        "releasedAt": "2024-11-04",
-        "knowledge": "2024-07-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "vision": true,
-          "structuredOutput": false,
-          "search": true,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.8,
-            "textOutput": 4,
-            "textInput_cacheRead": 0.08,
-            "textInput_cacheWrite": 1
           }
         }
       },
@@ -151206,7 +151164,7 @@
           }
         },
         "contextWindow": 262144,
-        "maxOutput": 262142,
+        "maxOutput": 65535,
         "modalities": {
           "input": [
             "text",
@@ -151343,6 +151301,46 @@
         }
       },
       {
+        "id": "nex-agi/nex-n2-pro",
+        "name": "Nex AGI: Nex-N2-Pro",
+        "description": "Nex-N2-Pro is an agentic mixture-of-experts model from Nex AGI, with 17B active parameters out of 397B total. Built on the Qwen3.5 architecture, it accepts text and image input and produces...",
+        "family": "agi",
+        "releasedAt": "2026-06-08",
+        "knowledge": null,
+        "openWeights": true,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.5,
+            "textOutput": 2.5,
+            "textInput_cacheRead": 0.25
+          }
+        }
+      },
+      {
         "id": "nex-agi/nex-n2-pro:free",
         "name": "Nex AGI: Nex-N2-Pro (free)",
         "description": "Nex-N2-Pro is an agentic mixture-of-experts model from Nex AGI, with 17B active parameters out of 397B total. Built on the Qwen3.5 architecture, it accepts text and image input and produces...",
@@ -151362,7 +151360,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 256000,
         "modalities": {
           "input": [
             "text",
@@ -158514,7 +158512,7 @@
           }
         },
         "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -158527,9 +158525,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1.2,
-            "textOutput": 4.1,
-            "textInput_cacheRead": 0.2
+            "textInput": 1,
+            "textOutput": 4,
+            "textInput_cacheRead": 0.18
           }
         }
       }
@@ -196240,66 +196238,6 @@
         }
       },
       {
-        "id": "bytedance/seedance-v1.0-lite-i2v",
-        "name": "Seedance v1.0 Lite Image-to-Video",
-        "description": "Generates videos from image/text description, first and last frames, reference images. Balances quality&speed. Strong semantic understanding, professional camera work. Supports 480p/720p/1080p, 3-12s",
-        "type": "video",
-        "family": "seed",
-        "releasedAt": "2025-06-01",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": true,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 0,
-        "maxOutput": 0,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "video"
-          ]
-        }
-      },
-      {
-        "id": "bytedance/seedance-v1.0-lite-t2v",
-        "name": "Seedance v1.0 Lite Text-to-Video",
-        "description": "Generates videos from text description. Balances quality & speed. Strong semantic understanding, professional camera work, diverse styles. Supports 480p/720p/1080p, 3-12s",
-        "type": "video",
-        "family": "seed",
-        "releasedAt": "2025-06-01",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": true,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 0,
-        "maxOutput": 0,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "video"
-          ]
-        }
-      },
-      {
         "id": "bytedance/seedance-v1.0-pro",
         "name": "Seedance v1.0 Pro",
         "description": "A video generation model that supports multi-shot storytelling. It excels in semantic understanding and instruction following, producing smooth, detailed, and cinematic 1080P HD videos.",
@@ -210972,6 +210910,43 @@
         }
       },
       {
+        "id": "glm-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.26,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "glm-5v-turbo",
         "name": "GLM-5V-Turbo",
         "family": "glm",
@@ -215861,6 +215836,72 @@
             "textInput": 0.8781,
             "textOutput": 3.5126,
             "textInput_cacheRead": 0.1903
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "z-ai/glm-5.2",
+        "name": "GLM 5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.5,
+            "textInput_cacheRead": 0.26
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "z-ai/glm-5.2-free",
+        "name": "GLM 5.2 (Free)",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
