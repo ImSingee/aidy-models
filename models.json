@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-24T05:14:59.145Z",
+    "generatedAt": "2026-06-25T05:15:58.953Z",
     "sources": {
       "modelsDev": {
         "providerCount": 144,
-        "modelCount": 5312
+        "modelCount": 5299
       },
       "lobehub": {
         "commitHash": "4acfc5285a7748ecfdd143f33ac5289741cf9113",
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 191,
-      "modelCount": 6798
+      "modelCount": 6785
     },
     "overridesApplied": 107
   },
@@ -37737,8 +37737,8 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
+        "contextWindow": 202720,
+        "maxOutput": 202720,
         "modalities": {
           "input": [
             "text"
@@ -64707,6 +64707,7 @@
         "releasedAt": "2026-03-04",
         "knowledge": "2025-01",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -73795,6 +73796,40 @@
         }
       },
       {
+        "id": "Qwen/Qwen3.6-27B",
+        "name": "Qwen3.6 27B",
+        "family": "qwen",
+        "releasedAt": "2026-04-22",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.47,
+            "textOutput": 3.19
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "Qwen/Qwen3.6-35B-A3B",
         "name": "Qwen3.6 35B-A3B",
         "family": "qwen",
@@ -73870,6 +73905,39 @@
         }
       },
       {
+        "id": "stepfun-ai/Step-3.7-Flash",
+        "name": "Step 3.7 Flash",
+        "releasedAt": "2026-05-29",
+        "knowledge": "2026-01-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 256000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.2,
+            "textOutput": 1.15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "XiaomiMiMo/MiMo-V2-Flash",
         "name": "MiMo-V2-Flash",
         "family": "mimo",
@@ -73896,6 +73964,39 @@
           "basePricing": {
             "textInput": 0.1,
             "textOutput": 0.3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "XiaomiMiMo/MiMo-V2.5-Pro",
+        "name": "MiMo-V2.5-Pro",
+        "family": "mimo",
+        "releasedAt": "2026-04-22",
+        "knowledge": "2024-12",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1,
+            "textOutput": 3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -91282,77 +91383,6 @@
         }
       },
       {
-        "id": "claude-3-5-haiku",
-        "name": "Claude 3.5 Haiku",
-        "family": "claude",
-        "releasedAt": "2024-10-22",
-        "openWeights": false,
-        "deprecated": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": false
-        },
-        "contextWindow": 200000,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.8,
-            "textOutput": 4,
-            "textInput_cacheRead": 0.08
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "claude-3-5-sonnet-20241022",
-        "name": "Claude Sonnet 3.5 v2",
-        "family": "claude-sonnet",
-        "releasedAt": "2024-10-22",
-        "knowledge": "2024-04-30",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 3,
-            "textOutput": 15,
-            "textInput_cacheRead": 0.3,
-            "textInput_cacheWrite": 3.75
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "claude-3-7-sonnet",
         "name": "Claude 3.7 Sonnet",
         "family": "claude",
@@ -91379,7 +91409,8 @@
           "basePricing": {
             "textInput": 3,
             "textOutput": 15,
-            "textInput_cacheRead": 0.3
+            "textInput_cacheRead": 0.3,
+            "textInput_cacheWrite": 3.75
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -91451,7 +91482,8 @@
           "basePricing": {
             "textInput": 15,
             "textOutput": 75,
-            "textInput_cacheRead": 1.5
+            "textInput_cacheRead": 1.5,
+            "textInput_cacheWrite": 18.75
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -91536,43 +91568,6 @@
         "name": "Claude Opus 4.1",
         "family": "claude-opus",
         "releasedAt": "2025-08-05",
-        "knowledge": "2025-03-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 32000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 15,
-            "textOutput": 75,
-            "textInput_cacheRead": 1.5,
-            "textInput_cacheWrite": 18.75
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "claude-opus-4-20250514",
-        "name": "Claude Opus 4",
-        "family": "claude-opus",
-        "releasedAt": "2025-05-22",
         "knowledge": "2025-03-31",
         "openWeights": false,
         "abilities": {
@@ -91747,43 +91742,6 @@
             "textOutput": 25,
             "textInput_cacheRead": 0.5,
             "textInput_cacheWrite": 6.25
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "claude-sonnet-4-20250514",
-        "name": "Claude Sonnet 4",
-        "family": "claude-sonnet",
-        "releasedAt": "2025-05-22",
-        "knowledge": "2025-03-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 64000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 3,
-            "textOutput": 15,
-            "textInput_cacheRead": 0.3,
-            "textInput_cacheWrite": 3.75
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -91967,38 +91925,6 @@
         }
       },
       {
-        "id": "deepseek-r1-0528",
-        "name": "DeepSeek R1 (0528)",
-        "family": "deepseek",
-        "releasedAt": "2025-05-28",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": false
-        },
-        "contextWindow": 64000,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.55,
-            "textOutput": 2.19
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "deepseek-v3.1",
         "name": "DeepSeek V3.1",
         "family": "deepseek",
@@ -92027,7 +91953,7 @@
           "basePricing": {
             "textInput": 0.56,
             "textOutput": 1.68,
-            "textInput_cacheRead": 0.07
+            "textInput_cacheRead": 0.112
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -92062,7 +91988,7 @@
           "basePricing": {
             "textInput": 0.28,
             "textOutput": 0.42,
-            "textInput_cacheRead": 0.056
+            "textInput_cacheRead": 0.028
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -92085,7 +92011,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 1000000,
+        "contextWindow": 1050000,
         "maxOutput": 384000,
         "modalities": {
           "input": [
@@ -92122,7 +92048,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 1000000,
+        "contextWindow": 1050000,
         "maxOutput": 384000,
         "modalities": {
           "input": [
@@ -92189,7 +92115,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 128000,
+        "contextWindow": 131072,
         "maxOutput": 128000,
         "modalities": {
           "input": [
@@ -92209,29 +92135,24 @@
         }
       },
       {
-        "id": "gemini-2.0-flash",
-        "name": "Gemini 2.0 Flash",
-        "family": "gemini-flash",
-        "releasedAt": "2024-12-11",
-        "knowledge": "2024-06",
+        "id": "fugu-ultra",
+        "name": "Fugu Ultra",
+        "releasedAt": "2026-06-22",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": true,
           "temperature": true,
-          "structuredOutput": true,
+          "structuredOutput": false,
           "vision": true
         },
-        "contextWindow": 1048576,
-        "maxOutput": 8192,
+        "contextWindow": 1000000,
+        "maxOutput": 1000000,
         "modalities": {
           "input": [
             "text",
-            "image",
-            "audio",
-            "video",
-            "pdf"
+            "image"
           ],
           "output": [
             "text"
@@ -92239,47 +92160,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.4,
-            "textInput_cacheRead": 0.025
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "gemini-2.0-flash-lite",
-        "name": "Gemini 2.0 Flash-Lite",
-        "family": "gemini-flash-lite",
-        "releasedAt": "2024-12-11",
-        "knowledge": "2024-06",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 1048576,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio",
-            "video",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.075,
-            "textOutput": 0.3
+            "textInput": 5,
+            "textOutput": 30,
+            "textInput_cacheRead": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -92348,6 +92231,41 @@
             "audio",
             "video",
             "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.1,
+            "textOutput": 0.4,
+            "textInput_cacheRead": 0.01
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gemini-2.5-flash-lite-preview-09-2025",
+        "name": "Gemini 2.5 Flash Lite Preview (09-2025)",
+        "family": "gemini",
+        "releasedAt": "2025-09-25",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 1048576,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
           ],
           "output": [
             "text"
@@ -92490,46 +92408,8 @@
           "basePricing": {
             "textInput": 0.25,
             "textOutput": 1.5,
-            "textInput_cacheRead": 0.025
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "gemini-3.1-flash-lite-preview",
-        "name": "Gemini 3.1 Flash Lite Preview",
-        "family": "gemini-flash-lite",
-        "releasedAt": "2026-03-03",
-        "knowledge": "2025-01",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 1048576,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "video",
-            "audio",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.25,
-            "textOutput": 1.5,
-            "textInput_cacheRead": 0.025
+            "textInput_cacheRead": 0.025,
+            "textInput_cacheWrite": 0.08333
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -92623,7 +92503,8 @@
           "basePricing": {
             "textInput": 1.5,
             "textOutput": 9,
-            "textInput_cacheRead": 0.15
+            "textInput_cacheRead": 0.15,
+            "textInput_cacheWrite": 0.08333
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -92659,104 +92540,6 @@
             "textInput": 2,
             "textOutput": 12,
             "textInput_cacheRead": 0.2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "gemma-2-27b-it-together",
-        "name": "Gemma 2 27B IT",
-        "family": "gemma",
-        "releasedAt": "2024-06-27",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": false
-        },
-        "contextWindow": 8192,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.08,
-            "textOutput": 0.08
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "gemma-3-1b-it",
-        "name": "Gemma 3 1B IT",
-        "family": "gemma",
-        "releasedAt": "2025-03-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": false
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.08,
-            "textOutput": 0.3
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "gemma-3-27b",
-        "name": "Gemma 3 27B",
-        "family": "gemma",
-        "releasedAt": "2025-03-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": false,
-          "vision": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.27,
-            "textOutput": 0.27
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -92875,7 +92658,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 131000,
         "maxOutput": 98304,
         "modalities": {
           "input": [
@@ -92909,7 +92692,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 131000,
         "maxOutput": 98304,
         "modalities": {
           "input": [
@@ -92976,7 +92759,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 128000,
         "maxOutput": 98304,
         "modalities": {
           "input": [
@@ -93044,7 +92827,7 @@
           "temperature": true,
           "vision": true
         },
-        "contextWindow": 64000,
+        "contextWindow": 128000,
         "maxOutput": 16384,
         "modalities": {
           "input": [
@@ -93059,7 +92842,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.6,
-            "textOutput": 1.8
+            "textOutput": 1.8,
+            "textInput_cacheRead": 0.11
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -93113,7 +92897,7 @@
           "temperature": true,
           "vision": true
         },
-        "contextWindow": 128000,
+        "contextWindow": 131072,
         "maxOutput": 32768,
         "modalities": {
           "input": [
@@ -93128,7 +92912,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.3,
-            "textOutput": 0.9
+            "textOutput": 0.9,
+            "textInput_cacheRead": 0.05
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -93265,10 +93050,42 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0,
-            "textOutput": 0,
-            "textInput_cacheRead": 0,
+            "textInput": 0.06,
+            "textOutput": 0.4,
+            "textInput_cacheRead": 0.01,
             "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "glm-4.7-flash-free",
+        "name": "GLM-4.7 Flash (Free)",
+        "family": "glm",
+        "releasedAt": "2025-12-22",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 200000,
+        "maxOutput": 200000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -93323,7 +93140,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 204800,
+        "contextWindow": 203000,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -93360,7 +93177,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 200000,
+        "contextWindow": 204800,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -93372,9 +93189,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 6,
-            "textOutput": 24,
-            "textInput_cacheRead": 1.3,
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.26,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -93535,7 +93352,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1047576,
+        "contextWindow": 1000000,
         "maxOutput": 32768,
         "modalities": {
           "input": [
@@ -93572,7 +93389,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1047576,
+        "contextWindow": 1000000,
         "maxOutput": 32768,
         "modalities": {
           "input": [
@@ -93609,7 +93426,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1047576,
+        "contextWindow": 1000000,
         "maxOutput": 32768,
         "modalities": {
           "input": [
@@ -94549,8 +94366,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.05,
-            "textOutput": 0.25
+            "textInput": 0.15,
+            "textOutput": 0.75
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -94581,31 +94398,33 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.04,
-            "textOutput": 0.15
+            "textInput": 0.1,
+            "textOutput": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
         }
       },
       {
-        "id": "grok-4-0709",
-        "name": "Grok 4 (0709)",
+        "id": "grok-4",
+        "name": "Grok 4",
         "family": "grok",
         "releasedAt": "2025-07-09",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
-          "attachment": false,
+          "attachment": true,
           "temperature": true,
-          "structuredOutput": true
+          "structuredOutput": false,
+          "vision": true
         },
         "contextWindow": 256000,
         "maxOutput": 256000,
         "modalities": {
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "output": [
             "text"
@@ -94614,7 +94433,43 @@
         "pricing": {
           "basePricing": {
             "textInput": 3,
-            "textOutput": 15
+            "textOutput": 15,
+            "textInput_cacheRead": 0.75
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "grok-4-1-fast-non-reasoning",
+        "name": "Grok 4.1 Fast Non-Reasoning",
+        "family": "grok",
+        "releasedAt": "2025-11-19",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": false,
+          "vision": true
+        },
+        "contextWindow": 2000000,
+        "maxOutput": 2000000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.2,
+            "textOutput": 0.5,
+            "textInput_cacheRead": 0.05
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -94669,7 +94524,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 2000000,
         "maxOutput": 30000,
         "modalities": {
           "input": [
@@ -94686,8 +94541,8 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textOutput": 2,
+                "textInput": 1.25,
+                "textOutput": 0.833333333333,
                 "textInput_cacheRead": 2
               },
               "when": {
@@ -94699,8 +94554,8 @@
             }
           ],
           "basePricing": {
-            "textInput": 1.25,
-            "textOutput": 2.5,
+            "textInput": 2,
+            "textOutput": 6,
             "textInput_cacheRead": 0.2
           },
           "currency": "USD",
@@ -94721,7 +94576,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 2000000,
         "maxOutput": 30000,
         "modalities": {
           "input": [
@@ -94738,8 +94593,8 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textOutput": 2,
+                "textInput": 1.25,
+                "textOutput": 0.833333333333,
                 "textInput_cacheRead": 2
               },
               "when": {
@@ -94751,8 +94606,8 @@
             }
           ],
           "basePricing": {
-            "textInput": 1.25,
-            "textOutput": 2.5,
+            "textInput": 2,
+            "textOutput": 6,
             "textInput_cacheRead": 0.2
           },
           "currency": "USD",
@@ -94773,7 +94628,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 2000000,
         "maxOutput": 30000,
         "modalities": {
           "input": [
@@ -94790,8 +94645,8 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textOutput": 2,
+                "textInput": 1.25,
+                "textOutput": 0.833333333333,
                 "textInput_cacheRead": 2
               },
               "when": {
@@ -94803,8 +94658,8 @@
             }
           ],
           "basePricing": {
-            "textInput": 1.25,
-            "textOutput": 2.5,
+            "textInput": 2,
+            "textOutput": 6,
             "textInput_cacheRead": 0.2
           },
           "currency": "USD",
@@ -94825,7 +94680,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 2000000,
         "maxOutput": 30000,
         "modalities": {
           "input": [
@@ -94842,8 +94697,8 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textOutput": 2,
+                "textInput": 1.25,
+                "textOutput": 0.833333333333,
                 "textInput_cacheRead": 2
               },
               "when": {
@@ -94855,8 +94710,8 @@
             }
           ],
           "basePricing": {
-            "textInput": 1.25,
-            "textOutput": 2.5,
+            "textInput": 2,
+            "textOutput": 6,
             "textInput_cacheRead": 0.2
           },
           "currency": "USD",
@@ -94896,7 +94751,7 @@
               "values": {
                 "textInput": 2,
                 "textOutput": 2,
-                "textInput_cacheRead": 2
+                "textInput_cacheRead": 1.28
               },
               "when": {
                 "textTotalInput": [
@@ -94909,42 +94764,7 @@
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 2.5,
-            "textInput_cacheRead": 0.2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "grok-4-fast-reasoning",
-        "name": "Grok 4 Fast Reasoning",
-        "family": "grok",
-        "releasedAt": "2025-07-09",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 2000000,
-        "maxOutput": 30000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 0.5,
-            "textInput_cacheRead": 0.05
+            "textInput_cacheRead": 0.3125
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -95003,38 +94823,6 @@
         }
       },
       {
-        "id": "hermes-2-pro-llama-3-8b",
-        "name": "Hermes 2 Pro Llama 3 8B",
-        "family": "hermes",
-        "releasedAt": "2024-05-27",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": false
-        },
-        "contextWindow": 8192,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.14
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "kimi-k2",
         "name": "Kimi K2",
         "family": "kimi-k2",
@@ -95047,7 +94835,7 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 256000,
         "maxOutput": 16384,
         "modalities": {
           "input": [
@@ -95059,9 +94847,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.5,
-            "textInput_cacheRead": 0.12
+            "textInput": 1,
+            "textOutput": 3,
+            "textInput_cacheRead": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -95396,41 +95184,9 @@
         }
       },
       {
-        "id": "llama-3.1-8b-instruct",
-        "name": "Llama 3.1 8B Instruct",
-        "family": "llama",
-        "releasedAt": "2024-07-23",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 2048,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.22,
-            "textOutput": 0.22
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "llama-3.1-nemotron-ultra-253b",
         "name": "Llama 3.1 Nemotron Ultra 253B",
-        "family": "llama",
+        "family": "nemotron",
         "releasedAt": "2025-04-07",
         "openWeights": true,
         "abilities": {
@@ -95536,7 +95292,7 @@
           "attachment": true,
           "temperature": true
         },
-        "contextWindow": 128000,
+        "contextWindow": 131072,
         "maxOutput": 4096,
         "modalities": {
           "input": [
@@ -95548,8 +95304,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
+            "textInput": 0.13,
+            "textOutput": 0.4
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -95569,7 +95325,7 @@
           "structuredOutput": false,
           "vision": true
         },
-        "contextWindow": 8192,
+        "contextWindow": 1048576,
         "maxOutput": 2048,
         "modalities": {
           "input": [
@@ -95590,38 +95346,6 @@
         }
       },
       {
-        "id": "llama-4-scout",
-        "name": "Llama 4 Scout",
-        "family": "llama",
-        "releasedAt": "2025-04-05",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": false
-        },
-        "contextWindow": 32768,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.18,
-            "textOutput": 0.59
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "llama-4-scout-17b-instruct",
         "name": "Llama 4 Scout 17B Instruct",
         "family": "llama",
@@ -95635,7 +95359,7 @@
           "structuredOutput": false,
           "vision": true
         },
-        "contextWindow": 8192,
+        "contextWindow": 131072,
         "maxOutput": 2048,
         "modalities": {
           "input": [
@@ -95650,42 +95374,6 @@
           "basePricing": {
             "textInput": 0.17,
             "textOutput": 0.66
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "mimo-v2-flash",
-        "name": "MiMo-V2-Flash",
-        "family": "mimo",
-        "releasedAt": "2025-12-16",
-        "knowledge": "2024-12-01",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 262144,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.3,
-            "textInput_cacheRead": 0.01
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -95708,7 +95396,7 @@
           },
           "vision": true
         },
-        "contextWindow": 262144,
+        "contextWindow": 256000,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -95748,7 +95436,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1000000,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -95801,7 +95489,7 @@
           },
           "vision": true
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1000000,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -95819,9 +95507,9 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textOutput": 2,
-                "textInput_cacheRead": 2
+                "textInput": 5.714285714286,
+                "textOutput": 14.285714285714,
+                "textInput_cacheRead": 57.142857142857
               },
               "when": {
                 "textTotalInput": [
@@ -95832,9 +95520,9 @@
             }
           ],
           "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 2,
-            "textInput_cacheRead": 0.08
+            "textInput": 0.14,
+            "textOutput": 0.28,
+            "textInput_cacheRead": 0.0028
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -95856,7 +95544,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1000000,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -95871,9 +95559,9 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textOutput": 2,
-                "textInput_cacheRead": 2
+                "textInput": 4.597701149425,
+                "textOutput": 6.896551724138,
+                "textInput_cacheRead": 111.111111111111
               },
               "when": {
                 "textTotalInput": [
@@ -95884,9 +95572,9 @@
             }
           ],
           "basePricing": {
-            "textInput": 1,
-            "textOutput": 3,
-            "textInput_cacheRead": 0.2
+            "textInput": 0.435,
+            "textOutput": 0.87,
+            "textInput_cacheRead": 0.0036
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -95916,8 +95604,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 1.2
+            "textInput": 0.2,
+            "textOutput": 1,
+            "textInput_cacheRead": 0.03
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -95947,8 +95636,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 1.2
+            "textInput": 0.27,
+            "textOutput": 1.1
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -95998,7 +95687,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 204800,
+        "contextWindow": 228700,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -96045,7 +95734,7 @@
           "basePricing": {
             "textInput": 0.6,
             "textOutput": 2.4,
-            "textInput_cacheRead": 0.06,
+            "textInput_cacheRead": 0.03,
             "textInput_cacheWrite": 0.375
           },
           "currency": "USD",
@@ -96335,7 +96024,7 @@
           "temperature": true,
           "vision": true
         },
-        "contextWindow": 262144,
+        "contextWindow": 128000,
         "maxOutput": 262144,
         "modalities": {
           "input": [
@@ -96348,8 +96037,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 1.5
+            "textInput": 4,
+            "textOutput": 12
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96401,7 +96090,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 262144,
         "maxOutput": 128000,
         "modalities": {
           "input": [
@@ -96592,8 +96281,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 2,
-            "textOutput": 6
+            "textInput": 4,
+            "textOutput": 12
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96657,7 +96346,9 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.05,
-            "textOutput": 0.4
+            "textOutput": 0.4,
+            "textInput_cacheRead": 0.01,
+            "textInput_cacheWrite": 0.0625
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96722,8 +96413,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.345,
-            "textOutput": 1.377
+            "textInput": 1.6,
+            "textOutput": 6.4
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96759,8 +96450,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.07,
-            "textOutput": 0.27
+            "textInput": 0.2,
+            "textOutput": 0.8
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96779,7 +96470,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 131072,
         "maxOutput": 32768,
         "modalities": {
           "input": [
@@ -96792,7 +96483,9 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.4,
-            "textOutput": 1.2
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.08,
+            "textInput_cacheWrite": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96812,7 +96505,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 1000000,
         "maxOutput": 8192,
         "modalities": {
           "input": [
@@ -96825,8 +96518,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.115,
-            "textOutput": 0.287
+            "textInput": 0.4,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.08,
+            "textInput_cacheWrite": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96926,7 +96621,7 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.21,
-            "textOutput": 0.63
+            "textOutput": 0.64
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96980,7 +96675,7 @@
           "temperature": true,
           "vision": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 32768,
         "maxOutput": 8192,
         "modalities": {
           "input": [
@@ -96993,40 +96688,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 2.8,
-            "textOutput": 8.4
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen25-coder-7b",
-        "name": "Qwen2.5 Coder 7B",
-        "family": "qwen",
-        "releasedAt": "2024-09-19",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.05,
-            "textOutput": 0.05
+            "textInput": 0.13,
+            "textOutput": 0.4
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97045,7 +96708,7 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 40960,
         "maxOutput": 8192,
         "modalities": {
           "input": [
@@ -97077,39 +96740,7 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 131072,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.09,
-            "textOutput": 0.58
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-235b-a22b-thinking-2507",
-        "name": "Qwen3 235B A22B Thinking (2507)",
-        "family": "qwen",
-        "releasedAt": "2025-07-08",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131072,
+        "contextWindow": 262000,
         "maxOutput": 8192,
         "modalities": {
           "input": [
@@ -97129,10 +96760,10 @@
         }
       },
       {
-        "id": "qwen3-30b-a3b-fp8",
-        "name": "Qwen3 30B A3B FP8",
+        "id": "qwen3-235b-a22b-thinking-2507",
+        "name": "Qwen3 235B A22B Thinking (2507)",
         "family": "qwen",
-        "releasedAt": "2025-04-28",
+        "releasedAt": "2025-07-08",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -97141,7 +96772,7 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 262000,
         "maxOutput": 8192,
         "modalities": {
           "input": [
@@ -97153,8 +96784,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.1
+            "textInput": 0.2,
+            "textOutput": 0.6
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97173,7 +96804,7 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 262000,
         "maxOutput": 8192,
         "modalities": {
           "input": [
@@ -97193,38 +96824,6 @@
         }
       },
       {
-        "id": "qwen3-30b-a3b-thinking-2507",
-        "name": "Qwen3 30B A3B Thinking (2507)",
-        "family": "qwen",
-        "releasedAt": "2025-07-08",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.1
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "qwen3-32b",
         "name": "Qwen3 32B",
         "family": "qwen",
@@ -97237,7 +96836,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 32768,
         "maxOutput": 16384,
         "modalities": {
           "input": [
@@ -97249,40 +96848,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.7,
-            "textOutput": 2.8
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-32b-fp8",
-        "name": "Qwen3 32B FP8",
-        "family": "qwen",
-        "releasedAt": "2025-04-28",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
             "textInput": 0.1,
-            "textOutput": 0.1
+            "textOutput": 0.3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97301,7 +96868,7 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 128000,
         "maxOutput": 8192,
         "modalities": {
           "input": [
@@ -97333,7 +96900,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 262144,
+        "contextWindow": 262000,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -97345,8 +96912,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.45,
-            "textOutput": 2.25
+            "textInput": 0.1,
+            "textOutput": 0.3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97377,8 +96944,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 7.5
+            "textInput": 0.4,
+            "textOutput": 1.8
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97410,7 +96977,9 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.3,
-            "textOutput": 1.5
+            "textOutput": 1.5,
+            "textInput_cacheRead": 0.06,
+            "textInput_cacheWrite": 0.375
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97442,7 +97011,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.108,
-            "textOutput": 0.675
+            "textOutput": 0.675,
+            "textInput_cacheRead": 0.06
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97461,7 +97031,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1000000,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -97473,8 +97043,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1,
-            "textOutput": 5
+            "textInput": 6,
+            "textOutput": 60,
+            "textInput_cacheRead": 1.2,
+            "textInput_cacheWrite": 7.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97505,8 +97077,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.2,
-            "textOutput": 6
+            "textInput": 3,
+            "textOutput": 15,
+            "textInput_cacheRead": 0.6,
+            "textInput_cacheWrite": 3.75
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97526,7 +97100,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 256000,
+        "contextWindow": 262144,
         "maxOutput": 32800,
         "modalities": {
           "input": [
@@ -97539,9 +97113,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.359,
-            "textOutput": 1.434,
-            "textInput_cacheRead": 0.072
+            "textInput": 1.2,
+            "textOutput": 6,
+            "textInput_cacheRead": 0.24,
+            "textInput_cacheWrite": 1.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97638,8 +97213,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 1.5
+            "textInput": 0.5,
+            "textOutput": 2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97795,7 +97370,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 262144,
         "maxOutput": 32000,
         "modalities": {
           "input": [
@@ -97808,9 +97383,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.022,
-            "textOutput": 0.215,
-            "textInput_cacheRead": 0.0044
+            "textInput": 0.05,
+            "textOutput": 0.4,
+            "textInput_cacheRead": 0.01
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97844,7 +97419,9 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.2,
-            "textOutput": 1.6
+            "textOutput": 1.6,
+            "textInput_cacheRead": 0.04,
+            "textInput_cacheWrite": 0.25
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97966,7 +97543,7 @@
           "temperature": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 262144,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -98296,7 +97873,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 128000,
+        "contextWindow": 130000,
         "maxOutput": 4096,
         "modalities": {
           "input": [
@@ -145015,6 +144592,22 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 0.1,
             "textOutput": 0.4,
@@ -148854,9 +148447,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.09,
-            "textOutput": 0.18,
-            "textInput_cacheRead": 0.02
+            "textInput": 0.089,
+            "textOutput": 0.224,
+            "textInput_cacheRead": 0.0266
           }
         }
       },
@@ -148968,7 +148561,7 @@
           "temperature": true
         },
         "contextWindow": 32768,
-        "maxOutput": 8192,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "image",
@@ -149363,7 +148956,7 @@
           "temperature": false
         },
         "contextWindow": 131072,
-        "maxOutput": 65536,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "image",
@@ -152389,7 +151982,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.6,
-            "textOutput": 2.5
+            "textOutput": 2.5,
+            "textInput_cacheRead": 0.6
           }
         }
       },
@@ -157786,7 +157380,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 81920,
         "modalities": {
           "input": [
             "text",
@@ -157802,7 +157396,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.14,
-            "textOutput": 1
+            "textOutput": 1,
+            "textInput_cacheRead": 0.05
           }
         }
       },
@@ -158459,7 +158054,7 @@
           "temperature": true
         },
         "contextWindow": 1000000,
-        "maxOutput": 256000,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text",
@@ -159739,7 +159334,7 @@
           "basePricing": {
             "textInput": 0.98,
             "textOutput": 3.08,
-            "textInput_cacheRead": 0.49
+            "textInput_cacheRead": 0.182
           }
         }
       },
@@ -194150,7 +193745,7 @@
         "description": "Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models. Built upon extensive training, Qwen3 delivers groundbreaking advancements in reasoning, instruction-following, agent capabilities, and multilingual support",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-04-01",
+        "releasedAt": "2025-04-28",
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
@@ -194189,7 +193784,7 @@
         "description": "",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-04-01",
+        "releasedAt": "2025-04-28",
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
@@ -194228,7 +193823,7 @@
         "description": "Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models. Built upon extensive training, Qwen3 delivers groundbreaking advancements in reasoning, instruction-following, agent capabilities, and multilingual support",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-04-01",
+        "releasedAt": "2025-04-28",
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
@@ -194267,7 +193862,7 @@
         "description": "Qwen3-32B is a world-class model with comparable quality to DeepSeek R1 while outperforming GPT-4.1 and Claude Sonnet 3.7. It excels in code-gen, tool-calling, and advanced reasoning, making it an exceptional model for a wide range of production use cases.",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-04-01",
+        "releasedAt": "2025-04-28",
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
@@ -194347,7 +193942,7 @@
         "description": "Qwen3 series VL models feature significantly enhanced multimodal reasoning capabilities, with a particular focus on optimizing the model for STEM and mathematical reasoning. Visual perception and recognition abilities have been comprehensively improved, and OCR capabilities have undergone a major upgrade.",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-09-24",
+        "releasedAt": "2025-09-23",
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
@@ -194388,12 +193983,12 @@
         "description": "Qwen3-Coder-480B-A35B-Instruct is a cutting-edge open coding model from Qwen, matching Claude Sonnet’s performance in agentic programming, browser automation, and core development tasks.",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-04-01",
+        "releasedAt": "2025-07-22",
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "vision": false,
           "structuredOutput": false,
           "search": false,
@@ -194428,12 +194023,12 @@
         "description": "Efficient coding specialist balancing performance with cost-effectiveness for daily development tasks while maintaining strong tool integration capabilities.",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-04-01",
+        "releasedAt": "2025-07-31",
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "vision": false,
           "structuredOutput": false,
           "search": false,
@@ -194471,7 +194066,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "vision": false,
           "structuredOutput": false,
           "search": false,
@@ -194696,7 +194291,7 @@
         "description": "Qwen3-Max-Preview shows substantial gains over the 2.5 series in overall capability, with significant enhancements in Chinese-English text understanding, complex instruction following, handling of subjective open-ended tasks, multilingual ability, and tool invocation; model knowledge hallucinations are reduced.",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-09-23",
+        "releasedAt": "2025-09-05",
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
@@ -194736,7 +194331,7 @@
         "description": "Compared with the snapshot as of September 23, 2025, the Qwen-3 series Max model in this release achieves an effective integration of thinking and non-thinking modes, resulting in a comprehensive and substantial improvement in the model’s overall performance. In thinking mode, the model simultaneously supports web search, web information extraction, and a code interpreter tool, enabling it to tackle more complex and challenging problems with greater accuracy by leveraging external tools while engaging in slow, deliberative reasoning. This version is based on a snapshot taken on January 23, 2026.",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2026-01-23",
         "knowledge": "2025-01",
         "openWeights": true,
         "abilities": {
@@ -194776,7 +194371,7 @@
         "description": "A new generation of open-source, non-thinking mode model powered by Qwen3. This version demonstrates superior Chinese text understanding, augmented logical reasoning, and enhanced capabilities in text generation tasks over the previous iteration (Qwen3-235B-A22B-Instruct-2507).",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-09-12",
+        "releasedAt": "2025-09-11",
         "knowledge": "2025-04",
         "openWeights": true,
         "abilities": {
@@ -194815,7 +194410,7 @@
         "description": "A new generation of Qwen3-based open-source thinking mode models. This version offers improved instruction following and streamlined summary responses over the previous iteration (Qwen3-235B-A22B-Thinking-2507).",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-09-12",
+        "releasedAt": "2025-09-11",
         "knowledge": "2025-09",
         "openWeights": true,
         "abilities": {
@@ -194854,10 +194449,10 @@
         "description": "The Qwen3 series VL models has been comprehensively upgraded in areas such as visual coding and spatial perception. Its visual perception and recognition capabilities have significantly improved, supporting the understanding of ultra-long videos, and its OCR functionality has undergone a major enhancement.",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-09-24",
+        "releasedAt": "2025-09-23",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "vision": true,
           "structuredOutput": false,
@@ -194894,11 +194489,11 @@
         "description": "The Qwen3 series VL models has been comprehensively upgraded in areas such as visual coding and spatial perception. Its visual perception and recognition capabilities have significantly improved, supporting the understanding of ultra-long videos, and its OCR functionality has undergone a major enhancement.",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-09-24",
+        "releasedAt": "2025-09-23",
         "knowledge": "2025-04",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "vision": true,
           "structuredOutput": false,
@@ -194935,7 +194530,7 @@
         "description": "Qwen3 series VL models feature significantly enhanced multimodal reasoning capabilities, with a particular focus on optimizing the model for STEM and mathematical reasoning. Visual perception and recognition abilities have been comprehensively improved, and OCR capabilities have undergone a major upgrade.",
         "type": "language",
         "family": "qwen",
-        "releasedAt": "2025-09-24",
+        "releasedAt": "2025-09-23",
         "knowledge": "2025-09",
         "openWeights": true,
         "abilities": {
@@ -195185,7 +194780,7 @@
         "description": "Among the Qwen3.7 series, the cost-effective Plus model builds on its robust text capabilities while delivering a comprehensive upgrade to its vision‑language abilities, all while preserving its full‑stack agent‑level intelligence for coding, tool use, and productivity workflows.",
         "type": "language",
         "family": "qwen3.7-plus",
-        "releasedAt": "2026-06-01",
+        "releasedAt": "2026-06-02",
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
@@ -195408,11 +195003,11 @@
         "description": "Nova 2 Lite is a fast, cost-effective reasoning model for everyday workloads that can process text, images, and videos to generate text.",
         "type": "language",
         "family": "nova",
-        "releasedAt": "2024-12-01",
+        "releasedAt": "2025-12-02",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "vision": true,
           "structuredOutput": false,
@@ -195453,9 +195048,9 @@
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
-          "vision": false,
+          "vision": true,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
@@ -195490,11 +195085,11 @@
         "description": "A text-only model that delivers the lowest latency responses at very low cost.",
         "type": "language",
         "family": "nova-micro",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2024-12-03",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "vision": false,
           "structuredOutput": false,
@@ -195533,9 +195128,9 @@
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
-          "vision": false,
+          "vision": true,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
@@ -195570,7 +195165,7 @@
         "description": "Amazon Titan Text Embeddings V2 is a light weight, efficient multilingual embedding model supporting 1024, 512, and 256 dimensions.",
         "type": "embedding",
         "family": "titan-embed",
-        "releasedAt": "2024-04-01",
+        "releasedAt": "2024-04-30",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -195607,7 +195202,7 @@
         "description": "Claude 3 Haiku is Anthropic's fastest, most compact model for near-instant responsiveness. It answers simple queries and requests with speed. Customers will be able to build seamless AI experiences that mimic human interactions. Claude 3 Haiku can process images and return text outputs, and features a 200K context window.",
         "type": "language",
         "family": "claude-haiku",
-        "releasedAt": "2023-03-01",
+        "releasedAt": "2024-03-13",
         "knowledge": "2023-08-31",
         "openWeights": false,
         "deprecated": true,
@@ -195651,7 +195246,7 @@
         "description": "Claude 3 Haiku is Anthropic's fastest, most compact model for near-instant responsiveness. It answers simple queries and requests with speed. Customers will be able to build seamless AI experiences that mimic human interactions. Claude 3 Haiku can process images and return text outputs, and features a 200K context window.",
         "type": "language",
         "family": "claude-haiku",
-        "releasedAt": "2023-11-06",
+        "releasedAt": "2024-11-04",
         "knowledge": "2024-07-31",
         "openWeights": false,
         "deprecated": true,
@@ -195739,7 +195334,7 @@
         "description": "Claude Opus 4 is Anthropic's most powerful model yet and the best coding model in the world, leading on SWE-bench (72.5%) and Terminal-bench (43.2%). It delivers sustained performance on long-running tasks that require focused effort and thousands of steps, with the ability to work continuously for several hours—dramatically outperforming all Sonnet models and significantly expanding what AI agents can accomplish.",
         "type": "language",
         "family": "claude-opus",
-        "releasedAt": "2025-08-05",
+        "releasedAt": "2025-05-22",
         "knowledge": "2025-03-31",
         "openWeights": false,
         "abilities": {
@@ -195782,7 +195377,7 @@
         "description": "Claude Opus 4.1 is a drop-in replacement for Opus 4 that delivers superior performance and precision for real-world coding and agentic tasks. Opus 4.1 advances state-of-the-art coding performance to 74.5% on SWE-bench Verified, and handles complex, multi-step problems with more rigor and attention to detail.",
         "type": "language",
         "family": "claude-opus",
-        "releasedAt": "2025-05-22",
+        "releasedAt": "2025-08-05",
         "knowledge": "2025-03-31",
         "openWeights": false,
         "abilities": {
@@ -195825,7 +195420,7 @@
         "description": "Claude Opus 4.5 is Anthropic’s latest model in the Opus series, meant for demanding reasoning tasks and complex problem solving. This model has improvements in general intelligence and vision compared to previous iterations. In addition, it is suited for difficult coding tasks and agentic workflows, especially those with computer use and tool use, and can effectively handle context usage and external memory files.",
         "type": "language",
         "family": "claude-opus",
-        "releasedAt": "2024-11-24",
+        "releasedAt": "2025-11-24",
         "knowledge": "2025-03-31",
         "openWeights": false,
         "abilities": {
@@ -196128,7 +195723,7 @@
         "description": "Trinity Large (Preview) is a 400B-parameter (13B active) sparse mixture-of-experts language model, engineered to scale model capacity while maintaining inference efficiency over long contexts, with strong performance in reasoning-heavy workloads including math, coding-related tasks, and multi-step agent workflows.",
         "type": "language",
         "family": "trinity",
-        "releasedAt": "2025-01-01",
+        "releasedAt": "2026-01-27",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -196209,7 +195804,7 @@
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "vision": false,
           "structuredOutput": false,
@@ -196244,7 +195839,7 @@
         "description": "FLUX.2 is a completely new base model trained for visual intelligence, not just pixel generation, setting a new standard for both image generation and image editing. With FLUX.2 models you can expect the highest quality, higher resolutions (up to 4MP), and new capabilities like multi-ref images. FLUX.2 [flex] supports customizable image generation and editing with adjustable steps and guidance. It's better at typography and text rendering. It supports up to 10 reference images (up to 14 MP total input).\nThis provider gives the option to change the moderation level for inputs and outputs. The control is under safety tolerance and is by default 2 on a range from 0 (more strict) through 6 (more permissive).",
         "type": "image",
         "family": "flux",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2025-11-25",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196274,7 +195869,7 @@
         "description": "FLUX.2 [klein] is Black Forest Labs' fastest image model yet - it unifies image generation and editing in a single, compact model. Delivering state-of-the-art quality with end-to-end inference in less than a second. Enabling interactive workflows, real-time previews, and latency-critical applications.",
         "type": "image",
         "family": "flux",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2026-01-15",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196304,7 +195899,7 @@
         "description": "FLUX.2 [klein] is Black Forest Labs' fastest image model yet - it unifies image generation and editing in a single, compact model. Delivering state-of-the-art quality with end-to-end inference in less than a second. Enabling interactive workflows, real-time previews, and latency-critical applications.",
         "type": "image",
         "family": "flux",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2026-01-15",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196334,7 +195929,7 @@
         "description": "FLUX.2 [max] offers image generation and image editing with the highest quality available. It delivers state-of-the-art image generation and advanced image editing with exceptional realism, precision, and consistency. Built for professional use, FLUX.2 [max] produces production-ready outputs for marketing teams, creatives, filmmakers, and creators around the world.",
         "type": "image",
         "family": "flux",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2025-12-16",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196364,7 +195959,7 @@
         "description": "FLUX.2 is a completely new base model trained for visual intelligence, not just pixel generation, setting a new standard for both image generation and image editing. With FLUX.2 models you can expect the highest quality, higher resolutions (up to 4MP), and new capabilities like multi-ref images. FLUX.2 [pro] supports generation, editing, and multiple reference images (up to 9 MP total input).\nThis provider gives the option to change the moderation level for inputs and outputs. The control is under safety tolerance and is by default 2 on a range from 0 (more strict) through 6 (more permissive).",
         "type": "image",
         "family": "flux",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2025-11-25",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196394,7 +195989,7 @@
         "description": "FLUX.1 Kontext creates images from text prompts with unique capabilities for character consistency and advanced editing. It also edits images using simple text prompts. No complex workflows or fine-tuning needed.\nThis provider gives the option to change the moderation level for inputs and outputs. The control is under safety tolerance and is by default 2 on a range from 0 (more strict) through 6 (more permissive).",
         "type": "image",
         "family": "flux",
-        "releasedAt": "2025-06-01",
+        "releasedAt": "2025-05-29",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196424,7 +196019,7 @@
         "description": "FLUX.1 Kontext creates images from text prompts with unique capabilities for character consistency and advanced editing. It also edits images using simple text prompts. No complex workflows or fine-tuning needed.\nThis provider gives the option to change the moderation level for inputs and outputs. The control is under safety tolerance and is by default 2 on a range from 0 (more strict) through 6 (more permissive).",
         "type": "image",
         "family": "flux",
-        "releasedAt": "2025-06-01",
+        "releasedAt": "2025-05-29",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196484,7 +196079,7 @@
         "description": "FLUX1.1 [pro] is the standard for text-to-image generation with fast, reliable and consistently stunning results.\nThis provider gives the option to change the moderation level for inputs and outputs. The control is under safety tolerance and is by default 2 on a range from 0 (more strict) through 6 (more permissive).",
         "type": "image",
         "family": "flux",
-        "releasedAt": "2024-10-01",
+        "releasedAt": "2024-10-02",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196550,7 +196145,7 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": false,
+          "vision": true,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
@@ -196588,7 +196183,7 @@
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "vision": true,
           "structuredOutput": false,
@@ -196717,7 +196312,7 @@
         "description": "Seedance 1.0 Pro Fast delivers top performance at an unbeatable price, balancing quality, speed, and cost. Built on Seedance 1.0 Pro’s core strengths, it’s faster and more cost-efficient for creators.",
         "type": "video",
         "family": "seed",
-        "releasedAt": "2025-10-31",
+        "releasedAt": "2025-10-24",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196777,7 +196372,7 @@
         "description": "Seedream 4.0 is a SOTA multimodal image creation model built on leading architecture. It breaks through the boundaries of traditional text-to-image models by natively supporting text, single-image, and multi-image inputs. Users can freely combine text and images to achieve diverse creative modes within a single model—such as multi-image blending, image editing, and sequentially batch image generation, featuring subject consistency, making image creation more free and controllable.",
         "type": "image",
         "family": "seed",
-        "releasedAt": "2025-08-28",
+        "releasedAt": "2025-09-09",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196807,7 +196402,7 @@
         "description": "Seedream 4.5 is the latest in-house image generation model developed by ByteDance. Compared with Seedream 4.0, it delivers comprehensive improvements—especially in editing consistency, including better preservation of subject details, lighting, and color tone. It also enhances portrait refinement and small-text rendering. The model’s multi-image composition capabilities have been significantly strengthened, and both reasoning performance and visual aesthetics continue to advance, enabling more accurate and artistically expressive image generation.",
         "type": "image",
         "family": "seed",
-        "releasedAt": "2025-11-28",
+        "releasedAt": "2025-12-03",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -196837,7 +196432,7 @@
         "description": "ByteDance-Seedream-5.0-lite is the latest image generation model released by BytePlus. For the first time, it introduces web-connected retrieval, enabling the model to fuse real-time online information to significantly improve the timeliness and relevance of generated images. The model’s reasoning and comprehension capabilities are further upgraded, allowing it to accurately interpret complex prompts and visual inputs. In addition, ByteDance-Seedream-5.0-lite delivers notable improvements in global knowledge coverage, reference consistency, and professional-grade scene generation, making it well suited for enterprise-level visual creation workflows.",
         "type": "image",
         "family": "seed",
-        "releasedAt": "2026-01-28",
+        "releasedAt": "2026-02-13",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -197197,8 +196792,8 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
-          "vision": true,
+          "reasoning": false,
+          "vision": false,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
@@ -197240,7 +196835,7 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true,
+          "vision": false,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
@@ -197282,7 +196877,7 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true,
+          "vision": false,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
@@ -197403,7 +196998,7 @@
         "description": "Nano Banana (Gemini 2.5 Flash Image) is Google's first fully hybrid reasoning model, letting developers turn thinking on or off and set thinking budgets to balance quality, cost, and latency. Upgraded for rapid creative workflows, it can generate interleaved text and images and supports conversational, multi‑turn image editing in natural language. It’s also locale‑aware, enabling culturally and linguistically appropriate image generation for audiences worldwide.",
         "type": "language",
         "family": "gemini-flash",
-        "releasedAt": "2025-03-20",
+        "releasedAt": "2025-08-26",
         "knowledge": "2025-01",
         "openWeights": false,
         "abilities": {
@@ -198026,7 +197621,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "vision": true,
           "structuredOutput": false,
           "search": false,
@@ -198092,7 +197687,7 @@
         "description": "Imagen 4: Google's flagship text-to-image model that serves as the go-to choice for a wide variety of high-quality image generation tasks, featuring significant improvements in text rendering over previous models. It now supports up to 2K resolution generation for creating detailed and crisp visuals, making it suitable for everything from marketing assets to artistic compositions.",
         "type": "image",
         "family": "imagen",
-        "releasedAt": "2025-05-22",
+        "releasedAt": "2025-05-20",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -198226,7 +197821,7 @@
         "description": "Veo 3 Fast is a quicker and more cost effective version of Veo 3, allowing developers to create videos with sound while maintaining high quality and optimizing for speed and business use cases. Veo 3 Fast offers both text-to-video and image-to-video modalities.",
         "type": "video",
         "family": "veo",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2025-07-31",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -198256,7 +197851,7 @@
         "description": "Veo 3 is designed to handle a range of video generation tasks, from cinematic narratives to dynamic character animations. With Veo 3, you can create more immersive experiences by not only generating stunning visuals, but also audio like dialogue and sound effects.",
         "type": "video",
         "family": "veo",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2025-05-20",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -198286,7 +197881,7 @@
         "description": "Veo 3.1 Fast is a specialized, high-speed variant of Google DeepMind’s Veo 3.1 text-to-video model, optimized for rapid generation of 8-second, high-fidelity videos. It is designed to create cinematic, 1080p, or 720p content with improved prompt adherence and native audio, making it ideal for creating quick, high-quality video clips, social media content, and ad creatives.",
         "type": "video",
         "family": "veo",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2025-10-15",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -198316,7 +197911,7 @@
         "description": "Veo 3.1 is Google's state-of-the-art model for generating high-fidelity, 8-second 720p, 1080p or 4k videos featuring stunning realism and natively generated audio.",
         "type": "video",
         "family": "veo",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2025-10-15",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -198425,9 +198020,9 @@
         "releasedAt": "2025-10-07",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
-          "vision": false,
+          "vision": true,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
@@ -198520,7 +198115,7 @@
         "description": "Kling 2.6 introduces a groundbreaking \"Native Audio\" capability, enabling the generation of complete videos in a single go, including natural voice, action sound effects, and environmental ambient sounds, providing an immersive \"what you see if what you hear\" experience. ",
         "type": "video",
         "family": "ling",
-        "releasedAt": "2025-12-21",
+        "releasedAt": "2025-12-03",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -198550,7 +198145,7 @@
         "description": "Kling 2.6 introduces a groundbreaking \"Native Audio\" capability, enabling the generation of complete videos in a single go, including natural voice, action sound effects, and environmental ambient sounds, providing an immersive \"what you see if what you hear\" experience. ",
         "type": "video",
         "family": "ling",
-        "releasedAt": "2025-12-21",
+        "releasedAt": "2025-12-18",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -198580,7 +198175,7 @@
         "description": "Kling 2.6 introduces a groundbreaking \"Native Audio\" capability, enabling the generation of complete videos in a single go, including natural voice, action sound effects, and environmental ambient sounds, providing an immersive \"what you see if what you hear\" experience. ",
         "type": "video",
         "family": "ling",
-        "releasedAt": "2025-12-21",
+        "releasedAt": "2025-12-03",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -198700,12 +198295,12 @@
         "description": "KAT-Coder-Pro V1 is KwaiKAT's most advanced agentic coding model in the KwaiKAT series. Designed specifically for agentic coding tasks, it excels in real-world software engineering scenarios, achieving a remarkable 73.4% solve rate on the SWE-Bench Verified benchmark. KAT-Coder-Pro V1 delivers top-tier coding performance and has been rigorously tested by thousands of in-house engineers. The model has been optimized for tool-use capability, multi-turn interaction, instruction following, generalization and comprehensive capabilities through a multi-stage training process, including mid-training, supervised fine-tuning (SFT), reinforcement fine-tuning (RFT), and scalable agentic RL.",
         "type": "language",
         "family": "kat-coder",
-        "releasedAt": "2025-10-24",
+        "releasedAt": "2025-11-09",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
-          "reasoning": true,
+          "toolCall": true,
+          "reasoning": false,
           "vision": false,
           "structuredOutput": false,
           "search": false,
@@ -198779,7 +198374,7 @@
         "description": "LongCat-Flash-Chat is a high-throughput MoE chat model (128k context) optimized for agentic tasks.",
         "type": "language",
         "family": "longcat",
-        "releasedAt": "2025-08-30",
+        "releasedAt": "2025-09-01",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -198810,10 +198405,10 @@
         "description": "A version built for deep and general agentic thinking.",
         "type": "language",
         "family": "longcat",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2026-01-15",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "vision": false,
           "structuredOutput": false,
@@ -198958,7 +198553,7 @@
         "description": "Text-only model, supporting on-device use cases such as multilingual local knowledge retrieval, summarization, and rewriting.",
         "type": "language",
         "family": "llama",
-        "releasedAt": "2024-09-18",
+        "releasedAt": "2024-09-25",
         "knowledge": "2023-12",
         "openWeights": false,
         "abilities": {
@@ -198997,7 +198592,7 @@
         "description": "Text-only model, fine-tuned for supporting on-device use cases such as multilingual local knowledge retrieval, summarization, and rewriting.",
         "type": "language",
         "family": "llama",
-        "releasedAt": "2024-09-18",
+        "releasedAt": "2024-09-25",
         "knowledge": "2023-12",
         "openWeights": false,
         "abilities": {
@@ -199237,7 +198832,7 @@
         "description": "MiniMax 2.1 is MiniMax's latest model, optimized specifically for robustness in coding, tool use, instruction following, and long-horizon planning.",
         "type": "language",
         "family": "minimax",
-        "releasedAt": "2025-10-27",
+        "releasedAt": "2025-12-23",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -199279,7 +198874,7 @@
         "description": "MiniMax-M2.1-lightning is a faster version of MiniMax-M2.1, offering the same performance but with significantly higher throughput (output speed ~100 TPS, MiniMax-M2 output speed ~60 TPS).",
         "type": "language",
         "family": "minimax",
-        "releasedAt": "2025-10-27",
+        "releasedAt": "2025-12-23",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -199636,7 +199231,7 @@
         "description": "Devstral is an agentic LLM for software engineering tasks built under a collaboration between Mistral AI and All Hands AI 🙌. Devstral excels at using tools to explore codebases, editing multiple files and power software engineering agents.",
         "type": "language",
         "family": "devstral",
-        "releasedAt": "2025-05-07",
+        "releasedAt": "2025-05-21",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -199675,13 +199270,13 @@
         "description": "Our open source model that excels at using tools to explore codebases, editing multiple files, and powering software engineering agents.",
         "type": "language",
         "family": "devstral",
-        "releasedAt": "2025-05-07",
+        "releasedAt": "2025-12-09",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
-          "vision": false,
+          "vision": true,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
@@ -199714,11 +199309,11 @@
         "description": "Complex thinking, backed by deep understanding, with transparent reasoning you can follow and verify. The model excels in maintaining high-fidelity reasoning across numerous languages, even when switching between languages mid-task.",
         "type": "language",
         "family": "magistral-medium",
-        "releasedAt": "2025-03-17",
+        "releasedAt": "2025-06-10",
         "knowledge": "2025-06",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "vision": true,
           "structuredOutput": false,
@@ -199753,11 +199348,11 @@
         "description": "Complex thinking, backed by deep understanding, with transparent reasoning you can follow and verify. The model excels in maintaining high-fidelity reasoning across numerous languages, even when switching between languages mid-task.",
         "type": "language",
         "family": "magistral-small",
-        "releasedAt": "2025-03-17",
+        "releasedAt": "2025-06-10",
         "knowledge": "2025-06",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "vision": true,
           "structuredOutput": false,
@@ -199792,11 +199387,11 @@
         "description": "Ministral 3 14B is the largest model in the Ministral 3 family, offering state-of-the-art capabilities and performance comparable to its larger Mistral Small 3.2 24B counterpart. Optimized for local deployment, it delivers high performance across diverse hardware, including local setups.",
         "type": "language",
         "family": "ministral",
-        "releasedAt": "2025-12-01",
+        "releasedAt": "2025-12-02",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "vision": true,
           "structuredOutput": false,
@@ -199833,7 +199428,7 @@
         "description": "A compact, efficient model for on-device tasks like smart assistants and local analytics, offering low-latency performance.",
         "type": "language",
         "family": "ministral",
-        "releasedAt": "2024-10-01",
+        "releasedAt": "2024-10-16",
         "knowledge": "2024-10",
         "openWeights": true,
         "abilities": {
@@ -199872,7 +199467,7 @@
         "description": "A more powerful model with faster, memory-efficient inference, ideal for complex workflows and demanding edge applications.",
         "type": "language",
         "family": "ministral",
-        "releasedAt": "2024-10-01",
+        "releasedAt": "2024-10-16",
         "knowledge": "2024-10",
         "openWeights": true,
         "abilities": {
@@ -199952,7 +199547,7 @@
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "vision": true,
           "structuredOutput": false,
@@ -200028,12 +199623,12 @@
         "description": "Mistral's frontier-class multimodal model optimized for agentic and coding use cases.",
         "type": "language",
         "family": "mistral-medium",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2026-04-29",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": false,
+          "vision": true,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
@@ -200066,7 +199661,7 @@
         "description": "A 12B parameter model with a 128k token context length built by Mistral in collaboration with NVIDIA. The model is multilingual, supporting English, French, German, Spanish, Italian, Portuguese, Chinese, Japanese, Korean, Arabic, and Hindi. It supports function calling and is released under the Apache 2.0 license.",
         "type": "language",
         "family": "mistral-nemo",
-        "releasedAt": "2024-07-01",
+        "releasedAt": "2024-07-18",
         "knowledge": "2024-04",
         "openWeights": false,
         "abilities": {
@@ -200105,7 +199700,7 @@
         "description": "Mistral Small is the ideal choice for simple tasks that one can do in bulk - like Classification, Customer Support, or Text Generation. It offers excellent performance at an affordable price point.",
         "type": "language",
         "family": "mistral-small",
-        "releasedAt": "2024-09-01",
+        "releasedAt": "2024-09-17",
         "knowledge": "2025-06",
         "openWeights": true,
         "abilities": {
@@ -200145,7 +199740,7 @@
         "description": "A 12B model with image understanding capabilities in addition to text.",
         "type": "language",
         "family": "pixtral",
-        "releasedAt": "2024-09-01",
+        "releasedAt": "2024-09-17",
         "knowledge": "2024-09",
         "openWeights": true,
         "abilities": {
@@ -200185,7 +199780,7 @@
         "description": "Pixtral Large is the second model in our multimodal family and demonstrates frontier-level image understanding. Particularly, the model is able to understand documents, charts and natural images, while maintaining the leading text-only understanding of Mistral Large 2.",
         "type": "language",
         "family": "pixtral",
-        "releasedAt": "2024-11-01",
+        "releasedAt": "2024-11-18",
         "knowledge": "2024-11",
         "openWeights": true,
         "abilities": {
@@ -200225,7 +199820,7 @@
         "description": "Kimi K2 is a state-of-the-art mixture-of-experts (MoE) language model with 32 billion activated parameters and 1 trillion total parameters. Trained with the Muon optimizer, Kimi K2 achieves exceptional performance across frontier knowledge, reasoning, and coding tasks while being meticulously optimized for agentic capabilities.",
         "type": "language",
         "family": "kimi-k2",
-        "releasedAt": "2025-09-05",
+        "releasedAt": "2025-07-11",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
@@ -200472,7 +200067,7 @@
         "description": "Morph offers a specialized AI model that applies code changes suggested by frontier models (like Claude or GPT-4o) to your existing code files FAST - 4500+ tokens/second. It acts as the final step in the AI coding workflow. Supports 16k input tokens and 16k output tokens.",
         "type": "language",
         "family": "morph",
-        "releasedAt": "2024-08-15",
+        "releasedAt": "2025-07-07",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -200510,7 +200105,7 @@
         "description": "Morph offers a specialized AI model that applies code changes suggested by frontier models (like Claude or GPT-4o) to your existing code files FAST - 2500+ tokens/second. It acts as the final step in the AI coding workflow. Supports 16k input tokens and 16k output tokens.",
         "type": "language",
         "family": "morph",
-        "releasedAt": "2024-08-15",
+        "releasedAt": "2025-07-07",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -200548,11 +200143,11 @@
         "description": "NVIDIA Nemotron 3 Nano is an open reasoning model optimized for fast, cost-efficient inference. Built with a hybrid MoE and Mamba architecture and trained on NVIDIA-curated synthetic reasoning data, it delivers strong multi-step reasoning with stable latency and predictable performance for agentic and production workloads.",
         "type": "language",
         "family": "nemotron",
-        "releasedAt": "2024-12-01",
+        "releasedAt": "2025-12-15",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "vision": false,
           "structuredOutput": false,
@@ -200587,7 +200182,7 @@
         "description": "NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating just 12B parameters for maximum compute efficiency and accuracy in complex multi-agent applications. It delivers up to 7x higher throughput, providing fast, cost-efficient inference for agentic tasks. Additionally, a long context window gives the model long-term memory, preventing AI agents from losing focus on long, multi-step tasks and ensuring high-accuracy results. Fully open with weights, datasets, and recipes, Super allows easy customization and secure deployment anywhere.",
         "type": "language",
         "family": "nemotron",
-        "releasedAt": "2026-03-18",
+        "releasedAt": "2026-03-11",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
@@ -200664,7 +200259,7 @@
         "description": "The model is an auto-regressive vision language model that uses an optimized transformer architecture. The model enables multi-image reasoning and video understanding, along with strong document intelligence, visual Q&A and summarization capabilities.",
         "type": "language",
         "family": "nemotron",
-        "releasedAt": "2024-12-01",
+        "releasedAt": "2025-10-28",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -200743,11 +200338,11 @@
         "description": "OpenAI's most capable and cost effective model in the GPT-3.5 family optimized for chat purposes, but also works well for traditional completions tasks.",
         "type": "language",
         "family": "gpt",
-        "releasedAt": "2023-05-28",
+        "releasedAt": "2023-03-01",
         "knowledge": "2021-09",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "vision": false,
           "structuredOutput": false,
@@ -200782,7 +200377,7 @@
         "description": "Similar capabilities as GPT-3 era models. Compatible with legacy Completions endpoint and not Chat Completions.",
         "type": "language",
         "family": "gpt",
-        "releasedAt": "2023-09-28",
+        "releasedAt": "2023-09-18",
         "knowledge": "2021-09",
         "openWeights": false,
         "abilities": {
@@ -200821,7 +200416,7 @@
         "description": "gpt-4-turbo from OpenAI has broad general knowledge and domain expertise allowing it to follow complex instructions in natural language and solve difficult problems accurately. It has a knowledge cutoff of April 2023 and a 128,000 token context window.",
         "type": "language",
         "family": "gpt",
-        "releasedAt": "2023-11-06",
+        "releasedAt": "2024-04-09",
         "knowledge": "2023-12",
         "openWeights": false,
         "abilities": {
@@ -201185,7 +200780,7 @@
         "description": "GPT-5 is OpenAI's flagship language model that excels at complex reasoning, broad real-world knowledge, code-intensive, and multi-step agentic tasks.",
         "type": "language",
         "family": "gpt",
-        "releasedAt": "2025-08-01",
+        "releasedAt": "2025-08-07",
         "knowledge": "2024-09-30",
         "openWeights": false,
         "abilities": {
@@ -201231,7 +200826,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "vision": true,
           "structuredOutput": false,
           "search": false,
@@ -201392,7 +200987,7 @@
         "description": "GPT-5 pro uses more compute to think harder and provide consistently better answers. Since GPT-5 pro is designed to tackle tough problems, some requests may take several minutes to finish.",
         "type": "language",
         "family": "gpt",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2025-10-06",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -201565,7 +201160,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "vision": true,
           "structuredOutput": false,
           "search": false,
@@ -201692,7 +201287,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "vision": true,
           "structuredOutput": false,
           "search": false,
@@ -201816,7 +201411,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "vision": true,
           "structuredOutput": false,
           "search": false,
@@ -201853,7 +201448,7 @@
         "description": "GPT-5.3-Codex advances both the frontier coding performance of GPT‑5.2-Codex and the reasoning and professional knowledge capabilities of GPT‑5.2, together in one model, which is also 25% faster. This enables it to take on long-running tasks that involve research, tool use, and complex execution.",
         "type": "language",
         "family": "gpt",
-        "releasedAt": "2026-02-24",
+        "releasedAt": "2026-02-05",
         "knowledge": "2025-08-31",
         "openWeights": false,
         "abilities": {
@@ -202380,7 +201975,7 @@
         "description": "OpenAI's first open weight reasoning model specifically trained for safety classification tasks. Fine-tuned from GPT-OSS, this model helps classify text content based on customizable policies, enabling bring-your-own-policy Trust & Safety AI where your own taxonomy, definitions, and thresholds guide classification decisions.",
         "type": "language",
         "family": "gpt-oss",
-        "releasedAt": "2024-12-01",
+        "releasedAt": "2025-10-29",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -202627,7 +202222,7 @@
         "description": "o3-deep-research is OpenAI's most advanced model for deep research, designed to tackle complex, multi-step research tasks. It can search and synthesize information from across the internet as well as from your own data—brought in through MCP connectors.",
         "type": "language",
         "family": "o",
-        "releasedAt": "2024-06-26",
+        "releasedAt": "2025-06-26",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -202669,7 +202264,7 @@
         "description": "o3-mini is OpenAI's most recent small reasoning model, providing high intelligence at the same cost and latency targets of o1-mini.",
         "type": "language",
         "family": "o-mini",
-        "releasedAt": "2024-12-20",
+        "releasedAt": "2025-01-31",
         "knowledge": "2024-05",
         "openWeights": false,
         "abilities": {
@@ -202709,7 +202304,7 @@
         "description": "The o-series of models are trained with reinforcement learning to think before they answer and perform complex reasoning. The o3-pro model uses more compute to think harder and provide consistently better answers.",
         "type": "language",
         "family": "o-pro",
-        "releasedAt": "2025-04-16",
+        "releasedAt": "2025-06-10",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -203017,7 +202612,7 @@
         "knowledge": "2025-02",
         "openWeights": false,
         "abilities": {
-          "toolCall": true,
+          "toolCall": false,
           "reasoning": false,
           "vision": true,
           "structuredOutput": false,
@@ -203057,7 +202652,7 @@
         "knowledge": "2025-09",
         "openWeights": false,
         "abilities": {
-          "toolCall": true,
+          "toolCall": false,
           "reasoning": false,
           "vision": true,
           "structuredOutput": false,
@@ -203132,7 +202727,7 @@
         "description": "Lightning-fast image generation",
         "type": "image",
         "family": "flux",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2024-08-02",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -203162,7 +202757,7 @@
         "description": "Recraft V2 is an image generation model released in March 2024 and the first model trained from scratch by Recraft. With 20 billion parameters, it was a breakthrough in human anatomical accuracy and the first to support brand consistency and brand color inputs. It also introduced vector image generation (SVG output), as well as minimalistic icon and illustration styles.",
         "type": "image",
         "family": "recraft",
-        "releasedAt": "2024-03-01",
+        "releasedAt": "2024-03-13",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -203192,7 +202787,7 @@
         "description": "V3 introduced major advances in photorealism and text rendering. It was the first Recraft model to generate mid-size text accurately and, as of 2025, is the only model capable of placing text at specific positions in an image.",
         "type": "image",
         "family": "recraft",
-        "releasedAt": "2024-10-01",
+        "releasedAt": "2024-10-30",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -203597,7 +203192,7 @@
         "description": "Voyage AI's embedding model with the best general-purpose and multilingual retrieval quality.",
         "type": "embedding",
         "family": "voyage",
-        "releasedAt": "2024-09-01",
+        "releasedAt": "2025-01-07",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -203708,7 +203303,7 @@
         "description": "Optimized for general-purpose and multilingual retrieval quality. All embeddings created with the 4 series are compatible with each other.",
         "type": "embedding",
         "family": "voyage",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2026-01-15",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -203745,7 +203340,7 @@
         "description": "The best general-purpose and multilingual retrieval quality. All embeddings created with the 4 series are compatible with each other.",
         "type": "embedding",
         "family": "voyage",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2026-01-15",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -203782,7 +203377,7 @@
         "description": "Optimized for latency and cost. All embeddings created with the 4 series are compatible with each other.",
         "type": "embedding",
         "family": "voyage",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2026-01-15",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -203856,7 +203451,7 @@
         "description": "Voyage AI's embedding model optimized for code retrieval.",
         "type": "embedding",
         "family": "voyage",
-        "releasedAt": "2024-09-01",
+        "releasedAt": "2024-12-04",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -203893,7 +203488,7 @@
         "description": "Voyage AI's embedding model optimized for finance retrieval and RAG.",
         "type": "embedding",
         "family": "voyage",
-        "releasedAt": "2024-03-01",
+        "releasedAt": "2024-06-03",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -203930,7 +203525,7 @@
         "description": "Voyage AI's embedding model optimized for legal retrieval and RAG.",
         "type": "embedding",
         "family": "voyage",
-        "releasedAt": "2024-03-01",
+        "releasedAt": "2024-04-15",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -203967,7 +203562,7 @@
         "description": "",
         "type": "language",
         "family": "grok",
-        "releasedAt": "2025-07-09",
+        "releasedAt": "2025-11-19",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -204009,7 +203604,7 @@
         "description": "",
         "type": "language",
         "family": "grok",
-        "releasedAt": "2025-07-09",
+        "releasedAt": "2025-11-19",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -204051,7 +203646,7 @@
         "description": "Multiple agents collaborate in parallel to perform deep research tasks.",
         "type": "language",
         "family": "grok",
-        "releasedAt": "2026-03-09",
+        "releasedAt": "2026-03-10",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
@@ -204133,7 +203728,7 @@
         "description": "Grok 4.20 Beta is the newest flagship model from xAI with industry-leading speed and agentic tool calling capabilities. It combines the lowest hallucination rate on the market with strict prompt adherence, delivering consistently precise and truthful responses.",
         "type": "language",
         "family": "grok",
-        "releasedAt": "2026-03-09",
+        "releasedAt": "2026-03-10",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
@@ -204215,7 +203810,7 @@
         "description": "Grok 4.20 Beta is the newest flagship model from xAI with industry-leading speed and agentic tool calling capabilities. It combines the lowest hallucination rate on the market with strict prompt adherence, delivering consistently precise and truthful responses.",
         "type": "language",
         "family": "grok",
-        "releasedAt": "2026-03-09",
+        "releasedAt": "2026-03-10",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
@@ -204575,7 +204170,7 @@
         "description": "Xiaomi MiMo-V2-Flash is a proprietary MoE model developed by Xiaomi, designed for extreme inference efficiency with 309B total parameters (15B active). By incorporating an innovative Hybrid attention architecture and multi-layer MTP inference acceleration, it ranks among the top 2 global open-source models across multiple Agent benchmarks.",
         "type": "language",
         "family": "mimo",
-        "releasedAt": "2025-12-17",
+        "releasedAt": "2025-12-16",
         "knowledge": "2024-10",
         "openWeights": false,
         "abilities": {
@@ -204703,7 +204298,7 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true,
+          "vision": false,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
@@ -205018,7 +204613,7 @@
         "description": "GLM-4.7-Flash balances high performance with efficiency, making it the perfect lightweight deployment option. Beyond coding, it is also recommended for creative writing, translation, long-context tasks, and roleplay.",
         "type": "language",
         "family": "glm",
-        "releasedAt": "2025-08-21",
+        "releasedAt": "2026-01-19",
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
@@ -205057,7 +204652,7 @@
         "description": " GLM-4.7-Flash balances high performance with efficiency, making it the perfect lightweight deployment option. ",
         "type": "language",
         "family": "glm-flash",
-        "releasedAt": "2025-01-01",
+        "releasedAt": "2026-01-19",
         "knowledge": "2025-01",
         "openWeights": true,
         "abilities": {
@@ -205181,7 +204776,7 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true,
+          "vision": false,
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
