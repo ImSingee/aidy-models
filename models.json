@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-26T05:21:09.333Z",
+    "generatedAt": "2026-06-27T05:13:05.298Z",
     "sources": {
       "modelsDev": {
-        "providerCount": 144,
-        "modelCount": 5308
+        "providerCount": 145,
+        "modelCount": 5294
       },
       "lobehub": {
         "commitHash": "4acfc5285a7748ecfdd143f33ac5289741cf9113",
@@ -17,7 +17,7 @@
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 294
+        "modelCount": 295
       },
       "manual": {
         "providerCount": 7,
@@ -29,10 +29,10 @@
       }
     },
     "merged": {
-      "providerCount": 191,
-      "modelCount": 6791
+      "providerCount": 192,
+      "modelCount": 6777
     },
-    "overridesApplied": 107
+    "overridesApplied": 105
   },
   "providers": {
     "302ai": {
@@ -2979,6 +2979,21 @@
       "_": {
         "env": [
           "THEGRIDAI_API_KEY"
+        ],
+        "npm": "@ai-sdk/openai-compatible"
+      }
+    },
+    "tinfoil": {
+      "id": "tinfoil",
+      "name": "Tinfoil",
+      "official": false,
+      "featured": false,
+      "api": "openai-completions",
+      "baseUrl": "https://inference.tinfoil.sh/v1",
+      "doc": "https://docs.tinfoil.sh",
+      "_": {
+        "env": [
+          "TINFOIL_API_KEY"
         ],
         "npm": "@ai-sdk/openai-compatible"
       }
@@ -20916,10 +20931,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1,
-            "textOutput": 5,
-            "textInput_cacheRead": 0.1,
-            "textInput_cacheWrite": 1.25
+            "textInput": 1.1,
+            "textOutput": 5.5,
+            "textInput_cacheRead": 0.11,
+            "textInput_cacheWrite": 1.375
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -20960,10 +20975,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 5,
-            "textOutput": 25,
-            "textInput_cacheRead": 0.5,
-            "textInput_cacheWrite": 6.25
+            "textInput": 5.5,
+            "textOutput": 27.5,
+            "textInput_cacheRead": 0.55,
+            "textInput_cacheWrite": 6.875
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -24109,103 +24124,6 @@
       }
     ],
     "anthropic": [
-      {
-        "id": "claude-3-5-haiku-20241022",
-        "name": "Claude Haiku 3.5",
-        "family": "claude-haiku",
-        "releasedAt": "2024-10-22",
-        "knowledge": "2024-07-31",
-        "openWeights": false,
-        "deprecated": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.8,
-            "textOutput": 4,
-            "textInput_cacheRead": 0.08,
-            "textInput_cacheWrite": 1
-          },
-          "currency": "USD",
-          "unit": "millionTokens",
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput_cacheWrite": 1.6
-              },
-              "when": {
-                "cacheTtl": "1h"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "id": "claude-3-5-haiku-latest",
-        "name": "Claude Haiku 3.5 (latest)",
-        "family": "claude-haiku",
-        "releasedAt": "2024-10-22",
-        "knowledge": "2024-07-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.8,
-            "textOutput": 4,
-            "textInput_cacheRead": 0.08,
-            "textInput_cacheWrite": 1
-          },
-          "currency": "USD",
-          "unit": "millionTokens",
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput_cacheWrite": 1.6
-              },
-              "when": {
-                "cacheTtl": "1h"
-              }
-            }
-          ]
-        }
-      },
       {
         "id": "claude-3-5-sonnet-20240620",
         "name": "Claude Sonnet 3.5",
@@ -38273,152 +38191,10 @@
     ],
     "chutes": [
       {
-        "id": "deepseek-ai/DeepSeek-R1-0528-TEE",
-        "name": "DeepSeek R1 0528 TEE",
-        "family": "deepseek-thinking",
-        "releasedAt": "2025-01-20",
-        "knowledge": "2024-07",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 163840,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.45,
-            "textOutput": 2.15,
-            "textInput_cacheRead": 0.225
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
-        "name": "DeepSeek R1 Distill Llama 70B",
-        "family": "deepseek-thinking",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 131072,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.0272,
-            "textOutput": 0.1087,
-            "textInput_cacheRead": 0.0136
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepseek-ai/DeepSeek-V3-0324-TEE",
-        "name": "DeepSeek V3 0324 TEE",
-        "family": "deepseek",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 163840,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.25,
-            "textOutput": 1,
-            "textInput_cacheRead": 0.125
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepseek-ai/DeepSeek-V3.1-TEE",
-        "name": "DeepSeek V3.1 TEE",
-        "family": "deepseek",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 163840,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.27,
-            "textOutput": 1,
-            "textInput_cacheRead": 0.135
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "deepseek-ai/DeepSeek-V3.2-TEE",
         "name": "DeepSeek V3.2 TEE",
         "family": "deepseek",
-        "releasedAt": "2025-12-29",
+        "releasedAt": "2025-12",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -38442,9 +38218,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.28,
-            "textOutput": 0.42,
-            "textInput_cacheRead": 0.14
+            "textInput": 1,
+            "textOutput": 1,
+            "textInput_cacheRead": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -38477,9 +38253,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.13,
-            "textOutput": 0.38,
-            "textInput_cacheRead": 0.065
+            "textInput": 0.12,
+            "textOutput": 0.37,
+            "textInput_cacheRead": 0.06
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -38593,259 +38369,20 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.95,
-            "textOutput": 4,
-            "textInput_cacheRead": 0.475
+            "textInput": 0.66,
+            "textOutput": 3.5,
+            "textInput_cacheRead": 0.33
           },
           "currency": "USD",
           "unit": "millionTokens"
         }
       },
       {
-        "id": "NousResearch/DeepHermes-3-Mistral-24B-Preview",
-        "name": "DeepHermes 3 Mistral 24B Preview",
-        "family": "nousresearch",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 32768,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.0245,
-            "textOutput": 0.0978,
-            "textInput_cacheRead": 0.01225
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "NousResearch/Hermes-4-14B",
-        "name": "Hermes 4 14B",
-        "family": "nousresearch",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 40960,
-        "maxOutput": 40960,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.0136,
-            "textOutput": 0.0543,
-            "textInput_cacheRead": 0.0068
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "openai/gpt-oss-120b-TEE",
-        "name": "gpt oss 120b TEE",
-        "family": "gpt-oss",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 131072,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.09,
-            "textOutput": 0.36,
-            "textInput_cacheRead": 0.045
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen2.5-72B-Instruct",
-        "name": "Qwen2.5 72B Instruct",
+        "id": "Qwen/Qwen3-235B-A22B-Thinking-2507-TEE",
+        "name": "Qwen3 235B A22B Thinking 2507 TEE",
         "family": "qwen",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 32768,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.2989,
-            "textOutput": 1.1957,
-            "textInput_cacheRead": 0.14945
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen2.5-Coder-32B-Instruct",
-        "name": "Qwen2.5 Coder 32B Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 32768,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.0272,
-            "textOutput": 0.1087,
-            "textInput_cacheRead": 0.0136
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen2.5-VL-32B-Instruct",
-        "name": "Qwen2.5 VL 32B Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 16384,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.0543,
-            "textOutput": 0.2174,
-            "textInput_cacheRead": 0.02715
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-235B-A22B-Instruct-2507-TEE",
-        "name": "Qwen3 235B A22B Instruct 2507 TEE",
-        "family": "qwen",
-        "releasedAt": "2025-04",
+        "releasedAt": "2025-07",
         "knowledge": "2025-04",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.6,
-            "textInput_cacheRead": 0.05
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-235B-A22B-Thinking-2507",
-        "name": "Qwen3 235B A22B Thinking 2507",
-        "family": "qwen",
-        "releasedAt": "2025-12-29",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -38869,45 +38406,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.11,
-            "textOutput": 0.6,
-            "textInput_cacheRead": 0.055
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-30B-A3B",
-        "name": "Qwen3 30B A3B",
-        "family": "qwen",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 40960,
-        "maxOutput": 40960,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.06,
-            "textOutput": 0.22,
-            "textInput_cacheRead": 0.03
+            "textInput": 0.2989,
+            "textOutput": 1.1957,
+            "textInput_cacheRead": 0.14945
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -38939,75 +38440,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.08,
-            "textOutput": 0.24,
-            "textInput_cacheRead": 0.04
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-Coder-Next-TEE",
-        "name": "Qwen3 Coder Next TEE",
-        "family": "qwen",
-        "releasedAt": "2026-04-25",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.12,
-            "textOutput": 0.75,
-            "textInput_cacheRead": 0.06
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
-        "name": "Qwen3 Next 80B A3B Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.8,
-            "textInput_cacheRead": 0.05
+            "textInput": 0.104,
+            "textOutput": 0.416,
+            "textInput_cacheRead": 0.052
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -39043,9 +38478,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.39,
-            "textOutput": 2.34,
-            "textInput_cacheRead": 0.195
+            "textInput": 0.45,
+            "textOutput": 3,
+            "textInput_cacheRead": 0.225
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -39078,108 +38513,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.195,
-            "textOutput": 1.56,
-            "textInput_cacheRead": 0.0975
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3Guard-Gen-0.6B",
-        "name": "Qwen3Guard Gen 0.6B",
-        "family": "qwen",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.01,
-            "textOutput": 0.0109,
-            "textInput_cacheRead": 0.005
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "rednote-hilab/dots.ocr",
-        "name": "dots.ocr",
-        "family": "rednote",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.01,
-            "textOutput": 0.0109,
-            "textInput_cacheRead": 0.005
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "tngtech/DeepSeek-TNG-R1T2-Chimera-TEE",
-        "name": "DeepSeek TNG R1T2 Chimera TEE",
-        "family": "deepseek",
-        "releasedAt": "2026-04-25",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 163840,
-        "maxOutput": 163840,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
             "textInput": 0.3,
-            "textOutput": 1.1,
+            "textOutput": 2,
             "textInput_cacheRead": 0.15
           },
           "currency": "USD",
@@ -39187,185 +38522,17 @@
         }
       },
       {
-        "id": "unsloth/gemma-3-12b-it",
-        "name": "gemma 3 12b it",
-        "family": "unsloth",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.03,
-            "textOutput": 0.1,
-            "textInput_cacheRead": 0.015
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "unsloth/gemma-3-27b-it",
-        "name": "gemma 3 27b it",
-        "family": "unsloth",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.0272,
-            "textOutput": 0.1087,
-            "textInput_cacheRead": 0.0136
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "unsloth/gemma-3-4b-it",
-        "name": "gemma 3 4b it",
-        "family": "unsloth",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 96000,
-        "maxOutput": 96000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.01,
-            "textOutput": 0.0272,
-            "textInput_cacheRead": 0.005
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "unsloth/Llama-3.2-1B-Instruct",
-        "name": "Llama 3.2 1B Instruct",
-        "family": "unsloth",
-        "releasedAt": "2026-01-27",
+        "id": "unsloth/Mistral-Nemo-Instruct-2407-TEE",
+        "name": "Mistral Nemo Instruct 2407 TEE",
+        "family": "mistral-nemo",
+        "releasedAt": "2024-07-01",
+        "knowledge": "2024-07",
         "openWeights": true,
         "abilities": {
           "toolCall": false,
           "reasoning": false,
           "attachment": false,
           "temperature": true
-        },
-        "contextWindow": 16384,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.01,
-            "textOutput": 0.0109,
-            "textInput_cacheRead": 0.005
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "unsloth/Llama-3.2-3B-Instruct",
-        "name": "Llama 3.2 3B Instruct",
-        "family": "unsloth",
-        "releasedAt": "2025-02-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 16384,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.01,
-            "textOutput": 0.0136,
-            "textInput_cacheRead": 0.005
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "unsloth/Mistral-Nemo-Instruct-2407",
-        "name": "Mistral Nemo Instruct 2407",
-        "family": "unsloth",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
         },
         "contextWindow": 131072,
         "maxOutput": 131072,
@@ -39379,151 +38546,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.02,
-            "textOutput": 0.04,
-            "textInput_cacheRead": 0.01
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "XiaomiMiMo/MiMo-V2-Flash-TEE",
-        "name": "MiMo V2 Flash TEE",
-        "family": "mimo",
-        "releasedAt": "2025-12-16",
-        "knowledge": "2024-12-01",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.09,
-            "textOutput": 0.29,
-            "textInput_cacheRead": 0.045
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "zai-org/GLM-4.6V",
-        "name": "GLM 4.6V",
-        "family": "glm",
-        "releasedAt": "2025-12-29",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 0.9,
-            "textInput_cacheRead": 0.15
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "zai-org/GLM-4.7-FP8",
-        "name": "GLM 4.7 FP8",
-        "family": "glm",
-        "releasedAt": "2026-01-27",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 202752,
-        "maxOutput": 65535,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.2989,
-            "textOutput": 1.1957,
-            "textInput_cacheRead": 0.14945
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "zai-org/GLM-4.7-TEE",
-        "name": "GLM 4.7 TEE",
-        "family": "glm",
-        "releasedAt": "2025-12-22",
-        "knowledge": "2025-04",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 202752,
-        "maxOutput": 65535,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.39,
-            "textOutput": 1.75,
-            "textInput_cacheRead": 0.195
+            "textInput": 0.0245,
+            "textOutput": 0.0978,
+            "textInput_cacheRead": 0.01225
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -39566,42 +38591,6 @@
         }
       },
       {
-        "id": "zai-org/GLM-5-Turbo",
-        "name": "GLM 5 Turbo",
-        "family": "glm",
-        "releasedAt": "2026-03-11",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 202752,
-        "maxOutput": 65535,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.4891,
-            "textOutput": 1.9565,
-            "textInput_cacheRead": 0.24455
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "zai-org/GLM-5.1-TEE",
         "name": "GLM 5.1 TEE",
         "family": "glm",
@@ -39629,9 +38618,45 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.05,
-            "textOutput": 3.5,
-            "textInput_cacheRead": 0.525
+            "textInput": 0.98,
+            "textOutput": 3.08,
+            "textInput_cacheRead": 0.49
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "zai-org/GLM-5.2-TEE",
+        "name": "GLM 5.2 TEE",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65535,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.7
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -54795,7 +53820,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1048575,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -55413,6 +54438,41 @@
         }
       },
       {
+        "id": "accounts/fireworks/routers/glm-5p2-fast",
+        "name": "GLM 5.2 Fast",
+        "family": "glm",
+        "releasedAt": "2026-06-26",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1048575,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2.1,
+            "textOutput": 6.6,
+            "textInput_cacheRead": 0.21
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "accounts/fireworks/routers/kimi-k2p6-fast",
         "name": "Kimi K2.6 Fast",
         "family": "kimi-thinking",
@@ -55915,6 +54975,76 @@
       }
     ],
     "friendli": [
+      {
+        "id": "deepseek-ai/DeepSeek-V3.2",
+        "name": "DeepSeek-V3.2",
+        "family": "deepseek",
+        "releasedAt": "2025-12-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 163840,
+        "maxOutput": 163840,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.5,
+            "textOutput": 1.5,
+            "textInput_cacheRead": 0.25
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "google/gemma-4-31B-it",
+        "name": "Gemma 4 31B IT",
+        "family": "gemma",
+        "releasedAt": "2026-04-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.14,
+            "textOutput": 0.4
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
       {
         "id": "meta-llama/Llama-3.1-8B-Instruct",
         "name": "Llama 3.1 8B Instruct",
@@ -88160,7 +87290,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": false,
           "temperature": true
         },
@@ -128395,6 +127525,41 @@
           "currency": "USD",
           "unit": "millionTokens"
         }
+      },
+      {
+        "id": "zai-org/GLM-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 432000,
+        "maxOutput": 432000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.4
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
       }
     ],
     "neon": [
@@ -148607,7 +147772,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.2288,
-            "textOutput": 0.3432
+            "textOutput": 0.3432,
+            "textInput_cacheRead": 0.02288
           }
         }
       },
@@ -157875,7 +157041,7 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.2885,
-            "textOutput": 3.17
+            "textOutput": 2.65
           }
         }
       },
@@ -179756,6 +178922,38 @@
         }
       },
       {
+        "id": "glm-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 256000,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.8,
+            "textOutput": 5.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "gpt-oss-120b",
         "name": "GPT-OSS 120B",
         "family": "gpt-oss",
@@ -189134,6 +188332,239 @@
         }
       }
     ],
+    "tinfoil": [
+      {
+        "id": "gemma4-31b",
+        "name": "Gemma 4 31B IT",
+        "family": "gemma",
+        "releasedAt": "2026-04-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 256000,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.4,
+            "textOutput": 1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "glm-5-2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 384000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.5,
+            "textOutput": 5.25
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-oss-120b",
+        "name": "gpt-oss-120b",
+        "family": "gpt-oss",
+        "releasedAt": "2025-08-05",
+        "knowledge": "2024-06",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 131000,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 0.6
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-oss-safeguard-120b",
+        "name": "gpt-oss-safeguard-120b",
+        "family": "gpt-oss",
+        "releasedAt": "2025-10-29",
+        "knowledge": "2024-06",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 131000,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 0.6
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2-6",
+        "name": "Kimi K2.6",
+        "family": "kimi-k2",
+        "releasedAt": "2026-04-21",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 256000,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.5,
+            "textOutput": 5.25
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "llama3-3-70b",
+        "name": "Llama-3.3-70B-Instruct",
+        "family": "llama",
+        "releasedAt": "2024-12-06",
+        "knowledge": "2023-12",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 128000,
+        "maxOutput": 4096,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.75,
+            "textOutput": 2.75
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "nomic-embed-text",
+        "name": "Nomic Embed Text v1.5",
+        "releasedAt": "2024-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": false,
+          "structuredOutput": false
+        },
+        "contextWindow": 8192,
+        "maxOutput": 768,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.05,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      }
+    ],
     "togetherai": [
       {
         "id": "codellama/CodeLlama-34b-Instruct-hf",
@@ -190509,6 +189940,42 @@
           "currency": "USD",
           "unit": "millionTokens"
         }
+      },
+      {
+        "id": "zai-org/GLM-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 262144,
+        "maxOutput": 164000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.26
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
       }
     ],
     "umans-ai": [
@@ -191673,8 +191140,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.17,
-            "textOutput": 0.35,
+            "textInput": 0.138,
+            "textOutput": 0.275,
             "textInput_cacheRead": 0.028
           },
           "currency": "USD",
@@ -191710,8 +191177,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.73,
-            "textOutput": 3.796,
+            "textInput": 1.65,
+            "textOutput": 3.301,
             "textInput_cacheRead": 0.33
           },
           "currency": "USD",
@@ -193560,7 +193027,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 256000,
+        "contextWindow": 128000,
         "maxOutput": 16384,
         "modalities": {
           "input": [
@@ -195473,7 +194940,6 @@
         "releasedAt": "2024-11-04",
         "knowledge": "2024-07-31",
         "openWeights": false,
-        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -196946,8 +196412,8 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 163840,
-        "maxOutput": 8192,
+        "contextWindow": 128000,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text"
@@ -196960,9 +196426,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.56,
-            "textOutput": 1.68,
-            "textInput_cacheRead": 0.28
+            "textInput": 0.6,
+            "textOutput": 1.7
           }
         }
       },
@@ -200095,8 +199560,8 @@
           "temperature": true,
           "interleaved": true
         },
-        "contextWindow": 262114,
-        "maxOutput": 262114,
+        "contextWindow": 216144,
+        "maxOutput": 216144,
         "modalities": {
           "input": [
             "text"
@@ -200109,9 +199574,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.5,
-            "textInput_cacheRead": 0.15
+            "textInput": 0.47,
+            "textOutput": 2,
+            "textInput_cacheRead": 0.141
           }
         }
       },
@@ -202113,7 +201578,7 @@
       {
         "id": "openai/gpt-oss-120b",
         "name": "GPT OSS 120B",
-        "description": "This model excels at efficient reasoning across science, math, and coding applications. It’s ideal for real-time coding assistance, processing large documents for Q&A and summarization, agentic research workflows, and regulated on-premises workloads.",
+        "description": "Extremely capable general-purpose LLM with strong, controllable reasoning capabilities",
         "type": "language",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
@@ -202131,7 +201596,7 @@
           "temperature": true
         },
         "contextWindow": 131072,
-        "maxOutput": 131000,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -202144,9 +201609,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.35,
-            "textOutput": 0.75,
-            "textInput_cacheRead": 0.25
+            "textInput": 0.1,
+            "textOutput": 0.5
           }
         }
       },
@@ -202962,6 +202426,36 @@
         },
         "contextWindow": 512,
         "maxOutput": 0,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "image"
+          ]
+        }
+      },
+      {
+        "id": "quiverai/arrow-1.1",
+        "name": "Arrow 1.1",
+        "description": "Best default for speed and quality, with stronger prompt following and more precise SVG structure.",
+        "type": "image",
+        "family": "o",
+        "releasedAt": "2026-04-16",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": true,
+          "video": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -204836,8 +204330,8 @@
           "temperature": true,
           "interleaved": true
         },
-        "contextWindow": 131000,
-        "maxOutput": 40000,
+        "contextWindow": 200000,
+        "maxOutput": 120000,
         "modalities": {
           "input": [
             "text"
@@ -204850,9 +204344,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 2.25,
-            "textOutput": 2.75,
-            "textInput_cacheRead": 2.25
+            "textInput": 0.6,
+            "textOutput": 2.2,
+            "textInput_cacheRead": 0.12
           }
         }
       },
@@ -204969,8 +204463,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1,
-            "textOutput": 3.2,
+            "textInput": 0.95,
+            "textOutput": 3.15,
             "textInput_cacheRead": 0.2
           }
         }
@@ -205017,7 +204511,7 @@
       {
         "id": "zai/glm-5.1",
         "name": "GLM 5.1",
-        "description": "GLM-5.1 delivers a major leap in coding capability, with particularly significant gains in handling long-horizon tasks. Unlike previous models built around minute-level interactions, GLM-5.1 can work independently and continuously on a single task for more than 8 hours—autonomously planning, executing, and improving itself throughout the process—ultimately delivering complete, engineering-grade results.",
+        "description": "",
         "type": "language",
         "family": "glm",
         "releasedAt": "2026-04-07",
@@ -205033,8 +204527,8 @@
           "attachment": true,
           "temperature": true
         },
-        "contextWindow": 202800,
-        "maxOutput": 64000,
+        "contextWindow": 202000,
+        "maxOutput": 202000,
         "modalities": {
           "input": [
             "text"
@@ -205047,8 +204541,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1.4,
-            "textOutput": 4.4,
+            "textInput": 1.3,
+            "textOutput": 4.3,
             "textInput_cacheRead": 0.26
           }
         }
@@ -210016,6 +209510,7 @@
         "releasedAt": "2026-03-03",
         "knowledge": "2024-12-01",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -210054,6 +209549,7 @@
         "releasedAt": "2026-03-18",
         "knowledge": "2024-12",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -210095,6 +209591,7 @@
         "releasedAt": "2026-03-18",
         "knowledge": "2024-12",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -210270,6 +209767,7 @@
         "releasedAt": "2026-03-18",
         "knowledge": "2024-12",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -210311,6 +209809,7 @@
         "releasedAt": "2026-03-18",
         "knowledge": "2024-12",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -210545,6 +210044,7 @@
         "releasedAt": "2026-03-18",
         "knowledge": "2024-12",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -210586,6 +210086,7 @@
         "releasedAt": "2026-03-18",
         "knowledge": "2024-12",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -210820,6 +210321,7 @@
         "releasedAt": "2026-03-18",
         "knowledge": "2024-12",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -210861,6 +210363,7 @@
         "releasedAt": "2026-03-18",
         "knowledge": "2024-12",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
