@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-27T05:13:05.298Z",
+    "generatedAt": "2026-06-28T05:25:21.932Z",
     "sources": {
       "modelsDev": {
         "providerCount": 145,
-        "modelCount": 5294
+        "modelCount": 5247
       },
       "lobehub": {
         "commitHash": "4acfc5285a7748ecfdd143f33ac5289741cf9113",
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 192,
-      "modelCount": 6777
+      "modelCount": 6729
     },
     "overridesApplied": 105
   },
@@ -44682,7 +44682,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": false,
           "temperature": true
         },
@@ -46340,7 +46340,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": false,
           "temperature": true
         },
@@ -72605,6 +72605,38 @@
         "contextWindow": 16384
       },
       {
+        "id": "openai/gpt-oss-120b",
+        "name": "GPT OSS 120B",
+        "family": "gpt-oss",
+        "releasedAt": "2025-08-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.25,
+            "textOutput": 0.69
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "Qwen/Qwen2.5-72B-Instruct",
         "name": "Qwen 2.5 72B Instruct",
         "description": "Large language model developed by the Qwen team at Alibaba Cloud.",
@@ -80339,7 +80371,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": false,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": true,
           "temperature": true,
           "vision": true
@@ -80716,7 +80748,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": false,
           "temperature": true
         },
@@ -133691,6 +133723,40 @@
         }
       },
       {
+        "id": "minimaxai/minimax-m3",
+        "name": "MiniMax-M3",
+        "family": "minimax",
+        "releasedAt": "2026-06-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "mistralai/magistral-small-2506",
         "name": "Magistral Small 2506",
         "releasedAt": "2025-09-25",
@@ -157040,8 +157106,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.2885,
-            "textOutput": 2.65
+            "textInput": 0.2596,
+            "textOutput": 2.385
           }
         }
       },
@@ -170262,7 +170328,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": true,
           "temperature": true,
           "structuredOutput": false,
@@ -170339,7 +170405,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": true,
           "temperature": true,
           "structuredOutput": false,
@@ -178961,7 +179027,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": true,
           "temperature": true
         },
@@ -179597,70 +179663,6 @@
         }
       },
       {
-        "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-        "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-        "family": "qwen",
-        "releasedAt": "2025-01-20",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.1
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-        "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-        "family": "qwen",
-        "releasedAt": "2025-01-20",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.18,
-            "textOutput": 0.18
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "deepseek-ai/DeepSeek-V3",
         "name": "DeepSeek V3",
         "description": "DeepSeek-V3 is a 671B-parameter MoE model using MLA and DeepSeekMoE with loss-free load balancing for efficient inference and training. Pretrained on 14.8T high-quality tokens and further tuned with SFT and RL, it outperforms other open models and approaches leading closed models.",
@@ -179827,8 +179829,10 @@
         }
       },
       {
-        "id": "deepseek-ai/deepseek-v4-flash",
+        "id": "deepseek-ai/DeepSeek-V4-Flash",
         "name": "DeepSeek V4 Flash",
+        "description": "DeepSeek-V4-Flash is a preview version of the MoE language model in the DeepSeek-V4 series. The total parameter size is 284B, the activation parameter size is 13B, and it supports 1M tokens ultra-long context.The model uses a hybrid attention architecture that combines CSA and HCA, and introduces mHC and Muon Optimizer to improve long-context reasoning efficiency, training stability, and overall performance.",
+        "type": "chat",
         "family": "deepseek-flash",
         "releasedAt": "2026-04-24",
         "knowledge": "2025-05",
@@ -179836,14 +179840,14 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
+          "structuredOutput": true,
           "attachment": false,
           "temperature": true,
-          "structuredOutput": true,
           "interleaved": {
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 1000000,
+        "contextWindow": 1048576,
         "maxOutput": 384000,
         "modalities": {
           "input": [
@@ -179853,27 +179857,6 @@
             "text"
           ]
         },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.28,
-            "textInput_cacheRead": 0.028
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepseek-ai/DeepSeek-V4-Flash",
-        "name": "DeepSeek V4 Flash",
-        "description": "DeepSeek-V4-Flash is a preview version of the MoE language model in the DeepSeek-V4 series. The total parameter size is 284B, the activation parameter size is 13B, and it supports 1M tokens ultra-long context.The model uses a hybrid attention architecture that combines CSA and HCA, and introduces mHC and Muon Optimizer to improve long-context reasoning efficiency, training stability, and overall performance.",
-        "type": "chat",
-        "releasedAt": "2026-04-24",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 1048576,
         "pricing": {
           "basePricing": {
             "textInput_cacheRead": 0.02,
@@ -179885,8 +179868,10 @@
         }
       },
       {
-        "id": "deepseek-ai/deepseek-v4-pro",
+        "id": "deepseek-ai/DeepSeek-V4-Pro",
         "name": "DeepSeek V4 Pro",
+        "description": "DeepSeek-V4-Pro is the flagship MoE language model in the DeepSeek-V4 series, with 1.6T total parameters and 49B active parameters, natively supporting an ultra-long context of 1 million tokens. The model adopts an innovative hybrid attention architecture combining Compressed Sparse Attention (CSA) and Highly Compressed Attention (HCA), requiring only 27% of DeepSeek-V3.2 per-token inference FLOPs and 10% KV cache at 1M context. It also introduces Manifold-Constrained Hyper Connections (mHC) to enhance inter-layer signal propagation stability, and employs the Muon optimizer to accelerate convergence. DeepSeek-V4-Pro is pretrained on over 32T high-quality diverse tokens, with post-training using a two-stage paradigm of independent domain expert cultivation plus online policy distillation for unified integration. Its maximum reasoning intensity mode DeepSeek-V4-Pro-Max achieves top performance on coding benchmarks and significantly narrows the gap with leading closed-source models on reasoning and agentic tasks, making it one of the strongest open-source models today, supporting Non-think, Think High, and Think Max reasoning intensity modes.",
+        "type": "chat",
         "family": "deepseek-thinking",
         "releasedAt": "2026-04-24",
         "knowledge": "2025-05",
@@ -179894,14 +179879,14 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
+          "structuredOutput": true,
           "attachment": false,
           "temperature": true,
-          "structuredOutput": true,
           "interleaved": {
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 1000000,
+        "contextWindow": 1048576,
         "maxOutput": 384000,
         "modalities": {
           "input": [
@@ -179913,66 +179898,11 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.74,
-            "textOutput": 3.48,
-            "textInput_cacheRead": 0.145
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepseek-ai/DeepSeek-V4-Pro",
-        "name": "DeepSeek V4 Pro",
-        "description": "DeepSeek-V4-Pro is the flagship MoE language model in the DeepSeek-V4 series, with 1.6T total parameters and 49B active parameters, natively supporting an ultra-long context of 1 million tokens. The model adopts an innovative hybrid attention architecture combining Compressed Sparse Attention (CSA) and Highly Compressed Attention (HCA), requiring only 27% of DeepSeek-V3.2 per-token inference FLOPs and 10% KV cache at 1M context. It also introduces Manifold-Constrained Hyper Connections (mHC) to enhance inter-layer signal propagation stability, and employs the Muon optimizer to accelerate convergence. DeepSeek-V4-Pro is pretrained on over 32T high-quality diverse tokens, with post-training using a two-stage paradigm of independent domain expert cultivation plus online policy distillation for unified integration. Its maximum reasoning intensity mode DeepSeek-V4-Pro-Max achieves top performance on coding benchmarks and significantly narrows the gap with leading closed-source models on reasoning and agentic tasks, making it one of the strongest open-source models today, supporting Non-think, Think High, and Think Max reasoning intensity modes.",
-        "type": "chat",
-        "releasedAt": "2026-04-24",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 1048576,
-        "pricing": {
-          "basePricing": {
             "textInput_cacheRead": 0.025,
             "textInput": 3,
             "textOutput": 6
           },
           "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepseek-ai/deepseek-vl2",
-        "name": "deepseek-ai/deepseek-vl2",
-        "family": "deepseek",
-        "releasedAt": "2024-12-13",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 4000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.15
-          },
-          "currency": "USD",
           "unit": "millionTokens"
         }
       },
@@ -180137,105 +180067,9 @@
         }
       },
       {
-        "id": "moonshotai/Kimi-K2-Instruct",
-        "name": "moonshotai/Kimi-K2-Instruct",
-        "family": "kimi-k2",
-        "releasedAt": "2025-07-13",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.58,
-            "textOutput": 2.29
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "moonshotai/Kimi-K2-Instruct-0905",
-        "name": "moonshotai/Kimi-K2-Instruct-0905",
-        "family": "kimi-k2",
-        "releasedAt": "2025-09-08",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "moonshotai/Kimi-K2-Thinking",
-        "name": "moonshotai/Kimi-K2-Thinking",
-        "family": "kimi-thinking",
-        "releasedAt": "2025-11-07",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.55,
-            "textOutput": 2.5
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "moonshotai/Kimi-K2.5",
         "name": "moonshotai/Kimi-K2.5",
-        "family": "kimi-k2",
+        "family": "kimi",
         "releasedAt": "2026-01-27",
         "openWeights": true,
         "abilities": {
@@ -180272,7 +180106,7 @@
       {
         "id": "moonshotai/Kimi-K2.6",
         "name": "moonshotai/Kimi-K2.6",
-        "family": "kimi-k2",
+        "family": "kimi",
         "releasedAt": "2026-04-21",
         "openWeights": true,
         "abilities": {
@@ -180753,26 +180587,10 @@
         "name": "Qwen2.5 14B Instruct",
         "description": "Qwen2.5-14B-Instruct is part of Alibaba Cloud’s latest LLM series. The 14B model brings notable gains in coding and math, supports 29+ languages, and improves instruction following, structured data understanding, and structured output (especially JSON).",
         "type": "chat",
-        "family": "qwen",
-        "releasedAt": "2024-09-18",
-        "openWeights": false,
         "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "structuredOutput": true,
-          "attachment": false,
-          "temperature": true
+          "toolCall": true
         },
         "contextWindow": 32768,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "basePricing": {
             "textInput": 0.7,
@@ -180787,26 +180605,10 @@
         "name": "Qwen2.5 32B Instruct",
         "description": "Qwen2.5-32B-Instruct is part of Alibaba Cloud’s latest LLM series. The 32B model brings notable gains in coding and math, supports 29+ languages, and improves instruction following, structured data understanding, and structured output (especially JSON).",
         "type": "chat",
-        "family": "qwen",
-        "releasedAt": "2024-09-19",
-        "openWeights": false,
         "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "structuredOutput": true,
-          "attachment": false,
-          "temperature": true
+          "toolCall": true
         },
         "contextWindow": 32768,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "basePricing": {
             "textInput": 1.26,
@@ -180855,26 +180657,10 @@
         "name": "Qwen2.5 72B Instruct 128K",
         "description": "Qwen2.5-72B-Instruct is part of Alibaba Cloud’s latest LLM series. The 72B model improves coding and math, supports up to 128K input and over 8K output, offers 29+ languages, and improves instruction following and structured output (especially JSON).",
         "type": "chat",
-        "family": "qwen",
-        "releasedAt": "2024-09-18",
-        "openWeights": false,
         "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "structuredOutput": true,
-          "attachment": false,
-          "temperature": true
+          "toolCall": true
         },
         "contextWindow": 131072,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "basePricing": {
             "textInput": 4.13,
@@ -180919,140 +180705,6 @@
         }
       },
       {
-        "id": "Qwen/Qwen2.5-Coder-32B-Instruct",
-        "name": "Qwen/Qwen2.5-Coder-32B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2024-11-11",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 33000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.18,
-            "textOutput": 0.18
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen2.5-VL-32B-Instruct",
-        "name": "Qwen/Qwen2.5-VL-32B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-03-24",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.27,
-            "textOutput": 0.27
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen2.5-VL-72B-Instruct",
-        "name": "Qwen/Qwen2.5-VL-72B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-01-28",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.59,
-            "textOutput": 0.59
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen2.5-VL-7B-Instruct",
-        "name": "Qwen/Qwen2.5-VL-7B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-01-28",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 33000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.05,
-            "textOutput": 0.05
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "Qwen/Qwen3-14B",
         "name": "Qwen3 14B",
         "description": "Qwen3 is a next-gen Tongyi Qwen model with major gains in reasoning, general ability, agent capability, and multilingual performance, and supports switching thinking modes.",
@@ -181083,70 +180735,6 @@
             "textOutput": 2
           },
           "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-235B-A22B",
-        "name": "Qwen/Qwen3-235B-A22B",
-        "family": "qwen",
-        "releasedAt": "2025-04-30",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.35,
-            "textOutput": 1.42
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
-        "name": "Qwen/Qwen3-235B-A22B-Instruct-2507",
-        "family": "qwen",
-        "releasedAt": "2025-07-23",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.09,
-            "textOutput": 0.6
-          },
-          "currency": "USD",
           "unit": "millionTokens"
         }
       },
@@ -181213,38 +180801,6 @@
             "textOutput": 2.8
           },
           "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-30B-A3B-Thinking-2507",
-        "name": "Qwen/Qwen3-30B-A3B-Thinking-2507",
-        "family": "qwen",
-        "releasedAt": "2025-07-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.09,
-            "textOutput": 0.3
-          },
-          "currency": "USD",
           "unit": "millionTokens"
         }
       },
@@ -181383,96 +180939,17 @@
         }
       },
       {
-        "id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
-        "name": "Qwen/Qwen3-Next-80B-A3B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-09-18",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 1.4
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-Next-80B-A3B-Thinking",
-        "name": "Qwen/Qwen3-Next-80B-A3B-Thinking",
-        "family": "qwen",
-        "releasedAt": "2025-09-25",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.57
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "Qwen/Qwen3-Omni-30B-A3B-Captioner",
         "name": "Qwen3 Omni 30B A3B Captioner",
         "description": "Qwen3-Omni-30B-A3B-Captioner is a Qwen3-series VLM built for high-quality, detailed, accurate image captions. It uses a 30B-parameter MoE architecture to deeply understand images and produce fluent descriptions, excelling at detail capture, scene understanding, object recognition, and relational reasoning.",
         "type": "chat",
-        "family": "qwen",
         "releasedAt": "2025-09-22",
-        "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
           "vision": true,
-          "structuredOutput": true,
-          "video": true,
-          "attachment": true,
-          "temperature": true
+          "video": true
         },
         "contextWindow": 65536,
-        "maxOutput": 66000,
-        "modalities": {
-          "input": [
-            "audio"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "basePricing": {
             "textInput": 0.7,
@@ -181487,30 +180964,13 @@
         "name": "Qwen3 Omni 30B A3B Instruct",
         "description": "Qwen3-Omni-30B-A3B-Instruct is a Qwen3-series MoE model with 30B total and 3B active parameters, delivering strong performance at lower inference cost. Trained on high-quality multi-source multilingual data, it supports full-modal inputs (text, images, audio, video) and cross-modal understanding and generation.",
         "type": "chat",
-        "family": "qwen",
         "releasedAt": "2025-09-22",
-        "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
           "vision": true,
-          "structuredOutput": true,
-          "video": true,
-          "attachment": true,
-          "temperature": true
+          "video": true
         },
         "contextWindow": 8192,
-        "maxOutput": 66000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "basePricing": {
             "textInput": 0.7,
@@ -181525,30 +180985,14 @@
         "name": "Qwen3 Omni 30B A3B Thinking",
         "description": "Qwen3-Omni-30B-A3B-Thinking is the core \"Thinker\" component of Qwen3-Omni. It processes multimodal inputs (text, audio, images, video) and performs complex chain-of-thought reasoning, unifying inputs into a shared representation for deep cross-modal understanding. It is an MoE model with 30B total and 3B active parameters, balancing strong reasoning and compute efficiency.",
         "type": "chat",
-        "family": "qwen",
         "releasedAt": "2025-09-22",
-        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
           "vision": true,
-          "structuredOutput": true,
-          "video": true,
-          "attachment": true,
-          "temperature": true
+          "video": true
         },
         "contextWindow": 65536,
-        "maxOutput": 66000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "basePricing": {
             "textInput": 0.7,
@@ -181814,29 +181258,14 @@
         "name": "Qwen3 VL 8B Thinking",
         "description": "Qwen3-VL-8B-Thinking is the visual thinking version of Qwen3, optimized for complex multi-step reasoning. It generates a thinking chain before answers to improve accuracy, ideal for deep visual QA and detailed image analysis.",
         "type": "chat",
-        "family": "qwen",
         "releasedAt": "2025-10-15",
-        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
           "vision": true,
-          "structuredOutput": true,
-          "video": true,
-          "attachment": true,
-          "temperature": true
+          "video": true
         },
         "contextWindow": 256000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "basePricing": {
             "textInput": 0.5,
@@ -181851,13 +181280,27 @@
         "name": "Qwen3.5 122B A10B",
         "description": "Qwen3.5-122B-A10B is a native multimodal large language model from the Qwen team with 122B total parameters and only 10B active parameters. It adopts an efficient hybrid architecture combining Gated Delta Networks and Sparse Mixture-of-Experts (MoE), natively supporting 256K context length with extensibility to approximately 1M tokens.",
         "type": "chat",
+        "family": "qwen",
         "releasedAt": "2026-02-26",
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true
+          "vision": true,
+          "structuredOutput": true,
+          "attachment": false,
+          "temperature": true
         },
         "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
         "pricing": {
           "adjustments": [
             {
@@ -181887,13 +181330,27 @@
         "name": "Qwen3.5 27B",
         "description": "Qwen3.5-27B is a native multimodal large language model from the Qwen team with 27B parameters. It adopts an efficient hybrid architecture combining Gated Delta Networks and Gated Attention, natively supporting 256K context length with extensibility to approximately 1M tokens.",
         "type": "chat",
+        "family": "qwen",
         "releasedAt": "2026-02-25",
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true
+          "vision": true,
+          "structuredOutput": true,
+          "attachment": false,
+          "temperature": true
         },
         "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
         "pricing": {
           "adjustments": [
             {
@@ -181923,13 +181380,27 @@
         "name": "Qwen3.5 35B A3B",
         "description": "Qwen3.5-35B-A3B is a native multimodal large language model from the Qwen team with 35B total parameters and only 3B active parameters. It adopts an efficient hybrid architecture combining Gated Delta Networks and Sparse Mixture-of-Experts (MoE), natively supporting 256K context length with extensibility to approximately 1M tokens.",
         "type": "chat",
+        "family": "qwen",
         "releasedAt": "2026-02-25",
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true
+          "vision": true,
+          "structuredOutput": true,
+          "attachment": false,
+          "temperature": true
         },
         "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
         "pricing": {
           "adjustments": [
             {
@@ -181959,13 +181430,27 @@
         "name": "Qwen3.5 397B A17B",
         "description": "Qwen3.5-397B-A17B is the latest vision-language model in the Qwen3.5 series, using a Mixture-of-Experts (MoE) architecture with 397B total parameters and 17B active parameters. It natively supports 256K context length with extensibility to approximately 1M tokens, supports 201 languages, and provides unified vision-language understanding, tool calling, and reasoning capabilities.",
         "type": "chat",
+        "family": "qwen",
         "releasedAt": "2026-02-16",
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true
+          "vision": true,
+          "structuredOutput": true,
+          "attachment": false,
+          "temperature": true
         },
         "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
         "pricing": {
           "adjustments": [
             {
@@ -182016,13 +181501,27 @@
         "name": "Qwen3.5 9B",
         "description": "Qwen3.5-9B is a native multimodal large language model from the Qwen team with 9B parameters. As a lightweight Dense model in the Qwen3.5 series, it adopts an efficient hybrid architecture combining Gated Delta Networks and Gated Attention, natively supporting 256K context length with extensibility to approximately 1M tokens.",
         "type": "chat",
+        "family": "qwen",
         "releasedAt": "2026-03-03",
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true
+          "vision": true,
+          "structuredOutput": true,
+          "attachment": false,
+          "temperature": true
         },
         "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
         "pricing": {
           "adjustments": [
             {
@@ -182052,13 +181551,27 @@
         "name": "Qwen3.6 27B",
         "description": "Qwen3.6-27B is the first open-source medium-sized dense model in the Qwen3.6 series, with key enhancements for code generation, Agent workflows, and real-world development scenarios. Compared to Qwen3.5-27B, this model shows significant improvements in front-end development, repository-level reasoning, tool calling, and complex problem-solving, with newly added historical reasoning capability optimizations.",
         "type": "chat",
+        "family": "qwen",
         "releasedAt": "2026-04-23",
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true
+          "vision": true,
+          "structuredOutput": true,
+          "attachment": false,
+          "temperature": true
         },
         "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
         "pricing": {
           "adjustments": [
             {
@@ -182088,13 +181601,27 @@
         "name": "Qwen3.6 35B A3B",
         "description": "Qwen3.6-35B-A3B is a large language model from the Qwen team in the Qwen3.6 series, using a Mixture-of-Experts (MoE) architecture with 35B total parameters and 3B active parameters. It balances efficient inference with excellent performance and supports both thinking and non-thinking modes, allowing flexible switching between fast response and deep reasoning.",
         "type": "chat",
+        "family": "qwen",
         "releasedAt": "2026-04-17",
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true
+          "vision": true,
+          "structuredOutput": true,
+          "attachment": false,
+          "temperature": true
         },
         "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
         "pricing": {
           "adjustments": [
             {
@@ -182116,38 +181643,6 @@
             "textOutput": 3.2
           },
           "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/QwQ-32B",
-        "name": "Qwen/QwQ-32B",
-        "family": "qwen",
-        "releasedAt": "2025-03-06",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.58
-          },
-          "currency": "USD",
           "unit": "millionTokens"
         }
       },
@@ -182357,38 +181852,6 @@
         }
       },
       {
-        "id": "zai-org/GLM-4.5",
-        "name": "zai-org/GLM-4.5",
-        "family": "glm",
-        "releasedAt": "2025-07-28",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "zai-org/GLM-4.5-Air",
         "name": "GLM-4.5-Air",
         "description": "GLM-4.5-Air is a base model for agent applications using a Mixture-of-Experts architecture. It is optimized for tool use, web browsing, software engineering, and frontend coding, and integrates with code agents like Claude Code and Roo Code. It uses hybrid reasoning to handle both complex reasoning and everyday scenarios.",
@@ -182427,135 +181890,18 @@
         "name": "GLM-4.5V",
         "description": "GLM-4.5V is Zhipu AI’s latest VLM, built on the GLM-4.5-Air flagship text model (106B total, 12B active) with an MoE architecture for strong performance at lower cost. It follows the GLM-4.1V-Thinking path and adds 3D-RoPE to improve 3D spatial reasoning. Optimized through pretraining, SFT, and RL, it handles images, video, and long documents and ranks top among open models on 41 public multimodal benchmarks. A Thinking mode toggle lets users balance speed and depth.",
         "type": "chat",
-        "family": "glm",
         "releasedAt": "2025-08-11",
-        "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": true,
-          "attachment": true,
-          "temperature": true
+          "reasoning": true
         },
         "contextWindow": 65536,
-        "maxOutput": 66000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "basePricing": {
             "textInput": 1,
             "textOutput": 6
           },
           "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "zai-org/GLM-4.6",
-        "name": "zai-org/GLM-4.6",
-        "family": "glm",
-        "releasedAt": "2025-10-04",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 205000,
-        "maxOutput": 205000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 1.9
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "zai-org/GLM-4.6V",
-        "name": "zai-org/GLM-4.6V",
-        "family": "glm",
-        "releasedAt": "2025-12-07",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": false,
-          "vision": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 0.9
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "zai-org/GLM-4.7",
-        "name": "zai-org/GLM-4.7",
-        "family": "glm",
-        "releasedAt": "2025-12-22",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 205000,
-        "maxOutput": 205000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.2
-          },
-          "currency": "USD",
           "unit": "millionTokens"
         }
       },
@@ -182646,8 +181992,8 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 205000,
-        "maxOutput": 205000,
+        "contextWindow": 1049000,
+        "maxOutput": 262000,
         "modalities": {
           "input": [
             "text"
@@ -182834,70 +182180,6 @@
         }
       },
       {
-        "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-        "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-        "family": "qwen",
-        "releasedAt": "2025-01-20",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.1
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-        "name": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-        "family": "qwen",
-        "releasedAt": "2025-01-20",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.18,
-            "textOutput": 0.18
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "deepseek-ai/DeepSeek-V3",
         "name": "deepseek-ai/DeepSeek-V3",
         "family": "deepseek",
@@ -183064,40 +182346,6 @@
         }
       },
       {
-        "id": "deepseek-ai/deepseek-vl2",
-        "name": "deepseek-ai/deepseek-vl2",
-        "family": "deepseek",
-        "releasedAt": "2024-12-13",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 4000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.15
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "inclusionAI/Ling-flash-2.0",
         "name": "inclusionAI/Ling-flash-2.0",
         "family": "ling",
@@ -183124,102 +182372,6 @@
           "basePricing": {
             "textInput": 0.14,
             "textOutput": 0.57
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Kwaipilot/KAT-Dev",
-        "name": "Kwaipilot/KAT-Dev",
-        "family": "kat-coder",
-        "releasedAt": "2025-09-27",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "moonshotai/Kimi-K2-Instruct-0905",
-        "name": "moonshotai/Kimi-K2-Instruct-0905",
-        "family": "kimi-k2",
-        "releasedAt": "2025-09-08",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "moonshotai/Kimi-K2-Thinking",
-        "name": "moonshotai/Kimi-K2-Thinking",
-        "family": "kimi-thinking",
-        "releasedAt": "2025-11-07",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.55,
-            "textOutput": 2.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -183386,38 +182538,6 @@
         }
       },
       {
-        "id": "Pro/MiniMaxAI/MiniMax-M2.1",
-        "name": "Pro/MiniMaxAI/MiniMax-M2.1",
-        "family": "minimax",
-        "releasedAt": "2025-12-23",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 197000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 1.2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "Pro/MiniMaxAI/MiniMax-M2.5",
         "name": "Pro/MiniMaxAI/MiniMax-M2.5",
         "family": "minimax",
@@ -183453,73 +182573,9 @@
         }
       },
       {
-        "id": "Pro/moonshotai/Kimi-K2-Instruct-0905",
-        "name": "Pro/moonshotai/Kimi-K2-Instruct-0905",
-        "family": "kimi-k2",
-        "releasedAt": "2025-09-08",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Pro/moonshotai/Kimi-K2-Thinking",
-        "name": "Pro/moonshotai/Kimi-K2-Thinking",
-        "family": "kimi-thinking",
-        "releasedAt": "2025-11-07",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.55,
-            "textOutput": 2.5
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "Pro/moonshotai/Kimi-K2.5",
         "name": "Pro/moonshotai/Kimi-K2.5",
-        "family": "kimi-k2",
+        "family": "kimi",
         "releasedAt": "2026-01-27",
         "openWeights": true,
         "abilities": {
@@ -183556,7 +182612,7 @@
       {
         "id": "Pro/moonshotai/Kimi-K2.6",
         "name": "Pro/moonshotai/Kimi-K2.6",
-        "family": "kimi-k2",
+        "family": "kimi",
         "releasedAt": "2026-04-21",
         "openWeights": true,
         "abilities": {
@@ -183586,41 +182642,6 @@
             "textInput": 0.95,
             "textOutput": 4,
             "textInput_cacheRead": 0.16
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Pro/zai-org/GLM-4.7",
-        "name": "Pro/zai-org/GLM-4.7",
-        "family": "glm",
-        "releasedAt": "2025-12-22",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 205000,
-        "maxOutput": 205000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -183698,70 +182719,6 @@
         }
       },
       {
-        "id": "Qwen/Qwen2.5-14B-Instruct",
-        "name": "Qwen/Qwen2.5-14B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2024-09-18",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 33000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.1
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen2.5-32B-Instruct",
-        "name": "Qwen/Qwen2.5-32B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2024-09-19",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 33000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.18,
-            "textOutput": 0.18
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "Qwen/Qwen2.5-72B-Instruct",
         "name": "Qwen/Qwen2.5-72B-Instruct",
         "family": "qwen",
@@ -183775,38 +182732,6 @@
           "structuredOutput": true
         },
         "contextWindow": 33000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.59,
-            "textOutput": 0.59
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen2.5-72B-Instruct-128K",
-        "name": "Qwen/Qwen2.5-72B-Instruct-128K",
-        "family": "qwen",
-        "releasedAt": "2024-09-18",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
         "maxOutput": 4000,
         "modalities": {
           "input": [
@@ -183858,106 +182783,6 @@
         }
       },
       {
-        "id": "Qwen/Qwen2.5-Coder-32B-Instruct",
-        "name": "Qwen/Qwen2.5-Coder-32B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2024-11-11",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 33000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.18,
-            "textOutput": 0.18
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen2.5-VL-32B-Instruct",
-        "name": "Qwen/Qwen2.5-VL-32B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-03-24",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.27,
-            "textOutput": 0.27
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen2.5-VL-72B-Instruct",
-        "name": "Qwen/Qwen2.5-VL-72B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-01-28",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 4000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.59,
-            "textOutput": 0.59
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "Qwen/Qwen3-14B",
         "name": "Qwen/Qwen3-14B",
         "family": "qwen",
@@ -183965,7 +182790,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
@@ -183984,38 +182809,6 @@
           "basePricing": {
             "textInput": 0.07,
             "textOutput": 0.28
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
-        "name": "Qwen/Qwen3-235B-A22B-Instruct-2507",
-        "family": "qwen",
-        "releasedAt": "2025-07-23",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.09,
-            "textOutput": 0.6
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -184086,38 +182879,6 @@
         }
       },
       {
-        "id": "Qwen/Qwen3-30B-A3B-Thinking-2507",
-        "name": "Qwen/Qwen3-30B-A3B-Thinking-2507",
-        "family": "qwen",
-        "releasedAt": "2025-07-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.09,
-            "textOutput": 0.3
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "Qwen/Qwen3-32B",
         "name": "Qwen/Qwen3-32B",
         "family": "qwen",
@@ -184125,7 +182886,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
@@ -184157,7 +182918,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
@@ -184240,172 +183001,6 @@
           "basePricing": {
             "textInput": 0.25,
             "textOutput": 1
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
-        "name": "Qwen/Qwen3-Next-80B-A3B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-09-18",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 1.4
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-Next-80B-A3B-Thinking",
-        "name": "Qwen/Qwen3-Next-80B-A3B-Thinking",
-        "family": "qwen",
-        "releasedAt": "2025-09-25",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.57
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-Omni-30B-A3B-Captioner",
-        "name": "Qwen/Qwen3-Omni-30B-A3B-Captioner",
-        "family": "qwen",
-        "releasedAt": "2025-10-04",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 66000,
-        "maxOutput": 66000,
-        "modalities": {
-          "input": [
-            "audio"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.4
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
-        "name": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
-        "family": "qwen",
-        "releasedAt": "2025-10-04",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 66000,
-        "maxOutput": 66000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.4
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/Qwen3-Omni-30B-A3B-Thinking",
-        "name": "Qwen/Qwen3-Omni-30B-A3B-Thinking",
-        "family": "qwen",
-        "releasedAt": "2025-10-04",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 66000,
-        "maxOutput": 66000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.4
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -184650,40 +183245,6 @@
         }
       },
       {
-        "id": "Qwen/Qwen3-VL-8B-Thinking",
-        "name": "Qwen/Qwen3-VL-8B-Thinking",
-        "family": "qwen",
-        "releasedAt": "2025-10-15",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.18,
-            "textOutput": 2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "Qwen/Qwen3.5-122B-A10B",
         "name": "Qwen/Qwen3.5-122B-A10B",
         "family": "qwen",
@@ -184902,7 +183463,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": false,
           "temperature": true,
           "vision": true
@@ -184923,38 +183484,6 @@
           "basePricing": {
             "textInput": 0.23,
             "textOutput": 1.86
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen/QwQ-32B",
-        "name": "Qwen/QwQ-32B",
-        "family": "qwen",
-        "releasedAt": "2025-03-06",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.58
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -185057,106 +183586,6 @@
         }
       },
       {
-        "id": "zai-org/GLM-4.5V",
-        "name": "zai-org/GLM-4.5V",
-        "family": "glm",
-        "releasedAt": "2025-08-13",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 66000,
-        "maxOutput": 66000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.86
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "zai-org/GLM-4.6",
-        "name": "zai-org/GLM-4.6",
-        "family": "glm",
-        "releasedAt": "2025-10-04",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 205000,
-        "maxOutput": 205000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 1.9
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "zai-org/GLM-4.6V",
-        "name": "zai-org/GLM-4.6V",
-        "family": "glm",
-        "releasedAt": "2025-12-07",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": false,
-          "vision": true
-        },
-        "contextWindow": 131000,
-        "maxOutput": 131000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 0.9
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "zai-org/GLM-5.2",
         "name": "GLM-5.2",
         "family": "glm",
@@ -185172,8 +183601,8 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 205000,
-        "maxOutput": 205000,
+        "contextWindow": 1049000,
+        "maxOutput": 262000,
         "modalities": {
           "input": [
             "text"
@@ -192582,7 +191011,9 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": false
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
         },
         "contextWindow": 128000,
         "maxOutput": 16384,
@@ -204073,7 +202504,7 @@
       },
       {
         "id": "zai/glm-4.5",
-        "name": "GLM-4.5",
+        "name": "GLM 4.5",
         "description": "GLM-4.5 and GLM-4.5-Air are our latest flagship models, purpose-built as foundational models for agent-oriented applications. Both leverage a Mixture-of-Experts (MoE) architecture. GLM-4.5 has a total parameter count of 355B with 32B active parameters per forward pass, while GLM-4.5-Air adopts a more streamlined design with 106B total parameters and 12B active parameters.",
         "type": "language",
         "family": "glm",
@@ -206934,7 +205365,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
@@ -206967,7 +205398,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
@@ -207000,7 +205431,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true,
@@ -207035,7 +205466,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
@@ -207067,7 +205498,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
@@ -207136,7 +205567,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
@@ -207168,7 +205599,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
@@ -207200,7 +205631,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
