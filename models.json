@@ -1,13 +1,13 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-01T05:27:08.598Z",
+    "generatedAt": "2026-07-02T05:14:38.239Z",
     "sources": {
       "modelsDev": {
         "providerCount": 147,
-        "modelCount": 5275
+        "modelCount": 5278
       },
       "lobehub": {
-        "commitHash": "588c0692df6aa58237615411f9b34cbd5a84e714",
+        "commitHash": "f279f1b80f8de4f75fa82107d54a0cfe3a6c8014",
         "providerCount": 81,
         "modelCount": 1914
       },
@@ -17,7 +17,7 @@
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 297
+        "modelCount": 298
       },
       "manual": {
         "providerCount": 7,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 194,
-      "modelCount": 6749
+      "modelCount": 6751
     },
     "overridesApplied": 105
   },
@@ -20050,6 +20050,49 @@
         }
       },
       {
+        "id": "anthropic.claude-fable-5",
+        "name": "Claude Fable 5",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
+            "supportsPromptCaching": true,
+            "supportsThinkingSignature": true
+          }
+        }
+      },
+      {
         "id": "anthropic.claude-haiku-4-5-20251001-v1:0",
         "name": "Claude Haiku 4.5",
         "family": "claude-haiku",
@@ -20892,7 +20935,8 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "pdf"
           ],
           "output": [
             "text"
@@ -21287,7 +21331,8 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "pdf"
           ],
           "output": [
             "text"
@@ -23404,7 +23449,8 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "pdf"
           ],
           "output": [
             "text"
@@ -38420,6 +38466,40 @@
       }
     ],
     "cerebras": [
+      {
+        "id": "gemma-4-31b",
+        "name": "Gemma 4 31B IT",
+        "family": "gemma",
+        "releasedAt": "2026-04-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 40960,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.99,
+            "textOutput": 1.49
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
       {
         "id": "gpt-oss-120b",
         "name": "GPT OSS 120B",
@@ -57200,6 +57280,45 @@
           "currency": "USD",
           "unit": "millionTokens"
         }
+      },
+      {
+        "id": "claude-sonnet-5",
+        "name": "Claude Sonnet 5",
+        "family": "claude-sonnet",
+        "releasedAt": "2026-06-30",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 2.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "api": "openai-completions",
+        "baseUrl": "https://api.individual.githubcopilot.com"
       },
       {
         "id": "gemini-2.5-pro",
@@ -91376,6 +91495,43 @@
             "textOutput": 75,
             "textInput_cacheRead": 1.5,
             "textInput_cacheWrite": 18.75
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "claude-fable-5",
+        "name": "Claude Fable 5",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -141350,7 +141506,6 @@
         "releasedAt": "2026-06-09",
         "knowledge": "2026-01-31",
         "openWeights": false,
-        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -144770,7 +144925,7 @@
       },
       {
         "id": "minimax-m3",
-        "name": "MiniMax-M3 (3x usage)",
+        "name": "MiniMax-M3",
         "family": "minimax-m3",
         "releasedAt": "2026-05-31",
         "knowledge": "2025-01",
@@ -146993,8 +147148,10 @@
         "id": "anthropic/claude-fable-5",
         "name": "Anthropic: Claude Fable 5",
         "description": "Claude Fable 5 is a Mythos-class model from Anthropic, built for autonomous knowledge work and coding. It supports text, image, and file inputs with text output, with reasoning support and...",
+        "family": "claude-fable",
         "releasedAt": "2026-06-09",
-        "knowledge": null,
+        "knowledge": "2026-01-31",
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -148336,8 +148493,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 0.77,
+            "textInput": 0.24,
+            "textOutput": 0.9,
             "textInput_cacheRead": 0.135
           }
         }
@@ -148638,7 +148795,7 @@
           }
         },
         "contextWindow": 1048576,
-        "maxOutput": 65536,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text"
@@ -148651,9 +148808,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.098,
-            "textOutput": 0.196,
-            "textInput_cacheRead": 0.02
+            "textInput": 0.09,
+            "textOutput": 0.18,
+            "textInput_cacheRead": 0.018
           }
         }
       },
@@ -151094,7 +151251,7 @@
           }
         },
         "contextWindow": 204800,
-        "maxOutput": 196608,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -151108,8 +151265,7 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.255,
-            "textOutput": 1,
-            "textInput_cacheRead": 0.03
+            "textOutput": 1.02
           }
         }
       },
@@ -151175,7 +151331,7 @@
           }
         },
         "contextWindow": 204800,
-        "maxOutput": 196608,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -151188,8 +151344,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.29,
-            "textOutput": 0.95,
+            "textInput": 0.3,
+            "textOutput": 1.2,
             "textInput_cacheRead": 0.03
           }
         }
@@ -152172,7 +152328,7 @@
           }
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 100352,
         "modalities": {
           "input": [
             "text"
@@ -152187,7 +152343,7 @@
           "basePricing": {
             "textInput": 0.6,
             "textOutput": 2.5,
-            "textInput_cacheRead": 0.6
+            "textInput_cacheRead": 0.15
           }
         }
       },
@@ -156649,7 +156805,7 @@
           "temperature": false
         },
         "contextWindow": 131072,
-        "maxOutput": 131072,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -156662,9 +156818,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.08,
-            "textOutput": 0.4,
-            "textInput_cacheRead": 0.08
+            "textInput": 0.13,
+            "textOutput": 1.56
           }
         }
       },
@@ -156740,9 +156895,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.05,
-            "textOutput": 0.4,
-            "textInput_cacheRead": 0.05
+            "textInput": 0.117,
+            "textOutput": 0.455
           }
         }
       },
@@ -186502,17 +186656,17 @@
         }
       },
       {
-        "id": "hf:moonshotai/Kimi-K2.6",
-        "name": "Kimi K2.6",
+        "id": "hf:moonshotai/Kimi-K2.7-Code",
+        "name": "Kimi K2.7 Code",
         "family": "kimi-k2",
-        "releasedAt": "2026-04-21",
+        "releasedAt": "2026-06-12",
         "knowledge": "2025-01",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
           "attachment": true,
-          "temperature": true,
+          "temperature": false,
           "structuredOutput": true,
           "interleaved": {
             "field": "reasoning_content"
@@ -186608,44 +186762,6 @@
         }
       },
       {
-        "id": "hf:Qwen/Qwen3.5-397B-A17B",
-        "name": "Qwen3.5 397B-A17B",
-        "family": "qwen",
-        "releasedAt": "2026-02-15",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 3.6,
-            "textInput_cacheRead": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "hf:Qwen/Qwen3.6-27B",
         "name": "Qwen3.6 27B",
         "family": "qwen",
@@ -186684,42 +186800,6 @@
         }
       },
       {
-        "id": "hf:zai-org/GLM-4.7",
-        "name": "GLM-4.7",
-        "family": "glm",
-        "releasedAt": "2025-12-22",
-        "knowledge": "2025-04",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 202752,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.45,
-            "textOutput": 2.19,
-            "textInput_cacheRead": 0.45
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "hf:zai-org/GLM-4.7-Flash",
         "name": "GLM-4.7-Flash",
         "family": "glm-flash",
@@ -186750,42 +186830,6 @@
             "textInput": 0.1,
             "textOutput": 0.5,
             "textInput_cacheRead": 0.1
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "hf:zai-org/GLM-5.1",
-        "name": "GLM-5.1",
-        "family": "glm",
-        "releasedAt": "2026-04-07",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 196608,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 1,
-            "textOutput": 3,
-            "textInput_cacheRead": 1
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -189971,41 +190015,6 @@
         }
       },
       {
-        "id": "arcee-trinity-large-thinking",
-        "name": "Trinity Large Thinking",
-        "family": "trinity",
-        "releasedAt": "2026-04-02",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 256000,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3125,
-            "textOutput": 1.125,
-            "textInput_cacheRead": 0.075
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "claude-fable-5",
         "name": "Claude Fable 5",
         "family": "claude-fable",
@@ -190331,6 +190340,43 @@
             "textOutput": 18,
             "textInput_cacheRead": 0.36,
             "textInput_cacheWrite": 4.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "claude-sonnet-5",
+        "name": "Claude Sonnet 5",
+        "family": "claude-sonnet",
+        "releasedAt": "2026-06-29",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15,
+            "textInput_cacheRead": 0.3,
+            "textInput_cacheWrite": 3.75
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -194230,6 +194276,49 @@
             "textOutput": 4,
             "textInput_cacheRead": 0.08,
             "textInput_cacheWrite": 1
+          }
+        }
+      },
+      {
+        "id": "anthropic/claude-fable-5",
+        "name": "Claude Fable 5",
+        "description": "Claude Fable 5 is a Mythos-class model with robust safeguards. It can handle long-running, complex, and asynchronous tasks where previous models would have needed more frequent check-ins.",
+        "type": "language",
+        "family": "claude-fable",
+        "releasedAt": "2026-07-01",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
           }
         }
       },
