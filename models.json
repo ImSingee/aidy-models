@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-03T06:51:25.414Z",
+    "generatedAt": "2026-07-04T06:37:24.204Z",
     "sources": {
       "modelsDev": {
         "providerCount": 150,
@@ -15451,6 +15451,43 @@
             "textInput": 0.87,
             "textOutput": 3.48,
             "textInput_cacheRead": 0.17
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "glm-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.1,
+            "textOutput": 3.851,
+            "textInput_cacheRead": 0.275,
+            "textInput_cacheWrite": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -55694,42 +55731,6 @@
           "basePricing": {
             "textInput": 0.2,
             "textOutput": 0.8
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "zai-org/GLM-5",
-        "name": "GLM-5",
-        "family": "glm",
-        "releasedAt": "2026-02-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 202752,
-        "maxOutput": 202752,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 1,
-            "textOutput": 3.2,
-            "textInput_cacheRead": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -137382,12 +137383,11 @@
         }
       },
       {
-        "id": "z-ai/glm-5.1",
-        "name": "GLM-5.1",
+        "id": "z-ai/glm-5.2",
+        "name": "GLM-5.2",
         "family": "glm",
-        "releasedAt": "2026-03-27",
+        "releasedAt": "2026-06-13",
         "openWeights": true,
-        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -137398,7 +137398,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 131072,
+        "contextWindow": 1000000,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -154087,8 +154087,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.085,
-            "textOutput": 0.4
+            "textInput": 0.08,
+            "textOutput": 0.45
           }
         }
       },
@@ -159153,7 +159153,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.285,
-            "textOutput": 2.4
+            "textOutput": 2.4,
+            "textInput_cacheRead": 0.15
           }
         }
       },
@@ -160878,7 +160879,7 @@
           }
         },
         "contextWindow": 1048576,
-        "maxOutput": 32768,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text"
@@ -160891,9 +160892,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.93,
-            "textOutput": 3,
-            "textInput_cacheRead": 0.18
+            "textInput": 0.91,
+            "textOutput": 2.86,
+            "textInput_cacheRead": 0.169
           }
         }
       },
@@ -192420,8 +192421,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.1625,
-            "textOutput": 0.5
+            "textInput": 0.13,
+            "textOutput": 0.4,
+            "textInput_cacheRead": 0.05
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -192801,9 +192803,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.9,
-            "textOutput": 4.3,
-            "textInput_cacheRead": 0.2
+            "textInput": 0.75,
+            "textOutput": 3.5,
+            "textInput_cacheRead": 0.16
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -192928,9 +192930,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.34,
-            "textOutput": 1.19,
-            "textInput_cacheRead": 0.04
+            "textInput": 0.27,
+            "textOutput": 0.95,
+            "textInput_cacheRead": 0.03
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -192977,13 +192979,16 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": false
+          "attachment": true,
+          "vision": true
         },
         "contextWindow": 524288,
         "maxOutput": 65536,
         "modalities": {
           "input": [
-            "text"
+            "text",
+            "image",
+            "video"
           ],
           "output": [
             "text"
@@ -193186,8 +193191,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.8
+            "textInput": 0.07,
+            "textOutput": 0.4,
+            "textInput_cacheRead": 0.035
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -194048,8 +194054,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.25,
-            "textOutput": 1.5
+            "textInput": 0.21,
+            "textOutput": 1.9,
+            "textInput_cacheRead": 0.1
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -194151,9 +194158,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.175,
-            "textOutput": 0.35,
-            "textInput_cacheRead": 0.0625
+            "textInput": 0.14,
+            "textOutput": 0.28,
+            "textInput_cacheRead": 0.05
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -194398,9 +194405,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.75,
-            "textOutput": 5.5,
-            "textInput_cacheRead": 0.325
+            "textInput": 1.54,
+            "textOutput": 4.84,
+            "textInput_cacheRead": 0.286
           },
           "currency": "USD",
           "unit": "millionTokens"
