@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-06T08:06:19.114Z",
+    "generatedAt": "2026-07-07T07:24:33.916Z",
     "sources": {
       "modelsDev": {
         "providerCount": 151,
-        "modelCount": 5338
+        "modelCount": 5345
       },
       "lobehub": {
         "commitHash": "f279f1b80f8de4f75fa82107d54a0cfe3a6c8014",
@@ -13,11 +13,11 @@
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 340
+        "modelCount": 343
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 298
+        "modelCount": 300
       },
       "manual": {
         "providerCount": 7,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 197,
-      "modelCount": 6811
+      "modelCount": 6818
     },
     "overridesApplied": 96
   },
@@ -2923,7 +2923,7 @@
         "env": [
           "SUBCONSCIOUS_API_KEY"
         ],
-        "npm": "@ai-sdk/openai-compatible"
+        "npm": "@ai-sdk/anthropic"
       }
     },
     "submodel": {
@@ -73602,6 +73602,38 @@
           "basePricing": {
             "textInput": 0.25,
             "textOutput": 0.69
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "openai/gpt-oss-20b",
+        "name": "GPT OSS 20B",
+        "family": "gpt-oss",
+        "releasedAt": "2025-08-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.1,
+            "textOutput": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -152028,7 +152060,7 @@
           "toolCall": false,
           "reasoning": false,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -152036,7 +152068,7 @@
           "temperature": false
         },
         "contextWindow": 131072,
-        "maxOutput": 80000,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -152049,8 +152081,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.0509,
-            "textOutput": 0.335
+            "textInput": 0.05,
+            "textOutput": 0.33
           }
         }
       },
@@ -153596,7 +153628,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.375,
-            "textOutput": 2.025
+            "textOutput": 2.025,
+            "textInput_cacheRead": 0.203
           }
         }
       },
@@ -153756,6 +153789,46 @@
           "basePricing": {
             "textInput": 0.9,
             "textOutput": 1.9
+          }
+        }
+      },
+      {
+        "id": "nex-agi/nex-n2-mini",
+        "name": "Nex AGI: Nex-N2-Mini",
+        "description": "Nex-N2-Mini is an open-source agentic mixture-of-experts model from Nex AGI, the smaller sibling in the Nex-N2 series. It accepts text and image input and is built for coding, tool use,...",
+        "family": "agi",
+        "releasedAt": "2026-06-24",
+        "knowledge": null,
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.025,
+            "textOutput": 0.1,
+            "textInput_cacheRead": 0.0025
           }
         }
       },
@@ -159042,7 +159115,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.385,
-            "textOutput": 2.45
+            "textOutput": 2.45,
+            "textInput_cacheRead": 0.111
           }
         }
       },
@@ -159987,6 +160061,45 @@
         }
       },
       {
+        "id": "tencent/hy3",
+        "name": "Tencent: Hy3",
+        "description": "Hy3 is a 295B-parameter Mixture-of-Experts model from Tencent (21B active, 192 experts with top-8 routing) built for reasoning, agentic workflows, and real-world production use. It supports a configurable reasoning effort:...",
+        "family": "hy3",
+        "releasedAt": "2026-07-06",
+        "knowledge": null,
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.2,
+            "textOutput": 0.8,
+            "textInput_cacheRead": 0.5
+          }
+        }
+      },
+      {
         "id": "tencent/hy3-preview",
         "name": "Tencent: Hy3 preview",
         "description": "Hy3 preview is a high-efficiency Mixture-of-Experts model from Tencent designed for agentic workflows and production use. It supports configurable reasoning levels across disabled, low, and high modes, allowing it to...",
@@ -160022,6 +160135,44 @@
             "textInput": 0.063,
             "textOutput": 0.21,
             "textInput_cacheRead": 0.021
+          }
+        }
+      },
+      {
+        "id": "tencent/hy3:free",
+        "name": "Tencent: Hy3 (free)",
+        "description": "Hy3 is a 295B-parameter Mixture-of-Experts model from Tencent (21B active, 192 experts with top-8 routing) built for reasoning, agentic workflows, and real-world production use. It supports a configurable reasoning effort:...",
+        "family": "hy3",
+        "releasedAt": "2026-07-06",
+        "knowledge": null,
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
           }
         }
       },
@@ -160492,7 +160643,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.105,
-            "textOutput": 0.28
+            "textOutput": 0.28,
+            "textInput_cacheRead": 0.028
           }
         }
       },
@@ -160982,9 +161134,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.686,
-            "textOutput": 2.156,
-            "textInput_cacheRead": 0.1274
+            "textInput": 0.9086,
+            "textOutput": 2.8556,
+            "textInput_cacheRead": 0.16874
           }
         }
       },
@@ -187843,6 +187995,39 @@
     ],
     "subconscious": [
       {
+        "id": "subconscious/glm-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.26
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "subconscious/tim-qwen3.6-27b",
         "name": "TIM-Qwen3.6 27B",
         "releasedAt": "2026-05-11",
@@ -187852,10 +188037,7 @@
           "reasoning": true,
           "attachment": false,
           "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
+          "structuredOutput": true
         },
         "contextWindow": 8192,
         "maxOutput": 5000,
@@ -187869,8 +188051,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
+            "textInput": 0.3,
+            "textOutput": 3,
+            "textInput_cacheRead": 0.15
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -195769,6 +195952,66 @@
         "type": "video",
         "family": "o",
         "releasedAt": "2025-12-16",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 0,
+        "maxOutput": 0,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "video"
+          ]
+        }
+      },
+      {
+        "id": "alibaba/wan-v2.7-r2v",
+        "name": "Wan v2.7 Reference-to-Video",
+        "description": "",
+        "type": "video",
+        "family": "o",
+        "releasedAt": "2026-04-07",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 0,
+        "maxOutput": 0,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "video"
+          ]
+        }
+      },
+      {
+        "id": "alibaba/wan-v2.7-t2v",
+        "name": "Wan v2.7 Text-to-Video",
+        "description": "",
+        "type": "video",
+        "family": "o",
+        "releasedAt": "2026-04-07",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
