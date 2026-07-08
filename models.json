@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-07T07:24:33.916Z",
+    "generatedAt": "2026-07-08T06:18:40.005Z",
     "sources": {
       "modelsDev": {
         "providerCount": 151,
-        "modelCount": 5345
+        "modelCount": 5347
       },
       "lobehub": {
         "commitHash": "f279f1b80f8de4f75fa82107d54a0cfe3a6c8014",
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 197,
-      "modelCount": 6818
+      "modelCount": 6820
     },
     "overridesApplied": 96
   },
@@ -48428,7 +48428,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 16384,
+        "contextWindow": 262144,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -54511,7 +54511,7 @@
           "basePricing": {
             "textInput": 1.4,
             "textOutput": 4.4,
-            "textInput_cacheRead": 0.26
+            "textInput_cacheRead": 0.14
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -85070,6 +85070,41 @@
         }
       },
       {
+        "id": "minimax/minimax-m3",
+        "name": "MiniMax: MiniMax M3",
+        "family": "minimax",
+        "releasedAt": "2026-06-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 512000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.3,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.06
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "mistralai/codestral-2508",
         "name": "Mistral: Codestral 2508",
         "releasedAt": "2025-08-01",
@@ -92595,77 +92630,6 @@
           "basePricing": {
             "textInput": 0,
             "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "claude-3-7-sonnet",
-        "name": "Claude 3.7 Sonnet",
-        "family": "claude",
-        "releasedAt": "2025-02-24",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": false
-        },
-        "contextWindow": 200000,
-        "maxOutput": 8192,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 3,
-            "textOutput": 15,
-            "textInput_cacheRead": 0.3,
-            "textInput_cacheWrite": 3.75
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "claude-3-7-sonnet-20250219",
-        "name": "Claude Sonnet 3.7",
-        "family": "claude-sonnet",
-        "releasedAt": "2025-02-19",
-        "knowledge": "2024-10-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 64000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 3,
-            "textOutput": 15,
-            "textInput_cacheRead": 0.3,
-            "textInput_cacheWrite": 3.75
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -144545,6 +144509,40 @@
         "baseUrl": "https://opencode.ai/zen/v1"
       },
       {
+        "id": "hy3-free",
+        "name": "Hy3 Free",
+        "family": "hy3-free",
+        "releasedAt": "2026-06-26",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 256000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "api": "openai-completions",
+        "baseUrl": "https://opencode.ai/zen/v1"
+      },
+      {
         "id": "hy3-preview-free",
         "name": "Hy3 preview Free",
         "family": "hy3-free",
@@ -147924,80 +147922,6 @@
         }
       },
       {
-        "id": "aion-labs/aion-1.0",
-        "name": "AionLabs: Aion-1.0",
-        "description": "Aion-1.0 is a multi-model system designed for high performance across various tasks, including reasoning and coding. It is built on DeepSeek-R1, augmented with additional models and techniques such as Tree...",
-        "releasedAt": "2025-02-04",
-        "knowledge": null,
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": true,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 4,
-            "textOutput": 8
-          }
-        }
-      },
-      {
-        "id": "aion-labs/aion-1.0-mini",
-        "name": "AionLabs: Aion-1.0-Mini",
-        "description": "Aion-1.0-Mini 32B parameter model is a distilled version of the DeepSeek-R1 model, designed for strong performance in reasoning domains such as mathematics, coding, and logic. It is a modified variant...",
-        "releasedAt": "2025-02-04",
-        "knowledge": null,
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": true,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.7,
-            "textOutput": 1.4
-          }
-        }
-      },
-      {
         "id": "aion-labs/aion-2.0",
         "name": "AionLabs: Aion-2.0",
         "description": "Aion-2.0 is a variant of DeepSeek V3.2 optimized for immersive roleplaying and storytelling. It is particularly strong at introducing tension, crises, and conflict into stories, making narratives feel more engaging....",
@@ -148005,10 +147929,10 @@
         "knowledge": null,
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -148032,6 +147956,82 @@
             "textInput": 0.8,
             "textOutput": 1.6,
             "textInput_cacheRead": 0.2
+          }
+        }
+      },
+      {
+        "id": "aion-labs/aion-3.0",
+        "name": "AionLabs: Aion-3.0",
+        "description": "Aion-3.0 is a multi-model roleplaying and storytelling system from AionLabs, built on the GLM family of models. It uses a collaborative generation process in which multiple specialized models each contribute...",
+        "releasedAt": "2026-07-07",
+        "knowledge": null,
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 131072,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 6,
+            "textInput_cacheRead": 0.75
+          }
+        }
+      },
+      {
+        "id": "aion-labs/aion-3.0-mini",
+        "name": "AionLabs: Aion-3.0-Mini",
+        "description": "Aion-3.0 Mini is a multi-model roleplaying and storytelling system from AionLabs, built on the DeepSeek family of models. It uses a collaborative generation process in which multiple specialized models each...",
+        "releasedAt": "2026-07-07",
+        "knowledge": null,
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 131072,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.7,
+            "textOutput": 1.4,
+            "textInput_cacheRead": 0.18
           }
         }
       },
@@ -150038,7 +150038,7 @@
           }
         },
         "contextWindow": 1048576,
-        "maxOutput": 16384,
+        "maxOutput": 65536,
         "modalities": {
           "input": [
             "text"
@@ -153841,7 +153841,7 @@
         "knowledge": null,
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "vision": true,
           "structuredOutput": false,
@@ -160225,15 +160225,15 @@
           "toolCall": false,
           "reasoning": false,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
           "attachment": false,
           "temperature": false
         },
-        "contextWindow": 32768,
-        "maxOutput": 32768,
+        "contextWindow": 65536,
+        "maxOutput": 65536,
         "modalities": {
           "input": [
             "text"
@@ -160579,7 +160579,7 @@
           "search": true,
           "imageOutput": false,
           "video": false,
-          "attachment": false,
+          "attachment": true,
           "temperature": true
         },
         "contextWindow": 256000,
@@ -160587,7 +160587,8 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "file"
           ],
           "output": [
             "text"
@@ -161121,7 +161122,7 @@
           }
         },
         "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -161134,9 +161135,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.9086,
-            "textOutput": 2.8556,
-            "textInput_cacheRead": 0.16874
+            "textInput": 0.93,
+            "textOutput": 3,
+            "textInput_cacheRead": 0.18
           }
         }
       },
@@ -206307,6 +206308,42 @@
         }
       },
       {
+        "id": "glm-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.2,
+            "textOutput": 4.2,
+            "textInput_cacheRead": 0.3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "gpt-5-mini",
         "name": "GPT-5 Mini",
         "family": "gpt-mini",
@@ -207887,6 +207924,39 @@
     ],
     "vultr": [
       {
+        "id": "deepseek-ai/DeepSeek-V4-Flash",
+        "name": "DeepSeek V4 Flash",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-04-24",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.3,
+            "textOutput": 1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "MiniMaxAI/MiniMax-M2.7",
         "name": "MiniMax-M2.7",
         "family": "minimax",
@@ -207946,8 +208016,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.6
+            "textInput": 0.3,
+            "textOutput": 1.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -207980,38 +208050,6 @@
           "basePricing": {
             "textInput": 0.55,
             "textOutput": 1.65
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "nvidia/Llama-3.1-Nemotron-Safety-Guard-8B-v3",
-        "name": "Llama 3.1 Nemotron Safety Guard",
-        "family": "llama",
-        "releasedAt": "2025-10-28",
-        "knowledge": "2023-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 8192,
-        "maxOutput": 4096,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.01,
-            "textOutput": 0.01
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -208082,10 +208120,114 @@
         }
       },
       {
-        "id": "zai-org/GLM-5.1-FP8",
-        "name": "GLM-5.1",
+        "id": "Qwen/Qwen3.5-397B-A17B",
+        "name": "Qwen3.5 397B-A17B",
+        "family": "qwen",
+        "releasedAt": "2026-02-15",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.3,
+            "textOutput": 2
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "Qwen/Qwen3.6-27B",
+        "name": "Qwen3.6 27B",
+        "family": "qwen",
+        "releasedAt": "2026-04-22",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.3,
+            "textOutput": 2
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "XiaomiMiMo/MiMo-V2.5-Pro",
+        "name": "MiMo-V2.5-Pro",
+        "family": "mimo",
+        "releasedAt": "2026-04-22",
+        "knowledge": "2024-12",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.55,
+            "textOutput": 1.65
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "zai-org/GLM-5.2-FP8",
+        "name": "GLM-5.2",
         "family": "glm",
-        "releasedAt": "2026-04-07",
+        "releasedAt": "2026-06-13",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
@@ -208097,7 +208239,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 200000,
+        "contextWindow": 393216,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -211300,48 +211442,6 @@
     ],
     "xiaomi-token-plan-ams": [
       {
-        "id": "mimo-v2-omni",
-        "name": "MiMo-V2-Omni",
-        "family": "mimo",
-        "releasedAt": "2026-03-18",
-        "knowledge": "2024-12",
-        "openWeights": false,
-        "deprecated": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio",
-            "video",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0,
-            "textInput_cacheRead": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "mimo-v2-pro",
         "name": "MiMo-V2-Pro",
         "family": "mimo",
@@ -211577,48 +211677,6 @@
     ],
     "xiaomi-token-plan-cn": [
       {
-        "id": "mimo-v2-omni",
-        "name": "MiMo-V2-Omni",
-        "family": "mimo",
-        "releasedAt": "2026-03-18",
-        "knowledge": "2024-12",
-        "openWeights": false,
-        "deprecated": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio",
-            "video",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0,
-            "textInput_cacheRead": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "mimo-v2-pro",
         "name": "MiMo-V2-Pro",
         "family": "mimo",
@@ -211853,48 +211911,6 @@
       }
     ],
     "xiaomi-token-plan-sgp": [
-      {
-        "id": "mimo-v2-omni",
-        "name": "MiMo-V2-Omni",
-        "family": "mimo",
-        "releasedAt": "2026-03-18",
-        "knowledge": "2024-12",
-        "openWeights": false,
-        "deprecated": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio",
-            "video",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0,
-            "textInput_cacheRead": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
       {
         "id": "mimo-v2-pro",
         "name": "MiMo-V2-Pro",
@@ -212269,6 +212285,44 @@
       }
     ],
     "xpersona": [
+      {
+        "id": "claude-fable-5",
+        "name": "Claude Fable 5",
+        "family": "claude-fable",
+        "releasedAt": "2026-06-09",
+        "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 18,
+            "textInput_cacheRead": 0.3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
       {
         "id": "xpersona-frieren-coder",
         "name": "Xpersona Frieren 1",
