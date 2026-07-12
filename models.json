@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-11T06:04:07.433Z",
+    "generatedAt": "2026-07-12T06:22:40.004Z",
     "sources": {
       "modelsDev": {
-        "providerCount": 158,
-        "modelCount": 5620
+        "providerCount": 159,
+        "modelCount": 5622
       },
       "lobehub": {
         "commitHash": "4bab1636408e60a7ee17b640490fbf33a310a325",
@@ -17,7 +17,7 @@
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 309
+        "modelCount": 310
       },
       "manual": {
         "providerCount": 7,
@@ -29,8 +29,8 @@
       }
     },
     "merged": {
-      "providerCount": 204,
-      "modelCount": 7099
+      "providerCount": 205,
+      "modelCount": 7103
     },
     "overridesApplied": 96
   },
@@ -1443,6 +1443,21 @@
       "_": {
         "env": [
           "INFERENCE_API_KEY"
+        ],
+        "npm": "@ai-sdk/openai-compatible"
+      }
+    },
+    "inferx": {
+      "id": "inferx",
+      "name": "InferX",
+      "official": false,
+      "featured": false,
+      "api": "openai-completions",
+      "baseUrl": "https://model.inferx.net/v1",
+      "doc": "https://model.inferx.net/endpoints",
+      "_": {
+        "env": [
+          "INFERX_API_KEY"
         ],
         "npm": "@ai-sdk/openai-compatible"
       }
@@ -25628,8 +25643,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.75,
-            "textOutput": 3.5,
+            "textInput": 0.84,
+            "textOutput": 3.99,
             "textInput_cacheRead": 0.16,
             "textInput_cacheWrite": 0
           },
@@ -25668,6 +25683,40 @@
             "textInput": 1.4,
             "textOutput": 4.4,
             "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "zai-org/GLM-5.2-FP8",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 202752,
+        "maxOutput": 202752,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.2,
+            "textOutput": 4.2,
+            "textInput_cacheRead": 0.26,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -55243,7 +55292,7 @@
         "knowledge": "2025-05",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "attachment": false,
           "temperature": true,
@@ -55276,7 +55325,7 @@
         "knowledge": "2025-05",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "attachment": false,
           "temperature": true,
@@ -55635,7 +55684,7 @@
         "knowledge": "2024-12",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "attachment": true,
           "temperature": true,
@@ -55673,7 +55722,7 @@
         "knowledge": "2024-12",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "attachment": false,
           "temperature": true,
@@ -55739,7 +55788,7 @@
         "releasedAt": "2026-03-18",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "attachment": false,
           "temperature": true,
@@ -56207,7 +56256,7 @@
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "attachment": false,
           "temperature": true,
@@ -56374,7 +56423,7 @@
         "knowledge": "2025-04",
         "openWeights": false,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": true,
           "attachment": false,
           "temperature": true,
@@ -80875,6 +80924,216 @@
         }
       }
     ],
+    "inferx": [
+      {
+        "id": "google/gemma-4-31b-it-fp8",
+        "name": "Gemma 4 31B IT FP8",
+        "family": "gemma",
+        "releasedAt": "2026-04-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen/qwen3-coder-next-fp8",
+        "name": "Qwen3 Coder Next FP8",
+        "family": "qwen",
+        "releasedAt": "2026-02-03",
+        "knowledge": "2025-04",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 256144,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen/qwen3-coder-next-fp8-1m",
+        "name": "Qwen3 Coder Next FP8 1M",
+        "family": "qwen",
+        "releasedAt": "2026-02-03",
+        "knowledge": "2025-04",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1024000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen/qwen3.5-122b-a10b-nvfp4",
+        "name": "Qwen3.5 122B A10B NVFP4",
+        "family": "qwen",
+        "releasedAt": "2026-02-23",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 256144,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen/qwen3.6-27b-fp8",
+        "name": "Qwen3.6 27B FP8",
+        "family": "qwen",
+        "releasedAt": "2026-04-22",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen/qwen3.6-35b-a3b-fp8",
+        "name": "Qwen3.6 35B A3B FP8",
+        "family": "qwen",
+        "releasedAt": "2026-04-17",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      }
+    ],
     "infiniai": [
       {
         "id": "baichuan-m2-32b",
@@ -101207,99 +101466,6 @@
           "basePricing": {
             "textInput": 0.18,
             "textOutput": 0.59
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "mimo-v2-omni",
-        "name": "MiMo-V2-Omni",
-        "family": "mimo",
-        "releasedAt": "2026-03-18",
-        "knowledge": "2024-12",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "audio",
-            "video",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 2,
-            "textInput_cacheRead": 0.08
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "mimo-v2-pro",
-        "name": "MiMo-V2-Pro",
-        "family": "mimo",
-        "releasedAt": "2026-03-18",
-        "knowledge": "2024-12",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput": 2,
-                "textOutput": 2,
-                "textInput_cacheRead": 2
-              },
-              "when": {
-                "textTotalInput": [
-                  0.2,
-                  "infinity"
-                ]
-              }
-            }
-          ],
-          "basePricing": {
-            "textInput": 1,
-            "textOutput": 3,
-            "textInput_cacheRead": 0.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -159710,8 +159876,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.72,
-            "textOutput": 3.49,
-            "textInput_cacheRead": 0.159
+            "textOutput": 3.5,
+            "textInput_cacheRead": 0.15
           }
         }
       },
@@ -164084,9 +164250,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.8,
-            "textOutput": 1,
-            "textInput_cacheRead": 0.4
+            "textInput": 0.25,
+            "textOutput": 0.75
           }
         }
       },
@@ -167316,9 +167481,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.406,
-            "textOutput": 1.276,
-            "textInput_cacheRead": 0.0754
+            "textInput": 0.42,
+            "textOutput": 1.32,
+            "textInput_cacheRead": 0.078
           }
         }
       },
@@ -207524,6 +207689,31 @@
         }
       },
       {
+        "id": "bytedance/seedream-5.0-pro",
+        "name": "Seedream 5.0 Pro",
+        "description": "Seedream-5.0-Pro, ByteDance's newest image generation model, delivers comprehensive upgrades for complex, lifelike image creation and editing, ushering in a new phase of controllable visual production. It stands out with precise editing control, robust commercial applicability and natural rendering results.",
+        "type": "image",
+        "releasedAt": "2026-07-11",
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": true,
+          "video": false
+        },
+        "contextWindow": 0,
+        "maxOutput": 0,
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.003
+          }
+        }
+      },
+      {
         "id": "cohere/command-a",
         "name": "Command A",
         "description": "Command A is Cohere's most performant model to date, excelling at tool use, agents, retrieval augmented generation (RAG), and multilingual use cases. Command A has a context length of 256K, only requires two GPUs to run, and has 150% higher throughput compared to Command R+ 08-2024.",
@@ -218574,82 +218764,6 @@
     ],
     "wafer.ai": [
       {
-        "id": "deepseek-v4-flash",
-        "name": "DeepSeek V4 Flash",
-        "family": "deepseek-flash",
-        "releasedAt": "2026-04-24",
-        "knowledge": "2025-05",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 384000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.28,
-            "textInput_cacheRead": 0.01,
-            "textInput_cacheWrite": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepseek-v4-pro",
-        "name": "DeepSeek V4 Pro",
-        "family": "deepseek-thinking",
-        "releasedAt": "2026-04-24",
-        "knowledge": "2025-05",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 384000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.74,
-            "textOutput": 3.48,
-            "textInput_cacheRead": 0.02,
-            "textInput_cacheWrite": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "GLM-5.1",
         "name": "GLM-5.1",
         "family": "glm",
@@ -218722,17 +218836,54 @@
         }
       },
       {
+        "id": "glm5.2-fast",
+        "name": "GLM5.2-Fast",
+        "family": "glm",
+        "releasedAt": "2026-06-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 10.25,
+            "textInput_cacheRead": 0.5,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "Kimi-K2.6",
-        "name": "Kimi-K2.6",
+        "name": "Kimi K2.6",
         "family": "kimi-k2",
-        "releasedAt": "2026-05-13",
+        "releasedAt": "2026-04-21",
         "knowledge": "2025-01",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
           "attachment": true,
-          "temperature": true,
+          "temperature": false,
           "structuredOutput": true,
           "vision": true
         },
@@ -218750,8 +218901,60 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.68,
-            "textOutput": 3.15,
+            "textInput": 1.14,
+            "textOutput": 4.8,
+            "textInput_cacheRead": 0.19,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "MiniMax-M3",
+        "name": "MiniMax-M3",
+        "family": "minimax",
+        "releasedAt": "2026-06-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 1.857142857143
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 0.33,
+            "textOutput": 1.32,
             "textInput_cacheRead": 0.07,
             "textInput_cacheWrite": 0
           },
@@ -218791,78 +218994,6 @@
             "textInput": 0.43,
             "textOutput": 2.6,
             "textInput_cacheRead": 0.04,
-            "textInput_cacheWrite": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "Qwen3.6-35B-A3B",
-        "name": "Qwen3.6-35B-A3B",
-        "family": "qwen",
-        "releasedAt": "2026-05-11",
-        "knowledge": "2025-04",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "video"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 1,
-            "textInput_cacheRead": 0.02,
-            "textInput_cacheWrite": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3.7-max",
-        "name": "Qwen3.7-Max",
-        "family": "qwen3.7-max",
-        "releasedAt": "2026-05-21",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 5,
-            "textOutput": 15,
-            "textInput_cacheRead": 0.5,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
