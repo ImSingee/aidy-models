@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-20T06:35:36.365Z",
+    "generatedAt": "2026-07-21T06:19:12.630Z",
     "sources": {
       "modelsDev": {
         "providerCount": 167,
-        "modelCount": 5690
+        "modelCount": 5696
       },
       "lobehub": {
         "commitHash": "4bab1636408e60a7ee17b640490fbf33a310a325",
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 213,
-      "modelCount": 7182
+      "modelCount": 7187
     },
     "overridesApplied": 96
   },
@@ -21132,6 +21132,45 @@
         }
       },
       {
+        "id": "qwen3.8-max-preview",
+        "name": "Qwen3.8 Max Preview",
+        "family": "qwen",
+        "releasedAt": "2026-07-19",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "wan2.7-image",
         "name": "Wan2.7 Image",
         "releasedAt": "2026-05-29",
@@ -21755,6 +21794,45 @@
           "input": [
             "text",
             "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3.8-max-preview",
+        "name": "Qwen3.8 Max Preview",
+        "family": "qwen",
+        "releasedAt": "2026-07-19",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
           ],
           "output": [
             "text"
@@ -141851,6 +141929,79 @@
         }
       },
       {
+        "id": "moonshotai/kimi-k2.7-code",
+        "name": "Kimi K2.7 Code",
+        "family": "kimi-k2",
+        "releasedAt": "2026-06-12",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.95,
+            "textOutput": 4,
+            "textInput_cacheRead": 0.19
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "moonshotai/kimi-k3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 1048576,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15,
+            "textInput_cacheRead": 0.3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "nousresearch/hermes-2-pro-llama-3-8b",
         "name": "Hermes 2 Pro Llama 3 8B",
         "description": "Hermes 2 Pro Llama 3 8B is an updated Nous Hermes 2 version with the latest internally developed datasets.",
@@ -153442,6 +153593,7 @@
         "family": "hy3-free",
         "releasedAt": "2026-06-26",
         "openWeights": true,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -158051,7 +158203,7 @@
           "toolCall": true,
           "reasoning": true,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -159036,9 +159188,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.098,
-            "textOutput": 0.196,
-            "textInput_cacheRead": 0.0196
+            "textInput": 0.0938,
+            "textOutput": 0.1876,
+            "textInput_cacheRead": 0.01876
           }
         }
       },
@@ -160121,7 +160273,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "image",
@@ -160136,9 +160288,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.22,
-            "textOutput": 0.55,
-            "textInput_cacheRead": 0.12
+            "textInput": 0.12,
+            "textOutput": 0.37
           }
         }
       },
@@ -160758,6 +160909,45 @@
           "basePricing": {
             "textInput": 0.5,
             "textOutput": 0.75
+          }
+        }
+      },
+      {
+        "id": "meituan/longcat-2.0",
+        "name": "Meituan: LongCat 2.0",
+        "description": "LongCat 2.0 is a sparse mixture-of-experts language model from Meituan, with 48B active parameters out of 1.6T total. It is suited for coding, repository-level changes, long-horizon problem solving, and agentic...",
+        "family": "longcat",
+        "releasedAt": "2026-07-20",
+        "knowledge": null,
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 1048756,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.3,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.006
           }
         }
       },
@@ -162508,9 +162698,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.85,
-            "textOutput": 3.8,
-            "textInput_cacheRead": 0.17
+            "textInput": 0.82,
+            "textOutput": 3.75,
+            "textInput_cacheRead": 0.16
           }
         }
       },
@@ -163012,8 +163202,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.085,
-            "textOutput": 0.4
+            "textInput": 0.08,
+            "textOutput": 0.45
           }
         }
       },
@@ -167498,7 +167688,7 @@
           "temperature": false
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -167511,9 +167701,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 1.1,
-            "textInput_cacheRead": 0.07
+            "textInput": 0.0975,
+            "textOutput": 0.78
           }
         }
       },
@@ -168873,7 +169062,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 131072,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text"
@@ -168886,9 +169075,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 0.8,
-            "textInput_cacheRead": 0.05
+            "textInput": 0.14,
+            "textOutput": 0.58,
+            "textInput_cacheRead": 0.035
           }
         }
       },
@@ -168928,44 +169117,6 @@
             "textInput": 0.063,
             "textOutput": 0.21,
             "textInput_cacheRead": 0.021
-          }
-        }
-      },
-      {
-        "id": "tencent/hy3:free",
-        "name": "Tencent: Hy3 (free)",
-        "description": "Hy3 is a 295B-parameter Mixture-of-Experts model from Tencent (21B active, 192 experts with top-8 routing) built for reasoning, agentic workflows, and real-world production use. It supports a configurable reasoning effort:...",
-        "family": "hy3",
-        "releasedAt": "2026-07-06",
-        "knowledge": null,
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": false,
-          "structuredOutput": true,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
           }
         }
       },
@@ -170009,9 +170160,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.9674,
-            "textOutput": 3.0404,
-            "textInput_cacheRead": 0.17966
+            "textInput": 0.952,
+            "textOutput": 2.992,
+            "textInput_cacheRead": 0.1768
           }
         }
       },
@@ -229256,6 +229407,45 @@
             "textInput": 3,
             "textOutput": 15,
             "textInput_cacheRead": 0.3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "moonshotai/kimi-k3-free",
+        "name": "Kimi K3 (Free)",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
