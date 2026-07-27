@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-26T06:25:48.668Z",
+    "generatedAt": "2026-07-27T06:51:51.380Z",
     "sources": {
       "modelsDev": {
         "providerCount": 172,
-        "modelCount": 5755
+        "modelCount": 5751
       },
       "lobehub": {
         "commitHash": "5b4cef6e5f57080747906af1dc6d5e38e5cb432b",
@@ -13,7 +13,7 @@
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 345
+        "modelCount": 342
       },
       "vercelAiGateway": {
         "providerCount": 1,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 219,
-      "modelCount": 7258
+      "modelCount": 7254
     },
     "overridesApplied": 96
   },
@@ -27635,9 +27635,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.05,
-            "textOutput": 4.4,
-            "textInput_cacheRead": 0.2,
+            "textInput": 0.76,
+            "textOutput": 2.42,
+            "textInput_cacheRead": 0.14,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -27748,7 +27748,7 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.75,
+            "textInput": 0.73,
             "textOutput": 3.5,
             "textInput_cacheRead": 0.15,
             "textInput_cacheWrite": 0
@@ -27858,9 +27858,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.05,
-            "textOutput": 4.4,
-            "textInput_cacheRead": 0.2,
+            "textInput": 0.76,
+            "textOutput": 2.42,
+            "textInput_cacheRead": 0.14,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -42521,6 +42521,43 @@
         "family": "claude-opus",
         "releasedAt": "2026-05-28",
         "knowledge": "2026-01",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 5,
+            "textOutput": 25,
+            "textInput_cacheRead": 0.5,
+            "textInput_cacheWrite": 6.25
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "anthropic/claude-opus-5",
+        "name": "Claude Opus 5",
+        "family": "claude-opus",
+        "releasedAt": "2026-07-24",
+        "knowledge": "2026-05",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
@@ -61369,41 +61406,6 @@
         }
       },
       {
-        "id": "accounts/fireworks/models/glm-5p1",
-        "name": "GLM 5.1",
-        "family": "glm",
-        "releasedAt": "2026-04-01",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 202800,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.4,
-            "textOutput": 4.4,
-            "textInput_cacheRead": 0.26
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "accounts/fireworks/models/glm-5p2",
         "name": "GLM 5.2",
         "family": "glm",
@@ -61998,41 +62000,6 @@
             "textInput": 0.4,
             "textOutput": 1.6,
             "textInput_cacheRead": 0.08
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "accounts/fireworks/routers/glm-5p1-fast",
-        "name": "GLM 5.1 Fast",
-        "family": "glm",
-        "releasedAt": "2026-04-01",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 202800,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 2.8,
-            "textOutput": 8.8,
-            "textInput_cacheRead": 0.52
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -161831,7 +161798,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 131072,
+        "contextWindow": 65536,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -162420,7 +162387,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "image",
@@ -162435,9 +162402,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.12,
-            "textOutput": 0.35,
-            "textInput_cacheRead": 0.05
+            "textInput": 0.07,
+            "textOutput": 0.34
           }
         }
       },
@@ -162946,80 +162912,6 @@
             "textInput": 0.075,
             "textOutput": 0.625,
             "textInput_cacheRead": 0.015
-          }
-        }
-      },
-      {
-        "id": "inflection/inflection-3-pi",
-        "name": "Inflection: Inflection 3 Pi",
-        "description": "Inflection 3 Pi powers Inflection's [Pi](https://pi.ai) chatbot, including backstory, emotional intelligence, productivity, and safety. It has access to recent news, and excels in scenarios like customer support and roleplay. Pi...",
-        "releasedAt": "2024-10-11",
-        "knowledge": "2024-10-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 8000,
-        "maxOutput": 1024,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 2.5,
-            "textOutput": 10
-          }
-        }
-      },
-      {
-        "id": "inflection/inflection-3-productivity",
-        "name": "Inflection: Inflection 3 Productivity",
-        "description": "Inflection 3 Productivity is optimized for following instructions. It is better for tasks requiring JSON output or precise adherence to provided guidelines. It has access to recent news. For emotional...",
-        "releasedAt": "2024-10-11",
-        "knowledge": "2024-10-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 8000,
-        "maxOutput": 1024,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 2.5,
-            "textOutput": 10
           }
         }
       },
@@ -164963,7 +164855,7 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.75,
+            "textInput": 0.73,
             "textOutput": 3.5,
             "textInput_cacheRead": 0.15
           }
@@ -165543,9 +165435,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 3.6,
-            "textInput_cacheRead": 0.2
+            "textInput": 0.5,
+            "textOutput": 2.2,
+            "textInput_cacheRead": 0.1
           }
         }
       },
@@ -166345,44 +166237,6 @@
         }
       },
       {
-        "id": "openai/gpt-4o-mini-search-preview",
-        "name": "OpenAI: GPT-4o-mini Search Preview",
-        "description": "GPT-4o mini Search Preview is a specialized model for web search in Chat Completions. It is trained to understand and execute web search queries.",
-        "family": "o-mini",
-        "releasedAt": "2025-03-12",
-        "knowledge": "2023-10-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": true,
-          "search": true,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 128000,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.6
-          }
-        }
-      },
-      {
         "id": "openai/gpt-4o-search-preview",
         "name": "OpenAI: GPT-4o Search Preview",
         "description": "GPT-4o Search Previewis a specialized model for web search in Chat Completions. It is trained to understand and execute web search queries.",
@@ -166866,7 +166720,7 @@
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 10,
-            "textInput_cacheRead": 0.125
+            "textInput_cacheRead": 0.13
           }
         }
       },
@@ -166930,7 +166784,7 @@
           "temperature": true
         },
         "contextWindow": 400000,
-        "maxOutput": 100000,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "image",
@@ -166946,7 +166800,7 @@
           "basePricing": {
             "textInput": 0.25,
             "textOutput": 2,
-            "textInput_cacheRead": 0.025
+            "textInput_cacheRead": 0.03
           }
         }
       },
@@ -172504,9 +172358,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.7084,
-            "textOutput": 2.2264,
-            "textInput_cacheRead": 0.13156
+            "textInput": 0.8204,
+            "textOutput": 2.5784,
+            "textInput_cacheRead": 0.15236
           }
         }
       },
@@ -204226,7 +204080,7 @@
       },
       {
         "id": "thinkingmachines/Inkling:peft:262144",
-        "name": "Inkling",
+        "name": "Inkling (256K)",
         "family": "ling",
         "releasedAt": "2026-07-15",
         "openWeights": true,
