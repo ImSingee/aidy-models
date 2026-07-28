@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-27T06:51:51.380Z",
+    "generatedAt": "2026-07-28T06:15:30.016Z",
     "sources": {
       "modelsDev": {
-        "providerCount": 172,
-        "modelCount": 5751
+        "providerCount": 173,
+        "modelCount": 5802
       },
       "lobehub": {
         "commitHash": "5b4cef6e5f57080747906af1dc6d5e38e5cb432b",
@@ -13,11 +13,11 @@
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 342
+        "modelCount": 341
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 306
+        "modelCount": 307
       },
       "manual": {
         "providerCount": 7,
@@ -29,8 +29,8 @@
       }
     },
     "merged": {
-      "providerCount": 219,
-      "modelCount": 7254
+      "providerCount": 220,
+      "modelCount": 7304
     },
     "overridesApplied": 96
   },
@@ -1505,6 +1505,21 @@
         "sdkType": "openai",
         "showModelFetcher": false,
         "modelsUrl": "https://console.cloud.tencent.com/tokenhub/models"
+      }
+    },
+    "hyper": {
+      "id": "hyper",
+      "name": "Charm Hyper",
+      "official": false,
+      "featured": false,
+      "api": "openai-completions",
+      "baseUrl": "https://hyper.charm.land/v1",
+      "doc": "https://hyper.charm.land",
+      "_": {
+        "env": [
+          "HYPER_API_KEY"
+        ],
+        "npm": "@ai-sdk/openai-compatible"
       }
     },
     "iflowcn": {
@@ -10615,7 +10630,7 @@
         "openWeights": true,
         "abilities": {
           "toolCall": true,
-          "reasoning": false,
+          "reasoning": true,
           "attachment": true,
           "temperature": true,
           "structuredOutput": false,
@@ -10636,6 +10651,37 @@
           "basePricing": {
             "textInput": 3,
             "textOutput": 3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "abliterated-model-large",
+        "name": "Abliterated Model Large",
+        "releasedAt": "2026-07-25",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 999990,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 5,
+            "textOutput": 5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -11408,6 +11454,42 @@
           "basePricing": {
             "textInput": 0.75,
             "textOutput": 3.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "moonshotai/kimi-k3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 12.5,
+            "textInput_cacheRead": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -14770,6 +14852,45 @@
             "textInput": 1.9,
             "textOutput": 7.999,
             "textInput_cacheRead": 0.32167
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15,
+            "textInput_cacheRead": 0.3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -27635,9 +27756,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.76,
-            "textOutput": 2.42,
-            "textInput_cacheRead": 0.14,
+            "textInput": 1.05,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.2,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -27858,9 +27979,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.76,
-            "textOutput": 2.42,
-            "textInput_cacheRead": 0.14,
+            "textInput": 1.05,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.2,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -39628,6 +39749,40 @@
         }
       },
       {
+        "id": "moonshotai/Kimi-K3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "nvidia/Nemotron-120B-A12B",
         "name": "Nemotron Super",
         "family": "nemotron",
@@ -39897,7 +40052,7 @@
           }
         },
         "contextWindow": 524288,
-        "maxOutput": 524288,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text"
@@ -39933,7 +40088,7 @@
           }
         },
         "contextWindow": 524288,
-        "maxOutput": 524288,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text"
@@ -49319,6 +49474,45 @@
         }
       },
       {
+        "id": "kimi-k3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 8,
+            "textInput_cacheRead": 0.25
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "mimo-v2.5-pro",
         "name": "MiMo-V2.5-Pro",
         "family": "mimo",
@@ -53531,6 +53725,41 @@
             "textInput": 0.74,
             "textOutput": 3.5,
             "textInput_cacheRead": 0.15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "moonshotai/Kimi-K3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2.7,
+            "textOutput": 13.5,
+            "textInput_cacheRead": 0.27
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -61579,6 +61808,44 @@
         }
       },
       {
+        "id": "accounts/fireworks/models/kimi-k3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-27",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15,
+            "textInput_cacheRead": 0.3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "accounts/fireworks/models/llama-v3-70b-instruct",
         "name": "Llama 3 70B Instruct",
         "description": "Meta developed and released the Meta Llama 3 LLM series, which includes pre-trained and instruction-tuned text generation models at 8B and 70B. The Llama 3 instruction-tuned models are optimized for conversational use and outperform many existing open chat models on common industry benchmarks.",
@@ -62146,6 +62413,44 @@
             "textInput": 1.9,
             "textOutput": 8,
             "textInput_cacheRead": 0.38
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "accounts/fireworks/routers/kimi-k3-fast",
+        "name": "Kimi K3 Fast",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-27",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 4.5,
+            "textOutput": 22.5,
+            "textInput_cacheRead": 0.45
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -68070,6 +68375,43 @@
         "family": "claude-opus",
         "releasedAt": "2026-05-28",
         "knowledge": "2026-01-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0,
+            "textInput_cacheWrite": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "duo-chat-opus-5",
+        "name": "Agentic Chat (Claude Opus 5)",
+        "family": "claude-opus",
+        "releasedAt": "2026-07-24",
+        "knowledge": "2026-05",
         "openWeights": false,
         "abilities": {
           "toolCall": true,
@@ -82019,6 +82361,40 @@
         }
       },
       {
+        "id": "moonshotai/Kimi-K3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "NousResearch/Hermes-3-Llama-3.1-8B",
         "name": "Hermes 3 Llama 3.1 8B",
         "type": "chat",
@@ -83753,6 +84129,684 @@
           },
           "currency": "CNY",
           "unit": "second"
+        }
+      }
+    ],
+    "hyper": [
+      {
+        "id": "deepseek-v4-flash",
+        "name": "DeepSeek V4 Flash",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-07-06",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.2,
+            "textOutput": 0.4,
+            "textInput_cacheRead": 0.04
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "deepseek-v4-pro",
+        "name": "DeepSeek V4 Pro",
+        "family": "deepseek-thinking",
+        "releasedAt": "2026-07-06",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2.4,
+            "textOutput": 4.8,
+            "textInput_cacheRead": 0.2
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gemma-4-26b-a4b-it",
+        "name": "Gemma 4 26B A4B IT",
+        "family": "gemma",
+        "releasedAt": "2026-04-30",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 256000,
+        "maxOutput": 25600,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.114,
+            "textOutput": 0.398,
+            "textInput_cacheWrite": 0.057
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "glm-5",
+        "name": "GLM-5",
+        "family": "glm",
+        "releasedAt": "2026-04-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 202752,
+        "maxOutput": 20275,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.91,
+            "textOutput": 2.814,
+            "textInput_cacheWrite": 0.455
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "glm-5.1",
+        "name": "GLM-5.1",
+        "family": "glm",
+        "releasedAt": "2026-06-04",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 202800,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.52425,
+            "textOutput": 4.7905,
+            "textInput_cacheRead": 0.283075
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "glm-5.2",
+        "name": "GLM-5.2",
+        "family": "glm",
+        "releasedAt": "2026-06-30",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.4,
+            "textOutput": 4.4,
+            "textInput_cacheRead": 0.28
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-oss-120b",
+        "name": "GPT OSS 120B",
+        "family": "gpt-oss",
+        "releasedAt": "2026-04-13",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 13107,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.178,
+            "textOutput": 0.68,
+            "textInput_cacheWrite": 0.089
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2.5",
+        "name": "Kimi K2.5",
+        "family": "kimi-k2",
+        "releasedAt": "2026-04-13",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 26214,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.53,
+            "textOutput": 2.66,
+            "textInput_cacheWrite": 0.265
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2.6",
+        "name": "Kimi K2.6",
+        "family": "kimi-k2",
+        "releasedAt": "2026-07-03",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262000,
+        "maxOutput": 262000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.95,
+            "textOutput": 4,
+            "textInput_cacheWrite": 0.16
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k2.7-code",
+        "name": "Kimi K2.7 Code",
+        "family": "kimi-k2",
+        "releasedAt": "2026-07-03",
+        "knowledge": "2025-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262000,
+        "maxOutput": 262000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.95,
+            "textOutput": 4,
+            "textInput_cacheRead": 0.19
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "llama-3.3-70b-instruct",
+        "name": "Llama-3.3-70B-Instruct",
+        "family": "llama",
+        "releasedAt": "2026-04-30",
+        "knowledge": "2023-12",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 128000,
+        "maxOutput": 12800,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.6066,
+            "textOutput": 1.0386,
+            "textInput_cacheWrite": 0.3033
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "llama-4-maverick-17b-128e-instruct-fp8",
+        "name": "Llama 4 Maverick 17B Instruct",
+        "family": "llama",
+        "releasedAt": "2026-04-30",
+        "knowledge": "2024-08",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 430000,
+        "maxOutput": 43000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.2675,
+            "textOutput": 0.9175,
+            "textInput_cacheWrite": 0.13375
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "minimax-m2.7",
+        "name": "MiniMax-M2.7",
+        "family": "minimax",
+        "releasedAt": "2026-06-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 204800,
+        "maxOutput": 20480,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.42,
+            "textOutput": 1.62,
+            "textInput_cacheWrite": 0.21
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3-coder-480b-a35b-instruct-int4-mixed-ar",
+        "name": "Qwen3-Coder 480B-A35B Instruct",
+        "family": "qwen",
+        "releasedAt": "2026-04-30",
+        "knowledge": "2025-04",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 106000,
+        "maxOutput": 10600,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.601,
+            "textOutput": 2.085,
+            "textInput_cacheWrite": 0.3005
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3-next-80b-a3b-instruct",
+        "name": "Qwen3-Next 80B-A3B Instruct",
+        "family": "qwen",
+        "releasedAt": "2026-04-30",
+        "knowledge": "2025-04",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 26214,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.12188,
+            "textOutput": 1.145,
+            "textInput_cacheWrite": 0.06094
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3.6-flash",
+        "name": "Qwen3.6 Flash",
+        "family": "qwen3.6",
+        "releasedAt": "2026-05-20",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1,
+            "textOutput": 4,
+            "textInput_cacheRead": 0.1,
+            "textInput_cacheWrite": 1.25
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3.6-max",
+        "name": "Qwen3.6 Max Preview",
+        "family": "qwen",
+        "releasedAt": "2026-05-20",
+        "knowledge": "2025-04",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 256000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 12,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 2.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3.6-plus",
+        "name": "Qwen3.6 Plus",
+        "family": "qwen",
+        "releasedAt": "2026-05-20",
+        "knowledge": "2025-04",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 6,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 2.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3.7-max",
+        "name": "Qwen3.7 Max",
+        "family": "qwen",
+        "releasedAt": "2026-05-28",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2.5,
+            "textOutput": 7.5,
+            "textInput_cacheRead": 0.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen3.7-plus",
+        "name": "Qwen3.7 Plus",
+        "family": "qwen",
+        "releasedAt": "2026-06-15",
+        "knowledge": "2025-04",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.2,
+            "textOutput": 4.8,
+            "textInput_cacheRead": 0.24
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
         }
       }
     ],
@@ -102636,9 +103690,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.28,
-            "textInput_cacheRead": 0.0028
+            "textInput": 0.076,
+            "textOutput": 0.153,
+            "textInput_cacheRead": 0.014
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -103265,8 +104319,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.13,
-            "textOutput": 0.38
+            "textInput": 0.102,
+            "textOutput": 0.297,
+            "textInput_cacheRead": 0.012
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -103785,9 +104840,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.26,
-            "textOutput": 3.96,
-            "textInput_cacheRead": 0.234,
+            "textInput": 0.8,
+            "textOutput": 2.55,
+            "textInput_cacheRead": 0.16,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -104115,6 +105170,39 @@
         }
       },
       {
+        "id": "gpt-4o-mini-transcribe",
+        "name": "GPT-4o Mini Transcribe",
+        "family": "gpt",
+        "releasedAt": "2025-03-20",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 16000,
+        "maxOutput": 16000,
+        "modalities": {
+          "input": [
+            "text",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.25,
+            "textOutput": 5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "gpt-4o-search-preview",
         "name": "GPT-4o Search Preview",
         "family": "gpt",
@@ -104134,6 +105222,39 @@
           "input": [
             "text",
             "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2.5,
+            "textOutput": 10
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-4o-transcribe",
+        "name": "GPT-4o Transcribe",
+        "family": "gpt",
+        "releasedAt": "2025-03-20",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 16000,
+        "maxOutput": 16000,
+        "modalities": {
+          "input": [
+            "text",
+            "audio"
           ],
           "output": [
             "text"
@@ -105039,8 +106160,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.05,
-            "textOutput": 0.25
+            "textInput": 0.032,
+            "textOutput": 0.14,
+            "textInput_cacheRead": 0.032
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -138721,6 +139843,41 @@
         }
       },
       {
+        "id": "moonshotai/Kimi-K3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 8000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "NousResearch/Hermes-4-405B",
         "name": "Hermes-4-405B",
         "releasedAt": "2026-01-30",
@@ -145266,7 +146423,7 @@
     ],
     "nvidia": [
       {
-        "id": "abacusai/dracarys-llama-3_1-70b-instruct",
+        "id": "abacusai/dracarys-llama-3.1-70b-instruct",
         "name": "dracarys-llama-3.1-70b-instruct",
         "releasedAt": "2024-09-11",
         "openWeights": true,
@@ -145581,6 +146738,72 @@
         "modalities": {
           "input": [
             "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "google/gemma-3-12b-it",
+        "name": "Gemma 3 12B IT",
+        "family": "gemma",
+        "releasedAt": "2025-03-12",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "google/gemma-3-4b-it",
+        "name": "Gemma 3 4B IT",
+        "family": "gemma",
+        "releasedAt": "2025-03-12",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
           ],
           "output": [
             "text"
@@ -146252,7 +147475,40 @@
         }
       },
       {
-        "id": "mistralai/mistral-7b-instruct-v03",
+        "id": "mistralai/ministral-14b-instruct-2512",
+        "name": "Ministral 3 14B Instruct 2512",
+        "family": "ministral",
+        "releasedAt": "2025-12-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "mistralai/mistral-7b-instruct-v0.3",
         "name": "Mistral-7B-Instruct-v0.3",
         "releasedAt": "2025-04-01",
         "openWeights": true,
@@ -146331,6 +147587,40 @@
           "vision": true
         },
         "contextWindow": 131072,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "mistralai/mistral-medium-3.5-128b",
+        "name": "Mistral Medium 3.5",
+        "family": "mistral-medium",
+        "releasedAt": "2026-04-29",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
         "maxOutput": 32768,
         "modalities": {
           "input": [
@@ -146641,6 +147931,39 @@
         }
       },
       {
+        "id": "nvidia/cosmos-reason2-8b",
+        "name": "Cosmos Reason2 8B",
+        "releasedAt": "2025-12-01",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "nvidia/cosmos-transfer1-7b",
         "name": "cosmos-transfer1-7b",
         "releasedAt": "2025-06-13",
@@ -146737,37 +148060,6 @@
         }
       },
       {
-        "id": "nvidia/llama-3_1-nemotron-safety-guard-8b-v3",
-        "name": "llama-3.1-nemotron-safety-guard-8b-v3",
-        "family": "nemotron",
-        "releasedAt": "2025-10-28",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 128000,
-        "maxOutput": 4096,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "nvidia/llama-3_2-nemoretriever-300m-embed-v1",
         "name": "llama-3_2-nemoretriever-300m-embed-v1",
         "releasedAt": "2025-07-24",
@@ -146810,8 +148102,221 @@
         "name": "Llama 3.1 Nemotron 70B Instruct",
         "description": "Llama-3.1-Nemotron-70B-Instruct is a custom NVIDIA model designed to improve the helpfulness of LLM responses.",
         "type": "chat",
-        "abilities": {},
-        "contextWindow": 32768
+        "family": "nemotron",
+        "releasedAt": "2025-04-15",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 32768,
+        "maxOutput": 8192,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "nvidia/llama-3.1-nemotron-nano-8b-v1",
+        "name": "Llama 3.1 Nemotron Nano 8B v1",
+        "family": "nemotron",
+        "releasedAt": "2025-03-18",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "nvidia/llama-3.1-nemotron-nano-vl-8b-v1",
+        "name": "Llama 3.1 Nemotron Nano VL 8B v1",
+        "family": "nemotron",
+        "releasedAt": "2025-04-10",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 32768,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "nvidia/llama-3.1-nemotron-safety-guard-8b-v3",
+        "name": "llama-3.1-nemotron-safety-guard-8b-v3",
+        "family": "nemotron",
+        "releasedAt": "2025-10-28",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 128000,
+        "maxOutput": 4096,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+        "name": "Llama 3.1 Nemotron Ultra 253B",
+        "family": "nemotron",
+        "releasedAt": "2025-04-07",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 128000,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "nvidia/llama-3.3-nemotron-super-49b-v1",
+        "name": "Llama 3.3 Nemotron Super 49B v1",
+        "family": "nemotron",
+        "releasedAt": "2025-04-07",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+        "name": "Llama 3.3 Nemotron Super 49B v1.5",
+        "family": "nemotron",
+        "releasedAt": "2025-07-25",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
       },
       {
         "id": "nvidia/llama-nemotron-embed-vl-1b-v2",
@@ -147137,6 +148642,40 @@
         }
       },
       {
+        "id": "nvidia/nemotron-nano-12b-v2-vl",
+        "name": "Nemotron Nano 12B v2 VL",
+        "family": "nemotron",
+        "releasedAt": "2025-10-28",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 128000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "nvidia/nemotron-voicechat",
         "name": "nemotron-voicechat",
         "family": "nemotron",
@@ -147291,7 +148830,7 @@
         }
       },
       {
-        "id": "nvidia/riva-translate-4b-instruct-v1_1",
+        "id": "nvidia/riva-translate-4b-instruct-v1.1",
         "name": "riva-translate-4b-instruct-v1_1",
         "releasedAt": "2025-12-12",
         "openWeights": true,
@@ -147583,6 +149122,38 @@
         "modalities": {
           "input": [
             "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "poolside/laguna-xs-2.1",
+        "name": "Laguna XS 2.1",
+        "family": "laguna",
+        "releasedAt": "2026-07-02",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 262144,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text"
           ],
           "output": [
             "text"
@@ -147924,7 +149495,41 @@
         }
       },
       {
-        "id": "upstage/solar-10_7b-instruct",
+        "id": "thinkingmachines/inkling",
+        "name": "Inkling",
+        "family": "ling",
+        "releasedAt": "2026-07-15",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "upstage/solar-10.7b-instruct",
         "name": "solar-10.7b-instruct",
         "releasedAt": "2024-06-05",
         "openWeights": true,
@@ -149240,6 +150845,32 @@
         },
         "contextWindow": 262144,
         "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        }
+      },
+      {
+        "id": "kimi-k3",
+        "name": "kimi-k3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text",
@@ -155811,6 +157442,47 @@
             "textInput": 0.95,
             "textOutput": 4,
             "textInput_cacheRead": 0.19
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "api": "openai-completions",
+        "baseUrl": "https://opencode.ai/zen/v1"
+      },
+      {
+        "id": "kimi-k3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15,
+            "textInput_cacheRead": 0.3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -165435,9 +167107,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 2.2,
-            "textInput_cacheRead": 0.1
+            "textInput": 0.6,
+            "textOutput": 3.6,
+            "textInput_cacheRead": 0.2
           }
         }
       },
@@ -166237,44 +167909,6 @@
         }
       },
       {
-        "id": "openai/gpt-4o-search-preview",
-        "name": "OpenAI: GPT-4o Search Preview",
-        "description": "GPT-4o Search Previewis a specialized model for web search in Chat Completions. It is trained to understand and execute web search queries.",
-        "family": "gpt",
-        "releasedAt": "2025-03-12",
-        "knowledge": "2023-10-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": true,
-          "search": true,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
-        },
-        "contextWindow": 128000,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 2.5,
-            "textOutput": 10
-          }
-        }
-      },
-      {
         "id": "openai/gpt-5",
         "name": "OpenAI: GPT-5",
         "description": "GPT-5 is OpenAI’s most advanced model, offering major improvements in reasoning, code quality, and user experience. It is optimized for complex tasks that require step-by-step reasoning, instruction following, and accuracy...",
@@ -166300,47 +167934,6 @@
             "text",
             "image",
             "file"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 1.25,
-            "textOutput": 10,
-            "textInput_cacheRead": 0.125
-          }
-        }
-      },
-      {
-        "id": "openai/gpt-5-chat",
-        "name": "OpenAI: GPT-5 Chat",
-        "description": "GPT-5 Chat is designed for advanced, natural, multimodal, and context-aware conversations for enterprise applications.",
-        "family": "gpt-codex",
-        "releasedAt": "2025-08-07",
-        "knowledge": "2024-09-30",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": true,
-          "structuredOutput": true,
-          "search": true,
-          "imageOutput": false,
-          "video": false,
-          "attachment": true,
-          "temperature": false
-        },
-        "contextWindow": 128000,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "file",
-            "image",
-            "text"
           ],
           "output": [
             "text"
@@ -166663,7 +168256,7 @@
           "temperature": true
         },
         "contextWindow": 128000,
-        "maxOutput": 16384,
+        "maxOutput": 32000,
         "modalities": {
           "input": [
             "file",
@@ -166680,7 +168273,7 @@
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 10,
-            "textInput_cacheRead": 0.125
+            "textInput_cacheRead": 0.13
           }
         }
       },
@@ -167369,10 +168962,10 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1,
-            "textOutput": 6,
-            "textInput_cacheRead": 0.1,
-            "textInput_cacheWrite": 1.25
+            "textInput": 0.5,
+            "textOutput": 3,
+            "textInput_cacheRead": 0.05,
+            "textInput_cacheWrite": 0.625
           }
         }
       },
@@ -167411,10 +169004,10 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1,
-            "textOutput": 6,
-            "textInput_cacheRead": 0.1,
-            "textInput_cacheWrite": 1.25
+            "textInput": 0.5,
+            "textOutput": 3,
+            "textInput_cacheRead": 0.05,
+            "textInput_cacheWrite": 0.625
           }
         }
       },
@@ -167537,10 +169130,10 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 2.5,
-            "textOutput": 15,
-            "textInput_cacheRead": 0.25,
-            "textInput_cacheWrite": 3.125
+            "textInput": 1.25,
+            "textOutput": 7.5,
+            "textInput_cacheRead": 0.125,
+            "textInput_cacheWrite": 1.5625
           }
         }
       },
@@ -167579,10 +169172,10 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 2.5,
-            "textOutput": 15,
-            "textInput_cacheRead": 0.25,
-            "textInput_cacheWrite": 3.125
+            "textInput": 1.25,
+            "textOutput": 7.5,
+            "textInput_cacheRead": 0.125,
+            "textInput_cacheWrite": 1.5625
           }
         }
       },
@@ -170738,6 +172331,48 @@
         }
       },
       {
+        "id": "qwen/qwen3.7-flash",
+        "name": "Qwen: Qwen3.7 Flash",
+        "description": "Qwen3.7 Flash is a vision-language reasoning model from Alibaba. It is suited for multimodal agents, visual coding, search, and computer interaction, with strengths in object recognition, spatial understanding, and real-world...",
+        "family": "qwen",
+        "releasedAt": "2026-07-27",
+        "knowledge": null,
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.03,
+            "textOutput": 0.13,
+            "textInput_cacheRead": 0.006,
+            "textInput_cacheWrite": 0.038
+          }
+        }
+      },
+      {
         "id": "qwen/qwen3.7-max",
         "name": "Qwen: Qwen3.7 Max",
         "description": "Qwen3.7-Max is the flagship model in Alibaba's Qwen3.7 series. It supports text input and output and is designed for agent-centric workloads, with particular strengths in coding, office and productivity tasks,...",
@@ -172358,9 +173993,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.8204,
-            "textOutput": 2.5784,
-            "textInput_cacheRead": 0.15236
+            "textInput": 0.721,
+            "textOutput": 2.266,
+            "textInput_cacheRead": 0.1339
           }
         }
       },
@@ -202982,6 +204617,44 @@
         }
       },
       {
+        "id": "hf:moonshotai/Kimi-K3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 524288,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15,
+            "textInput_cacheRead": 0.45
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "hf:nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4",
         "name": "Nemotron 3 Super 120B A12B",
         "family": "nemotron",
@@ -205195,6 +206868,45 @@
             "textInput": 0.95,
             "textOutput": 4,
             "textInput_cacheRead": 0.19
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "moonshotai/Kimi-K3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15,
+            "textInput_cacheRead": 0.3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -208799,7 +210511,7 @@
         "name": "Kimi K3",
         "family": "kimi-k3",
         "releasedAt": "2026-07-16",
-        "openWeights": false,
+        "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -208821,9 +210533,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 3.75,
-            "textOutput": 18.75,
-            "textInput_cacheRead": 0.375
+            "textInput": 4.6875,
+            "textOutput": 23.4375,
+            "textInput_cacheRead": 0.46875
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -210233,7 +211945,7 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.15,
+            "textInput": 0.1,
             "textOutput": 1,
             "textInput_cacheRead": 0.05
           },
@@ -217325,6 +219037,47 @@
             "textInput": 3,
             "textOutput": 15,
             "textInput_cacheRead": 0.3
+          }
+        }
+      },
+      {
+        "id": "moonshotai/kimi-k3-fast",
+        "name": "Kimi K3 Fast",
+        "description": "Fast version of Kimi’s flagship model for long-horizon coding and end-to-end knowledge work, with a 1M-token context window.",
+        "type": "language",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-27",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 4.5,
+            "textOutput": 22.5,
+            "textInput_cacheRead": 0.45
           }
         }
       },
