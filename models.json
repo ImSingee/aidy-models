@@ -1,19 +1,19 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-28T06:15:30.016Z",
+    "generatedAt": "2026-07-29T06:21:18.486Z",
     "sources": {
       "modelsDev": {
-        "providerCount": 173,
-        "modelCount": 5802
+        "providerCount": 174,
+        "modelCount": 5811
       },
       "lobehub": {
-        "commitHash": "5b4cef6e5f57080747906af1dc6d5e38e5cb432b",
-        "providerCount": 82,
-        "modelCount": 1923
+        "commitHash": "a5769c22b6a80945c671130e42cde45a2e84fe61",
+        "providerCount": 83,
+        "modelCount": 1932
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 341
+        "modelCount": 367
       },
       "vercelAiGateway": {
         "providerCount": 1,
@@ -29,8 +29,8 @@
       }
     },
     "merged": {
-      "providerCount": 220,
-      "modelCount": 7304
+      "providerCount": 222,
+      "modelCount": 7344
     },
     "overridesApplied": 96
   },
@@ -152,11 +152,11 @@
     },
     "aihubmix": {
       "id": "aihubmix",
-      "name": "AiHubMix",
+      "name": "AIHubMix",
       "official": false,
       "featured": false,
       "api": "openai-completions",
-      "description": "AiHubMix provides access to multiple AI models through a unified API.",
+      "description": "AIHubMix provides access to multiple AI models through a unified API.",
       "url": "https://aihubmix.com?utm_source=lobehub",
       "doc": "https://docs.aihubmix.com",
       "checkModel": "gpt-4.1-nano",
@@ -648,6 +648,34 @@
           "supportsStore": false,
           "supportsDeveloperRole": false
         }
+      }
+    },
+    "chatGPT": {
+      "id": "chatGPT",
+      "name": "ChatGPT",
+      "official": false,
+      "featured": false,
+      "api": "openai-completions",
+      "description": "Use models included with your ChatGPT subscription through Codex, without an OpenAI Platform API key.",
+      "url": "https://chatgpt.com",
+      "checkModel": "gpt-5.5",
+      "_": {
+        "authType": "oauthDeviceFlow",
+        "disableBrowserRequest": true,
+        "oauthDeviceFlow": {
+          "clientId": "app_EMoamEEZ73f0CkXaXp7hrann",
+          "defaultPollingInterval": 8,
+          "deviceCodeEndpoint": "https://auth.openai.com/api/accounts/deviceauth/usercode",
+          "refreshTokenGrant": true,
+          "scopes": [],
+          "tokenEndpoint": "https://auth.openai.com/oauth/token",
+          "tokenExchangeEndpoint": "https://auth.openai.com/api/accounts/deviceauth/token"
+        },
+        "sdkType": "openai",
+        "showApiKey": false,
+        "showChecker": true,
+        "showModelFetcher": false,
+        "modelsUrl": "https://learn.chatgpt.com/docs/models"
       }
     },
     "chutes": {
@@ -2131,6 +2159,21 @@
         "npm": "@ai-sdk/openai-compatible"
       }
     },
+    "modal": {
+      "id": "modal",
+      "name": "Modal",
+      "official": false,
+      "featured": false,
+      "api": "openai-completions",
+      "baseUrl": "https://inference.us-west.modal.direct/v1",
+      "doc": "https://modal.com/docs/guide/endpoints",
+      "_": {
+        "env": [
+          "MODAL_PROXY_TOKEN"
+        ],
+        "npm": "@ai-sdk/openai-compatible"
+      }
+    },
     "model-oracle-ai": {
       "id": "model-oracle-ai",
       "name": "Model Oracle AI",
@@ -3254,6 +3297,7 @@
           "tokenEndpoint": "https://auth.x.ai/oauth2/token"
         },
         "sdkType": "openai",
+        "searchMode": "params",
         "showApiKey": false,
         "showChecker": true,
         "modelsUrl": "https://docs.x.ai/docs/models"
@@ -11388,42 +11432,6 @@
         }
       },
       {
-        "id": "moonshotai/kimi-k2.6",
-        "name": "Kimi K2.6",
-        "family": "kimi-k2",
-        "releasedAt": "2026-04-21",
-        "knowledge": "2025-01",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.85,
-            "textOutput": 3.5
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "moonshotai/kimi-k2.7-code",
         "name": "Kimi K2.7 Code",
         "family": "kimi-k2",
@@ -11554,38 +11562,6 @@
           "basePricing": {
             "textInput": 0,
             "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "zai-org/glm-5.1",
-        "name": "GLM-5.1",
-        "family": "glm",
-        "releasedAt": "2026-04-07",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.4,
-            "textOutput": 4.4
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -14122,9 +14098,20 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textInput_cacheRead": 2,
                 "textOutput": 1.5
+              },
+              "when": {
+                "textOutput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textInput_cacheRead": 2
               },
               "when": {
                 "textTotalInput": [
@@ -14226,8 +14213,19 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
                 "textOutput": 1.5
+              },
+              "when": {
+                "textOutput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2
               },
               "when": {
                 "textTotalInput": [
@@ -14280,9 +14278,20 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textInput_cacheRead": 2,
                 "textOutput": 1.5
+              },
+              "when": {
+                "textOutput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textInput_cacheRead": 2
               },
               "when": {
                 "textTotalInput": [
@@ -28670,6 +28679,8 @@
       {
         "id": "claude-opus-5",
         "name": "Claude Opus 5",
+        "description": "Claude Opus 5 is Anthropic's strongest Opus model, built for deep reasoning, agentic coding, and long-horizon professional work.",
+        "type": "chat",
         "family": "claude-opus",
         "releasedAt": "2026-07-24",
         "knowledge": "2026-05",
@@ -28677,10 +28688,11 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": true,
-          "temperature": false,
+          "vision": true,
           "structuredOutput": true,
-          "vision": true
+          "search": true,
+          "attachment": true,
+          "temperature": false
         },
         "contextWindow": 1000000,
         "maxOutput": 128000,
@@ -28696,9 +28708,9 @@
         },
         "pricing": {
           "basePricing": {
+            "textInput_cacheRead": 0.5,
             "textInput": 5,
             "textOutput": 25,
-            "textInput_cacheRead": 0.5,
             "textInput_cacheWrite": 6.25
           },
           "currency": "USD",
@@ -37621,9 +37633,20 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textInput_cacheRead": 2,
                 "textOutput": 1.5
+              },
+              "when": {
+                "textOutput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textInput_cacheRead": 2
               },
               "when": {
                 "textTotalInput": [
@@ -37760,8 +37783,19 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
                 "textOutput": 1.5
+              },
+              "when": {
+                "textOutput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2
               },
               "when": {
                 "textTotalInput": [
@@ -37816,9 +37850,20 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textInput_cacheRead": 2,
                 "textOutput": 1.5
+              },
+              "when": {
+                "textOutput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textInput_cacheRead": 2
               },
               "when": {
                 "textTotalInput": [
@@ -40288,6 +40333,43 @@
         }
       },
       {
+        "id": "moonshotai/Kimi-K3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-27",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 327680,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "openai/gpt-oss-120b",
         "name": "GPT-OSS-120B",
         "family": "gpt-oss",
@@ -40628,6 +40710,72 @@
           "currency": "USD",
           "unit": "millionTokens"
         }
+      }
+    ],
+    "chatGPT": [
+      {
+        "id": "gpt-5.5",
+        "name": "GPT-5.5",
+        "description": "GPT-5.5 is OpenAI's previous-generation frontier model for complex professional work.",
+        "type": "chat",
+        "releasedAt": "2026-04-23",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true
+        },
+        "contextWindow": 272000,
+        "maxOutput": 128000
+      },
+      {
+        "id": "gpt-5.6-luna",
+        "name": "GPT-5.6 Luna",
+        "description": "GPT-5.6 Luna is optimized for cost-sensitive, high-volume workloads with the lowest price in the GPT-5.6 family.",
+        "type": "chat",
+        "releasedAt": "2026-07-09",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true
+        },
+        "contextWindow": 272000,
+        "maxOutput": 128000
+      },
+      {
+        "id": "gpt-5.6-sol",
+        "name": "GPT-5.6 Sol",
+        "description": "GPT-5.6 Sol is OpenAI's latest flagship and most capable model, the top choice in the GPT family for coding and agentic work.",
+        "type": "chat",
+        "releasedAt": "2026-07-09",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true
+        },
+        "contextWindow": 272000,
+        "maxOutput": 128000
+      },
+      {
+        "id": "gpt-5.6-terra",
+        "name": "GPT-5.6 Terra",
+        "description": "GPT-5.6 Terra balances intelligence and cost for everyday professional work, competitive with GPT-5.5 at about half the price.",
+        "type": "chat",
+        "releasedAt": "2026-07-09",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true
+        },
+        "contextWindow": 272000,
+        "maxOutput": 128000
       }
     ],
     "chutes": [
@@ -70636,7 +70784,9 @@
       },
       {
         "id": "gemini-3.5-flash-lite",
-        "name": "Gemini 3.5 Flash Lite",
+        "name": "Gemini 3.5 Flash-Lite",
+        "description": "Gemini 3.5 Flash-Lite is Google's fastest, most cost-efficient 3.5 model for high-throughput agentic tasks, document parsing, and simple data extraction.",
+        "type": "chat",
         "family": "gemini-flash-lite",
         "releasedAt": "2026-07-21",
         "knowledge": "2026-03",
@@ -70644,12 +70794,14 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": true,
-          "temperature": true,
+          "vision": true,
           "structuredOutput": true,
-          "vision": true
+          "search": true,
+          "video": true,
+          "attachment": true,
+          "temperature": true
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1114112,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -70665,9 +70817,13 @@
         },
         "pricing": {
           "basePricing": {
+            "textInput_cacheRead": 0.03,
             "textInput": 0.3,
+            "imageInput": 0.3,
+            "videoInput": 0.3,
+            "audioInput": 0.3,
             "textOutput": 2.5,
-            "textInput_cacheRead": 0.03
+            "textInput_cacheWrite": 1
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -70719,6 +70875,8 @@
       {
         "id": "gemini-3.6-flash",
         "name": "Gemini 3.6 Flash",
+        "description": "Gemini 3.6 Flash balances speed with intelligence for agentic and multimodal tasks, with lower output cost than 3.5 Flash.",
+        "type": "chat",
         "family": "gemini-flash",
         "releasedAt": "2026-07-21",
         "knowledge": "2026-03",
@@ -70726,12 +70884,14 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": true,
-          "temperature": true,
+          "vision": true,
           "structuredOutput": true,
-          "vision": true
+          "search": true,
+          "video": true,
+          "attachment": true,
+          "temperature": true
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1114112,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -70747,9 +70907,13 @@
         },
         "pricing": {
           "basePricing": {
+            "textInput_cacheRead": 0.15,
             "textInput": 1.5,
+            "imageInput": 1.5,
+            "videoInput": 1.5,
+            "audioInput": 1.5,
             "textOutput": 7.5,
-            "textInput_cacheRead": 0.15
+            "textInput_cacheWrite": 1
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -70832,7 +70996,7 @@
       {
         "id": "gemini-flash-latest",
         "name": "Gemini Flash Latest",
-        "description": "Points to gemini-3-flash-preview",
+        "description": "Points to gemini-3.6-flash",
         "type": "chat",
         "family": "gemini-flash",
         "releasedAt": "2026-05-19",
@@ -70864,9 +71028,13 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput_cacheRead": 0.075,
-            "textInput": 0.3,
-            "textOutput": 2.5
+            "textInput_cacheRead": 0.15,
+            "textInput": 1.5,
+            "imageInput": 1.5,
+            "videoInput": 1.5,
+            "audioInput": 1.5,
+            "textOutput": 7.5,
+            "textInput_cacheWrite": 1
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -70875,7 +71043,7 @@
       {
         "id": "gemini-flash-lite-latest",
         "name": "Gemini Flash-Lite Latest",
-        "description": "Points to gemini-3.1-flash-lite",
+        "description": "Points to gemini-3.5-flash-lite",
         "type": "chat",
         "family": "gemini-flash-lite",
         "releasedAt": "2026-05-07",
@@ -70907,9 +71075,13 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput_cacheRead": 0.025,
-            "textInput": 0.1,
-            "textOutput": 0.4
+            "textInput_cacheRead": 0.03,
+            "textInput": 0.3,
+            "imageInput": 0.3,
+            "videoInput": 0.3,
+            "audioInput": 0.3,
+            "textOutput": 2.5,
+            "textInput_cacheWrite": 1
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -73707,7 +73879,9 @@
       },
       {
         "id": "gemini-3.5-flash-lite",
-        "name": "Gemini 3.5 Flash Lite",
+        "name": "Gemini 3.5 Flash-Lite",
+        "description": "Gemini 3.5 Flash-Lite is Google's fastest, most cost-efficient 3.5 model for high-throughput agentic tasks, document parsing, and simple data extraction.",
+        "type": "chat",
         "family": "gemini-flash-lite",
         "releasedAt": "2026-07-21",
         "knowledge": "2026-03",
@@ -73715,12 +73889,14 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": true,
-          "temperature": true,
+          "vision": true,
           "structuredOutput": true,
-          "vision": true
+          "search": true,
+          "video": true,
+          "attachment": true,
+          "temperature": true
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1114112,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -73736,9 +73912,13 @@
         },
         "pricing": {
           "basePricing": {
+            "textInput_cacheRead": 0.03,
             "textInput": 0.3,
+            "imageInput": 0.3,
+            "videoInput": 0.3,
+            "audioInput": 0.3,
             "textOutput": 2.5,
-            "textInput_cacheRead": 0.03
+            "textInput_cacheWrite": 1
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -73752,6 +73932,8 @@
       {
         "id": "gemini-3.6-flash",
         "name": "Gemini 3.6 Flash",
+        "description": "Gemini 3.6 Flash balances speed with intelligence for agentic and multimodal tasks, with lower output cost than 3.5 Flash.",
+        "type": "chat",
         "family": "gemini-flash",
         "releasedAt": "2026-07-21",
         "knowledge": "2026-03",
@@ -73759,12 +73941,14 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": true,
-          "temperature": true,
+          "vision": true,
           "structuredOutput": true,
-          "vision": true
+          "search": true,
+          "video": true,
+          "attachment": true,
+          "temperature": true
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1114112,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -73780,9 +73964,13 @@
         },
         "pricing": {
           "basePricing": {
+            "textInput_cacheRead": 0.15,
             "textInput": 1.5,
+            "imageInput": 1.5,
+            "videoInput": 1.5,
+            "audioInput": 1.5,
             "textOutput": 7.5,
-            "textInput_cacheRead": 0.15
+            "textInput_cacheWrite": 1
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -84226,9 +84414,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.114,
-            "textOutput": 0.398,
-            "textInput_cacheWrite": 0.057
+            "textInput": 0.13,
+            "textOutput": 0.424,
+            "textInput_cacheWrite": 0.065
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -84258,9 +84446,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.91,
-            "textOutput": 2.814,
-            "textInput_cacheWrite": 0.455
+            "textInput": 0.81,
+            "textOutput": 2.624,
+            "textInput_cacheWrite": 0.405
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -84291,9 +84479,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.52425,
-            "textOutput": 4.7905,
-            "textInput_cacheRead": 0.283075
+            "textInput": 1.52432,
+            "textOutput": 4.79072,
+            "textInput_cacheRead": 0.283088
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -84312,8 +84500,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text"
@@ -84357,9 +84545,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.178,
-            "textOutput": 0.68,
-            "textInput_cacheWrite": 0.089
+            "textInput": 0.176,
+            "textOutput": 0.652,
+            "textInput_cacheWrite": 0.088
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -84375,7 +84563,7 @@
         "abilities": {
           "toolCall": true,
           "reasoning": false,
-          "attachment": true,
+          "attachment": false,
           "temperature": false,
           "structuredOutput": true
         },
@@ -84391,9 +84579,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.53,
-            "textOutput": 2.66,
-            "textInput_cacheWrite": 0.265
+            "textInput": 0.528,
+            "textOutput": 2.79,
+            "textInput_cacheWrite": 0.264
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -84450,8 +84638,8 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
+        "contextWindow": 256000,
+        "maxOutput": 16000,
         "modalities": {
           "input": [
             "text",
@@ -84529,9 +84717,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.2675,
-            "textOutput": 0.9175,
-            "textInput_cacheWrite": 0.13375
+            "textInput": 0.284,
+            "textOutput": 0.934,
+            "textInput_cacheWrite": 0.142
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -84561,9 +84749,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.42,
-            "textOutput": 1.62,
-            "textInput_cacheWrite": 0.21
+            "textInput": 0.348,
+            "textOutput": 1.332,
+            "textInput_cacheWrite": 0.174
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -84594,9 +84782,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.601,
-            "textOutput": 2.085,
-            "textInput_cacheWrite": 0.3005
+            "textInput": 0.569,
+            "textOutput": 2.135,
+            "textInput_cacheWrite": 0.2845
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -84627,9 +84815,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.12188,
-            "textOutput": 1.145,
-            "textInput_cacheWrite": 0.06094
+            "textInput": 0.1175,
+            "textOutput": 1.136,
+            "textInput_cacheWrite": 0.05875
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -84792,8 +84980,7 @@
         "modalities": {
           "input": [
             "text",
-            "image",
-            "video"
+            "image"
           ],
           "output": [
             "text"
@@ -116914,6 +117101,47 @@
           "basePricing": {
             "textInput": 2.1,
             "textOutput": 8.4
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      }
+    ],
+    "modal": [
+      {
+        "id": "thinkingmachines/Inkling-NVFP4",
+        "name": "Inkling",
+        "family": "ling",
+        "releasedAt": "2026-07-15",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": false,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.2,
+            "textOutput": 5,
+            "textInput_cacheRead": 0.27
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -153410,9 +153638,20 @@
             {
               "mode": "multiplier",
               "values": {
-                "textInput": 2,
-                "textInput_cacheRead": 2,
                 "textOutput": 1.5
+              },
+              "when": {
+                "textOutput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textInput_cacheRead": 2
               },
               "when": {
                 "textTotalInput": [
@@ -160644,7 +160883,7 @@
           "temperature": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 262144,
+        "maxOutput": 1048576,
         "modalities": {
           "input": [
             "text",
@@ -161335,6 +161574,46 @@
         }
       },
       {
+        "id": "anthropic/claude-fable-5:batch",
+        "name": "Anthropic: Claude Fable 5 (batch)",
+        "description": "Claude Fable 5 is a Mythos-class model from Anthropic, built for autonomous knowledge work and coding. It supports text, image, and file inputs with text output, with reasoning support and...",
+        "releasedAt": "2026-06-09",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 5,
+            "textOutput": 25,
+            "textInput_cacheRead": 0.5,
+            "textInput_cacheWrite": 6.25
+          }
+        }
+      },
+      {
         "id": "anthropic/claude-haiku-4.5",
         "name": "Anthropic: Claude Haiku 4.5",
         "description": "Claude Haiku 4.5 is Anthropic’s fastest and most efficient model, delivering near-frontier intelligence at a fraction of the cost and latency of larger Claude models. Matching Claude Sonnet 4’s performance...",
@@ -161373,6 +161652,46 @@
             "textOutput": 5,
             "textInput_cacheRead": 0.1,
             "textInput_cacheWrite": 1.25
+          }
+        }
+      },
+      {
+        "id": "anthropic/claude-haiku-4.5:batch",
+        "name": "Anthropic: Claude Haiku 4.5 (batch)",
+        "description": "Claude Haiku 4.5 is Anthropic’s fastest and most efficient model, delivering near-frontier intelligence at a fraction of the cost and latency of larger Claude models. Matching Claude Sonnet 4’s performance...",
+        "releasedAt": "2025-10-15",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 200000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.5,
+            "textOutput": 2.5,
+            "textInput_cacheRead": 0.05,
+            "textInput_cacheWrite": 0.625
           }
         }
       },
@@ -161462,6 +161781,46 @@
         }
       },
       {
+        "id": "anthropic/claude-opus-4.1:batch",
+        "name": "Anthropic: Claude Opus 4.1 (batch)",
+        "description": "Claude Opus 4.1 is an updated version of Anthropic’s flagship model, offering improved performance in coding, reasoning, and agentic tasks. It achieves 74.5% on SWE-bench Verified and shows notable gains...",
+        "releasedAt": "2025-08-05",
+        "knowledge": "2025-01-31",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 200000,
+        "maxOutput": 32000,
+        "modalities": {
+          "input": [
+            "image",
+            "text",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 7.5,
+            "textOutput": 37.5,
+            "textInput_cacheRead": 0.75,
+            "textInput_cacheWrite": 9.375
+          }
+        }
+      },
+      {
         "id": "anthropic/claude-opus-4.5",
         "name": "Anthropic: Claude Opus 4.5",
         "description": "Claude Opus 4.5 is Anthropic’s frontier reasoning model optimized for complex software engineering, agentic workflows, and long-horizon computer use. It offers strong multimodal capabilities, competitive performance across real-world coding and...",
@@ -161505,6 +161864,46 @@
         }
       },
       {
+        "id": "anthropic/claude-opus-4.5:batch",
+        "name": "Anthropic: Claude Opus 4.5 (batch)",
+        "description": "Claude Opus 4.5 is Anthropic’s frontier reasoning model optimized for complex software engineering, agentic workflows, and long-horizon computer use. It offers strong multimodal capabilities, competitive performance across real-world coding and...",
+        "releasedAt": "2025-11-24",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 200000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "file",
+            "image",
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2.5,
+            "textOutput": 12.5,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 3.125
+          }
+        }
+      },
+      {
         "id": "anthropic/claude-opus-4.6",
         "name": "Anthropic: Claude Opus 4.6",
         "description": "Opus 4.6 is Anthropic’s strongest model for coding and long-running professional tasks. It is built for agents that operate across entire workflows rather than single prompts, making it especially effective...",
@@ -161543,6 +161942,46 @@
             "textOutput": 25,
             "textInput_cacheRead": 0.5,
             "textInput_cacheWrite": 6.25
+          }
+        }
+      },
+      {
+        "id": "anthropic/claude-opus-4.6:batch",
+        "name": "Anthropic: Claude Opus 4.6 (batch)",
+        "description": "Opus 4.6 is Anthropic’s strongest model for coding and long-running professional tasks. It is built for agents that operate across entire workflows rather than single prompts, making it especially effective...",
+        "releasedAt": "2026-02-04",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2.5,
+            "textOutput": 12.5,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 3.125
           }
         }
       },
@@ -161631,6 +162070,46 @@
         }
       },
       {
+        "id": "anthropic/claude-opus-4.7:batch",
+        "name": "Anthropic: Claude Opus 4.7 (batch)",
+        "description": "Opus 4.7 is the next generation of Anthropic's Opus family, built for long-running, asynchronous agents. Building on the coding and agentic strengths of Opus 4.6, it delivers stronger performance on...",
+        "releasedAt": "2026-04-16",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2.5,
+            "textOutput": 12.5,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 3.125
+          }
+        }
+      },
+      {
         "id": "anthropic/claude-opus-4.8",
         "name": "Anthropic: Claude Opus 4.8",
         "description": "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family. It supports text, image, and file inputs with text output, with reasoning support and a 1M-token...",
@@ -161711,6 +162190,46 @@
             "textOutput": 50,
             "textInput_cacheRead": 1,
             "textInput_cacheWrite": 12.5
+          }
+        }
+      },
+      {
+        "id": "anthropic/claude-opus-4.8:batch",
+        "name": "Anthropic: Claude Opus 4.8 (batch)",
+        "description": "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family. It supports text, image, and file inputs with text output, with reasoning support and a 1M-token...",
+        "releasedAt": "2026-05-27",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2.5,
+            "textOutput": 12.5,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 3.125
           }
         }
       },
@@ -161885,6 +162404,46 @@
         }
       },
       {
+        "id": "anthropic/claude-sonnet-4.5:batch",
+        "name": "Anthropic: Claude Sonnet 4.5 (batch)",
+        "description": "Claude Sonnet 4.5 is Anthropic’s most advanced Sonnet model to date, optimized for real-world agents and coding workflows. It delivers state-of-the-art performance on coding benchmarks such as SWE-bench Verified, with...",
+        "releasedAt": "2025-09-29",
+        "knowledge": "2025-01-31",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 64000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 1.5,
+            "textOutput": 7.5,
+            "textInput_cacheRead": 0.15,
+            "textInput_cacheWrite": 1.875
+          }
+        }
+      },
+      {
         "id": "anthropic/claude-sonnet-4.6",
         "name": "Anthropic: Claude Sonnet 4.6",
         "description": "Sonnet 4.6 is Anthropic's most capable Sonnet-class model yet, with frontier performance across coding, agents, and professional work. It excels at iterative development, complex codebase navigation, end-to-end project management with...",
@@ -161965,6 +162524,46 @@
             "textOutput": 10,
             "textInput_cacheRead": 0.2,
             "textInput_cacheWrite": 2.5
+          }
+        }
+      },
+      {
+        "id": "anthropic/claude-sonnet-5:batch",
+        "name": "Anthropic: Claude Sonnet 5 (batch)",
+        "description": "Sonnet 5 is Anthropic's most capable Sonnet-class model, with frontier performance across coding, agents, and professional work. It supports adaptive thinking with selectable reasoning effort levels (low, medium, high, max,...",
+        "releasedAt": "2026-06-30",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 1,
+            "textOutput": 5,
+            "textInput_cacheRead": 0.1,
+            "textInput_cacheWrite": 1.25
           }
         }
       },
@@ -163146,6 +163745,88 @@
         }
       },
       {
+        "id": "google/gemini-2.5-flash-lite:batch",
+        "name": "Google: Gemini 2.5 Flash Lite (batch)",
+        "description": "Gemini 2.5 Flash-Lite is a lightweight reasoning model in the Gemini 2.5 family, optimized for ultra-low latency and cost efficiency. It offers improved throughput, faster token generation, and better performance...",
+        "releasedAt": "2025-07-22",
+        "knowledge": "2025-01-31",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65535,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file",
+            "audio",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.05,
+            "textOutput": 0.2,
+            "textInput_cacheRead": 0.01
+          }
+        }
+      },
+      {
+        "id": "google/gemini-2.5-flash:batch",
+        "name": "Google: Gemini 2.5 Flash (batch)",
+        "description": "Gemini 2.5 Flash is Google's state-of-the-art workhorse model, specifically designed for advanced reasoning, coding, mathematics, and scientific tasks. It includes built-in \"thinking\" capabilities, enabling it to provide responses with greater...",
+        "releasedAt": "2025-06-17",
+        "knowledge": "2025-01-31",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65535,
+        "modalities": {
+          "input": [
+            "file",
+            "image",
+            "text",
+            "audio",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 1.25,
+            "textInput_cacheRead": 0.03
+          }
+        }
+      },
+      {
         "id": "google/gemini-2.5-pro",
         "name": "Google: Gemini 2.5 Pro",
         "description": "Gemini 2.5 Pro is Google’s state-of-the-art AI model designed for advanced reasoning, coding, mathematics, and scientific tasks. It employs “thinking” capabilities, enabling it to reason through responses with enhanced accuracy...",
@@ -163279,6 +163960,47 @@
         }
       },
       {
+        "id": "google/gemini-2.5-pro:batch",
+        "name": "Google: Gemini 2.5 Pro (batch)",
+        "description": "Gemini 2.5 Pro is Google’s state-of-the-art AI model designed for advanced reasoning, coding, mathematics, and scientific tasks. It employs “thinking” capabilities, enabling it to reason through responses with enhanced accuracy...",
+        "releasedAt": "2025-06-17",
+        "knowledge": "2025-01-31",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file",
+            "audio",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.625,
+            "textOutput": 5,
+            "textInput_cacheRead": 0.125
+          }
+        }
+      },
+      {
         "id": "google/gemini-3-flash-preview",
         "name": "Google: Gemini 3 Flash Preview",
         "description": "Gemini 3 Flash Preview is a high speed, high value thinking model designed for agentic workflows, multi turn chat, and coding assistance. It delivers near Pro level reasoning and tool...",
@@ -163322,6 +164044,46 @@
             "textOutput": 3,
             "textInput_cacheRead": 0.05,
             "textInput_cacheWrite": 0.083333333333
+          }
+        }
+      },
+      {
+        "id": "google/gemini-3-flash-preview:batch",
+        "name": "Google: Gemini 3 Flash Preview (batch)",
+        "description": "Gemini 3 Flash Preview is a high speed, high value thinking model designed for agentic workflows, multi turn chat, and coding assistance. It delivers near Pro level reasoning and tool...",
+        "releasedAt": "2025-12-17",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65535,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file",
+            "audio",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.25,
+            "textOutput": 1.5
           }
         }
       },
@@ -163620,6 +164382,47 @@
         }
       },
       {
+        "id": "google/gemini-3.1-flash-lite:batch",
+        "name": "Google: Gemini 3.1 Flash Lite (batch)",
+        "description": "Gemini 3.1 Flash Lite is Google’s GA high-efficiency multimodal model optimized for low-latency, high-volume workloads. It supports text, image, video, audio, and PDF inputs, and is designed for lightweight agentic...",
+        "releasedAt": "2026-05-07",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "file",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.125,
+            "textOutput": 0.75,
+            "textInput_cacheRead": 0.0125
+          }
+        }
+      },
+      {
         "id": "google/gemini-3.1-pro-preview",
         "name": "Google: Gemini 3.1 Pro Preview",
         "description": "Gemini 3.1 Pro Preview is Google’s frontier reasoning model, delivering enhanced software engineering performance, improved agentic reliability, and more efficient token usage across complex workflows. Building on the multimodal foundation...",
@@ -163714,6 +164517,46 @@
         }
       },
       {
+        "id": "google/gemini-3.1-pro-preview:batch",
+        "name": "Google: Gemini 3.1 Pro Preview (batch)",
+        "description": "Gemini 3.1 Pro Preview is Google’s frontier reasoning model, delivering enhanced software engineering performance, improved agentic reliability, and more efficient token usage across complex workflows. Building on the multimodal foundation...",
+        "releasedAt": "2026-02-19",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "audio",
+            "file",
+            "image",
+            "text",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 1,
+            "textOutput": 6
+          }
+        }
+      },
+      {
         "id": "google/gemini-3.5-flash",
         "name": "Google: Gemini 3.5 Flash",
         "description": "Gemini 3.5 Flash is Google's high-efficiency multimodal model, bringing near-Pro level coding and reasoning at Flash-tier cost and speed. It is highly optimized for coding proficiency and parallel agentic execution...",
@@ -163802,6 +164645,88 @@
         }
       },
       {
+        "id": "google/gemini-3.5-flash-lite:batch",
+        "name": "Google: Gemini 3.5 Flash Lite (batch)",
+        "description": "Gemini 3.5 Flash Lite is a high-efficiency model from Google with upgraded agentic capabilities. It is suited for subagents that execute focused tasks within complex, multi-agent workflows.",
+        "releasedAt": "2026-07-21",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "file",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 1.25,
+            "textInput_cacheRead": 0.015
+          }
+        }
+      },
+      {
+        "id": "google/gemini-3.5-flash:batch",
+        "name": "Google: Gemini 3.5 Flash (batch)",
+        "description": "Gemini 3.5 Flash is Google's high-efficiency multimodal model, bringing near-Pro level coding and reasoning at Flash-tier cost and speed. It is highly optimized for coding proficiency and parallel agentic execution...",
+        "releasedAt": "2026-05-19",
+        "knowledge": "2025-01-01",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "file",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.75,
+            "textOutput": 4.5,
+            "textInput_cacheRead": 0.075
+          }
+        }
+      },
+      {
         "id": "google/gemini-3.6-flash",
         "name": "Google: Gemini 3.6 Flash",
         "description": "Gemini 3.6 Flash is a high-efficiency model from Google for coding, agentic workflows, and web and app development. It is designed to produce polished outputs with fewer unnecessary edits and...",
@@ -163841,6 +164766,48 @@
             "textInput": 1.5,
             "textOutput": 7.5,
             "textInput_cacheRead": 0.15,
+            "textInput_cacheWrite": 0.083333333333
+          }
+        }
+      },
+      {
+        "id": "google/gemini-3.6-flash:batch",
+        "name": "Google: Gemini 3.6 Flash (batch)",
+        "description": "Gemini 3.6 Flash is a high-efficiency model from Google for coding, agentic workflows, and web and app development. It is designed to produce polished outputs with fewer unnecessary edits and...",
+        "releasedAt": "2026-07-21",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "file",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.75,
+            "textOutput": 3.75,
+            "textInput_cacheRead": 0.075,
             "textInput_cacheWrite": 0.083333333333
           }
         }
@@ -165530,6 +166497,45 @@
         }
       },
       {
+        "id": "minimax/minimax-m3:batch",
+        "name": "MiniMax: MiniMax M3 (batch)",
+        "description": "MiniMax-M3 is a multimodal foundation model from MiniMax. It supports text, image, and video inputs with text output, a 1M-token context window, and is suited for long-horizon agentic work, coding,...",
+        "releasedAt": "2026-05-31",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 524288,
+        "maxOutput": null,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 0.6,
+            "textInput_cacheRead": 0.03
+          }
+        }
+      },
+      {
         "id": "mistralai/codestral-2508",
         "name": "Mistral: Codestral 2508",
         "description": "Mistral's cutting-edge language model for coding released end of July 2025. Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM), code correction and test generation.\n\n[Blog Post](https://mistral.ai/news/codestral-25-08)",
@@ -166915,7 +167921,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.05,
-            "textOutput": 0.2
+            "textOutput": 0.2,
+            "textInput_cacheRead": 0.025
           }
         }
       },
@@ -167107,9 +168114,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 3.6,
-            "textInput_cacheRead": 0.2
+            "textInput": 0.5,
+            "textOutput": 2.2,
+            "textInput_cacheRead": 0.1
           }
         }
       },
@@ -168115,6 +169122,45 @@
         }
       },
       {
+        "id": "openai/gpt-5-mini:batch",
+        "name": "OpenAI: GPT-5 Mini (batch)",
+        "description": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks. It provides the same instruction-following and safety-tuning benefits as GPT-5, but with reduced latency and cost....",
+        "releasedAt": "2025-08-07",
+        "knowledge": "2024-05-31",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 400000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.125,
+            "textOutput": 1,
+            "textInput_cacheRead": 0.0125
+          }
+        }
+      },
+      {
         "id": "openai/gpt-5-nano",
         "name": "OpenAI: GPT-5 Nano",
         "description": "GPT-5-Nano is the smallest and fastest variant in the GPT-5 system, optimized for developer tools, rapid interactions, and ultra-low latency environments. While limited in reasoning depth compared to its larger...",
@@ -168156,6 +169202,45 @@
         }
       },
       {
+        "id": "openai/gpt-5-nano:batch",
+        "name": "OpenAI: GPT-5 Nano (batch)",
+        "description": "GPT-5-Nano is the smallest and fastest variant in the GPT-5 system, optimized for developer tools, rapid interactions, and ultra-low latency environments. While limited in reasoning depth compared to its larger...",
+        "releasedAt": "2025-08-07",
+        "knowledge": "2024-05-31",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 400000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.025,
+            "textOutput": 0.2,
+            "textInput_cacheRead": 0.0025
+          }
+        }
+      },
+      {
         "id": "openai/gpt-5-pro",
         "name": "OpenAI: GPT-5 Pro",
         "description": "GPT-5 Pro is OpenAI’s most advanced model, offering major improvements in reasoning, code quality, and user experience. It is optimized for complex tasks that require step-by-step reasoning, instruction following, and...",
@@ -168192,6 +169277,45 @@
           "basePricing": {
             "textInput": 15,
             "textOutput": 120
+          }
+        }
+      },
+      {
+        "id": "openai/gpt-5:batch",
+        "name": "OpenAI: GPT-5 (batch)",
+        "description": "GPT-5 is OpenAI’s most advanced model, offering major improvements in reasoning, code quality, and user experience. It is optimized for complex tasks that require step-by-step reasoning, instruction following, and accuracy...",
+        "releasedAt": "2025-08-07",
+        "knowledge": "2024-09-30",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 400000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.625,
+            "textOutput": 5,
+            "textInput_cacheRead": 0.0625
           }
         }
       },
@@ -168398,6 +169522,45 @@
         }
       },
       {
+        "id": "openai/gpt-5.1:batch",
+        "name": "OpenAI: GPT-5.1 (batch)",
+        "description": "GPT-5.1 is the latest frontier-grade model in the GPT-5 series, offering stronger general-purpose reasoning, improved instruction adherence, and a more natural conversational style compared to GPT-5. It uses adaptive reasoning...",
+        "releasedAt": "2025-11-13",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 400000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "image",
+            "text",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.625,
+            "textOutput": 5,
+            "textInput_cacheRead": 0.0625
+          }
+        }
+      },
+      {
         "id": "openai/gpt-5.2",
         "name": "OpenAI: GPT-5.2",
         "description": "GPT-5.2 is the latest frontier-grade model in the GPT-5 series, offering stronger agentic and long context perfomance compared to GPT-5.1. It uses adaptive reasoning to allocate computation dynamically, responding quickly...",
@@ -168556,6 +169719,45 @@
           "basePricing": {
             "textInput": 21,
             "textOutput": 168
+          }
+        }
+      },
+      {
+        "id": "openai/gpt-5.2:batch",
+        "name": "OpenAI: GPT-5.2 (batch)",
+        "description": "GPT-5.2 is the latest frontier-grade model in the GPT-5 series, offering stronger agentic and long context perfomance compared to GPT-5.1. It uses adaptive reasoning to allocate computation dynamically, responding quickly...",
+        "releasedAt": "2025-12-10",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 400000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "file",
+            "image",
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.875,
+            "textOutput": 7,
+            "textInput_cacheRead": 0.0875
           }
         }
       },
@@ -168766,6 +169968,45 @@
         }
       },
       {
+        "id": "openai/gpt-5.4-mini:batch",
+        "name": "OpenAI: GPT-5.4 Mini (batch)",
+        "description": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a faster, more efficient model optimized for high-throughput workloads. It supports text and image inputs with strong performance across reasoning, coding,...",
+        "releasedAt": "2026-03-17",
+        "knowledge": "2025-08-31",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 400000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "file",
+            "image",
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.375,
+            "textOutput": 2.25,
+            "textInput_cacheRead": 0.0375
+          }
+        }
+      },
+      {
         "id": "openai/gpt-5.4-nano",
         "name": "OpenAI: GPT-5.4 Nano",
         "description": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks. It supports text and image inputs and is designed for low-latency...",
@@ -168807,6 +170048,45 @@
         }
       },
       {
+        "id": "openai/gpt-5.4-nano:batch",
+        "name": "OpenAI: GPT-5.4 Nano (batch)",
+        "description": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks. It supports text and image inputs and is designed for low-latency...",
+        "releasedAt": "2026-03-17",
+        "knowledge": "2025-08-31",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 400000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "file",
+            "image",
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.1,
+            "textOutput": 0.625,
+            "textInput_cacheRead": 0.01
+          }
+        }
+      },
+      {
         "id": "openai/gpt-5.4-pro",
         "name": "OpenAI: GPT-5.4 Pro",
         "description": "GPT-5.4 Pro is OpenAI's most advanced model, building on GPT-5.4's unified architecture with enhanced reasoning capabilities for complex, high-stakes tasks. It features a 1M+ token context window (922K input, 128K...",
@@ -168843,6 +170123,45 @@
           "basePricing": {
             "textInput": 30,
             "textOutput": 180
+          }
+        }
+      },
+      {
+        "id": "openai/gpt-5.4:batch",
+        "name": "OpenAI: GPT-5.4 (batch)",
+        "description": "GPT-5.4 is OpenAI’s latest frontier model, unifying the Codex and GPT lines into a single system. It features a 1M+ token context window (922K input, 128K output) with support for...",
+        "releasedAt": "2026-03-05",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 1.25,
+            "textOutput": 7.5,
+            "textInput_cacheRead": 0.125
           }
         }
       },
@@ -168924,6 +170243,45 @@
           "basePricing": {
             "textInput": 30,
             "textOutput": 180
+          }
+        }
+      },
+      {
+        "id": "openai/gpt-5.5:batch",
+        "name": "OpenAI: GPT-5.5 (batch)",
+        "description": "GPT-5.5 is OpenAI’s frontier model designed for complex professional workloads, building on GPT-5.4 with stronger reasoning, higher reliability, and improved token efficiency on hard tasks. It features a 1M+ token...",
+        "releasedAt": "2026-04-24",
+        "knowledge": "2025-12-01",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "file",
+            "image",
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2.5,
+            "textOutput": 15,
+            "textInput_cacheRead": 0.25
           }
         }
       },
@@ -169372,7 +170730,8 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.03,
-            "textOutput": 0.14
+            "textOutput": 0.13,
+            "textInput_cacheRead": 0.03
           }
         }
       },
@@ -170332,86 +171691,6 @@
         }
       },
       {
-        "id": "poolside/laguna-m.1",
-        "name": "Poolside: Laguna M.1",
-        "description": "Laguna M.1 is the flagship coding agent model from [Poolside](https://poolside.ai/), optimized for complex software engineering tasks. Designed for agentic coding workflows, it supports tool calling and reasoning, with a 256K...",
-        "family": "laguna",
-        "releasedAt": "2026-04-28",
-        "knowledge": null,
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 32768,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 0.4,
-            "textInput_cacheRead": 0.1
-          }
-        }
-      },
-      {
-        "id": "poolside/laguna-m.1:free",
-        "name": "Poolside: Laguna M.1 (free)",
-        "description": "Laguna M.1 is the flagship coding agent model from [Poolside](https://poolside.ai/), optimized for complex software engineering tasks. Designed for agentic coding workflows, it supports tool calling and reasoning, with a 256K...",
-        "family": "laguna",
-        "releasedAt": "2026-04-28",
-        "knowledge": null,
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 262144,
-        "maxOutput": 32768,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          }
-        }
-      },
-      {
         "id": "poolside/laguna-s-2.1",
         "name": "Poolside: Laguna S 2.1",
         "description": "Laguna S 2.1 is the latest coding agent model from [Poolside](<https://poolside.ai/>). Laguna S 2.1 is a 118B total parameter model with 8B active parameters, scoring 70.2% on Terminal-Bench 2.1 and...",
@@ -170790,9 +172069,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.26,
-            "textOutput": 0.78,
-            "textInput_cacheWrite": 0.325
+            "textInput": 0.4,
+            "textOutput": 1.2,
+            "textInput_cacheWrite": 0.5
           }
         }
       },
@@ -171100,8 +172379,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.13,
-            "textOutput": 1.56
+            "textInput": 0.2,
+            "textOutput": 2.4
           }
         }
       },
@@ -171319,7 +172598,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 262144,
+        "maxOutput": 64000,
         "modalities": {
           "input": [
             "text"
@@ -171332,9 +172611,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.11,
-            "textOutput": 0.8,
-            "textInput_cacheRead": 0.07
+            "textInput": 0.18,
+            "textOutput": 0.9,
+            "textInput_cacheRead": 0.036
           }
         }
       },
@@ -171398,7 +172677,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 32768,
+        "maxOutput": 65536,
         "modalities": {
           "input": [
             "text"
@@ -171438,7 +172717,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 32768,
+        "maxOutput": 65536,
         "modalities": {
           "input": [
             "text"
@@ -171528,8 +172807,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.0975,
-            "textOutput": 0.78
+            "textInput": 0.15,
+            "textOutput": 1.2
           }
         }
       },
@@ -171607,8 +172886,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.26,
-            "textOutput": 2.6
+            "textInput": 0.4,
+            "textOutput": 4
           }
         }
       },
@@ -171632,7 +172911,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 16384,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text",
@@ -171646,8 +172925,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.6
+            "textInput": 0.13,
+            "textOutput": 0.52
           }
         }
       },
@@ -171685,8 +172964,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.13,
-            "textOutput": 1.56
+            "textInput": 0.2,
+            "textOutput": 2.4
           }
         }
       },
@@ -171802,8 +173081,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.117,
-            "textOutput": 1.365
+            "textInput": 0.18,
+            "textOutput": 2.1
           }
         }
       },
@@ -171922,8 +173201,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 1
+            "textInput": 0.15,
+            "textOutput": 1,
+            "textInput_cacheRead": 0.05
           }
         }
       },
@@ -173993,9 +175273,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.721,
-            "textOutput": 2.266,
-            "textInput_cacheRead": 0.1339
+            "textInput": 0.7574,
+            "textOutput": 2.3804,
+            "textInput_cacheRead": 0.14066
           }
         }
       },
@@ -196531,6 +197811,30 @@
         }
       },
       {
+        "id": "gemini-embedding",
+        "name": "Gemini Embedding 001",
+        "family": "gemini",
+        "releasedAt": "2025-05-20",
+        "knowledge": "2025-05",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 2048,
+        "maxOutput": 1,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        }
+      },
+      {
         "id": "gpt-4.1",
         "name": "gpt-4.1",
         "family": "gpt",
@@ -210866,38 +212170,6 @@
         }
       },
       {
-        "id": "nvidia-nemotron-cascade-2-30b-a3b",
-        "name": "Nemotron Cascade 2 30B A3B",
-        "family": "nemotron",
-        "releasedAt": "2026-03-24",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 32768,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.8
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "olafangensan-glm-4.7-flash-heretic",
         "name": "GLM 4.7 Flash Heretic",
         "family": "glm",
@@ -213462,6 +214734,34 @@
         }
       },
       {
+        "id": "alibaba/qwen3.7-flash",
+        "name": "Qwen 3.7 Flash",
+        "description": "The Qwen3.7 native vision-language Flash model series delivers a comprehensive upgrade over 3.6-Flash in multimodal understanding and agent execution. This model particularly excels in enhanced multimodal foundations with stronger universal object recognition, further improved real-world perception and spatial intelligence, significantly upgraded multimodal agent capabilities for Search Agent and CI Agent scenarios with more stable end-to-end task execution, as well as optimized multimodal coding for a smoother vibe coding experience.",
+        "type": "language",
+        "releasedAt": "2026-07-28",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false
+        },
+        "contextWindow": 991000,
+        "maxOutput": 64000,
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.03,
+            "textOutput": 0.13,
+            "textInput_cacheRead": 0.006,
+            "textInput_cacheWrite": 0.038
+          }
+        }
+      },
+      {
         "id": "alibaba/qwen3.7-max",
         "name": "Qwen 3.7 Max",
         "description": "Qwen3.7 is a next‑generation flagship model designed for the agent‑centric era, with its core strengths lying in the breadth and depth of its agent‑level capabilities: it excels at programming, office and productivity tasks, and long‑term autonomous execution.",
@@ -215790,7 +217090,7 @@
         "openWeights": false,
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "vision": false,
           "structuredOutput": false,
           "search": false,
@@ -216154,48 +217454,6 @@
         }
       },
       {
-        "id": "google/gemini-3-pro-preview",
-        "name": "Gemini 3 Pro Preview",
-        "description": "This model improves upon Gemini 2.5 Pro and is catered towards challenging tasks, especially those involving complex reasoning or agentic workflows. Improvements highlighted include use cases for coding, multi-step function calling, planning, reasoning, deep knowledge tasks, and instruction following.",
-        "type": "language",
-        "family": "gemini-pro",
-        "releasedAt": "2025-11-18",
-        "knowledge": "2025-01",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": true,
-          "temperature": true
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 64000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 2,
-            "textOutput": 12,
-            "textInput_cacheRead": 0.2
-          }
-        }
-      },
-      {
         "id": "google/gemini-3.1-flash-image",
         "name": "Gemini 3.1 Flash Image (Nano Banana 2)",
         "description": "Gemini 3.1 Flash Image is optimized for image understanding and generation and offers a balance of price and performance.",
@@ -216240,7 +217498,7 @@
       {
         "id": "google/gemini-3.1-flash-image-preview",
         "name": "Gemini 3.1 Flash Image Preview (Nano Banana 2)",
-        "description": "Gemini 3.1 Flash Image is optimized for image understanding and generation and offers a balance of price and performance.",
+        "description": "Gemini 3.1 Flash Image (Nano Banana 2) is optimized for image understanding and generation and offers a balance of price and performance.",
         "type": "language",
         "family": "gemini",
         "releasedAt": "2026-02-26",
@@ -216369,7 +217627,7 @@
         "description": "This model improves upon Gemini 2.5 Pro and is catered towards challenging tasks, especially those involving complex reasoning or agentic workflows. Improvements highlighted include use cases for coding, multi-step function calling, planning, reasoning, deep knowledge tasks, and instruction following.",
         "type": "language",
         "family": "gemini",
-        "releasedAt": "2025-11-18",
+        "releasedAt": "2026-02-19",
         "knowledge": "2025-01",
         "openWeights": false,
         "abilities": {
@@ -218007,7 +219265,7 @@
       },
       {
         "id": "minimax/minimax-m2.7",
-        "name": "MiniMax M2.7",
+        "name": "Minimax M2.7",
         "description": "M2.7 delivers outstanding performance in real-world software engineering, including end-to-end full project delivery, log analysis and bug troubleshooting, code security, machine learning, and more.",
         "type": "language",
         "family": "minimax",
@@ -219836,7 +221094,7 @@
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 10,
-            "textInput_cacheRead": 0.125
+            "textInput_cacheRead": 0.13
           }
         }
       },
@@ -220001,7 +221259,7 @@
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 10,
-            "textInput_cacheRead": 0.125
+            "textInput_cacheRead": 0.13
           }
         }
       },
@@ -220085,7 +221343,7 @@
           "basePricing": {
             "textInput": 0.25,
             "textOutput": 2,
-            "textInput_cacheRead": 0.025
+            "textInput_cacheRead": 0.03
           }
         }
       },
@@ -220127,7 +221385,7 @@
           "basePricing": {
             "textInput": 1.25,
             "textOutput": 10,
-            "textInput_cacheRead": 0.125
+            "textInput_cacheRead": 0.13
           }
         }
       },
@@ -223982,7 +225240,7 @@
       {
         "id": "zai/glm-5",
         "name": "GLM 5",
-        "description": "GLM-5 is Zai’s new-generation flagship foundation model, designed for Agentic Engineering, capable of providing reliable productivity in complex system engineering and long-range Agent tasks. In terms of Coding and Agent capabilities, GLM-5 has achieved state-of-the-art (SOTA) performance in open source, with its usability in real programming scenarios approaching that of Claude Opus 4.5.",
+        "description": "GLM 5 is a frontier-class, general-purpose large language model optimized for complex systems engineering and long-horizon agentic tasks. It builds on the GLM 4.5 agent-centric lineage and is designed to support multi-step reasoning, math (including AIME-style benchmarks), advanced coding, and tool-augmented workflows, with long context support suitable for sophisticated agents and enterprise applications. Typical uses include autonomous agents for software engineering, data and systems troubleshooting, operations copilots, and high-end chat assistants that must break down complex tasks, call tools reliably, and reason over long sequences of instructions or documents.",
         "type": "language",
         "family": "glm",
         "releasedAt": "2026-02-12",
@@ -224012,9 +225270,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.95,
-            "textOutput": 3.15,
-            "textInput_cacheRead": 0.2
+            "textInput": 1,
+            "textOutput": 3.2
           }
         }
       },
@@ -224090,8 +225347,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1.3,
-            "textOutput": 4.3,
+            "textInput": 1.4,
+            "textOutput": 4.4,
             "textInput_cacheRead": 0.26
           }
         }
@@ -230898,8 +232155,395 @@
         "pricing": {
           "basePricing": {
             "textInput": 3,
-            "textOutput": 18,
+            "textOutput": 18.5,
             "textInput_cacheRead": 0.3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "claude-haiku-4-5",
+        "name": "Claude Haiku 4.5 (latest)",
+        "family": "claude-haiku",
+        "releasedAt": "2025-10-15",
+        "knowledge": "2025-02-28",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 200000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.6,
+            "textOutput": 3.7,
+            "textInput_cacheRead": 0.06
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "claude-opus-4-8",
+        "name": "Claude Opus 4.8",
+        "family": "claude-opus",
+        "releasedAt": "2026-05-28",
+        "knowledge": "2026-01",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 200000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.5,
+            "textOutput": 9.25,
+            "textInput_cacheRead": 0.15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "claude-sonnet-4-6",
+        "name": "Claude Sonnet 4.6",
+        "family": "claude-sonnet",
+        "releasedAt": "2026-02-17",
+        "knowledge": "2025-08-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 200000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.9,
+            "textOutput": 5.55,
+            "textInput_cacheRead": 0.09
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gemini-3.5-flash",
+        "name": "Gemini 3.5 Flash",
+        "family": "gemini-flash",
+        "releasedAt": "2026-05-19",
+        "knowledge": "2025-01",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.55,
+            "textOutput": 12.2,
+            "textInput_cacheRead": 0.155
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-5.4",
+        "name": "GPT-5.4",
+        "family": "gpt",
+        "releasedAt": "2026-03-05",
+        "knowledge": "2025-08-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.75,
+            "textOutput": 6,
+            "textInput_cacheRead": 0.075
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-5.4-mini",
+        "name": "GPT-5.4 mini",
+        "family": "gpt-mini",
+        "releasedAt": "2026-03-17",
+        "knowledge": "2025-08-31",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 272000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.375,
+            "textOutput": 4,
+            "textInput_cacheRead": 0.0375
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-5.5",
+        "name": "GPT-5.5",
+        "family": "gpt",
+        "releasedAt": "2026-04-23",
+        "knowledge": "2025-12-01",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.5,
+            "textOutput": 12,
+            "textInput_cacheRead": 0.15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-5.6",
+        "name": "GPT-5.6",
+        "family": "gpt-sol",
+        "releasedAt": "2026-07-09",
+        "knowledge": "2026-02-16",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 372000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.5,
+            "textOutput": 12,
+            "textInput_cacheRead": 0.15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-5.6-sol",
+        "name": "GPT-5.6 Sol",
+        "family": "gpt-sol",
+        "releasedAt": "2026-07-09",
+        "knowledge": "2026-02-16",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 372000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.5,
+            "textOutput": 12,
+            "textInput_cacheRead": 0.15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-5.6-terra",
+        "name": "GPT-5.6 Terra",
+        "family": "gpt-terra",
+        "releasedAt": "2026-07-09",
+        "knowledge": "2026-02-16",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 372000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.5,
+            "textOutput": 2,
+            "textInput_cacheRead": 0.15
           },
           "currency": "USD",
           "unit": "millionTokens"
