@@ -178,8 +178,6 @@ function parseLookupKeySegments(key: string, paramCount: number): string[] | und
 }
 
 function inferTieredConditionName(target: string): string {
-  // LobeHub selects every tiered text rate by total input tokens, including
-  // the rate applied to output tokens.
   if (
     target === "textInput" ||
     target === "textInput_cacheRead" ||
