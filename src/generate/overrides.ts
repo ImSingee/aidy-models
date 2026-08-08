@@ -500,7 +500,6 @@ const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
       "openai/gpt-5.2",
       "openai/gpt-5.2-chat-latest",
       "openai/gpt-5.4",
-      "openai-codex/gpt-5.2",
       "openai-codex/gpt-5.4",
     ],
     openAIReasoningEffortOverride(
@@ -514,11 +513,24 @@ const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
       "openai/gpt-5.3-codex",
       "openai/gpt-5.3-codex-spark",
       "openai-codex/gpt-5.2-codex",
-      "openai-codex/gpt-5.3-codex",
       "openai-codex/gpt-5.3-codex-spark",
     ],
     openAIReasoningEffortOverride(
       ["low", "medium", "high", "xhigh"],
+      "medium",
+    ),
+  ),
+  ...mapModelIdsToOverride(
+    [
+      "openai/gpt-5.6-sol",
+      "openai/gpt-5.6-terra",
+      "openai/gpt-5.6-luna",
+      "openai-codex/gpt-5.6-sol",
+      "openai-codex/gpt-5.6-terra",
+      "openai-codex/gpt-5.6-luna",
+    ],
+    openAIReasoningEffortOverride(
+      ["low", "medium", "high", "xhigh", "max"],
       "medium",
     ),
   ),
