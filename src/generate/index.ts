@@ -69,10 +69,13 @@ function sanitizeLobehubSource(raw: RawLobehub): RawLobehub {
   const providers = { ...(raw.providers ?? {}) };
   const models = { ...(raw.models ?? {}) };
 
-  // Lobehub includes its own aggregation endpoint in the upstream catalog.
-  // We do not want to surface that self-referential provider in this registry.
-  delete providers.lobehub;
-  delete models.lobehub;
+  // Exclude upstream providers that this registry cannot surface directly.
+  // `lobehub` is self-referential, while `chatGPT` relies on LobeHub-specific
+  // authentication and runtime integration.
+  for (const providerId of ["lobehub", "chatGPT"]) {
+    delete providers[providerId];
+    delete models[providerId];
+  }
 
   return {
     ...raw,
