@@ -1,15 +1,15 @@
 {
   "_meta": {
-    "generatedAt": "2026-08-08T04:43:08.405Z",
+    "generatedAt": "2026-08-08T06:03:44.350Z",
     "sources": {
       "modelsDev": {
         "providerCount": 181,
         "modelCount": 6231
       },
       "lobehub": {
-        "commitHash": "ca27228d55bb604f8bcf455a18f5e87d3ba9f9a5",
+        "commitHash": "46f991ee043bc7c7ab184856c6c3ce4b98878b10",
         "providerCount": 83,
-        "modelCount": 1932
+        "modelCount": 1872
       },
       "openRouter": {
         "providerCount": 1,
@@ -25,14 +25,14 @@
       },
       "derived": {
         "providerCount": 2,
-        "modelCount": 85
+        "modelCount": 73
       }
     },
     "merged": {
       "providerCount": 230,
-      "modelCount": 7816
+      "modelCount": 7744
     },
-    "overridesApplied": 95
+    "overridesApplied": 85
   },
   "providers": {
     "302ai": {
@@ -340,12 +340,12 @@
       "featured": false,
       "api": "openai-completions",
       "description": "Ant Ling is the core foundation model series of Ant Group’s Artificial General Intelligence (AGI) initiative, dedicated to building and opening up cutting-edge foundational model capabilities. We believe that the development of intelligence must move toward openness, sharing, and scalability—starting from small, practical steps to drive the steady evolution and real-world deployment of AGI.",
-      "url": "https://ling.tbox.cn/open",
+      "url": "https://chat.ant-ling.com/open",
       "checkModel": "Ling-2.6-flash",
       "_": {
         "sdkType": "openai",
         "showModelFetcher": false,
-        "modelsUrl": "https://alipaytbox.yuque.com/sxs0ba/ling/model_overview"
+        "modelsUrl": "https://developer.ant-ling.com/zh-CN/docs/models/"
       }
     },
     "anthropic": {
@@ -1947,7 +1947,7 @@
       "description": "LongCat is a series of generative AI large models independently developed by Meituan. It is designed to enhance internal enterprise productivity and enable innovative applications through an efficient computational architecture and strong multimodal capabilities.",
       "url": "https://longcat.chat/platform/usage",
       "doc": "https://longcat.chat/platform/docs/",
-      "checkModel": "LongCat-2.0-Preview",
+      "checkModel": "LongCat-2.0",
       "_": {
         "disableBrowserRequest": false,
         "proxyUrl": {
@@ -3909,7 +3909,7 @@
       "description": "Xiaomi MiMo provides a conversational model service with an OpenAI-compatible API. The mimo-v2-flash model supports deep reasoning, streaming output, function calling, a 256K context window, and a maximum output of 128K.",
       "url": "https://platform.xiaomimimo.com/",
       "doc": "https://platform.xiaomimimo.com/#/docs",
-      "checkModel": "mimo-v2-flash",
+      "checkModel": "mimo-v2.5",
       "_": {
         "disableBrowserRequest": true,
         "proxyUrl": {
@@ -28558,6 +28558,28 @@
         }
       },
       {
+        "id": "Ling-3.0-flash",
+        "name": "Ling-3.0-flash",
+        "description": "Ling-3.0-flash is the latest generation high cost-performance model in the Ling series. It adopts a Mixture-of-Experts (MoE) architecture, with a total parameter count of 124B and 5.1B activated parameters per token. It natively supports a 256K context window, which can be expanded up to 1M. Compared to the previous flash version, Ling-3.0-flash significantly enhances long-horizon task stability, tool call accuracy, and adaptation to common Harness environments.",
+        "type": "chat",
+        "releasedAt": "2026-07-23",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "structuredOutput": true,
+          "search": true
+        },
+        "contextWindow": 262144,
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.4,
+            "textOutput": 1.2
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "Ring-2.5-1T",
         "name": "Ring-2.5-1T",
         "description": "Compared to the previously released Ring-1T, Ring-2.5-1T achieves significant improvements across three key dimensions: generation efficiency, reasoning depth, and long-horizon task execution capability: Generation Efficiency**: By leveraging a high proportion of linear attention mechanisms, Ring-2.5-1T reduces memory access overhead by more than 10×. When processing sequences exceeding 32K tokens, it delivers over 3× higher generation throughput, making it particularly well-suited for deep reasoning and long-horizon task execution. Deep Reasoning**: Building on RLVR, a dense reward mechanism is introduced to provide feedback on the rigor of the reasoning process. This enables Ring-2.5-1T to achieve gold-medal-level performance in both IMO 2025 and CMO 2025 (self-evaluated). Long-Horizon Task Execution**: Through large-scale fully asynchronous agent-based reinforcement learning training, the model significantly enhances its ability to autonomously execute complex tasks over extended periods. This allows Ring-2.5-1T to seamlessly integrate with agent programming frameworks such as Claude Code and OpenClaw personal AI assistants.",
@@ -36610,30 +36632,6 @@
         "baseUrl": ""
       },
       {
-        "id": "computer-use-preview",
-        "name": "Computer Use Preview",
-        "description": "computer-use-preview is a specialized model for the \"computer use tool,\" trained to understand and execute computer-related tasks.",
-        "type": "chat",
-        "releasedAt": "2025-03-11",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true
-        },
-        "contextWindow": 8192,
-        "maxOutput": 1024,
-        "pricing": {
-          "basePricing": {
-            "textInput": 3,
-            "textOutput": 12
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
-      },
-      {
         "id": "gpt-3.5-turbo",
         "name": "GPT-3.5 Turbo",
         "api": "azure-openai-responses",
@@ -37206,28 +37204,6 @@
         "baseUrl": ""
       },
       {
-        "id": "gpt-4o-mini-search-preview",
-        "name": "GPT-4o mini Search Preview",
-        "description": "GPT-4o mini Search Preview is trained to understand and execute web search queries via the Chat Completions API. Web search is billed per tool call in addition to token costs.",
-        "type": "chat",
-        "releasedAt": "2025-03-11",
-        "abilities": {
-          "search": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 16384,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
-      },
-      {
         "id": "gpt-4o-mini-transcribe",
         "name": "GPT-4o Mini Transcribe",
         "description": "GPT-4o Mini Transcribe is a speech-to-text model that transcribes audio with GPT-4o, improving word error rate, language ID, and accuracy over the original Whisper model.",
@@ -37337,28 +37313,6 @@
         "baseUrl": ""
       },
       {
-        "id": "gpt-4o-search-preview",
-        "name": "GPT-4o Search Preview",
-        "description": "GPT-4o Search Preview is trained to understand and execute web search queries via the Chat Completions API. Web search is billed per tool call in addition to token costs.",
-        "type": "chat",
-        "releasedAt": "2025-03-11",
-        "abilities": {
-          "search": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 16384,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2.5,
-            "textOutput": 10
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
-      },
-      {
         "id": "gpt-4o-transcribe",
         "name": "GPT-4o Transcribe",
         "description": "GPT-4o Transcribe is a speech-to-text model that transcribes audio with GPT-4o, improving word error rate, language ID, and accuracy over the original Whisper model.",
@@ -37418,55 +37372,6 @@
           "currency": "USD",
           "unit": "millionTokens"
         }
-      },
-      {
-        "id": "gpt-5-chat-latest",
-        "name": "GPT-5 Chat",
-        "description": "The GPT-5 model used in ChatGPT, combining strong understanding and generation for conversational applications.",
-        "type": "chat",
-        "releasedAt": "2025-08-07",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.25,
-            "textOutput": 10,
-            "textInput_cacheRead": 0.125
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
-      },
-      {
-        "id": "gpt-5-codex",
-        "name": "GPT-5 Codex",
-        "description": "GPT-5 Codex is a GPT-5 variant optimized for agentic coding tasks in Codex-like environments.",
-        "type": "chat",
-        "releasedAt": "2024-09-15",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.25,
-            "textOutput": 10,
-            "textInput_cacheRead": 0.125
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
       },
       {
         "id": "gpt-5-mini",
@@ -37631,108 +37536,6 @@
         }
       },
       {
-        "id": "gpt-5.1-chat-latest",
-        "name": "GPT-5.1 Chat",
-        "description": "GPT-5.1 Chat: the ChatGPT variant of GPT-5.1, built for chat scenarios.",
-        "type": "chat",
-        "releasedAt": "2025-11-13",
-        "abilities": {
-          "toolCall": true,
-          "vision": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 16384,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.25,
-            "textInput_cacheRead": 0.125,
-            "textOutput": 10
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
-      },
-      {
-        "id": "gpt-5.1-codex",
-        "name": "GPT-5.1 Codex",
-        "description": "GPT-5.1 Codex: a GPT-5.1 variant optimized for agentic coding tasks, for complex code/agent workflows in the Responses API.",
-        "type": "chat",
-        "releasedAt": "2025-11-13",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.25,
-            "textInput_cacheRead": 0.125,
-            "textOutput": 10
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
-      },
-      {
-        "id": "gpt-5.1-codex-max",
-        "name": "GPT-5.1 Codex Max",
-        "description": "GPT-5.1 Codex Max: OpenAI's most intelligent coding model, optimized for long-horizon agentic coding tasks, supports reasoning tokens.",
-        "type": "chat",
-        "releasedAt": "2025-12-04",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.25,
-            "textInput_cacheRead": 0.125,
-            "textOutput": 10
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
-      },
-      {
-        "id": "gpt-5.1-codex-mini",
-        "name": "GPT-5.1 Codex mini",
-        "description": "GPT-5.1 Codex mini: a smaller, lower-cost Codex variant optimized for agentic coding tasks.",
-        "type": "chat",
-        "releasedAt": "2025-11-13",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.25,
-            "textInput_cacheRead": 0.025,
-            "textOutput": 2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
-      },
-      {
         "id": "gpt-5.2",
         "name": "GPT-5.2",
         "api": "azure-openai-responses",
@@ -37812,33 +37615,6 @@
           "currency": "USD",
           "unit": "millionTokens"
         }
-      },
-      {
-        "id": "gpt-5.2-codex",
-        "name": "GPT-5.2 Codex",
-        "description": "GPT-5.2-Codex is an upgraded GPT-5.2 variant optimized for long-horizon, agentic coding tasks.",
-        "type": "chat",
-        "releasedAt": "2025-12-18",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": true,
-          "search": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.75,
-            "textInput_cacheRead": 0.175,
-            "textOutput": 14
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
       },
       {
         "id": "gpt-5.2-pro",
@@ -38447,10 +38223,10 @@
             }
           ],
           "basePricing": {
-            "textInput": 1,
-            "textInput_cacheRead": 0.1,
-            "textInput_cacheWrite": 1.25,
-            "textOutput": 6
+            "textInput": 0.2,
+            "textInput_cacheRead": 0.02,
+            "textInput_cacheWrite": 0.25,
+            "textOutput": 1.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -38589,10 +38365,10 @@
             }
           ],
           "basePricing": {
-            "textInput": 2.5,
-            "textInput_cacheRead": 0.25,
-            "textInput_cacheWrite": 3.125,
-            "textOutput": 15
+            "textInput": 2,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 2.5,
+            "textOutput": 12
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -38979,32 +38755,6 @@
         }
       },
       {
-        "id": "o3-deep-research",
-        "name": "o3 Deep Research",
-        "description": "o3-deep-research is our most advanced deep research model for complex multi-step tasks. It can search the web and access your data via MCP connectors.",
-        "type": "chat",
-        "releasedAt": "2025-06-26",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 100000,
-        "pricing": {
-          "basePricing": {
-            "textInput_cacheRead": 2.5,
-            "textInput": 10,
-            "textOutput": 40
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
-      },
-      {
         "id": "o3-mini",
         "name": "o3-mini",
         "api": "azure-openai-responses",
@@ -39124,32 +38874,6 @@
           "currency": "USD",
           "unit": "millionTokens"
         }
-      },
-      {
-        "id": "o4-mini-deep-research",
-        "name": "o4-mini Deep Research",
-        "description": "o4-mini-deep-research is a faster, more affordable deep research model for complex multi-step research. It can search the web and also access your data via MCP connectors.",
-        "type": "chat",
-        "releasedAt": "2025-06-26",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 100000,
-        "pricing": {
-          "basePricing": {
-            "textInput_cacheRead": 0.5,
-            "textInput": 2,
-            "textOutput": 8
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "azure-openai-responses",
-        "baseUrl": ""
       },
       {
         "id": "sora-2",
@@ -41093,17 +40817,19 @@
     "cerebras": [
       {
         "id": "gemma-4-31b",
-        "name": "Gemma 4 31B IT",
+        "name": "Gemma 4 31B",
+        "description": "This model excels at multimodal reasoning across screenshots, documents, diagrams, and design assets. Ideal for visual agentic workflows, image-aware copilots, and teams migrating from closed multimodal APIs to an open model.",
+        "type": "chat",
         "family": "gemma",
         "releasedAt": "2026-04-02",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": true,
-          "temperature": true,
+          "vision": true,
           "structuredOutput": true,
-          "vision": true
+          "attachment": true,
+          "temperature": true
         },
         "contextWindow": 131072,
         "maxOutput": 40960,
@@ -45770,13 +45496,6 @@
         }
       },
       {
-        "id": "@cf/google/gemma-3-12b-it",
-        "name": "gemma 3 12b",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 80000
-      },
-      {
         "id": "@cf/google/gemma-4-26b-a4b-it",
         "name": "Gemma 4 26B A4B IT",
         "family": "gemma",
@@ -46290,20 +46009,6 @@
         }
       },
       {
-        "id": "@cf/openchat/openchat-3.5-0106",
-        "name": "openchat-3.5-0106",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 8192
-      },
-      {
-        "id": "@cf/qwen/qwen1.5-14b-chat-awq",
-        "name": "qwen1.5-14b-chat-awq",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 7500
-      },
-      {
         "id": "@cf/qwen/qwen2.5-coder-32b-instruct",
         "name": "qwen2.5 coder 32b",
         "type": "chat",
@@ -46507,8 +46212,6 @@
       {
         "id": "c4ai-aya-expanse-8b",
         "name": "Aya Expanse 8B",
-        "description": "Aya Expanse is a high-performance 8B multilingual model that uses instruction tuning, data arbitrage, preference training, and model merging to rival monolingual models. It supports 23 languages.",
-        "type": "chat",
         "releasedAt": "2024-10-24",
         "openWeights": true,
         "abilities": {
@@ -46526,14 +46229,6 @@
           "output": [
             "text"
           ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 1.5
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
         }
       },
       {
@@ -46573,16 +46268,14 @@
       {
         "id": "c4ai-aya-vision-8b",
         "name": "Aya Vision 8B",
-        "description": "Aya Vision is a state-of-the-art multimodal model that performs strongly on key language, text, and vision benchmarks. This 8B version focuses on low latency and strong performance.",
-        "type": "chat",
         "releasedAt": "2025-03-04",
         "openWeights": true,
         "abilities": {
           "toolCall": false,
           "reasoning": false,
-          "vision": true,
           "attachment": true,
-          "temperature": true
+          "temperature": true,
+          "vision": true
         },
         "contextWindow": 16000,
         "maxOutput": 4000,
@@ -46594,31 +46287,6 @@
           "output": [
             "text"
           ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 1.5
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "command",
-        "name": "Command",
-        "description": "An instruction-following chat model that delivers higher quality and reliability on language tasks, with a longer context window than our base generative models.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 4000,
-        "maxOutput": 4000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1,
-            "textOutput": 2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
         }
       },
       {
@@ -46657,7 +46325,9 @@
       },
       {
         "id": "command-a-plus-05-2026",
-        "name": "Command A Plus",
+        "name": "Command A+ 2605",
+        "description": "Command A+ is Cohere's first Mixture of Experts model, combining vision input support, agentic, reasoning, and world-class translation capabilities into a single model. It supports 48 languages and can run on 1× B200 or 2× H100 GPUs.",
+        "type": "chat",
         "family": "command-a",
         "releasedAt": "2026-05-20",
         "knowledge": "2025-04-01",
@@ -46665,10 +46335,10 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": true,
-          "temperature": true,
+          "vision": true,
           "structuredOutput": true,
-          "vision": true
+          "attachment": true,
+          "temperature": true
         },
         "contextWindow": 128000,
         "maxOutput": 64000,
@@ -46789,78 +46459,6 @@
         }
       },
       {
-        "id": "command-light",
-        "name": "Command Light",
-        "description": "A smaller, faster Command variant that is nearly as capable but faster.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 4000,
-        "maxOutput": 4000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "command-light-nightly",
-        "name": "Command Light Nightly",
-        "description": "To shorten the gap between major releases, we offer nightly Command builds. For the command-light series this is called command-light-nightly. It is the newest, most experimental (and potentially unstable) version, updated regularly without notice, so it is not recommended for production.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 4000,
-        "maxOutput": 4000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "command-nightly",
-        "name": "Command Nightly",
-        "description": "To shorten the gap between major releases, we offer nightly Command builds. For the Command series this is called command-nightly. It is the newest, most experimental (and potentially unstable) version, updated regularly without notice, so it is not recommended for production.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 4000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1,
-            "textOutput": 2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "command-r-03-2024",
-        "name": "Command R 2403",
-        "description": "command-r is an instruction-following chat model that performs language tasks with higher quality, improved reliability, and longer context than previous models. It supports complex workflows such as code generation, RAG, tool use, and agents.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 4000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "command-r-08-2024",
         "name": "Command R 2408",
         "description": "command-r-08-2024 is an updated Command R model released in August 2024.",
@@ -46889,25 +46487,6 @@
           "basePricing": {
             "textInput": 0.15,
             "textOutput": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "command-r-plus-04-2024",
-        "name": "Command R+ 2404",
-        "description": "command-r-plus is an alias of command-r-plus-04-2024, so using command-r-plus in the API points to that model.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 4000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 3,
-            "textOutput": 15
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -62048,13 +61627,14 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 1048576,
         "maxOutput": 131072,
         "modalities": {
           "input": [
             "text",
             "image",
-            "video"
+            "video",
+            "audio"
           ],
           "output": [
             "text"
@@ -72083,6 +71663,8 @@
       {
         "id": "gemini-3.1-flash-image",
         "name": "Nano Banana 2",
+        "description": "Gemini 3.1 Flash Image (Nano Banana 2) is Google's fastest native image generation model with thinking support, conversational image generation and editing.",
+        "type": "chat",
         "family": "gemini-flash",
         "releasedAt": "2026-05-28",
         "knowledge": "2025-01",
@@ -72090,12 +71672,14 @@
         "abilities": {
           "toolCall": false,
           "reasoning": true,
+          "vision": true,
+          "search": true,
+          "imageOutput": true,
           "attachment": true,
-          "temperature": true,
-          "vision": true
+          "temperature": true
         },
-        "contextWindow": 65536,
-        "maxOutput": 65536,
+        "contextWindow": 163840,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text",
@@ -72110,8 +71694,10 @@
         },
         "pricing": {
           "basePricing": {
+            "imageOutput": 60,
             "textInput": 0.5,
-            "textOutput": 60
+            "imageInput": 0.5,
+            "textOutput": 3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -72181,6 +71767,29 @@
             "imageOutput": 60,
             "textInput": 0.25,
             "textOutput": 1.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "google": {
+            "supportsMultimodalFunctionResponse": true
+          }
+        }
+      },
+      {
+        "id": "gemini-3.1-flash-image:image",
+        "name": "Nano Banana 2",
+        "description": "Gemini 3.1 Flash Image (Nano Banana 2) is Google's fastest native image generation model with thinking support, conversational image generation and editing.",
+        "type": "image",
+        "releasedAt": "2026-05-28",
+        "abilities": {},
+        "pricing": {
+          "basePricing": {
+            "imageOutput": 60,
+            "textInput": 0.5,
+            "imageInput": 0.5,
+            "textOutput": 3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -73293,51 +72902,6 @@
               "high": "HIGH"
             }
           }
-        }
-      },
-      {
-        "id": "veo-2.0-generate-001",
-        "name": "Veo 2.0 Generate 001",
-        "description": "Our state-of-the-art video generation model, available to developers on the paid tier of the Gemini API.",
-        "type": "video",
-        "releasedAt": "2025-04-09",
-        "abilities": {},
-        "pricing": {
-          "basePricing": {
-            "videoGeneration": 0.35
-          },
-          "currency": "USD",
-          "unit": "second"
-        }
-      },
-      {
-        "id": "veo-3.0-fast-generate-001",
-        "name": "Veo 3.0 Fast Generate 001",
-        "description": "Our stable video generation model, available to developers on the paid tier of the Gemini API.",
-        "type": "video",
-        "releasedAt": "2025-11-11",
-        "abilities": {},
-        "pricing": {
-          "basePricing": {
-            "videoGeneration": 0.15
-          },
-          "currency": "USD",
-          "unit": "second"
-        }
-      },
-      {
-        "id": "veo-3.0-generate-001",
-        "name": "Veo 3.0 Generate 001",
-        "description": "Our stable video generation model, available to developers on the paid tier of the Gemini API.",
-        "type": "video",
-        "releasedAt": "2025-11-11",
-        "abilities": {},
-        "pricing": {
-          "basePricing": {
-            "videoGeneration": 0.4
-          },
-          "currency": "USD",
-          "unit": "second"
         }
       },
       {
@@ -78245,22 +77809,6 @@
         }
       },
       {
-        "id": "meta-llama/llama-4-scout-17b-16e-instruct",
-        "name": "Llama 4 Scout (17Bx16E)",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 131072,
-        "maxOutput": 8192,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.11,
-            "textOutput": 0.34
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "meta-llama/llama-prompt-guard-2-22m",
         "name": "Llama Prompt Guard 2 22M",
         "type": "chat",
@@ -78323,6 +77871,19 @@
           "currency": "USD",
           "unit": "millionTokens"
         }
+      },
+      {
+        "id": "minimaxai/minimax-m2.7",
+        "name": "MiniMax M2.7",
+        "description": "MiniMax M2.7 is a 229B-parameter MoE model (~10B active) built for agentic workflows and real-world software engineering. It interleaves thinking with actions across multi-step tasks and is available on Groq for Enterprise customers.",
+        "type": "chat",
+        "releasedAt": "2026-03-18",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true
+        },
+        "contextWindow": 196608,
+        "maxOutput": 131072
       },
       {
         "id": "openai/gpt-oss-120b",
@@ -78425,36 +77986,20 @@
         }
       },
       {
-        "id": "qwen/qwen3-32b",
-        "name": "Qwen3 32B",
-        "type": "chat",
-        "abilities": {
-          "reasoning": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 40960,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.29,
-            "textOutput": 0.59
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "qwen/qwen3.6-27b",
         "name": "Qwen3.6 27B",
+        "description": "Qwen3.6 27B is an open-source dense model with strong performance in reasoning, coding, and general capabilities. It supports thinking mode by default, offering balanced performance and efficiency.",
+        "type": "chat",
         "family": "qwen",
-        "releasedAt": "2026-04-22",
+        "releasedAt": "2026-04-23",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": true,
-          "temperature": true,
+          "vision": true,
           "structuredOutput": true,
-          "vision": true
+          "attachment": true,
+          "temperature": true
         },
         "contextWindow": 131072,
         "maxOutput": 16384,
@@ -78470,8 +78015,7 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.6,
-            "textOutput": 3,
-            "textInput_cacheRead": 0.3
+            "textOutput": 3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -87516,6 +87060,29 @@
           },
           "currency": "CNY",
           "unit": "second"
+        }
+      },
+      {
+        "id": "hy3",
+        "name": "Hy3",
+        "description": "Hunyuan Hy3 is optimized for production agent workloads, with improvements in coding agents, long-document understanding, multi-turn context retention, search question answering, and complex task execution. It provides more reliable task completion and engineering usability for cross-file development, office automation, and multi-step agent workflows.",
+        "type": "chat",
+        "releasedAt": "2026-07-06",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 256000,
+        "maxOutput": 128000,
+        "pricing": {
+          "basePricing": {
+            "textInput_cacheRead": 0.25,
+            "textInput": 1,
+            "textOutput": 4
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
         }
       },
       {
@@ -98115,7 +97682,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 65536,
+        "maxOutput": 384000,
         "modalities": {
           "input": [
             "text"
@@ -100237,7 +99804,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 65536,
+        "maxOutput": 384000,
         "modalities": {
           "input": [
             "text"
@@ -109979,8 +109546,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "contextWindow": 1024000,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text"
@@ -118005,6 +117572,8 @@
       {
         "id": "LongCat-2.0",
         "name": "LongCat-2.0",
+        "description": "LongCat-2.0 is a 1600B MoE language model from Meituan designed for agent development scenarios. It natively supports tool calling, multi-step reasoning, and long-context tasks, with strong performance in code generation, automated workflows, and complex instruction execution. It is deeply integrated with productivity tools including Claude Code, OpenClaw, OpenCode, and Kilo Code.",
+        "type": "chat",
         "family": "longcat",
         "releasedAt": "2026-06-30",
         "openWeights": false,
@@ -118017,7 +117586,7 @@
             "field": "reasoning_content"
           }
         },
-        "contextWindow": 1000000,
+        "contextWindow": 1048576,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -118032,26 +117601,6 @@
             "textInput": 0.75,
             "textOutput": 2.95,
             "textInput_cacheRead": 0.015
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "LongCat-2.0-Preview",
-        "name": "LongCat-2.0-Preview",
-        "description": "The core features of LongCat-2.0-Preview are as follows: Designed for agent development scenarios, with native support for tool use, multi-step reasoning, and long-context tasks; Excels in code generation, automated workflows, and complex instruction execution; Deeply integrated with productivity tools such as Claude Code, OpenClaw, OpenCode, and Kilo Code.",
-        "type": "chat",
-        "releasedAt": "2026-04-20",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 128000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -124669,6 +124218,14 @@
           "currency": "CNY",
           "unit": "millionTokens"
         }
+      },
+      {
+        "id": "MiniMax-H3",
+        "name": "MiniMax H3",
+        "description": "A unified text-to-video, image-to-video, and reference-to-video model with enhanced motion, consistency, and native audio capabilities.",
+        "type": "video",
+        "releasedAt": "2026-07-31",
+        "abilities": {}
       },
       {
         "id": "MiniMax-Hailuo-02",
@@ -159316,19 +158873,17 @@
       },
       {
         "id": "google/gemma-2-2b-it",
-        "name": "Gemma 2 2B Instruct",
-        "description": "An advanced small language model designed for edge applications.",
-        "type": "chat",
+        "name": "Gemma 2 2b It",
         "releasedAt": "2024-07-16",
         "openWeights": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
-          "structuredOutput": true,
           "attachment": false,
-          "temperature": true
+          "temperature": true,
+          "structuredOutput": true
         },
-        "contextWindow": 8192,
+        "contextWindow": 128000,
         "maxOutput": 4096,
         "modalities": {
           "input": [
@@ -159976,7 +159531,6 @@
       {
         "id": "minimaxai/minimax-m2.7",
         "name": "MiniMax-M2.7",
-        "type": "chat",
         "family": "minimax",
         "releasedAt": "2026-03-18",
         "openWeights": true,
@@ -165230,17 +164784,6 @@
     ],
     "ollama-cloud": [
       {
-        "id": "deepseek-v3.1:671b",
-        "name": "DeepSeek V3.1",
-        "description": "DeepSeek V3.1 is a next-generation reasoning model with improved complex reasoning and chain-of-thought, suited for tasks requiring deep analysis.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 163840
-      },
-      {
         "id": "deepseek-v4-flash",
         "name": "deepseek-v4-flash",
         "family": "deepseek-flash",
@@ -165310,29 +164853,6 @@
         }
       },
       {
-        "id": "devstral-2:123b",
-        "name": "Devstral 2",
-        "description": "Devstral 2 123B excels at using tools to explore codebases, edit multiple files, and support software engineering agents.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 262144
-      },
-      {
-        "id": "gemini-3-flash-preview",
-        "name": "Gemini 3 Flash Preview",
-        "description": "Gemini 3 Flash is the smartest model built for speed, combining cutting-edge intelligence with excellent search grounding.",
-        "type": "chat",
-        "releasedAt": "2025-12-17",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true
-        },
-        "contextWindow": 1048576
-      },
-      {
         "id": "gemma4:31b",
         "name": "Gemma 4 31B",
         "type": "chat",
@@ -165357,28 +164877,6 @@
             "text"
           ]
         }
-      },
-      {
-        "id": "glm-4.7",
-        "name": "GLM-4.7",
-        "description": "GLM-4.7 is Zhipu's latest flagship model, enhanced for Agentic Coding scenarios with improved coding capabilities, long-term task planning, and tool collaboration. It achieves leading performance among open-source models on multiple public benchmarks. General capabilities are improved with more concise and natural responses and more immersive writing. For complex agent tasks, instruction following during tool calls is stronger, and the frontend aesthetics and long-term task completion efficiency of Artifacts and Agentic Coding are further enhanced.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 200000
-      },
-      {
-        "id": "glm-5",
-        "name": "GLM-5",
-        "description": "A strong reasoning and agentic model from Z.ai with 744B total parameters (40B active), built for complex systems engineering and long-horizon tasks.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 200000
       },
       {
         "id": "glm-5.1",
@@ -165592,16 +165090,6 @@
         }
       },
       {
-        "id": "minimax-m2.1",
-        "name": "MiniMax M2.1",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 204800
-      },
-      {
         "id": "minimax-m2.5",
         "name": "MiniMax M2.5",
         "description": "MiniMax-M2.5 is a state-of-the-art large language model designed for real-world productivity and coding tasks.",
@@ -165678,42 +165166,6 @@
             "text"
           ]
         }
-      },
-      {
-        "id": "ministral-3:14b",
-        "name": "Ministral 3 14B",
-        "description": "Ministral 3 14B is the largest model in the Ministral 3 series, delivering state-of-the-art performance comparable to the larger Mistral Small 3.2 24B counterpart. Optimized for local deployment, it delivers high performance on various hardware including local setups.",
-        "type": "chat",
-        "releasedAt": "2025-12-02",
-        "abilities": {
-          "toolCall": true,
-          "vision": true
-        },
-        "contextWindow": 262144
-      },
-      {
-        "id": "ministral-3:3b",
-        "name": "Ministral 3 3B",
-        "description": "Ministral 3 3B is the smallest and most efficient model in the Ministral 3 series, offering strong language and vision capabilities in a compact package. Designed for edge deployment, it delivers high performance on various hardware including local setups.",
-        "type": "chat",
-        "releasedAt": "2025-12-02",
-        "abilities": {
-          "toolCall": true,
-          "vision": true
-        },
-        "contextWindow": 262144
-      },
-      {
-        "id": "ministral-3:8b",
-        "name": "Ministral 3 8B",
-        "description": "Ministral 3 8B is a powerful and efficient model in the Ministral 3 series, delivering top-tier text and vision capabilities. Built for edge deployment, it delivers high performance on various hardware including local setups.",
-        "type": "chat",
-        "releasedAt": "2025-12-02",
-        "abilities": {
-          "toolCall": true,
-          "vision": true
-        },
-        "contextWindow": 262144
       },
       {
         "id": "mistral-large-3:675b",
@@ -165811,26 +165263,6 @@
         }
       },
       {
-        "id": "qwen3-coder-next",
-        "name": "Qwen3 Coder Next",
-        "description": "Qwen3-Coder-Next is a coding-focused language model from Alibaba's Qwen team, optimized for agentic coding workflows and local development. Built on top of Qwen3-Next-80B-A3B-Base with hybrid attention and MoE architecture, trained on large-scale executable tasks with environment interaction and reinforcement learning.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 262144
-      },
-      {
-        "id": "qwen3-coder:480b",
-        "name": "Qwen3 Coder 480B",
-        "description": "Alibaba's high-performance long-context model for agent and coding tasks.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 262144
-      },
-      {
         "id": "qwen3.5:397b",
         "name": "Qwen3.5 397B A17B",
         "description": "Qwen3.5 is a unified vision–language foundation model with a hybrid architecture (Mixture-of-Experts + linear attention), offering strong multimodal reasoning, coding, and long-context capabilities with a 256K context window.",
@@ -165909,38 +165341,6 @@
             "text",
             "image"
           ]
-        }
-      },
-      {
-        "id": "computer-use-preview",
-        "name": "Computer Use Preview",
-        "description": "computer-use-preview is a specialized model for the \"computer use tool,\" trained to understand and execute computer-related tasks.",
-        "type": "chat",
-        "releasedAt": "2025-03-11",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true
-        },
-        "contextWindow": 8192,
-        "maxOutput": 1024,
-        "pricing": {
-          "basePricing": {
-            "textInput": 3,
-            "textOutput": 12
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "low",
-              "medium",
-              "high"
-            ],
-            "default": "medium"
-          }
         }
       },
       {
@@ -166601,26 +166001,6 @@
         }
       },
       {
-        "id": "gpt-4o-mini-search-preview",
-        "name": "GPT-4o mini Search Preview",
-        "description": "GPT-4o mini Search Preview is trained to understand and execute web search queries via the Chat Completions API. Web search is billed per tool call in addition to token costs.",
-        "type": "chat",
-        "releasedAt": "2025-03-11",
-        "abilities": {
-          "search": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 16384,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "gpt-4o-mini-transcribe",
         "name": "GPT-4o Mini Transcribe",
         "description": "GPT-4o Mini Transcribe is a speech-to-text model that transcribes audio with GPT-4o, improving word error rate, language ID, and accuracy over the original Whisper model.",
@@ -166714,26 +166094,6 @@
             "textInput_cacheRead": 2.5,
             "textInput": 5,
             "textOutput": 20
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "gpt-4o-search-preview",
-        "name": "GPT-4o Search Preview",
-        "description": "GPT-4o Search Preview is trained to understand and execute web search queries via the Chat Completions API. Web search is billed per tool call in addition to token costs.",
-        "type": "chat",
-        "releasedAt": "2025-03-11",
-        "abilities": {
-          "search": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 16384,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2.5,
-            "textOutput": 10
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -166836,93 +166196,6 @@
               "high"
             ],
             "default": "medium"
-          }
-        }
-      },
-      {
-        "id": "gpt-5-chat-latest",
-        "name": "GPT-5 Chat",
-        "description": "The GPT-5 model used in ChatGPT, combining strong understanding and generation for conversational applications.",
-        "type": "chat",
-        "releasedAt": "2025-08-07",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.25,
-            "textOutput": 10,
-            "textInput_cacheRead": 0.125
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "minimal",
-              "low",
-              "medium",
-              "high"
-            ],
-            "default": "medium"
-          }
-        }
-      },
-      {
-        "id": "gpt-5-codex",
-        "name": "GPT-5 Codex",
-        "description": "GPT-5 Codex is a GPT-5 variant optimized for agentic coding tasks in Codex-like environments.",
-        "type": "chat",
-        "releasedAt": "2024-09-15",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput": 2,
-                "textOutput": 2,
-                "textInput_cacheRead": 2
-              },
-              "when": {
-                "serviceTier": "priority"
-              }
-            }
-          ],
-          "basePricing": {
-            "textInput": 1.25,
-            "textOutput": 10,
-            "textInput_cacheRead": 0.125
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "minimal",
-              "low",
-              "medium",
-              "high"
-            ],
-            "default": "medium"
-          }
-        },
-        "compat": {
-          "openaiResponses": {
-            "supportsAdditionalServiceTiers": [
-              "priority"
-            ]
           }
         }
       },
@@ -167206,184 +166479,6 @@
         }
       },
       {
-        "id": "gpt-5.1-chat-latest",
-        "name": "GPT-5.1 Chat",
-        "description": "GPT-5.1 Chat: the ChatGPT variant of GPT-5.1, built for chat scenarios.",
-        "type": "chat",
-        "releasedAt": "2025-11-13",
-        "abilities": {
-          "toolCall": true,
-          "vision": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 16384,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.25,
-            "textInput_cacheRead": 0.125,
-            "textOutput": 10
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ],
-            "default": "none"
-          }
-        }
-      },
-      {
-        "id": "gpt-5.1-codex",
-        "name": "GPT-5.1 Codex",
-        "description": "GPT-5.1 Codex: a GPT-5.1 variant optimized for agentic coding tasks, for complex code/agent workflows in the Responses API.",
-        "type": "chat",
-        "releasedAt": "2025-11-13",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput": 2,
-                "textOutput": 2,
-                "textInput_cacheRead": 2
-              },
-              "when": {
-                "serviceTier": "priority"
-              }
-            }
-          ],
-          "basePricing": {
-            "textInput": 1.25,
-            "textInput_cacheRead": 0.125,
-            "textOutput": 10
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ],
-            "default": "none"
-          }
-        },
-        "compat": {
-          "openaiResponses": {
-            "supportsAdditionalServiceTiers": [
-              "priority"
-            ]
-          }
-        }
-      },
-      {
-        "id": "gpt-5.1-codex-max",
-        "name": "GPT-5.1 Codex Max",
-        "description": "GPT-5.1 Codex Max: OpenAI's most intelligent coding model, optimized for long-horizon agentic coding tasks, supports reasoning tokens.",
-        "type": "chat",
-        "releasedAt": "2025-12-04",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput": 2,
-                "textOutput": 2,
-                "textInput_cacheRead": 2
-              },
-              "when": {
-                "serviceTier": "priority"
-              }
-            }
-          ],
-          "basePricing": {
-            "textInput": 1.25,
-            "textInput_cacheRead": 0.125,
-            "textOutput": 10
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "none",
-              "medium",
-              "high",
-              "xhigh"
-            ],
-            "default": "medium"
-          }
-        },
-        "compat": {
-          "openaiResponses": {
-            "supportsAdditionalServiceTiers": [
-              "priority"
-            ]
-          }
-        }
-      },
-      {
-        "id": "gpt-5.1-codex-mini",
-        "name": "GPT-5.1 Codex mini",
-        "description": "GPT-5.1 Codex mini: a smaller, lower-cost Codex variant optimized for agentic coding tasks.",
-        "type": "chat",
-        "releasedAt": "2025-11-13",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.25,
-            "textInput_cacheRead": 0.025,
-            "textOutput": 2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ],
-            "default": "none"
-          }
-        }
-      },
-      {
         "id": "gpt-5.2",
         "name": "GPT-5.2",
         "description": "GPT-5.2 is a flagship model for coding and agentic workflows with stronger reasoning and long-context performance.",
@@ -167513,62 +166608,6 @@
               "xhigh"
             ],
             "default": "none"
-          }
-        }
-      },
-      {
-        "id": "gpt-5.2-codex",
-        "name": "GPT-5.2 Codex",
-        "description": "GPT-5.2-Codex is an upgraded GPT-5.2 variant optimized for long-horizon, agentic coding tasks.",
-        "type": "chat",
-        "releasedAt": "2025-12-18",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": true,
-          "search": true
-        },
-        "contextWindow": 400000,
-        "maxOutput": 128000,
-        "pricing": {
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput": 2,
-                "textOutput": 2,
-                "textInput_cacheRead": 2
-              },
-              "when": {
-                "serviceTier": "priority"
-              }
-            }
-          ],
-          "basePricing": {
-            "textInput": 1.75,
-            "textInput_cacheRead": 0.175,
-            "textOutput": 14
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "low",
-              "medium",
-              "high",
-              "xhigh"
-            ],
-            "default": "medium"
-          }
-        },
-        "compat": {
-          "openaiResponses": {
-            "supportsAdditionalServiceTiers": [
-              "priority"
-            ]
           }
         }
       },
@@ -168355,10 +167394,10 @@
             }
           ],
           "basePricing": {
-            "textInput": 1,
-            "textInput_cacheRead": 0.1,
-            "textInput_cacheWrite": 1.25,
-            "textOutput": 6
+            "textInput": 0.2,
+            "textInput_cacheRead": 0.02,
+            "textInput_cacheWrite": 0.25,
+            "textOutput": 1.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -168493,10 +167532,10 @@
             }
           ],
           "basePricing": {
-            "textInput": 2.5,
-            "textInput_cacheRead": 0.25,
-            "textInput_cacheWrite": 3.125,
-            "textOutput": 15
+            "textInput": 2,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 2.5,
+            "textOutput": 12
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -168925,40 +167964,6 @@
         }
       },
       {
-        "id": "o3-deep-research",
-        "name": "o3 Deep Research",
-        "description": "o3-deep-research is our most advanced deep research model for complex multi-step tasks. It can search the web and access your data via MCP connectors.",
-        "type": "chat",
-        "releasedAt": "2025-06-26",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 100000,
-        "pricing": {
-          "basePricing": {
-            "textInput_cacheRead": 2.5,
-            "textInput": 10,
-            "textOutput": 40
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "low",
-              "medium",
-              "high"
-            ],
-            "default": "medium"
-          }
-        }
-      },
-      {
         "id": "o3-mini",
         "name": "o3-mini",
         "description": "o3-mini is our latest small reasoning model, delivering higher intelligence at the same cost and latency targets as o1-mini.",
@@ -169123,40 +168128,6 @@
               "priority"
             ]
           }
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "low",
-              "medium",
-              "high"
-            ],
-            "default": "medium"
-          }
-        }
-      },
-      {
-        "id": "o4-mini-deep-research",
-        "name": "o4-mini Deep Research",
-        "description": "o4-mini-deep-research is a faster, more affordable deep research model for complex multi-step research. It can search the web and also access your data via MCP connectors.",
-        "type": "chat",
-        "releasedAt": "2025-06-26",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "search": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 100000,
-        "pricing": {
-          "basePricing": {
-            "textInput_cacheRead": 0.5,
-            "textInput": 2,
-            "textOutput": 8
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
         },
         "_": {
           "reasoningEffort": {
@@ -175443,7 +174414,7 @@
           "temperature": false
         },
         "contextWindow": 1048576,
-        "maxOutput": 65536,
+        "maxOutput": 384000,
         "modalities": {
           "input": [
             "text"
@@ -178357,7 +177328,7 @@
           "temperature": false
         },
         "contextWindow": 1048576,
-        "maxOutput": 65536,
+        "maxOutput": 384000,
         "modalities": {
           "input": [
             "text"
@@ -191152,9 +190123,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.3472,
-            "textOutput": 1.0912,
-            "textInput_cacheRead": 0.06448
+            "textInput": 0.308,
+            "textOutput": 0.968,
+            "textInput_cacheRead": 0.0572
           }
         }
       },
@@ -210523,6 +209494,83 @@
         }
       },
       {
+        "id": "qwen3.7-flash",
+        "name": "Qwen3.7 Flash",
+        "description": "Qwen3.7 native vision-language Flash model, with comprehensive improvements in multimodal understanding and Agent execution capabilities compared to Qwen3.6-Flash. Key enhancements include strengthened multimodal foundational capabilities, stronger universal object recognition, further improved real-world perception and spatial intelligence, significantly upgraded capabilities in multimodal Agent scenarios such as Search Agent and CI Agent, more stable end-to-end task execution, optimized multimodal Coding capabilities, and a smoother vibe coding experience.",
+        "type": "chat",
+        "releasedAt": "2026-07-21",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "search": true,
+          "video": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 65536,
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textOutput": 3
+              },
+              "when": {
+                "textOutput": [
+                  0.032,
+                  0.256
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textOutput": 6
+              },
+              "when": {
+                "textOutput": [
+                  0.256,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 3,
+                "textInput_cacheRead": 3
+              },
+              "when": {
+                "textTotalInput": [
+                  0.032,
+                  0.256
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 6,
+                "textInput_cacheRead": 6
+              },
+              "when": {
+                "textTotalInput": [
+                  0.256,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 0.2,
+            "textOutput": 0.8,
+            "textInput_cacheRead": 0.04
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "qwen3.7-max",
         "name": "Qwen3.7 Max",
         "description": "Qwen3.7 Max is the flagship omnipotent model of the AI agent era, offering comprehensive capabilities across text, image, and video understanding. It provides superior reasoning, function calling, and agent task execution performance.",
@@ -217282,8 +216330,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 2,
-            "textOutput": 3
+            "textInput_cacheRead": 0.4,
+            "textInput": 4,
+            "textOutput": 6
           },
           "currency": "CNY",
           "unit": "millionTokens"
@@ -217391,9 +216440,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput_cacheRead": 0.025,
-            "textInput": 3,
-            "textOutput": 6
+            "textInput_cacheRead": 0.1,
+            "textInput": 12,
+            "textOutput": 24
           },
           "currency": "CNY",
           "unit": "millionTokens"
@@ -217525,6 +216574,27 @@
         "abilities": {}
       },
       {
+        "id": "meituan-longcat/LongCat-2.0",
+        "name": "LongCat-2.0",
+        "description": "LongCat-2.0 is a 1600B MoE language model from Meituan designed for agent development scenarios. It natively supports tool calling, multi-step reasoning, and long-context tasks, with strong performance in code generation, automated workflows, and complex instruction execution. It is deeply integrated with productivity tools including Claude Code, OpenClaw, OpenCode, and Kilo Code.",
+        "type": "chat",
+        "releasedAt": "2026-06-30",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true
+        },
+        "contextWindow": 1048576,
+        "pricing": {
+          "basePricing": {
+            "textInput_cacheRead": 0.1,
+            "textInput": 5,
+            "textOutput": 20
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "MiniMaxAI/MiniMax-M2.5",
         "name": "MiniMax-M2.5",
         "description": "MiniMax-M2.5 is the latest large language model developed by MiniMax, trained through large-scale reinforcement learning across hundreds of thousands of complex, real-world environments. Featuring an MoE architecture with 229 billion parameters, it achieves industry-leading performance in tasks such as programming, agent tool-calling, search, and office scenarios.",
@@ -217652,6 +216722,28 @@
             "textInput_cacheRead": 1.3,
             "textInput": 6.5,
             "textOutput": 27
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "nex-agi/Nex-N2-Pro",
+        "name": "Nex-N2-Pro",
+        "description": "Nex-N2 is an agentic thinking model that adaptively decides when and how deeply to reason. It handles coding, search, and tool tasks through a unified thinking paradigm with strong generalization capabilities.",
+        "type": "chat",
+        "releasedAt": "2026-06-03",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "pricing": {
+          "basePricing": {
+            "textInput_cacheRead": 0.175,
+            "textInput": 1.75,
+            "textOutput": 7
           },
           "currency": "CNY",
           "unit": "millionTokens"
@@ -217808,8 +216900,9 @@
         "contextWindow": 163840,
         "pricing": {
           "basePricing": {
-            "textInput": 2,
-            "textOutput": 3
+            "textInput_cacheRead": 0.4,
+            "textInput": 4,
+            "textOutput": 6
           },
           "currency": "CNY",
           "unit": "millionTokens"
@@ -218971,24 +218064,9 @@
           ]
         },
         "pricing": {
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput": 3,
-                "textOutput": 3
-              },
-              "when": {
-                "textTotalInput": [
-                  0.128,
-                  "infinity"
-                ]
-              }
-            }
-          ],
           "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 4.8
+            "textInput": 3,
+            "textOutput": 18
           },
           "currency": "CNY",
           "unit": "millionTokens"
@@ -219021,24 +218099,9 @@
           ]
         },
         "pricing": {
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput": 4,
-                "textOutput": 4
-              },
-              "when": {
-                "textTotalInput": [
-                  0.128,
-                  "infinity"
-                ]
-              }
-            }
-          ],
           "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 3.2
+            "textInput": 1.8,
+            "textOutput": 10.8
           },
           "currency": "CNY",
           "unit": "millionTokens"
@@ -246920,6 +245983,31 @@
           "currency": "CNY",
           "unit": "millionTokens"
         }
+      },
+      {
+        "id": "glm-5-2",
+        "name": "GLM-5.2",
+        "description": "GLM-5.2 is Zhipu AI’s flagship model for long-horizon tasks on Volcano Ark, with major improvements in coding, long-context understanding, planning, and tool collaboration. It supports a 1M-token context window and flexible reasoning effort control for complex development, mobile full-stack work, code migration, and research reproduction.",
+        "type": "chat",
+        "releasedAt": "2026-06-17",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "structuredOutput": true,
+          "search": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "pricing": {
+          "basePricing": {
+            "textInput": 8,
+            "textOutput": 28,
+            "textInput_cacheRead": 2,
+            "textInput_cacheWrite": 0.017
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
+        }
       }
     ],
     "volcengineCodingPlan": [
@@ -248494,26 +247582,6 @@
     ],
     "wenxin": [
       {
-        "id": "deepseek-r1-250528",
-        "name": "DeepSeek R1 250528",
-        "description": "DeepSeek R1 250528 is the full DeepSeek-R1 reasoning model for hard math and logic tasks.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 144000,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 4,
-            "textOutput": 16
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "deepseek-r1-distill-llama-70b",
         "name": "DeepSeek R1 Distill Llama 70B",
         "description": "DeepSeek R1 Distill Llama 70B combines R1 reasoning with the Llama ecosystem.",
@@ -248606,46 +247674,6 @@
         "maxOutput": 8192
       },
       {
-        "id": "deepseek-r1-distill-qwen-14b",
-        "name": "DeepSeek R1 Distill Qwen 14B",
-        "description": "DeepSeek R1 Distill Qwen 14B is a mid-size distill model for multi-scenario deployment.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 8192,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.4
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepseek-r1-distill-qwen-32b",
-        "name": "DeepSeek R1 Distill Qwen 32B",
-        "description": "DeepSeek R1 Distill Qwen 32B is an R1 distill based on Qwen-32B, balancing performance and cost.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 8192,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 6
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "deepseek-r1-distill-qwen-7b",
         "name": "DeepSeek R1 Distill Qwen 7B",
         "description": "DeepSeek R1 Distill Qwen 7B is a lightweight distill model for edge and private enterprise environments.",
@@ -248656,27 +247684,6 @@
         },
         "contextWindow": 32768,
         "maxOutput": 8192
-      },
-      {
-        "id": "deepseek-v3.1-think-250821",
-        "name": "DeepSeek V3.1 Think 250821",
-        "description": "DeepSeek V3.1 Think 250821 is the deep-thinking model corresponding to the Terminus version, built for high-performance reasoning.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "search": true
-        },
-        "contextWindow": 144000,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 4,
-            "textOutput": 12
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
       },
       {
         "id": "deepseek-v3.2-think",
@@ -248732,23 +247739,6 @@
           "basePricing": {
             "textInput": 0.5,
             "textOutput": 0.5
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "ernie-4.5-0.3b",
-        "name": "ERNIE 4.5 0.3B",
-        "description": "ERNIE 4.5 0.3B is an open-source lightweight model for local and customized deployment.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 131072,
-        "maxOutput": 8192,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.4
           },
           "currency": "CNY",
           "unit": "millionTokens"
@@ -249109,20 +248099,6 @@
         }
       },
       {
-        "id": "ernie-image-turbo",
-        "name": "ERNIE Image Turbo",
-        "description": "ERNIE-Image is an 8B-parameter text-to-image model developed by Baidu. It ranks among the top on multiple benchmarks, achieving a tied first place in SuperCLUE in China and leading in the open-source track.",
-        "type": "image",
-        "abilities": {},
-        "pricing": {
-          "basePricing": {
-            "imageGeneration": 0.11
-          },
-          "currency": "CNY",
-          "unit": "image"
-        }
-      },
-      {
         "id": "ernie-irag-edit",
         "name": "ERNIE iRAG Edit",
         "description": "ERNIE iRAG Edit is an image editing model supporting erasing, repainting, and variant generation.",
@@ -249138,25 +248114,6 @@
         }
       },
       {
-        "id": "ernie-lite-pro-128k",
-        "name": "ERNIE Lite Pro 128K",
-        "description": "ERNIE Lite Pro 128K is a lightweight high-performance model for latency- and cost-sensitive scenarios.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 4096,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 0.4
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "ernie-novel-8k",
         "name": "ERNIE Novel 8K",
         "description": "ERNIE Novel 8K is built for long-form novels and IP plots with multi-character narratives.",
@@ -249168,63 +248125,6 @@
           "basePricing": {
             "textInput": 40,
             "textOutput": 120
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "ernie-speed-pro-128k",
-        "name": "ERNIE Speed Pro 128K",
-        "description": "ERNIE Speed Pro 128K is a high-concurrency, high-value model for large-scale online services and enterprise apps.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 131072,
-        "maxOutput": 4096,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 0.6
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "ernie-x1-turbo-32k",
-        "name": "ERNIE X1 Turbo 32K",
-        "description": "ERNIE X1 Turbo 32K is a fast thinking model with 32K context for complex reasoning and multi-turn chat.",
-        "type": "chat",
-        "abilities": {
-          "reasoning": true,
-          "search": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 28160,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1,
-            "textOutput": 4
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "ernie-x1-turbo-32k-preview",
-        "name": "ERNIE X1 Turbo 32K Preview",
-        "description": "ERNIE X1 Turbo 32K Preview is a fast thinking model with 32K context for complex reasoning and multi-turn chat.",
-        "type": "chat",
-        "abilities": {
-          "reasoning": true,
-          "search": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 28160,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1,
-            "textOutput": 4
           },
           "currency": "CNY",
           "unit": "millionTokens"
@@ -249270,21 +248170,6 @@
           },
           "currency": "CNY",
           "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "flux.1-schnell",
-        "name": "FLUX.1-schnell",
-        "description": "FLUX.1-schnell is a high-performance image generation model for fast multi-style outputs.",
-        "type": "image",
-        "releasedAt": "2025-03-27",
-        "abilities": {},
-        "pricing": {
-          "basePricing": {
-            "imageGeneration": 0.002
-          },
-          "currency": "CNY",
-          "unit": "image"
         }
       },
       {
@@ -249576,25 +248461,6 @@
         "maxOutput": 2048
       },
       {
-        "id": "qianfan-check-vl",
-        "name": "Qianfan Check VL",
-        "description": "Qianfan Check VL is a multimodal content review model for image-text compliance and recognition tasks.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 131072,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.25,
-            "textOutput": 3.75
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "qianfan-composition",
         "name": "Qianfan Composition",
         "description": "Qianfan Composition is a multimodal creation model for mixed image-text understanding and generation.",
@@ -249690,44 +248556,6 @@
         }
       },
       {
-        "id": "qianfan-vl-70b",
-        "name": "Qianfan VL 70B",
-        "description": "Qianfan VL 70B is a large VLM for complex image-text understanding.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 28672,
-        "pricing": {
-          "basePricing": {
-            "textInput": 8,
-            "textOutput": 24
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qianfan-vl-8b",
-        "name": "Qianfan VL 8B",
-        "description": "Qianfan VL 8B is a lightweight VLM for daily image-text QA and analysis.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 28672,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2,
-            "textOutput": 6
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "qwen-image",
         "name": "Qwen Image",
         "description": "Qwen-Image is a general image generation model supporting multiple art styles and strong complex text rendering, especially Chinese and English. It supports multi-line layouts, paragraph-level text, and fine detail for complex text-image layouts.",
@@ -249756,62 +248584,6 @@
         }
       },
       {
-        "id": "qwen3-14b",
-        "name": "Qwen3 14B",
-        "description": "Qwen3 14B is a mid-size model for multilingual QA and text generation.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 32768,
-        "maxOutput": 8192,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1,
-            "textOutput": 4
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-235b-a22b-instruct-2507",
-        "name": "Qwen3 235B A22B Instruct 2507",
-        "description": "Qwen3 235B A22B Instruct 2507 is a flagship instruct model for a wide range of generation and reasoning tasks.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2,
-            "textOutput": 8
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-235b-a22b-thinking-2507",
-        "name": "Qwen3 235B A22B Thinking 2507",
-        "description": "Qwen3 235B A22B Thinking 2507 is an ultra-large thinking model for hard reasoning.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2,
-            "textOutput": 20
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "qwen3-30b-a3b",
         "name": "Qwen3 30B A3B",
         "description": "Qwen3 30B A3B is a mid-large general model balancing cost and quality.",
@@ -249823,286 +248595,6 @@
           "basePricing": {
             "textInput": 0.75,
             "textOutput": 3
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-30b-a3b-instruct-2507",
-        "name": "Qwen3 30B A3B Instruct 2507",
-        "description": "Qwen3 30B A3B Instruct 2507 is a mid-large instruct model for high-quality generation and QA.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "search": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.75,
-            "textOutput": 3
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-30b-a3b-thinking-2507",
-        "name": "Qwen3 30B A3B Thinking 2507",
-        "description": "Qwen3 30B A3B Thinking 2507 is a mid-large thinking model balancing accuracy and cost.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.75,
-            "textOutput": 7.5
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-32b",
-        "name": "Qwen3 32B",
-        "description": "Qwen3 32B is suited for general tasks requiring stronger understanding.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 32768,
-        "maxOutput": 8192,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2,
-            "textOutput": 8
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-8b",
-        "name": "Qwen3 8B",
-        "description": "Qwen3 8B is a lightweight model with flexible deployment for high-concurrency workloads.",
-        "type": "chat",
-        "abilities": {},
-        "contextWindow": 32768,
-        "maxOutput": 8192,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 2
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-coder-480b-a35b-instruct",
-        "name": "Qwen3 Coder 480B A35B Instruct",
-        "description": "Qwen3 Coder 480B A35B Instruct is a flagship code model for multilingual programming and complex code understanding.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 65536,
-        "pricing": {
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput": 1.5,
-                "textOutput": 1.5
-              },
-              "when": {
-                "textTotalInput": [
-                  0.032,
-                  0.128
-                ]
-              }
-            }
-          ],
-          "basePricing": {
-            "textInput": 6,
-            "textOutput": 24
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-next-80b-a3b-thinking",
-        "name": "Qwen3 Next 80B A3B Thinking",
-        "description": "Qwen3 Next 80B A3B Thinking is a flagship reasoning model version for complex tasks.",
-        "type": "chat",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 1,
-            "textOutput": 10
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-vl-235b-a22b-instruct",
-        "name": "Qwen3 VL 235B A22B Instruct",
-        "description": "Qwen3 VL 235B A22B Instruct is a flagship multimodal model for demanding understanding and creation.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2,
-            "textOutput": 8
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-vl-235b-a22b-thinking",
-        "name": "Qwen3 VL 235B A22B Thinking",
-        "description": "Qwen3 VL 235B A22B Thinking is the flagship thinking version for complex multimodal reasoning and planning.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2,
-            "textOutput": 20
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-vl-30b-a3b-instruct",
-        "name": "Qwen3 VL 30B A3B Instruct",
-        "description": "Qwen3 VL 30B A3B Instruct is a large multimodal model balancing accuracy and reasoning performance.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.75,
-            "textOutput": 3
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-vl-30b-a3b-thinking",
-        "name": "Qwen3 VL 30B A3B Thinking",
-        "description": "Qwen3 VL 30B A3B Thinking is a deep-thinking version for complex multimodal tasks.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.75,
-            "textOutput": 7.5
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-vl-32b-instruct",
-        "name": "Qwen3 VL 32B Instruct",
-        "description": "Qwen3 VL 32B Instruct is a multimodal instruction-tuned model for high-quality image-text QA and creation.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2,
-            "textOutput": 8
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-vl-32b-thinking",
-        "name": "Qwen3 VL 32B Thinking",
-        "description": "Qwen3 VL 32B Thinking is a deep-thinking multimodal version for complex reasoning and long-chain analysis.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 2,
-            "textOutput": 20
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-vl-8b-instruct",
-        "name": "Qwen3 VL 8B Instruct",
-        "description": "Qwen3 VL 8B Instruct is a lightweight multimodal model for daily visual QA and app integration.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 2
-          },
-          "currency": "CNY",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen3-vl-8b-thinking",
-        "name": "Qwen3 VL 8B Thinking",
-        "description": "Qwen3 VL 8B Thinking is a multimodal chain-of-thought model for detailed visual reasoning.",
-        "type": "chat",
-        "abilities": {
-          "vision": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 5
           },
           "currency": "CNY",
           "unit": "millionTokens"
@@ -250604,19 +249096,15 @@
     "xiaomi": [
       {
         "id": "mimo-v2-flash",
-        "name": "MiMo-V2 Flash",
-        "description": "MiMo-V2-Flash is now officially open source! This is a MoE (Mixture-of-Experts) model purpose-built for extreme inference efficiency, with 309B total parameters (15B activated). Through innovations in a hybrid attention architecture and multi-layer MTP inference acceleration, it ranks among the global Top 2 open-source models across multiple agent benchmarking suites. Its coding capabilities surpass all open-source models and rival leading closed-source models such as Claude 4.5 Sonnet, while incurring only 2.5% of the inference cost and delivering 2× faster generation speed—pushing large-model inference efficiency to the limit.",
-        "type": "chat",
+        "name": "MiMo-V2-Flash",
         "family": "mimo",
-        "releasedAt": "2026-03-03",
+        "releasedAt": "2025-12-16",
         "knowledge": "2024-12-01",
         "openWeights": true,
         "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "structuredOutput": true,
-          "search": true,
           "attachment": false,
           "temperature": true,
           "interleaved": {
@@ -250635,11 +249123,11 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.7,
-            "textInput_cacheRead": 0.07,
-            "textOutput": 2.1
+            "textInput": 0.14,
+            "textOutput": 0.28,
+            "textInput_cacheRead": 0.0028
           },
-          "currency": "CNY",
+          "currency": "USD",
           "unit": "millionTokens"
         }
       },
