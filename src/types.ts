@@ -117,7 +117,8 @@ export type OpenAIReasoningEffort =
   | "low"
   | "medium"
   | "high"
-  | "xhigh";
+  | "xhigh"
+  | "max";
 
 export interface ModelReasoningEffort {
   enum: OpenAIReasoningEffort[];

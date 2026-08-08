@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-08-08T07:19:34.994Z",
+    "generatedAt": "2026-08-08T07:44:56.060Z",
     "sources": {
       "modelsDev": {
         "providerCount": 181,
@@ -21,7 +21,7 @@
       },
       "manual": {
         "providerCount": 7,
-        "modelCount": 25
+        "modelCount": 26
       },
       "derived": {
         "providerCount": 2,
@@ -30,9 +30,9 @@
     },
     "merged": {
       "providerCount": 229,
-      "modelCount": 7740
+      "modelCount": 7741
     },
-    "overridesApplied": 85
+    "overridesApplied": 89
   },
   "providers": {
     "302ai": {
@@ -167076,6 +167076,18 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "_": {
+          "reasoningEffort": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ],
+            "default": "medium"
+          }
         }
       },
       {
@@ -167134,6 +167146,18 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "_": {
+          "reasoningEffort": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ],
+            "default": "medium"
+          }
         }
       },
       {
@@ -167192,6 +167216,18 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        },
+        "_": {
+          "reasoningEffort": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ],
+            "default": "medium"
+          }
         }
       },
       {
@@ -167966,87 +168002,6 @@
     ],
     "openai-codex": [
       {
-        "id": "gpt-5.2",
-        "name": "GPT-5.2",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true
-        },
-        "contextWindow": 272000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 1.75,
-            "textOutput": 14,
-            "textInput_cacheRead": 0.175
-          }
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "none",
-              "low",
-              "medium",
-              "high",
-              "xhigh"
-            ],
-            "default": "none"
-          }
-        }
-      },
-      {
-        "id": "gpt-5.3-codex",
-        "name": "GPT-5.3 Codex",
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true
-        },
-        "contextWindow": 272000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 1.75,
-            "textOutput": 14,
-            "textInput_cacheRead": 0.175
-          }
-        },
-        "_": {
-          "reasoningEffort": {
-            "enum": [
-              "low",
-              "medium",
-              "high",
-              "xhigh"
-            ],
-            "default": "medium"
-          }
-        }
-      },
-      {
         "id": "gpt-5.3-codex-spark",
         "name": "GPT-5.3 Codex Spark",
         "abilities": {
@@ -168249,6 +168204,163 @@
             "supportsAdditionalServiceTiers": [
               "priority"
             ]
+          }
+        }
+      },
+      {
+        "id": "gpt-5.6-luna",
+        "name": "GPT-5.6 Luna",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindow": 272000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.2,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.02
+          }
+        },
+        "_": {
+          "reasoningEffort": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ],
+            "default": "medium"
+          }
+        }
+      },
+      {
+        "id": "gpt-5.6-sol",
+        "name": "GPT-5.6 Sol",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindow": 272000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 5,
+            "textOutput": 30,
+            "textInput_cacheRead": 0.5
+          },
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 1.5,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "textTotalInput": [
+                  0.272,
+                  "infinity"
+                ]
+              }
+            },
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 2,
+                "textInput_cacheRead": 2
+              },
+              "when": {
+                "serviceTier": "priority"
+              }
+            }
+          ]
+        },
+        "compat": {
+          "openaiResponses": {
+            "supportsAdditionalServiceTiers": [
+              "priority"
+            ]
+          }
+        },
+        "_": {
+          "reasoningEffort": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ],
+            "default": "medium"
+          }
+        }
+      },
+      {
+        "id": "gpt-5.6-terra",
+        "name": "GPT-5.6 Terra",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true
+        },
+        "contextWindow": 272000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 12,
+            "textInput_cacheRead": 0.2
+          }
+        },
+        "_": {
+          "reasoningEffort": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ],
+            "default": "medium"
           }
         }
       }
