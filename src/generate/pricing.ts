@@ -178,11 +178,11 @@ function parseLookupKeySegments(key: string, paramCount: number): string[] | und
 }
 
 function inferTieredConditionName(target: string): string {
-  if (target === "textOutput") return "textOutput";
   if (
     target === "textInput" ||
     target === "textInput_cacheRead" ||
-    target === "textInput_cacheWrite"
+    target === "textInput_cacheWrite" ||
+    target === "textOutput"
   ) {
     return "textTotalInput";
   }
