@@ -434,6 +434,7 @@ For OpenAI Responses-style APIs.
 
 - `toolCallIdStrategy`: `preserve` or `responses-fc64`
 - `longPromptCacheTtl`: currently `24h`
+- `supportsProMode`
 - `supportsServiceTier`
 - `supportsAdditionalServiceTiers`: array of `flex` or `priority`
 

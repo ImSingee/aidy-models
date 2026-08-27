@@ -597,6 +597,23 @@ const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
   ),
 ];
 
+const openAIProModeModels: Array<[string, ModelOverride]> =
+  mapModelIdsToOverride(
+    [
+      "openai/gpt-5.6",
+      "openai/gpt-5.6-sol",
+      "openai/gpt-5.6-terra",
+      "openai/gpt-5.6-luna",
+    ],
+    {
+      compat: {
+        openaiResponses: {
+          supportsProMode: true,
+        },
+      },
+    },
+  );
+
 const openAILongContextModels: Array<[string, ModelOverride]> = [
   ...mapModelIdsToOverride(
     ["openai/gpt-5.4", "openai/gpt-5.4-pro"],
@@ -655,6 +672,7 @@ export const overrides: Overrides = {
   providers: createProviderFlagOverrides(),
   models: createModelOverrideRecord([
     ...openAIReasoningEffortModels,
+    ...openAIProModeModels,
     ...openAILongContextModels,
     ...openAIServiceTierModels,
     ...anthropicReasoningEffortModels,

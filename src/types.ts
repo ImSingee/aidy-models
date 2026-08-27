@@ -65,6 +65,7 @@ export interface OpenAICompletionsCompat {
 export interface OpenAIResponsesCompat {
   toolCallIdStrategy?: "preserve" | "responses-fc64";
   longPromptCacheTtl?: "24h";
+  supportsProMode?: boolean;
   supportsServiceTier?: boolean;
   supportsAdditionalServiceTiers?: OpenAIServiceTier[];
 }
