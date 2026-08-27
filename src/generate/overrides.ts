@@ -2,9 +2,9 @@ import type { PartialDeep } from "type-fest";
 import type {
   Model,
   ModelPricing,
-  OpenAIReasoningEffort,
   OpenAIServiceTier,
   Provider,
+  ReasoningEffort,
 } from "../types.ts";
 import { clone, deepAssign } from "./utils.ts";
 
@@ -372,9 +372,9 @@ function createOpenAILongContextOverride(): ModelOverride {
   };
 }
 
-function openAIReasoningEffortOverride(
-  enumValues: OpenAIReasoningEffort[],
-  defaultValue: OpenAIReasoningEffort,
+function reasoningEffortOverride(
+  enumValues: ReasoningEffort[],
+  defaultValue: ReasoningEffort,
 ): DeepPartial<Model> {
   return {
     _: {
@@ -439,6 +439,60 @@ const anthropicLongContextModels: Array<[string, ModelOverride]> = [
   ],
 ];
 
+// Sources of truth:
+// https://platform.claude.com/docs/en/build-with-claude/effort
+// https://platform.claude.com/docs/en/build-with-claude/thinking
+const anthropicExtendedThinkingEffortModelIds = [
+  "anthropic/claude-opus-4-5",
+  "anthropic/claude-opus-4-5-20251101",
+];
+
+const anthropicAdaptiveFourLevelEffortModelIds = [
+  "anthropic/claude-opus-4-6",
+  "anthropic/claude-sonnet-4-6",
+];
+
+const anthropicAdaptiveFiveLevelEffortModelIds = [
+  "anthropic/claude-fable-5",
+  "anthropic/claude-opus-4-7",
+  "anthropic/claude-opus-4-8",
+  "anthropic/claude-opus-5",
+  "anthropic/claude-sonnet-5",
+];
+
+const anthropicReasoningEffortModels: Array<[string, ModelOverride]> = [
+  ...mapModelIdsToOverride(
+    anthropicExtendedThinkingEffortModelIds,
+    reasoningEffortOverride(["low", "medium", "high"], "high"),
+  ),
+  ...mapModelIdsToOverride(
+    anthropicAdaptiveFourLevelEffortModelIds,
+    reasoningEffortOverride(["low", "medium", "high", "max"], "high"),
+  ),
+  ...mapModelIdsToOverride(
+    anthropicAdaptiveFiveLevelEffortModelIds,
+    reasoningEffortOverride(
+      ["low", "medium", "high", "xhigh", "max"],
+      "high",
+    ),
+  ),
+];
+
+const anthropicAdaptiveThinkingModels: Array<[string, ModelOverride]> =
+  mapModelIdsToOverride(
+    [
+      ...anthropicAdaptiveFourLevelEffortModelIds,
+      ...anthropicAdaptiveFiveLevelEffortModelIds,
+    ],
+    {
+      compat: {
+        anthropic: {
+          supportsAdaptiveThinking: true,
+        },
+      },
+    },
+  );
+
 const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
   ...mapModelIdsToOverride(
     [
@@ -455,7 +509,7 @@ const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
       "openai/codex-mini-latest",
       "openai/computer-use-preview",
     ],
-    openAIReasoningEffortOverride(["low", "medium", "high"], "medium"),
+    reasoningEffortOverride(["low", "medium", "high"], "medium"),
   ),
   ...mapModelIdsToOverride(
     [
@@ -465,14 +519,14 @@ const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
       "openai/gpt-5-mini",
       "openai/gpt-5-nano",
     ],
-    openAIReasoningEffortOverride(
+    reasoningEffortOverride(
       ["minimal", "low", "medium", "high"],
       "medium",
     ),
   ),
   ...mapModelIdsToOverride(
     ["openai/gpt-5-pro"],
-    openAIReasoningEffortOverride(["high"], "high"),
+    reasoningEffortOverride(["high"], "high"),
   ),
   ...mapModelIdsToOverride(
     [
@@ -483,14 +537,14 @@ const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
       "openai-codex/gpt-5.1",
       "openai-codex/gpt-5.1-codex-mini",
     ],
-    openAIReasoningEffortOverride(
+    reasoningEffortOverride(
       ["none", "low", "medium", "high"],
       "none",
     ),
   ),
   ...mapModelIdsToOverride(
     ["openai/gpt-5.1-codex-max", "openai-codex/gpt-5.1-codex-max"],
-    openAIReasoningEffortOverride(
+    reasoningEffortOverride(
       ["none", "medium", "high", "xhigh"],
       "medium",
     ),
@@ -502,7 +556,7 @@ const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
       "openai/gpt-5.4",
       "openai-codex/gpt-5.4",
     ],
-    openAIReasoningEffortOverride(
+    reasoningEffortOverride(
       ["none", "low", "medium", "high", "xhigh"],
       "none",
     ),
@@ -515,7 +569,7 @@ const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
       "openai-codex/gpt-5.2-codex",
       "openai-codex/gpt-5.3-codex-spark",
     ],
-    openAIReasoningEffortOverride(
+    reasoningEffortOverride(
       ["low", "medium", "high", "xhigh"],
       "medium",
     ),
@@ -529,14 +583,14 @@ const openAIReasoningEffortModels: Array<[string, ModelOverride]> = [
       "openai-codex/gpt-5.6-terra",
       "openai-codex/gpt-5.6-luna",
     ],
-    openAIReasoningEffortOverride(
+    reasoningEffortOverride(
       ["low", "medium", "high", "xhigh", "max"],
       "medium",
     ),
   ),
   ...mapModelIdsToOverride(
     ["openai/gpt-5.2-pro", "openai/gpt-5.4-pro"],
-    openAIReasoningEffortOverride(
+    reasoningEffortOverride(
       ["medium", "high", "xhigh"],
       "medium",
     ),
@@ -603,6 +657,8 @@ export const overrides: Overrides = {
     ...openAIReasoningEffortModels,
     ...openAILongContextModels,
     ...openAIServiceTierModels,
+    ...anthropicReasoningEffortModels,
+    ...anthropicAdaptiveThinkingModels,
     ...anthropicPromptCachingModels,
     ...anthropicLongContextModels,
   ]),

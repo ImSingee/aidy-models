@@ -109,7 +109,7 @@ export interface ModelCompat {
   googleGeminiCli?: GoogleGeminiCliCompat;
 }
 
-export type OpenAIReasoningEffort =
+export type ReasoningEffort =
   | "none"
   | "minimal"
   | "low"
@@ -118,9 +118,11 @@ export type OpenAIReasoningEffort =
   | "xhigh"
   | "max";
 
+export type OpenAIReasoningEffort = ReasoningEffort;
+
 export interface ModelReasoningEffort {
-  enum: OpenAIReasoningEffort[];
-  default: OpenAIReasoningEffort;
+  enum: ReasoningEffort[];
+  default: ReasoningEffort;
 }
 
 export interface ModelPrivateMeta extends Record<string, unknown> {

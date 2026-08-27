@@ -172,14 +172,14 @@ Example:
 `_` is reserved for unstable local metadata that is useful to runtime consumers
 but not normalized as first-class schema yet.
 
-OpenAI reasoning models may include:
+Reasoning models may include:
 
 - `_.reasoningEffort.enum`: supported reasoning effort values
 - `_.reasoningEffort.default`: default reasoning effort value
 
 `reasoningEffort` constrains effort on reasoning for reasoning models.
-Currently supported values are `none`, `minimal`, `low`, `medium`, `high`, and
-`xhigh`.
+The enum and default are provider- and model-specific. Schema values are `none`,
+`minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.
 
 Reducing reasoning effort can result in faster responses and fewer tokens used
 on reasoning in a response.
