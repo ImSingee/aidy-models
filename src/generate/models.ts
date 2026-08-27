@@ -211,25 +211,6 @@ export function mergeAuthoritativeModel(
   };
 }
 
-function createAnthropicModelCompat(modelId: string): ModelCompat | undefined {
-  const normalized = modelId.toLowerCase();
-  const supportsAdaptiveThinking =
-    normalized.includes("opus-4-6") ||
-    normalized.includes("opus-4.6") ||
-    normalized.includes("sonnet-4-6") ||
-    normalized.includes("sonnet-4.6");
-
-  if (!supportsAdaptiveThinking) {
-    return undefined;
-  }
-
-  return {
-    anthropic: {
-      supportsAdaptiveThinking: true,
-    },
-  };
-}
-
 function hasPromptCachingPricing(model: Model): boolean {
   const basePricing = model.pricing?.basePricing;
   if (!basePricing) return false;
@@ -370,9 +351,6 @@ export function finalizeModel(
   }
   finalized.compat = mergeCompat(
     finalized.compat,
-    providerId === "anthropic"
-      ? createAnthropicModelCompat(finalized.id)
-      : undefined,
     providerId === "amazon-bedrock"
       ? createBedrockModelCompat(finalized)
       : undefined,
