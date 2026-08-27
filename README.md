@@ -160,6 +160,15 @@ Example:
 - `abilities.temperature`: supports configurable temperature
 - `abilities.interleaved`: supports interleaved thinking / tool behavior
 
+### Reasoning effort fields
+
+- `reasoningEffort.enum`: supported reasoning effort values
+- `reasoningEffort.default`: default reasoning effort value
+
+`reasoningEffort` constrains effort on reasoning for reasoning models.
+The enum and default are provider- and model-specific. Schema values are `none`,
+`minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.
+
 ### Token and modality fields
 
 - `contextWindow`: max input context
@@ -171,18 +180,6 @@ Example:
 
 `_` is reserved for unstable local metadata that is useful to runtime consumers
 but not normalized as first-class schema yet.
-
-Reasoning models may include:
-
-- `_.reasoningEffort.enum`: supported reasoning effort values
-- `_.reasoningEffort.default`: default reasoning effort value
-
-`reasoningEffort` constrains effort on reasoning for reasoning models.
-The enum and default are provider- and model-specific. Schema values are `none`,
-`minimal`, `low`, `medium`, `high`, `xhigh`, and `max`.
-
-Reducing reasoning effort can result in faster responses and fewer tokens used
-on reasoning in a response.
 
 ### Pricing fields
 

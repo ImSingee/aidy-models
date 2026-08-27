@@ -377,11 +377,9 @@ function reasoningEffortOverride(
   defaultValue: ReasoningEffort,
 ): DeepPartial<Model> {
   return {
-    _: {
-      reasoningEffort: {
-        enum: enumValues,
-        default: defaultValue,
-      },
+    reasoningEffort: {
+      enum: enumValues,
+      default: defaultValue,
     },
   };
 }
