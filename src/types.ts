@@ -126,9 +126,7 @@ export interface ModelReasoningEffort {
   default: ReasoningEffort;
 }
 
-export interface ModelPrivateMeta extends Record<string, unknown> {
-  reasoningEffort?: ModelReasoningEffort;
-}
+export type ModelPrivateMeta = Record<string, unknown>;
 
 export interface Model {
   id: string;
@@ -146,6 +144,7 @@ export interface Model {
   _?: ModelPrivateMeta;
 
   abilities: ModelAbilities;
+  reasoningEffort?: ModelReasoningEffort;
 
   contextWindow?: number;
   maxOutput?: number;
