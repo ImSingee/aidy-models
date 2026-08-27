@@ -73,14 +73,12 @@ export interface AnthropicCompat {
   longPromptCacheTtl?: "1h";
   supportsFastMode?: boolean;
   supportsAdaptiveThinking?: boolean;
-  xHighReasoningEffort?: "high" | "max";
 }
 
 export interface BedrockCompat {
   supportsAdaptiveThinking?: boolean;
   supportsPromptCaching?: boolean;
   supportsThinkingSignature?: boolean;
-  xHighReasoningEffort?: "high" | "max";
 }
 
 export interface GoogleCompat {

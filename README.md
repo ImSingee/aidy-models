@@ -442,14 +442,12 @@ For OpenAI Responses-style APIs.
 - `longPromptCacheTtl`: currently `1h`
 - `supportsFastMode`
 - `supportsAdaptiveThinking`
-- `xHighReasoningEffort`: `high` or `max`
 
 ### `bedrock`
 
 - `supportsAdaptiveThinking`
 - `supportsPromptCaching`
 - `supportsThinkingSignature`
-- `xHighReasoningEffort`
 
 ### `google`
 
