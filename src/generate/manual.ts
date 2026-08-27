@@ -191,7 +191,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.6 Sol",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createOpenAIPriorityPricing(5, 30, 0.5, 2),
+      pricing: createOpenAIPriorityPricing(4, 20, 0.4, 2),
       input: ["text", "image"],
       reasoning: true,
       compat: {
