@@ -226,10 +226,6 @@ function createAnthropicModelCompat(modelId: string): ModelCompat | undefined {
   return {
     anthropic: {
       supportsAdaptiveThinking: true,
-      xHighReasoningEffort:
-        normalized.includes("opus-4-6") || normalized.includes("opus-4.6")
-          ? "max"
-          : "high",
     },
   };
 }
@@ -264,10 +260,6 @@ function createBedrockModelCompat(model: Model): ModelCompat | undefined {
   const compat: BedrockCompat = {};
   if (supportsAdaptiveThinking) {
     compat.supportsAdaptiveThinking = true;
-    compat.xHighReasoningEffort =
-      normalized.includes("opus-4-6") || normalized.includes("opus-4.6")
-        ? "max"
-        : "high";
   }
   if (supportsPromptCaching) {
     compat.supportsPromptCaching = true;
