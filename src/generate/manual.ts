@@ -78,6 +78,7 @@ type ManualModelInput = {
   pricing: ModelPricing;
   input: string[];
   reasoning: boolean;
+  reasoningEffort?: Model["reasoningEffort"];
   compat?: Model["compat"];
   meta?: Model["_"];
 };
@@ -91,6 +92,7 @@ function createManualModel(input: ManualModelInput): Model {
       reasoning: input.reasoning,
       vision: input.input.includes("image"),
     },
+    reasoningEffort: input.reasoningEffort,
     contextWindow: input.contextWindow,
     maxOutput: input.maxOutput,
     modalities: {
@@ -194,6 +196,10 @@ export const manualModels: Record<string, Model[]> = {
       pricing: createOpenAIPriorityPricing(4, 20, 0.4, 2),
       input: ["text", "image"],
       reasoning: true,
+      reasoningEffort: {
+        enum: ["none", "low", "medium", "high", "xhigh", "max"],
+        default: "medium",
+      },
       compat: {
         openaiResponses: {
           supportsAdditionalServiceTiers: ["priority"],
@@ -208,6 +214,10 @@ export const manualModels: Record<string, Model[]> = {
       pricing: createTextPricingWithoutCacheWrite(2, 12, 0.2),
       input: ["text", "image"],
       reasoning: true,
+      reasoningEffort: {
+        enum: ["none", "low", "medium", "high", "xhigh", "max"],
+        default: "medium",
+      },
     }),
     createManualModel({
       id: "gpt-5.6-luna",
@@ -217,6 +227,10 @@ export const manualModels: Record<string, Model[]> = {
       pricing: createTextPricingWithoutCacheWrite(0.2, 1.2, 0.02),
       input: ["text", "image"],
       reasoning: true,
+      reasoningEffort: {
+        enum: ["none", "low", "medium", "high", "xhigh", "max"],
+        default: "medium",
+      },
     }),
     createManualModel({
       id: "gpt-5.5",
@@ -226,6 +240,10 @@ export const manualModels: Record<string, Model[]> = {
       pricing: createOpenAIPriorityPricing(5, 30, 0.5, 2.5),
       input: ["text", "image"],
       reasoning: true,
+      reasoningEffort: {
+        enum: ["none", "low", "medium", "high", "xhigh"],
+        default: "medium",
+      },
       compat: {
         openaiResponses: {
           supportsAdditionalServiceTiers: ["priority"],
@@ -240,6 +258,10 @@ export const manualModels: Record<string, Model[]> = {
       pricing: createOpenAIPriorityPricing(2.5, 15, 0.25, 2),
       input: ["text", "image"],
       reasoning: true,
+      reasoningEffort: {
+        enum: ["none", "low", "medium", "high", "xhigh"],
+        default: "medium",
+      },
       compat: {
         openaiResponses: {
           supportsAdditionalServiceTiers: ["priority"],
@@ -254,6 +276,10 @@ export const manualModels: Record<string, Model[]> = {
       pricing: createTextPricingWithoutCacheWrite(0.75, 4.5, 0.075),
       input: ["text", "image"],
       reasoning: true,
+      reasoningEffort: {
+        enum: ["none", "low", "medium", "high", "xhigh"],
+        default: "medium",
+      },
     }),
     createManualModel({
       id: "gpt-5.3-codex-spark",
@@ -263,6 +289,10 @@ export const manualModels: Record<string, Model[]> = {
       pricing: createTextPricingWithoutCacheWrite(0, 0, 0),
       input: ["text"],
       reasoning: true,
+      reasoningEffort: {
+        enum: ["none", "low", "medium", "high", "xhigh"],
+        default: "medium",
+      },
     }),
   ],
   "google-gemini-cli": [
