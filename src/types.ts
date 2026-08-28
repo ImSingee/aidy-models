@@ -123,7 +123,7 @@ export type OpenAIReasoningEffort = ReasoningEffort;
 
 export interface ModelReasoningEffort {
   enum: ReasoningEffort[];
-  default: ReasoningEffort;
+  default?: ReasoningEffort;
 }
 
 export type ModelPrivateMeta = Record<string, unknown>;

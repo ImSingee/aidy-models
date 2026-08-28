@@ -10,8 +10,17 @@ import {
   OPENCODE_ANTHROPIC_BASE_URL,
   OPENCODE_BASE_URL,
 } from "./shared.ts";
+import {
+  applyReasoningEffortDefault,
+  normalizeModelsDevReasoningEffort,
+} from "./reasoning.ts";
 import { convertFlatCostPricing, convertLobehubPricing } from "./pricing.ts";
-import { clone, compactObject, mergeCompat, mergeHeaders } from "./utils.ts";
+import {
+  clone,
+  compactObject,
+  mergeCompat,
+  mergeHeaders,
+} from "./utils.ts";
 
 function resolveOpencodeRuntime(rawModel: Record<string, any>): Partial<Model> {
   const npm = rawModel.provider?.npm;
@@ -43,6 +52,10 @@ export function normalizeModelsDevModel(
   providerId: string,
   rawModel: Record<string, any>,
 ): Model {
+  const reasoningEffort = normalizeModelsDevReasoningEffort(
+    rawModel,
+    `${providerId}/${rawModel.id}`,
+  );
   const model: Model = {
     id: rawModel.id,
     name: rawModel.name || rawModel.id,
@@ -51,6 +64,7 @@ export function normalizeModelsDevModel(
     knowledge: rawModel.knowledge,
     openWeights: rawModel.open_weights,
     deprecated: rawModel.status === "deprecated" || undefined,
+    reasoningEffort,
     abilities: {
       toolCall: rawModel.tool_call ?? undefined,
       reasoning: rawModel.reasoning ?? undefined,
@@ -129,6 +143,8 @@ export function mergeModels(
     knowledge: modelsDevModel.knowledge,
     openWeights: modelsDevModel.openWeights,
     deprecated: lobehubModel.deprecated ?? modelsDevModel.deprecated,
+    reasoningEffort:
+      modelsDevModel.reasoningEffort ?? lobehubModel.reasoningEffort,
     abilities: {
       toolCall: lobehubModel.abilities.toolCall ?? modelsDevModel.abilities.toolCall,
       reasoning:
@@ -173,6 +189,8 @@ export function mergeAuthoritativeModel(
     knowledge: supplementalModel.knowledge ?? authoritativeModel.knowledge,
     openWeights: supplementalModel.openWeights ?? authoritativeModel.openWeights,
     deprecated: authoritativeModel.deprecated ?? supplementalModel.deprecated,
+    reasoningEffort:
+      supplementalModel.reasoningEffort ?? authoritativeModel.reasoningEffort,
     abilities: {
       toolCall:
         authoritativeModel.abilities.toolCall ??
@@ -361,6 +379,7 @@ export function finalizeModel(
       ? createGoogleGeminiCliReasoningCompat(finalized.id)
       : undefined,
   );
+  applyReasoningEffortDefault(providerId, finalized);
 
   return finalized;
 }
