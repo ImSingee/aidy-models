@@ -1,23 +1,23 @@
 {
   "_meta": {
-    "generatedAt": "2026-09-01T08:55:52.050Z",
+    "generatedAt": "2026-09-02T08:09:14.468Z",
     "sources": {
       "modelsDev": {
         "providerCount": 212,
-        "modelCount": 7478
+        "modelCount": 7502
       },
       "lobehub": {
-        "commitHash": "4c83a05b4988e74c00b2593576aa258f6085240e",
+        "commitHash": "4719b958adcb7141a69c2aeb31f346def747f54f",
         "providerCount": 82,
-        "modelCount": 1873
+        "modelCount": 1876
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 420
+        "modelCount": 421
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 363
+        "modelCount": 364
       },
       "manual": {
         "providerCount": 7,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 258,
-      "modelCount": 8994
+      "modelCount": 9020
     },
     "overridesApplied": 82
   },
@@ -26834,6 +26834,58 @@
         }
       },
       {
+        "id": "anthropic.claude-fable-5-1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
+            "supportsPromptCaching": true,
+            "supportsThinkingSignature": true
+          }
+        }
+      },
+      {
         "id": "anthropic.claude-haiku-4-5-20251001-v1:0",
         "name": "Claude Haiku 4.5",
         "family": "claude-haiku",
@@ -28390,6 +28442,58 @@
             "textInput": 10,
             "textOutput": 50,
             "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
+            "supportsPromptCaching": true,
+            "supportsThinkingSignature": true
+          }
+        }
+      },
+      {
+        "id": "global.anthropic.claude-fable-5-1",
+        "name": "Claude Fable 5.1 (Global)",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
@@ -31228,6 +31332,58 @@
         }
       },
       {
+        "id": "us.anthropic.claude-fable-5-1",
+        "name": "Claude Fable 5.1 (US)",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 11,
+            "textOutput": 55,
+            "textInput_cacheRead": 0.275,
+            "textInput_cacheWrite": 13.75
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
+            "supportsPromptCaching": true,
+            "supportsThinkingSignature": true
+          }
+        }
+      },
+      {
         "id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
         "name": "Claude Haiku 4.5 (US)",
         "family": "claude-haiku",
@@ -32759,6 +32915,57 @@
           "anthropic": {
             "supportsAdaptiveThinking": true
           }
+        }
+      },
+      {
+        "id": "claude-fable-5-1",
+        "name": "Claude Fable 5.1",
+        "description": "Claude Fable 5.1 is Anthropic's most capable generally available model. It outperforms Fable 5 on long-running coding and research at the same base price, with cache reads at a quarter of the cost.",
+        "type": "chat",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default": "high"
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "attachment": true,
+          "temperature": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput_cacheRead": 0.25,
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
         }
       },
       {
@@ -35629,6 +35836,53 @@
             "textInput": 10,
             "textOutput": 50,
             "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "claude-fable-5-1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
@@ -39123,6 +39377,53 @@
             "textInput": 10,
             "textOutput": 50,
             "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "claude-fable-5-1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
@@ -47330,9 +47631,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.35,
-            "textOutput": 2.75,
-            "textInput_cacheRead": 0.03499999999999999
+            "textInput": 0.32,
+            "textOutput": 2.5,
+            "textInput_cacheRead": 0.031999999999999994
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -53966,9 +54267,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.75,
-            "textOutput": 4.499,
-            "textInput_cacheRead": 0.438
+            "textInput": 1.4,
+            "textOutput": 4.399,
+            "textInput_cacheRead": 0.26
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -57678,6 +57979,51 @@
             "textInput": 10,
             "textOutput": 50,
             "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "anthropic/claude-fable-5-1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
@@ -64649,6 +64995,8 @@
       {
         "id": "deepseek-v4-flash-vision-exp",
         "name": "DeepSeek V4 Flash Vision Exp",
+        "description": "DeepSeek V4 Flash Vision Exp is an experimental multimodal model built on V4 Flash. It matches V4 Flash on text and adds native image understanding for visual agent workflows, billed at the same rates.",
+        "type": "chat",
         "family": "deepseek-flash",
         "releasedAt": "2026-08-21",
         "openWeights": false,
@@ -64662,16 +65010,16 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
           "attachment": true,
           "temperature": true,
-          "structuredOutput": true,
           "interleaved": {
             "field": "reasoning_content"
-          },
-          "vision": true
+          }
         },
-        "contextWindow": 1000000,
-        "maxOutput": 384000,
+        "contextWindow": 1048576,
+        "maxOutput": 393216,
         "modalities": {
           "input": [
             "text",
@@ -64683,11 +65031,11 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.28,
-            "textInput_cacheRead": 0.0028
+            "textInput_cacheRead": 0.05,
+            "textInput": 1.5,
+            "textOutput": 4.5
           },
-          "currency": "USD",
+          "currency": "CNY",
           "unit": "millionTokens"
         }
       },
@@ -65249,6 +65597,51 @@
             "textInput": 10,
             "textOutput": 50,
             "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "anthropic-claude-fable-5.1",
+        "name": "Anthropic Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
@@ -69193,11 +69586,11 @@
         }
       },
       {
-        "id": "anthropic/claude-fable-latest",
-        "name": "Claude Fable 5",
+        "id": "anthropic/claude-fable-5-1",
+        "name": "Claude Fable 5.1",
         "family": "claude-fable",
-        "releasedAt": "2026-06-09",
-        "knowledge": "2026-01-31",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -69232,7 +69625,54 @@
           "basePricing": {
             "textInput": 10,
             "textOutput": 50,
-            "textInput_cacheRead": 1,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "anthropic/claude-fable-latest",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
@@ -70342,6 +70782,91 @@
           "basePricing": {
             "textInput": 0.0375,
             "textOutput": 0.15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "databricks/databricks-deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-07-31",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.14,
+            "textOutput": 0.28,
+            "textInput_cacheRead": 0.028,
+            "textInput_cacheWrite": 0.14
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "databricks/databricks-deepseek-v4-pro-0813",
+        "name": "DeepSeek V4 Pro 0813",
+        "family": "deepseek-thinking",
+        "releasedAt": "2026-08-12",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.31999,
+            "textOutput": 3.95997,
+            "textInput_cacheRead": 0.13202,
+            "textInput_cacheWrite": 1.31999
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -72700,10 +73225,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 7.5,
-            "textInput_cacheRead": 0.15,
-            "textInput_cacheWrite": 0.083333
+            "textInput": 0.75,
+            "textOutput": 3.75,
+            "textInput_cacheRead": 0.075,
+            "textInput_cacheWrite": 0.041667
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -72747,10 +73272,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 7.5,
-            "textInput_cacheRead": 0.15,
-            "textInput_cacheWrite": 0.083333
+            "textInput": 0.75,
+            "textOutput": 3.75,
+            "textInput_cacheRead": 0.075,
+            "textInput_cacheWrite": 0.041667
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -72925,8 +73450,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.75374,
-            "textOutput": 0.75374
+            "textInput": 0.75335,
+            "textOutput": 0.75335
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -72964,8 +73489,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.17394,
-            "textOutput": 0.75374
+            "textInput": 0.17385,
+            "textOutput": 0.75335
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -76713,8 +77238,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.46384,
-            "textOutput": 0.92768
+            "textInput": 0.4636,
+            "textOutput": 0.9272
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -76752,8 +77277,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.17394,
-            "textOutput": 0.69576
+            "textInput": 0.17385,
+            "textOutput": 0.6954
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -76785,8 +77310,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.04364,
-            "textOutput": 1.04364
+            "textInput": 1.0431,
+            "textOutput": 1.0431
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -78100,10 +78625,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 7.5,
-            "textInput_cacheRead": 0.15,
-            "textInput_cacheWrite": 0.083333
+            "textInput": 0.75,
+            "textOutput": 3.75,
+            "textInput_cacheRead": 0.075,
+            "textInput_cacheWrite": 0.041667
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -78147,10 +78672,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 7.5,
-            "textInput_cacheRead": 0.15,
-            "textInput_cacheWrite": 0.083333
+            "textInput": 0.75,
+            "textOutput": 3.75,
+            "textInput_cacheRead": 0.075,
+            "textInput_cacheWrite": 0.041667
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -78194,10 +78719,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 7.5,
-            "textInput_cacheRead": 0.15,
-            "textInput_cacheWrite": 0.083333
+            "textInput": 0.75,
+            "textOutput": 3.75,
+            "textInput_cacheRead": 0.075,
+            "textInput_cacheWrite": 0.041667
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -78241,10 +78766,10 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.5,
-            "textOutput": 7.5,
-            "textInput_cacheRead": 0.15,
-            "textInput_cacheWrite": 0.083333
+            "textInput": 0.75,
+            "textOutput": 3.75,
+            "textInput_cacheRead": 0.075,
+            "textInput_cacheWrite": 0.041667
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -83880,9 +84405,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.28,
-            "textInput_cacheRead": 0.028
+            "textInput": 0.22,
+            "textOutput": 0.66,
+            "textInput_cacheRead": 0.007
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -93447,6 +93972,53 @@
     ],
     "google-vertex": [
       {
+        "id": "claude-fable-5-1@default",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "claude-fable-5@default",
         "name": "Claude Fable 5",
         "family": "claude-fable",
@@ -96058,6 +96630,53 @@
       }
     ],
     "google-vertex-anthropic": [
+      {
+        "id": "claude-fable-5-1@default",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
       {
         "id": "claude-fable-5@default",
         "name": "Claude Fable 5",
@@ -108868,9 +109487,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.188,
-            "textOutput": 0.7,
-            "textInput_cacheWrite": 0.094
+            "textInput": 0.19,
+            "textOutput": 0.63,
+            "textInput_cacheWrite": 0.095
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -108902,9 +109521,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.5444,
-            "textOutput": 2.855,
-            "textInput_cacheWrite": 0.2722
+            "textInput": 0.5504,
+            "textOutput": 2.885,
+            "textInput_cacheWrite": 0.2752
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -109121,9 +109740,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.424,
-            "textOutput": 1.612,
-            "textInput_cacheWrite": 0.212
+            "textInput": 0.404,
+            "textOutput": 1.496,
+            "textInput_cacheWrite": 0.202
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -121297,7 +121916,7 @@
           "basePricing": {
             "textInput": 10,
             "textOutput": 50,
-            "textInput_cacheRead": 1,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
@@ -121750,6 +122369,49 @@
             "textInput": 2,
             "textOutput": 6,
             "textInput_cacheRead": 0.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "~z-ai/glm-flash-latest",
+        "name": "Z.ai: GLM Flash Latest",
+        "family": "glm-flash",
+        "releasedAt": "2026-08-27",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.075,
+            "textOutput": 0.25,
+            "textInput_cacheRead": 0.015
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -122231,6 +122893,53 @@
         }
       },
       {
+        "id": "anthropic/claude-fable-5.1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "anthropic/claude-haiku-4.5",
         "name": "Claude Haiku 4.5 (latest)",
         "family": "claude-haiku",
@@ -122501,54 +123210,6 @@
         }
       },
       {
-        "id": "anthropic/claude-opus-4.7-fast",
-        "name": "Claude Opus 4.7",
-        "family": "claude-opus",
-        "releasedAt": "2026-04-16",
-        "knowledge": "2026-01-31",
-        "openWeights": false,
-        "reasoningEffort": {
-          "enum": [
-            "none",
-            "low",
-            "medium",
-            "high",
-            "xhigh",
-            "max"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": false,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 30,
-            "textOutput": 150,
-            "textInput_cacheRead": 3,
-            "textInput_cacheWrite": 37.5
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "anthropic/claude-opus-4.8",
         "name": "Claude Opus 4.8",
         "family": "claude-opus",
@@ -122597,54 +123258,6 @@
         }
       },
       {
-        "id": "anthropic/claude-opus-4.8-fast",
-        "name": "Claude Opus 4.8",
-        "family": "claude-opus",
-        "releasedAt": "2026-05-28",
-        "knowledge": "2026-01",
-        "openWeights": false,
-        "reasoningEffort": {
-          "enum": [
-            "none",
-            "low",
-            "medium",
-            "high",
-            "xhigh",
-            "max"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": false,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 10,
-            "textOutput": 50,
-            "textInput_cacheRead": 1,
-            "textInput_cacheWrite": 12.5
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "anthropic/claude-opus-5",
         "name": "Claude Opus 5",
         "family": "claude-opus",
@@ -122687,54 +123300,6 @@
             "textOutput": 25,
             "textInput_cacheRead": 0.5,
             "textInput_cacheWrite": 6.25
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "anthropic/claude-opus-5-fast",
-        "name": "Claude Opus 5",
-        "family": "claude-opus",
-        "releasedAt": "2026-07-24",
-        "knowledge": "2026-05",
-        "openWeights": false,
-        "reasoningEffort": {
-          "enum": [
-            "none",
-            "low",
-            "medium",
-            "high",
-            "xhigh",
-            "max"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": false,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 10,
-            "textOutput": 50,
-            "textInput_cacheRead": 1,
-            "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -123573,8 +124138,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 161000,
-        "maxOutput": 144900,
+        "contextWindow": 163840,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -123926,7 +124491,7 @@
           "reasoning": true,
           "attachment": true,
           "temperature": true,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "vision": true
         },
         "contextWindow": 1048576,
@@ -123971,8 +124536,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 1048576,
-        "maxOutput": 393216,
+        "contextWindow": 1024000,
+        "maxOutput": 384000,
         "modalities": {
           "input": [
             "text"
@@ -125451,6 +126016,47 @@
         }
       },
       {
+        "id": "inception/mercury-2.5-preview",
+        "name": "Inception: Mercury 2.5 Preview",
+        "family": "mercury",
+        "releasedAt": "2026-08-31",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 260000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.2,
+            "textOutput": 0.75,
+            "textInput_cacheRead": 0.02
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "inclusionai/ling-3.0-flash",
         "name": "Ling-3.0-flash",
         "family": "ling",
@@ -126706,7 +127312,7 @@
           "structuredOutput": false
         },
         "contextWindow": 196608,
-        "maxOutput": 196608,
+        "maxOutput": 176947,
         "modalities": {
           "input": [
             "text"
@@ -126718,8 +127324,7 @@
         "pricing": {
           "basePricing": {
             "textInput": 0,
-            "textOutput": 0,
-            "textInput_cacheRead": 0
+            "textOutput": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -126788,11 +127393,12 @@
           "vision": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 1048576,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "video"
           ],
           "output": [
             "text"
@@ -126801,8 +127407,7 @@
         "pricing": {
           "basePricing": {
             "textInput": 0,
-            "textOutput": 0,
-            "textInput_cacheRead": 0
+            "textOutput": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -128214,8 +128819,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 262144,
-        "maxOutput": 16384,
+        "contextWindow": 256000,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -133104,8 +133709,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 1000000,
-        "maxOutput": 262144,
+        "contextWindow": 262144,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -135404,7 +136009,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 262144,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -136624,6 +137229,52 @@
             "textInput": 10,
             "textOutput": 50,
             "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "claude-fable-5-1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
@@ -140172,8 +140823,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.05,
-            "textOutput": 0.2
+            "textInput": 0.04,
+            "textOutput": 0.19,
+            "textInput_cacheRead": 0.01
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -145116,6 +145768,53 @@
         }
       },
       {
+        "id": "anthropic/claude-fable-5-1",
+        "name": "Claude Fable 5.1 (Anthropic)",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "anthropic/claude-haiku-4-5",
         "name": "Claude Haiku 4.5 (Anthropic)",
         "family": "claude-haiku",
@@ -149492,6 +150191,46 @@
             "textInput": 0.13,
             "textOutput": 0.27,
             "textInput_cacheRead": 0.02
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "consensusprotocol/gpt-oss-20b",
+        "name": "GPT OSS 20B (Consensus Protocol)",
+        "family": "gpt-oss",
+        "releasedAt": "2025-08-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 65536,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.04,
+            "textOutput": 0.19,
+            "textInput_cacheRead": 0.01
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -156821,15 +157560,19 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": false,
+          "attachment": true,
           "temperature": true,
-          "structuredOutput": false
+          "structuredOutput": false,
+          "vision": true
         },
         "contextWindow": 1048576,
         "maxOutput": 131072,
         "modalities": {
           "input": [
-            "text"
+            "text",
+            "image",
+            "video",
+            "pdf"
           ],
           "output": [
             "text"
@@ -161538,6 +162281,53 @@
             "textInput": 10,
             "textOutput": 50,
             "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "anthropic/claude-fable-5-1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
@@ -166770,17 +167560,15 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": true,
+          "attachment": false,
           "temperature": true,
-          "structuredOutput": false,
-          "vision": true
+          "structuredOutput": false
         },
-        "contextWindow": 256000,
-        "maxOutput": 64000,
+        "contextWindow": 131072,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
-            "text",
-            "image"
+            "text"
           ],
           "output": [
             "text"
@@ -173881,6 +174669,49 @@
         }
       },
       {
+        "id": "alibaba/qwen3.8-max-0902",
+        "name": "Qwen3.8 Max 0902",
+        "family": "qwen3.8-max",
+        "releasedAt": "2026-09-02",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 991808,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 6,
+            "textInput_cacheRead": 0.17,
+            "textInput_cacheWrite": 2.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "amazon/nova-2-lite-v1",
         "name": "Amazon Nova 2 Lite",
         "family": "nova",
@@ -174082,6 +174913,53 @@
             "textInput": 10,
             "textOutput": 50,
             "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "anthropic/claude-fable-5.1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
@@ -182111,6 +182989,46 @@
             "textInput": 0.1,
             "textOutput": 0.15,
             "textInput_cacheRead": 0.05
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "inception/mercury-2.5-preview",
+        "name": "Mercury 2.5 Preview",
+        "family": "mercury",
+        "releasedAt": "2026-09-01",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "structuredOutput": true
+        },
+        "contextWindow": 260000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.04,
+            "textOutput": 0.15,
+            "textInput_cacheRead": 0.004
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -217423,6 +218341,54 @@
         "baseUrl": "https://opencode.ai/zen"
       },
       {
+        "id": "claude-fable-5-1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "api": "anthropic-messages",
+        "baseUrl": "https://opencode.ai/zen"
+      },
+      {
         "id": "claude-haiku-4-5",
         "name": "Claude Haiku 4.5",
         "family": "claude-haiku",
@@ -224218,7 +225184,7 @@
           "imageOutput": false,
           "video": false,
           "attachment": true,
-          "temperature": true
+          "temperature": false
         },
         "contextWindow": 1000000,
         "maxOutput": 128000,
@@ -224238,7 +225204,7 @@
           "basePricing": {
             "textInput": 10,
             "textOutput": 50,
-            "textInput_cacheRead": 1,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           }
         }
@@ -224731,6 +225697,54 @@
             "textInput": 2,
             "textOutput": 6,
             "textInput_cacheRead": 0.5
+          }
+        }
+      },
+      {
+        "id": "~z-ai/glm-flash-latest",
+        "name": "Z.ai: GLM Flash Latest",
+        "description": "This model always redirects to the latest model in the GLM Flash family.",
+        "family": "glm-flash",
+        "releasedAt": "2026-08-27",
+        "knowledge": null,
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": true,
+          "attachment": false,
+          "temperature": true
+        },
+        "contextWindow": 1310720,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.075,
+            "textOutput": 0.25,
+            "textInput_cacheRead": 0.015
           }
         }
       },
@@ -225300,6 +226314,97 @@
         }
       },
       {
+        "id": "anthropic/claude-fable-5.1",
+        "name": "Anthropic: Claude Fable 5.1",
+        "description": "Claude Fable 5.1 improves on Claude Fable 5 across the board, with the biggest gains in agentic coding, long-running agentic workflows, and knowledge work: long code refactors, front-end and visual...",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 12.5
+          }
+        }
+      },
+      {
+        "id": "anthropic/claude-fable-5.1:batch",
+        "name": "Anthropic: Claude Fable 5.1 (batch)",
+        "description": "Claude Fable 5.1 improves on Claude Fable 5 across the board, with the biggest gains in agentic coding, long-running agentic workflows, and knowledge work: long code refactors, front-end and visual...",
+        "releasedAt": "2026-09-01",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "file"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 5,
+            "textOutput": 25,
+            "textInput_cacheRead": 0.125,
+            "textInput_cacheWrite": 6.25
+          }
+        }
+      },
+      {
         "id": "anthropic/claude-haiku-4.5",
         "name": "Anthropic: Claude Haiku 4.5",
         "description": "Claude Haiku 4.5 is Anthropic’s fastest and most efficient model, delivering near-frontier intelligence at a fraction of the cost and latency of larger Claude models. Matching Claude Sonnet 4’s performance...",
@@ -225731,57 +226836,6 @@
         }
       },
       {
-        "id": "anthropic/claude-opus-4.7-fast",
-        "name": "Anthropic: Claude Opus 4.7 (Fast)",
-        "description": "Fast-mode variant of [Opus 4.7](/anthropic/claude-opus-4.7) - identical capabilities with higher output speed at premium 6x pricing.\n\nLearn more in Anthropic's docs: https://platform.claude.com/docs/en/build-with-claude/fast-mode",
-        "family": "claude-opus",
-        "releasedAt": "2026-05-12",
-        "knowledge": "2026-01-31",
-        "openWeights": false,
-        "reasoningEffort": {
-          "enum": [
-            "low",
-            "medium",
-            "high",
-            "xhigh",
-            "max"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": true,
-          "search": true,
-          "imageOutput": false,
-          "video": false,
-          "attachment": true,
-          "temperature": true
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "file"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 30,
-            "textOutput": 150,
-            "textInput_cacheRead": 3,
-            "textInput_cacheWrite": 37.5
-          }
-        }
-      },
-      {
         "id": "anthropic/claude-opus-4.7:batch",
         "name": "Anthropic: Claude Opus 4.7 (batch)",
         "description": "Opus 4.7 is the next generation of Anthropic's Opus family, built for long-running, asynchronous agents. Building on the coding and agentic strengths of Opus 4.6, it delivers stronger performance on...",
@@ -225873,57 +226927,6 @@
         }
       },
       {
-        "id": "anthropic/claude-opus-4.8-fast",
-        "name": "Anthropic: Claude Opus 4.8 (Fast)",
-        "description": "Fast-mode variant of [Opus 4.8](/anthropic/claude-opus-4.8) - identical capabilities with higher output speed at 2x pricing relative to regular Opus 4.8.\n\nLearn more in Anthropic's docs: https://platform.claude.com/docs/en/build-with-claude/fast-mode",
-        "family": "claude-opus",
-        "releasedAt": "2026-05-27",
-        "knowledge": "2026-01",
-        "openWeights": false,
-        "reasoningEffort": {
-          "enum": [
-            "low",
-            "medium",
-            "high",
-            "xhigh",
-            "max"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": true,
-          "search": true,
-          "imageOutput": false,
-          "video": false,
-          "attachment": true,
-          "temperature": true
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "file"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 10,
-            "textOutput": 50,
-            "textInput_cacheRead": 1,
-            "textInput_cacheWrite": 12.5
-          }
-        }
-      },
-      {
         "id": "anthropic/claude-opus-4.8:batch",
         "name": "Anthropic: Claude Opus 4.8 (batch)",
         "description": "Claude Opus 4.8 is Anthropic's most capable generally available model in the Opus family. It supports text, image, and file inputs with text output, with reasoning support and a 1M-token...",
@@ -226011,57 +227014,6 @@
             "textOutput": 25,
             "textInput_cacheRead": 0.5,
             "textInput_cacheWrite": 6.25
-          }
-        }
-      },
-      {
-        "id": "anthropic/claude-opus-5-fast",
-        "name": "Claude Opus 5 (Fast)",
-        "description": "Fast-mode variant of [Opus 5](/anthropic/claude-opus-5) - identical capabilities with higher output speed at 2x pricing relative to regular Opus 5.\n\nLearn more in Anthropic's docs: https://platform.claude.com/docs/en/build-with-claude/fast-mode",
-        "family": "claude-opus",
-        "releasedAt": "2026-07-24",
-        "knowledge": "2026-05",
-        "openWeights": false,
-        "reasoningEffort": {
-          "enum": [
-            "low",
-            "medium",
-            "high",
-            "xhigh",
-            "max"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": true,
-          "search": true,
-          "imageOutput": false,
-          "video": false,
-          "attachment": true,
-          "temperature": false
-        },
-        "contextWindow": 1000000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "file"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 10,
-            "textOutput": 50,
-            "textInput_cacheRead": 1,
-            "textInput_cacheWrite": 12.5
           }
         }
       },
@@ -227148,7 +228100,7 @@
           "temperature": false
         },
         "contextWindow": 163840,
-        "maxOutput": 144900,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -227161,9 +228113,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.55,
-            "textOutput": 1.65,
-            "textInput_cacheRead": 0.55
+            "textInput": 0.25,
+            "textOutput": 0.95,
+            "textInput_cacheRead": 0.13
           }
         }
       },
@@ -227442,9 +228394,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.08092,
-            "textOutput": 0.16184,
-            "textInput_cacheRead": 0.016184
+            "textInput": 0.088606,
+            "textOutput": 0.177212,
+            "textInput_cacheRead": 0.0177212
           }
         }
       },
@@ -227607,7 +228559,7 @@
           }
         },
         "contextWindow": 1048576,
-        "maxOutput": 393216,
+        "maxOutput": 384000,
         "modalities": {
           "input": [
             "text"
@@ -227620,9 +228572,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1.6,
-            "textOutput": 3.2,
-            "textInput_cacheRead": 0.135
+            "textInput": 1.04226,
+            "textOutput": 2.08452,
+            "textInput_cacheRead": 0.086855
           }
         }
       },
@@ -229759,6 +230711,53 @@
             "textInput": 0.25,
             "textOutput": 0.75,
             "textInput_cacheRead": 0.025
+          }
+        }
+      },
+      {
+        "id": "inception/mercury-2.5-preview",
+        "name": "Inception: Mercury 2.5 Preview",
+        "description": "Mercury 2.5 is the fastest reasoning LLM, and the latest diffusion LLM (dLLM) from Inception. Instead of generating tokens sequentially, Mercury 2.5 produces and refines multiple tokens in parallel, achieving...",
+        "family": "mercury",
+        "releasedAt": "2026-08-31",
+        "knowledge": null,
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 260000,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.04,
+            "textOutput": 0.15,
+            "textInput_cacheRead": 0.004
           }
         }
       },
@@ -232738,7 +233737,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 16384,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -232751,9 +233750,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 2.2,
-            "textInput_cacheRead": 0.1
+            "textInput": 0.625,
+            "textOutput": 3.125,
+            "textInput_cacheRead": 0.1875
           }
         }
       },
@@ -239283,7 +240282,7 @@
           "temperature": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 262144,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -239298,7 +240297,7 @@
           "basePricing": {
             "textInput": 2,
             "textOutput": 6,
-            "textInput_cacheRead": 0.25
+            "textInput_cacheRead": 0.2
           }
         }
       },
@@ -239333,9 +240332,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 2.5,
-            "textOutput": 6.25,
-            "textInput_cacheRead": 0.5
+            "textInput": 2,
+            "textOutput": 6,
+            "textInput_cacheRead": 0.25
           }
         }
       },
@@ -241562,7 +242561,7 @@
           }
         },
         "contextWindow": 1048576,
-        "maxOutput": 262144,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -241575,9 +242574,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1.19,
-            "textOutput": 3.74,
-            "textInput_cacheRead": 0.221
+            "textInput": 0.966,
+            "textOutput": 3.036,
+            "textInput_cacheRead": 0.1932
           }
         }
       },
@@ -269251,6 +270250,55 @@
         }
       },
       {
+        "id": "gemini-2.5-flash-lite@eu",
+        "name": "Gemini 2.5 Flash-Lite (EU)",
+        "family": "gemini-flash-lite",
+        "releasedAt": "2025-06-17",
+        "knowledge": "2025-01",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65535,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "audio",
+            "video",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.1,
+            "textOutput": 0.4,
+            "textInput_cacheRead": 0.01,
+            "textInput_cacheWrite": 0.18333
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "gemini-2.5-flash@eu",
         "name": "Gemini 2.5 Flash (EU)",
         "family": "gemini-flash",
@@ -269294,6 +270342,72 @@
             "textOutput": 2.5,
             "textInput_cacheRead": 0.075,
             "textInput_cacheWrite": 0.55
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gemini-2.5-pro@eu",
+        "name": "Gemini 2.5 Pro (EU)",
+        "family": "gemini-pro",
+        "releasedAt": "2025-06-17",
+        "knowledge": "2025-01",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65535,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "audio",
+            "video",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 1.5,
+                "textInput_cacheRead": 2,
+                "textInput_cacheWrite": 2
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 1.25,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.31,
+            "textInput_cacheWrite": 2.375
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -293629,6 +294743,52 @@
         }
       },
       {
+        "id": "claude-fable-5-1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-08-29",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 12,
+            "textOutput": 60,
+            "textInput_cacheRead": 0.3,
+            "textInput_cacheWrite": 15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "claude-opus-4-5",
         "name": "Claude Opus 4.5",
         "family": "claude-opus",
@@ -293672,6 +294832,14 @@
         "releasedAt": "2026-02-05",
         "knowledge": "2025-05-31",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -293709,6 +294877,15 @@
         "releasedAt": "2026-04-16",
         "knowledge": "2026-01-31",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -293746,6 +294923,15 @@
         "releasedAt": "2026-05-28",
         "knowledge": "2026-01",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -293783,6 +294969,15 @@
         "releasedAt": "2026-05-28",
         "knowledge": "2026-01",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -293820,6 +295015,15 @@
         "releasedAt": "2026-07-23",
         "knowledge": "2026-05",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -293857,6 +295061,15 @@
         "releasedAt": "2026-07-23",
         "knowledge": "2026-05",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -293931,6 +295144,14 @@
         "releasedAt": "2026-02-17",
         "knowledge": "2025-08-31",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -293968,6 +295189,15 @@
         "releasedAt": "2026-06-29",
         "knowledge": "2026-01-31",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -294047,6 +295277,14 @@
         "releasedAt": "2026-04-24",
         "knowledge": "2025-05",
         "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -299057,6 +300295,34 @@
         }
       },
       {
+        "id": "alibaba/qwen3.8-max-0902",
+        "name": "Qwen3.8 Max 0902",
+        "description": "Qwen3.8-Max-0902 is an upgraded snapshot of qwen3.8-max.",
+        "type": "language",
+        "releasedAt": "2026-09-01",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false
+        },
+        "contextWindow": 991000,
+        "maxOutput": 128000,
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 6,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 2.5
+          }
+        }
+      },
+      {
         "id": "alibaba/wan-v2.5-t2v-preview",
         "name": "Wan v2.5 Text-to-Video Preview",
         "description": "",
@@ -299652,6 +300918,58 @@
             "textInput": 10,
             "textOutput": 50,
             "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          }
+        }
+      },
+      {
+        "id": "anthropic/claude-fable-5.1",
+        "name": "Claude Fable 5.1",
+        "description": "Claude Fable 5.1 improves on Fable 5 across long-running agentic coding, knowledge work, and research, following instructions precisely over sessions that run unattended for hours.",
+        "type": "language",
+        "family": "claude-fable",
+        "releasedAt": "2026-08-31",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
           }
         }
@@ -301284,45 +302602,6 @@
         }
       },
       {
-        "id": "deepseek/deepseek-v3",
-        "name": "DeepSeek V3 0324",
-        "description": "DeepSeek V3, a 685B-parameter, mixture-of-experts model, is the latest iteration of the flagship chat model family from the DeepSeek team.",
-        "type": "language",
-        "family": "deepseek",
-        "releasedAt": "2024-12-26",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 163840,
-        "maxOutput": 163840,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.27,
-            "textOutput": 1.12,
-            "textInput_cacheRead": 0.135
-          }
-        }
-      },
-      {
         "id": "deepseek/deepseek-v3.1",
         "name": "DeepSeek V3.1",
         "description": "DeepSeek-V3.1 is post-trained on the top of DeepSeek-V3.1-Base, which is built upon the original V3 base checkpoint through a two-phase long context extension approach, following the methodology outlined in the original DeepSeek-V3 report. We have expanded our dataset by collecting additional long documents and substantially extending both training phases. The 32K extension phase has been increased 10-fold to 630B tokens, while the 128K extension phase has been extended by 3.3x to 209B tokens. Additionally, DeepSeek-V3.1 is trained using the UE8M0 FP8 scale data format to ensure compatibility with microscaling data formats.",
@@ -301570,7 +302849,7 @@
       {
         "id": "deepseek/deepseek-v4-flash-vision-exp",
         "name": "DeepSeek V4 Flash Vision Exp",
-        "description": "DeepSeek-V4-Flash-Vision-Exp is an experimental multimodal model that combines the agentic reasoning, coding, and world knowledge capabilities of DeepSeek-V4-Flash with advanced visual understanding. It delivers major gains on vision-dependent agent workflows while performing strongly across leading coding, repository, data science, automation, and multimodal benchmarks.",
+        "description": "DeepSeek-V4-Flash-Vision-Exp is the first experimental multimodal model in the DeepSeek-V4 family. It builds on DeepSeek-V4-Flash by adding visual modules and continued training for visual understanding, with substantially improved multimodal agent capabilities while remaining comparable on text-only agent tasks.",
         "type": "language",
         "family": "deepseek-flash",
         "releasedAt": "2026-08-21",
@@ -301592,8 +302871,8 @@
           "attachment": true,
           "temperature": true
         },
-        "contextWindow": 1000000,
-        "maxOutput": 384000,
+        "contextWindow": 1048576,
+        "maxOutput": 1048576,
         "modalities": {
           "input": [
             "text",
@@ -328286,6 +329565,8 @@
       {
         "id": "glm-5.3-flash",
         "name": "GLM-5.3-Flash",
+        "description": "GLM-5.3-Flash is the first natively multimodal GLM-5 model. It inherits the GLM-5.3 text contract with always-on thinking, adds image and video understanding, and lands coding quality close to the flagship at roughly one-tenth of the price.",
+        "type": "chat",
         "family": "glm",
         "releasedAt": "2026-08-26",
         "openWeights": false,
@@ -328299,15 +329580,17 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "video": true,
           "attachment": true,
           "temperature": true,
-          "structuredOutput": true,
           "interleaved": {
             "field": "reasoning_content"
-          },
-          "vision": true
+          }
         },
-        "contextWindow": 1000000,
+        "contextWindow": 1048576,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -328322,12 +329605,11 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.075,
-            "textOutput": 0.25,
-            "textInput_cacheRead": 0.015,
-            "textInput_cacheWrite": 0
+            "textInput_cacheRead": 0.23,
+            "textInput": 0.8,
+            "textOutput": 2.8
           },
-          "currency": "USD",
+          "currency": "CNY",
           "unit": "millionTokens"
         }
       },
