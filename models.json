@@ -1,23 +1,23 @@
 {
   "_meta": {
-    "generatedAt": "2026-09-06T08:08:45.899Z",
+    "generatedAt": "2026-09-07T08:39:31.272Z",
     "sources": {
       "modelsDev": {
         "providerCount": 213,
-        "modelCount": 7563
+        "modelCount": 7560
       },
       "lobehub": {
-        "commitHash": "36fd9405ef699c61649433aafd43ec4d980cfde8",
-        "providerCount": 83,
-        "modelCount": 1846
+        "commitHash": "8f576e3be5beec7fd47c22329507aa10226e3376",
+        "providerCount": 84,
+        "modelCount": 1848
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 431
+        "modelCount": 430
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 373
+        "modelCount": 371
       },
       "manual": {
         "providerCount": 7,
@@ -29,7 +29,7 @@
       }
     },
     "merged": {
-      "providerCount": 259,
+      "providerCount": 260,
       "modelCount": 9067
     },
     "overridesApplied": 81
@@ -4031,6 +4031,26 @@
           "UNOROUTER_API_KEY"
         ],
         "npm": "@ai-sdk/openai-compatible"
+      }
+    },
+    "unsloth": {
+      "id": "unsloth",
+      "name": "Unsloth",
+      "official": false,
+      "featured": false,
+      "description": "Unsloth is a framework for fine-tuning and running LLMs locally, exposing loaded GGUF models through an OpenAI-compatible API endpoint.",
+      "url": "https://unsloth.ai",
+      "_": {
+        "defaultShowBrowserRequest": true,
+        "proxyUrl": {
+          "placeholder": "http://127.0.0.1:8888/v1"
+        },
+        "responseAnimation": {
+          "speed": 2,
+          "text": "smooth"
+        },
+        "showModelFetcher": true,
+        "modelsUrl": "https://huggingface.co/unsloth"
       }
     },
     "upstage": {
@@ -8967,7 +8987,7 @@
       },
       {
         "id": "gemini-3-pro-image-preview",
-        "name": "Nano Banana Pro",
+        "name": "Nano Banana Pro Preview",
         "family": "gemini-pro",
         "releasedAt": "2025-11-20",
         "knowledge": "2025-01",
@@ -9038,7 +9058,7 @@
       },
       {
         "id": "gemini-3.1-flash-image-preview",
-        "name": "Nano Banana 2",
+        "name": "Nano Banana 2 Preview",
         "family": "gemini-flash",
         "releasedAt": "2026-02-26",
         "knowledge": "2025-01",
@@ -29199,6 +29219,55 @@
         }
       },
       {
+        "id": "global.xai.grok-4.6",
+        "name": "Grok 4.6 (Global)",
+        "family": "grok",
+        "releasedAt": "2026-08-12",
+        "knowledge": "2026-02-01",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": false,
+          "vision": true
+        },
+        "contextWindow": 500000,
+        "maxOutput": 500000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 6,
+            "textInput_cacheRead": 0.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
+            "supportsPromptCaching": true
+          }
+        }
+      },
+      {
         "id": "google.gemma-3-12b-it",
         "name": "Google Gemma 3 12B",
         "family": "gemma",
@@ -31977,6 +32046,55 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "us.xai.grok-4.6",
+        "name": "Grok 4.6 (US)",
+        "family": "grok",
+        "releasedAt": "2026-08-12",
+        "knowledge": "2026-02-01",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": false,
+          "vision": true
+        },
+        "contextWindow": 500000,
+        "maxOutput": 500000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2.2,
+            "textOutput": 6.6,
+            "textInput_cacheRead": 0.55
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "compat": {
+          "bedrock": {
+            "supportsPromptCaching": true
+          }
         }
       },
       {
@@ -38218,6 +38336,71 @@
         }
       },
       {
+        "id": "gpt-6-astra",
+        "name": "GPT-6 Astra",
+        "family": "gpt-astra",
+        "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 1.5,
+                "textInput_cacheRead": 2,
+                "textInput_cacheWrite": 2
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "gpt-chat-latest",
         "name": "GPT Chat Latest",
         "releasedAt": "2026-05-05",
@@ -44292,6 +44475,7 @@
         "type": "chat",
         "family": "gpt-astra",
         "releasedAt": "2026-09-03",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -47115,36 +47299,13 @@
         "name": "Gemma 4 31B",
         "description": "This model excels at multimodal reasoning across screenshots, documents, diagrams, and design assets. Ideal for visual agentic workflows, image-aware copilots, and teams migrating from closed multimodal APIs to an open model.",
         "type": "chat",
-        "family": "gemma",
-        "releasedAt": "2026-04-02",
-        "openWeights": true,
-        "reasoningEffort": {
-          "enum": [
-            "none",
-            "low",
-            "medium",
-            "high"
-          ]
-        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "vision": true,
-          "structuredOutput": true,
-          "attachment": true,
-          "temperature": true
+          "vision": true
         },
         "contextWindow": 131072,
         "maxOutput": 40960,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "basePricing": {
             "textInput": 0.99,
@@ -47189,6 +47350,48 @@
           "basePricing": {
             "textInput": 0.35,
             "textOutput": 0.75
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen-3.8-27b",
+        "name": "Qwen3.8 27B",
+        "family": "qwen",
+        "releasedAt": "2026-08-14",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 65536,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.99,
+            "textOutput": 1.49
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -57050,6 +57253,52 @@
         }
       },
       {
+        "id": "deepseek-v4-flash-vision-exp",
+        "name": "DeepSeek V4 Flash Vision Exp",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-08-21",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.08,
+            "textOutput": 0.2,
+            "textInput_cacheRead": 0.007
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "deepseek-v4-pro",
         "name": "DeepSeek V4 Pro",
         "family": "deepseek-thinking",
@@ -59670,6 +59919,7 @@
         "name": "GPT-6 Astra",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -69635,7 +69885,7 @@
     "edenai": [
       {
         "id": "amazon/moonshot.kimi-k2-thinking",
-        "name": "Kimi K2 Thinking",
+        "name": "Kimi K2 Thinking (Amazon Bedrock)",
         "family": "kimi-thinking",
         "releasedAt": "2025-11-06",
         "knowledge": "2024-08",
@@ -69668,7 +69918,7 @@
       },
       {
         "id": "amazon/moonshotai.kimi-k2.5",
-        "name": "Kimi K2.5",
+        "name": "Kimi K2.5 (Amazon Bedrock)",
         "family": "kimi-k2",
         "releasedAt": "2026-01",
         "knowledge": "2025-01",
@@ -69703,7 +69953,7 @@
       },
       {
         "id": "amazon/zai.glm-4.7-flash",
-        "name": "GLM-4.7-Flash",
+        "name": "GLM-4.7-Flash (Amazon Bedrock)",
         "family": "glm-flash",
         "releasedAt": "2026-01-19",
         "knowledge": "2025-04",
@@ -69736,7 +69986,7 @@
       },
       {
         "id": "amazon/zai.glm-4.7-flash@us",
-        "name": "GLM-4.7-Flash (US)",
+        "name": "GLM-4.7-Flash (Amazon Bedrock, US)",
         "family": "glm-flash",
         "releasedAt": "2026-01-19",
         "knowledge": "2025-04",
@@ -69863,7 +70113,7 @@
       },
       {
         "id": "anthropic/claude-fable-latest",
-        "name": "Claude Fable 5.1",
+        "name": "Claude Fable Latest (Claude Fable 5.1)",
         "family": "claude-fable",
         "releasedAt": "2026-09-01",
         "knowledge": "2026-06",
@@ -70187,7 +70437,7 @@
       },
       {
         "id": "anthropic/claude-opus-latest",
-        "name": "Claude Opus 5",
+        "name": "Claude Opus Latest (Claude Opus 5)",
         "family": "claude-opus",
         "releasedAt": "2026-07-24",
         "knowledge": "2026-05",
@@ -70328,7 +70578,7 @@
       },
       {
         "id": "anthropic/claude-sonnet-latest",
-        "name": "Claude Sonnet 5",
+        "name": "Claude Sonnet Latest (Claude Sonnet 5)",
         "family": "claude-sonnet",
         "releasedAt": "2026-06-30",
         "knowledge": "2026-01-31",
@@ -70376,7 +70626,7 @@
       },
       {
         "id": "azure/gpt-5.1-codex",
-        "name": "GPT-5.1 Codex",
+        "name": "GPT-5.1 Codex (Azure)",
         "family": "gpt-codex",
         "releasedAt": "2025-11-13",
         "knowledge": "2024-09-30",
@@ -70420,7 +70670,7 @@
       },
       {
         "id": "azure/gpt-5.1-codex-max",
-        "name": "GPT-5.1 Codex Max",
+        "name": "GPT-5.1 Codex Max (Azure)",
         "family": "gpt-codex",
         "releasedAt": "2025-11-13",
         "knowledge": "2024-09-30",
@@ -70465,7 +70715,7 @@
       },
       {
         "id": "azure/gpt-5.1-codex-mini",
-        "name": "GPT-5.1 Codex mini",
+        "name": "GPT-5.1 Codex mini (Azure)",
         "family": "gpt-codex",
         "releasedAt": "2025-11-13",
         "knowledge": "2024-09-30",
@@ -70510,7 +70760,7 @@
       },
       {
         "id": "azure/gpt-5.2-codex",
-        "name": "GPT-5.2 Codex",
+        "name": "GPT-5.2 Codex (Azure)",
         "family": "gpt-codex",
         "releasedAt": "2025-12-11",
         "knowledge": "2025-08-31",
@@ -70555,7 +70805,7 @@
       },
       {
         "id": "cerebras/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (Cerebras)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -70595,7 +70845,7 @@
       },
       {
         "id": "cloudflare/@cf/aisingapore/gemma-sea-lion-v4-27b-it",
-        "name": "Gemma-SEA-LION-v4-27B-IT",
+        "name": "Gemma-SEA-LION-v4-27B-IT (Cloudflare)",
         "family": "gemma",
         "releasedAt": "2025-09-23",
         "openWeights": true,
@@ -70627,7 +70877,7 @@
       },
       {
         "id": "cloudflare/@cf/deepseek-ai/deepseek-v4-flash-0731",
-        "name": "DeepSeek V4 Flash 0731",
+        "name": "DeepSeek V4 Flash 0731 (Cloudflare)",
         "family": "deepseek-flash",
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
@@ -70669,7 +70919,7 @@
       },
       {
         "id": "cloudflare/@cf/deepseek-ai/deepseek-v4-pro-0813",
-        "name": "DeepSeek V4 Pro 0813",
+        "name": "DeepSeek V4 Pro 0813 (Cloudflare)",
         "family": "deepseek-thinking",
         "releasedAt": "2026-08-12",
         "openWeights": true,
@@ -70710,7 +70960,7 @@
       },
       {
         "id": "cloudflare/@cf/meta/llama-guard-3-8b",
-        "name": "Llama-Guard-3-8B",
+        "name": "Llama-Guard-3-8B (Cloudflare)",
         "family": "llama",
         "releasedAt": "2024-07-23",
         "knowledge": "2023-12",
@@ -70743,7 +70993,7 @@
       },
       {
         "id": "cloudflare/@cf/openai/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (Cloudflare)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -70782,7 +71032,7 @@
       },
       {
         "id": "cloudflare/@cf/openai/gpt-oss-20b",
-        "name": "GPT OSS 20B",
+        "name": "GPT OSS 20B (Cloudflare)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -70821,7 +71071,7 @@
       },
       {
         "id": "cloudflare/@cf/qwen/qwen2.5-coder-32b-instruct",
-        "name": "Qwen2.5-Coder-32B-Instruct",
+        "name": "Qwen2.5-Coder-32B-Instruct (Cloudflare)",
         "family": "qwen",
         "releasedAt": "2024-11-12",
         "openWeights": true,
@@ -70853,7 +71103,7 @@
       },
       {
         "id": "cloudflare/@cf/zai-org/glm-4.7-flash",
-        "name": "GLM-4.7-Flash",
+        "name": "GLM-4.7-Flash (Cloudflare)",
         "family": "glm-flash",
         "releasedAt": "2026-01-19",
         "knowledge": "2025-04",
@@ -71018,7 +71268,7 @@
       },
       {
         "id": "databricks/databricks-deepseek-v4-flash-0731",
-        "name": "DeepSeek V4 Flash 0731",
+        "name": "DeepSeek V4 Flash 0731 (Databricks)",
         "family": "deepseek-flash",
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
@@ -71061,7 +71311,7 @@
       },
       {
         "id": "databricks/databricks-deepseek-v4-pro-0813",
-        "name": "DeepSeek V4 Pro 0813",
+        "name": "DeepSeek V4 Pro 0813 (Databricks)",
         "family": "deepseek-thinking",
         "releasedAt": "2026-08-12",
         "openWeights": true,
@@ -71103,7 +71353,7 @@
       },
       {
         "id": "databricks/databricks-gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (Databricks)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -71144,7 +71394,7 @@
       },
       {
         "id": "databricks/databricks-gpt-oss-120b@eu",
-        "name": "GPT OSS 120B (EU)",
+        "name": "GPT OSS 120B (Databricks, EU)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -71185,7 +71435,7 @@
       },
       {
         "id": "databricks/databricks-gpt-oss-20b",
-        "name": "GPT OSS 20B",
+        "name": "GPT OSS 20B (Databricks)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -71226,7 +71476,7 @@
       },
       {
         "id": "databricks/databricks-gpt-oss-20b@eu",
-        "name": "GPT OSS 20B (EU)",
+        "name": "GPT OSS 20B (Databricks, EU)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -71267,7 +71517,7 @@
       },
       {
         "id": "databricks/databricks-inkling",
-        "name": "Inkling",
+        "name": "Inkling (Databricks)",
         "family": "ling",
         "releasedAt": "2026-07-15",
         "openWeights": true,
@@ -71313,7 +71563,7 @@
       },
       {
         "id": "deepinfra/ByteDance/Seed-2.0-code",
-        "name": "Seed 2.0 Code",
+        "name": "Seed 2.0 Code (Deep Infra)",
         "family": "seed",
         "releasedAt": "2026-02-14",
         "openWeights": false,
@@ -71356,7 +71606,7 @@
       },
       {
         "id": "deepinfra/ByteDance/Seed-2.0-mini",
-        "name": "Seed 2.0 Mini",
+        "name": "Seed 2.0 Mini (Deep Infra)",
         "family": "seed",
         "releasedAt": "2026-02-14",
         "openWeights": false,
@@ -71400,7 +71650,7 @@
       },
       {
         "id": "deepinfra/deepseek-ai/DeepSeek-R1",
-        "name": "DeepSeek-R1",
+        "name": "DeepSeek-R1 (Deep Infra)",
         "family": "deepseek-thinking",
         "releasedAt": "2025-01-20",
         "knowledge": "2024-07",
@@ -71433,7 +71683,7 @@
       },
       {
         "id": "deepinfra/deepseek-ai/DeepSeek-V3",
-        "name": "DeepSeek-V3",
+        "name": "DeepSeek-V3 (Deep Infra)",
         "family": "deepseek",
         "releasedAt": "2024-12-26",
         "openWeights": true,
@@ -71465,7 +71715,7 @@
       },
       {
         "id": "deepinfra/deepseek-ai/DeepSeek-V3-0324",
-        "name": "DeepSeek V3 0324",
+        "name": "DeepSeek V3 0324 (Deep Infra)",
         "family": "deepseek",
         "releasedAt": "2025-03-24",
         "openWeights": true,
@@ -71498,7 +71748,7 @@
       },
       {
         "id": "deepinfra/deepseek-ai/DeepSeek-V4-Flash-0731",
-        "name": "DeepSeek V4 Flash 0731",
+        "name": "DeepSeek V4 Flash 0731 (Deep Infra)",
         "family": "deepseek-flash",
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
@@ -71530,9 +71780,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.08,
+            "textInput": 0.06,
             "textOutput": 0.18,
-            "textInput_cacheRead": 0.016
+            "textInput_cacheRead": 0.015
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -71540,7 +71790,7 @@
       },
       {
         "id": "deepinfra/deepseek-ai/DeepSeek-V4-Pro-0813",
-        "name": "DeepSeek V4 Pro 0813",
+        "name": "DeepSeek V4 Pro 0813 (Deep Infra)",
         "family": "deepseek-thinking",
         "releasedAt": "2026-08-12",
         "openWeights": true,
@@ -71581,7 +71831,7 @@
       },
       {
         "id": "deepinfra/meta-llama/Llama-3.2-11B-Vision-Instruct",
-        "name": "Llama-3.2-11B-Vision-Instruct",
+        "name": "Llama-3.2-11B-Vision-Instruct (Deep Infra)",
         "family": "llama",
         "releasedAt": "2024-09-25",
         "knowledge": "2023-12",
@@ -71616,7 +71866,7 @@
       },
       {
         "id": "deepinfra/meta-llama/Llama-3.3-70B-Instruct",
-        "name": "Llama-3.3-70B-Instruct",
+        "name": "Llama-3.3-70B-Instruct (Deep Infra)",
         "family": "llama",
         "releasedAt": "2024-12-06",
         "knowledge": "2023-12",
@@ -71649,7 +71899,7 @@
       },
       {
         "id": "deepinfra/meta-llama/Llama-Guard-3-8B",
-        "name": "Llama-Guard-3-8B",
+        "name": "Llama-Guard-3-8B (Deep Infra)",
         "family": "llama",
         "releasedAt": "2024-07-23",
         "knowledge": "2023-12",
@@ -71682,7 +71932,7 @@
       },
       {
         "id": "deepinfra/meta-models/Muse-Glimmer-30B",
-        "name": "Muse Glimmer 30B",
+        "name": "Muse Glimmer 30B (Deep Infra)",
         "family": "muse",
         "releasedAt": "2026-08-10",
         "knowledge": "2026-01-04",
@@ -71726,7 +71976,7 @@
       },
       {
         "id": "deepinfra/moonshotai/Kimi-K2.5",
-        "name": "Kimi K2.5",
+        "name": "Kimi K2.5 (Deep Infra)",
         "family": "kimi-k2",
         "releasedAt": "2026-01",
         "knowledge": "2025-01",
@@ -71762,7 +72012,7 @@
       },
       {
         "id": "deepinfra/nemotron-3-ultra-550b-a55b",
-        "name": "Nemotron 3 Ultra 550B A55B",
+        "name": "Nemotron 3 Ultra 550B A55B (Deep Infra)",
         "family": "nemotron",
         "releasedAt": "2026-06-04",
         "openWeights": true,
@@ -71802,7 +72052,7 @@
       },
       {
         "id": "deepinfra/nvidia/Llama-3.1-Nemotron-70B-Instruct",
-        "name": "Llama 3.1 Nemotron 70B Instruct",
+        "name": "Llama 3.1 Nemotron 70B Instruct (Deep Infra)",
         "family": "nemotron",
         "releasedAt": "2025-04-15",
         "openWeights": true,
@@ -71834,7 +72084,7 @@
       },
       {
         "id": "deepinfra/nvidia/Nemotron-3-Nano-30B-A3B",
-        "name": "Nemotron 3 Nano 30B A3B",
+        "name": "Nemotron 3 Nano 30B A3B (Deep Infra)",
         "family": "nemotron",
         "releasedAt": "2025-12-15",
         "openWeights": true,
@@ -71867,7 +72117,7 @@
       },
       {
         "id": "deepinfra/openai/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (Deep Infra)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -71906,7 +72156,7 @@
       },
       {
         "id": "deepinfra/openai/gpt-oss-20b",
-        "name": "GPT OSS 20B",
+        "name": "GPT OSS 20B (Deep Infra)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -71945,7 +72195,7 @@
       },
       {
         "id": "deepinfra/stepfun-ai/Step-3.5-Flash",
-        "name": "Step 3.5 Flash",
+        "name": "Step 3.5 Flash (Deep Infra)",
         "releasedAt": "2026-01-29",
         "knowledge": "2025-01",
         "openWeights": true,
@@ -71984,7 +72234,7 @@
       },
       {
         "id": "deepinfra/stepfun-ai/Step-3.7-Flash",
-        "name": "Step 3.7 Flash",
+        "name": "Step 3.7 Flash (Deep Infra)",
         "releasedAt": "2026-05-29",
         "knowledge": "2026-03-01",
         "openWeights": true,
@@ -72027,7 +72277,7 @@
       },
       {
         "id": "deepinfra/tencent/Hy3",
-        "name": "Hy3",
+        "name": "Hy3 (Deep Infra)",
         "family": "Hy",
         "releasedAt": "2026-07-06",
         "openWeights": true,
@@ -72067,7 +72317,7 @@
       },
       {
         "id": "deepinfra/thinkingmachines/Inkling",
-        "name": "Inkling",
+        "name": "Inkling (Deep Infra)",
         "family": "ling",
         "releasedAt": "2026-07-15",
         "openWeights": true,
@@ -72113,7 +72363,7 @@
       },
       {
         "id": "deepinfra/thinkingmachines/Inkling-Small",
-        "name": "Inkling Small",
+        "name": "Inkling Small (Deep Infra)",
         "family": "ling",
         "releasedAt": "2026-07-30",
         "openWeights": true,
@@ -72159,7 +72409,7 @@
       },
       {
         "id": "deepinfra/zai-org/GLM-4.7-Flash",
-        "name": "GLM-4.7-Flash",
+        "name": "GLM-4.7-Flash (Deep Infra)",
         "family": "glm-flash",
         "releasedAt": "2026-01-19",
         "knowledge": "2025-04",
@@ -72353,7 +72603,7 @@
       },
       {
         "id": "fireworks_ai/accounts/fireworks/models/deepseek-v4-flash-0731",
-        "name": "DeepSeek V4 Flash 0731",
+        "name": "DeepSeek V4 Flash 0731 (Fireworks AI)",
         "family": "deepseek-flash",
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
@@ -72395,7 +72645,7 @@
       },
       {
         "id": "fireworks_ai/accounts/fireworks/models/deepseek-v4-pro-0813",
-        "name": "DeepSeek V4 Pro 0813",
+        "name": "DeepSeek V4 Pro 0813 (Fireworks AI)",
         "family": "deepseek-thinking",
         "releasedAt": "2026-08-12",
         "openWeights": true,
@@ -72436,7 +72686,7 @@
       },
       {
         "id": "fireworks_ai/accounts/fireworks/models/inkling",
-        "name": "Inkling",
+        "name": "Inkling (Fireworks AI)",
         "family": "ling",
         "releasedAt": "2026-07-15",
         "openWeights": true,
@@ -72481,7 +72731,7 @@
       },
       {
         "id": "fireworks_ai/accounts/fireworks/models/muse-glimmer-30b",
-        "name": "Muse Glimmer 30B",
+        "name": "Muse Glimmer 30B (Fireworks AI)",
         "family": "muse",
         "releasedAt": "2026-08-10",
         "knowledge": "2026-01-04",
@@ -72525,7 +72775,7 @@
       },
       {
         "id": "fireworks_ai/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (Fireworks AI)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -72565,7 +72815,7 @@
       },
       {
         "id": "flexai/deepseek-v4-flash-0731",
-        "name": "DeepSeek V4 Flash 0731",
+        "name": "DeepSeek V4 Flash 0731 (FlexAI)",
         "family": "deepseek-flash",
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
@@ -72606,7 +72856,7 @@
       },
       {
         "id": "flexai/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (FlexAI)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -72645,7 +72895,7 @@
       },
       {
         "id": "flexai/gpt-oss-20b",
-        "name": "GPT OSS 20B",
+        "name": "GPT OSS 20B (FlexAI)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -72684,7 +72934,7 @@
       },
       {
         "id": "flexai/Muse-Glimmer-30B",
-        "name": "Muse Glimmer 30B",
+        "name": "Muse Glimmer 30B (FlexAI)",
         "family": "muse",
         "releasedAt": "2026-08-10",
         "knowledge": "2026-01-04",
@@ -72727,7 +72977,7 @@
       },
       {
         "id": "flexai/Nemotron-3-Super-120B-A12B",
-        "name": "Nemotron 3 Super 120B A12B",
+        "name": "Nemotron 3 Super 120B A12B (FlexAI)",
         "family": "nemotron",
         "releasedAt": "2026-03-11",
         "openWeights": true,
@@ -72766,7 +73016,7 @@
       },
       {
         "id": "flexai/Step-3.7-Flash",
-        "name": "Step 3.7 Flash",
+        "name": "Step 3.7 Flash (FlexAI)",
         "releasedAt": "2026-05-29",
         "knowledge": "2026-03-01",
         "openWeights": true,
@@ -72939,7 +73189,7 @@
       },
       {
         "id": "google/gemini-3-pro-image-preview",
-        "name": "Nano Banana Pro",
+        "name": "Nano Banana Pro Preview",
         "family": "gemini-pro",
         "releasedAt": "2025-11-20",
         "knowledge": "2025-01",
@@ -73019,7 +73269,7 @@
       },
       {
         "id": "google/gemini-3.1-flash-image-preview",
-        "name": "Nano Banana 2",
+        "name": "Nano Banana 2 Preview",
         "family": "gemini-flash",
         "releasedAt": "2026-02-26",
         "knowledge": "2025-01",
@@ -73562,7 +73812,7 @@
       },
       {
         "id": "google/gemini-flash-latest",
-        "name": "Gemini 3.8 Flash",
+        "name": "Gemini Flash Latest (Gemini 3.8 Flash)",
         "family": "gemini-flash",
         "releasedAt": "2026-09-02",
         "openWeights": false,
@@ -73608,7 +73858,7 @@
       },
       {
         "id": "google/gemini-pro-latest",
-        "name": "Gemini 3.1 Pro Preview",
+        "name": "Gemini Pro Latest (Gemini 3.1 Pro Preview)",
         "family": "gemini-pro",
         "releasedAt": "2026-02-19",
         "knowledge": "2025-01",
@@ -73671,7 +73921,7 @@
       },
       {
         "id": "groq/openai/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (Groq)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -73711,7 +73961,7 @@
       },
       {
         "id": "groq/openai/gpt-oss-20b",
-        "name": "GPT OSS 20B",
+        "name": "GPT OSS 20B (Groq)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -73751,7 +74001,7 @@
       },
       {
         "id": "ionos/meta-llama/Llama-3.3-70B-Instruct",
-        "name": "Llama-3.3-70B-Instruct",
+        "name": "Llama-3.3-70B-Instruct (IONOS)",
         "family": "llama",
         "releasedAt": "2024-12-06",
         "knowledge": "2023-12",
@@ -73784,7 +74034,7 @@
       },
       {
         "id": "ionos/openai/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (IONOS)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -74585,7 +74835,7 @@
       },
       {
         "id": "nebius/deepseek-ai/DeepSeek-V4-Flash-0731",
-        "name": "DeepSeek V4 Flash 0731",
+        "name": "DeepSeek V4 Flash 0731 (Nebius)",
         "family": "deepseek-flash",
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
@@ -74627,7 +74877,7 @@
       },
       {
         "id": "nebius/meta-llama/Llama-3.3-70B-Instruct",
-        "name": "Llama-3.3-70B-Instruct",
+        "name": "Llama-3.3-70B-Instruct (Nebius)",
         "family": "llama",
         "releasedAt": "2024-12-06",
         "knowledge": "2023-12",
@@ -74661,7 +74911,7 @@
       },
       {
         "id": "nebius/nvidia/nemotron-3-super-120b-a12b",
-        "name": "Nemotron 3 Super 120B A12B",
+        "name": "Nemotron 3 Super 120B A12B (Nebius)",
         "family": "nemotron",
         "releasedAt": "2026-03-11",
         "openWeights": true,
@@ -74701,7 +74951,7 @@
       },
       {
         "id": "nebius/nvidia/Nemotron-3-Ultra-550b-a55b",
-        "name": "Nemotron 3 Ultra 550B A55B",
+        "name": "Nemotron 3 Ultra 550B A55B (Nebius)",
         "family": "nemotron",
         "releasedAt": "2026-06-04",
         "openWeights": true,
@@ -74741,7 +74991,7 @@
       },
       {
         "id": "nebius/openai/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (Nebius)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -76032,6 +76282,7 @@
         "name": "GPT-6 Astra",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -76092,9 +76343,10 @@
       },
       {
         "id": "openai/gpt-latest",
-        "name": "GPT-6 Astra",
+        "name": "GPT Latest (GPT-6 Astra)",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -76155,7 +76407,7 @@
       },
       {
         "id": "openai/gpt-mini-latest",
-        "name": "GPT-5.4 mini",
+        "name": "GPT Mini Latest (GPT-5.4 mini)",
         "family": "gpt-mini",
         "releasedAt": "2026-03-17",
         "knowledge": "2025-08-31",
@@ -76201,7 +76453,7 @@
       },
       {
         "id": "openai/gpt-pro-latest",
-        "name": "GPT-5.5 Pro",
+        "name": "GPT Pro Latest (GPT-5.5 Pro)",
         "family": "gpt-pro",
         "releasedAt": "2026-04-23",
         "knowledge": "2025-12-01",
@@ -76521,7 +76773,7 @@
       },
       {
         "id": "ovhcloud/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (OVHcloud)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -76560,7 +76812,7 @@
       },
       {
         "id": "ovhcloud/gpt-oss-20b",
-        "name": "GPT OSS 20B",
+        "name": "GPT OSS 20B (OVHcloud)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -76753,7 +77005,7 @@
       },
       {
         "id": "qwen/deepseek-v4-flash-0731",
-        "name": "DeepSeek V4 Flash 0731",
+        "name": "DeepSeek V4 Flash 0731 (Alibaba)",
         "family": "deepseek-flash",
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
@@ -76794,7 +77046,7 @@
       },
       {
         "id": "qwen/deepseek-v4-pro-0813",
-        "name": "DeepSeek V4 Pro 0813",
+        "name": "DeepSeek V4 Pro 0813 (Alibaba)",
         "family": "deepseek-thinking",
         "releasedAt": "2026-08-12",
         "openWeights": true,
@@ -77638,7 +77890,7 @@
       },
       {
         "id": "scaleway/deepseek-v4-flash-0731",
-        "name": "DeepSeek V4 Flash 0731",
+        "name": "DeepSeek V4 Flash 0731 (Scaleway)",
         "family": "deepseek-flash",
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
@@ -77679,7 +77931,7 @@
       },
       {
         "id": "scaleway/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (Scaleway)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -77718,7 +77970,7 @@
       },
       {
         "id": "scaleway/llama-3.3-70b-instruct",
-        "name": "Llama-3.3-70B-Instruct",
+        "name": "Llama-3.3-70B-Instruct (Scaleway)",
         "family": "llama",
         "releasedAt": "2024-12-06",
         "knowledge": "2023-12",
@@ -77751,7 +78003,7 @@
       },
       {
         "id": "tensorx/deepseek/deepseek-v4-flash-0731",
-        "name": "DeepSeek V4 Flash 0731",
+        "name": "DeepSeek V4 Flash 0731 (TensorX)",
         "family": "deepseek-flash",
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
@@ -77793,7 +78045,7 @@
       },
       {
         "id": "tensorx/deepseek/deepseek-v4-pro-0813",
-        "name": "DeepSeek V4 Pro 0813",
+        "name": "DeepSeek V4 Pro 0813 (TensorX)",
         "family": "deepseek-thinking",
         "releasedAt": "2026-08-12",
         "openWeights": true,
@@ -77834,7 +78086,7 @@
       },
       {
         "id": "tensorx/moonshotai/kimi-k2.5",
-        "name": "Kimi K2.5",
+        "name": "Kimi K2.5 (TensorX)",
         "family": "kimi-k2",
         "releasedAt": "2026-01",
         "knowledge": "2025-01",
@@ -77870,7 +78122,7 @@
       },
       {
         "id": "together_ai/deepseek-ai/DeepSeek-V4-Flash-0731",
-        "name": "DeepSeek V4 Flash 0731",
+        "name": "DeepSeek V4 Flash 0731 (Together AI)",
         "family": "deepseek-flash",
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
@@ -77912,7 +78164,7 @@
       },
       {
         "id": "together_ai/deepseek-ai/DeepSeek-V4-Pro-0813",
-        "name": "DeepSeek V4 Pro 0813",
+        "name": "DeepSeek V4 Pro 0813 (Together AI)",
         "family": "deepseek-thinking",
         "releasedAt": "2026-08-12",
         "openWeights": true,
@@ -77953,7 +78205,7 @@
       },
       {
         "id": "together_ai/meta-models/Muse-Glimmer-30B",
-        "name": "Muse Glimmer 30B",
+        "name": "Muse Glimmer 30B (Together AI)",
         "family": "muse",
         "releasedAt": "2026-08-10",
         "knowledge": "2026-01-04",
@@ -77997,7 +78249,7 @@
       },
       {
         "id": "together_ai/openai/gpt-oss-120b",
-        "name": "GPT OSS 120B",
+        "name": "GPT OSS 120B (Together AI)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -78036,7 +78288,7 @@
       },
       {
         "id": "together_ai/openai/gpt-oss-20b",
-        "name": "GPT OSS 20B",
+        "name": "GPT OSS 20B (Together AI)",
         "family": "gpt-oss",
         "releasedAt": "2025-08-05",
         "openWeights": true,
@@ -78075,7 +78327,7 @@
       },
       {
         "id": "together_ai/thinkingmachines/Inkling",
-        "name": "Inkling",
+        "name": "Inkling (Together AI)",
         "family": "ling",
         "releasedAt": "2026-07-15",
         "openWeights": true,
@@ -78121,7 +78373,7 @@
       },
       {
         "id": "together_ai/thinkingmachines/Inkling-Small",
-        "name": "Inkling Small",
+        "name": "Inkling Small (Together AI)",
         "family": "ling",
         "releasedAt": "2026-07-30",
         "openWeights": true,
@@ -78167,7 +78419,7 @@
       },
       {
         "id": "vertex/gemini-2.5-flash-image",
-        "name": "Nano Banana",
+        "name": "Nano Banana (Vertex AI)",
         "family": "gemini-flash",
         "releasedAt": "2025-08-26",
         "knowledge": "2024-06",
@@ -78205,7 +78457,7 @@
       },
       {
         "id": "vertex/gemini-3-flash-preview",
-        "name": "Gemini 3 Flash Preview",
+        "name": "Gemini 3 Flash Preview (Vertex AI)",
         "family": "gemini-flash",
         "releasedAt": "2025-12-17",
         "knowledge": "2025-01",
@@ -78253,7 +78505,7 @@
       },
       {
         "id": "vertex/gemini-3-pro-image",
-        "name": "Nano Banana Pro",
+        "name": "Nano Banana Pro (Vertex AI)",
         "family": "gemini-pro",
         "releasedAt": "2026-05-28",
         "knowledge": "2025-01",
@@ -78297,7 +78549,7 @@
       },
       {
         "id": "vertex/gemini-3.1-flash-image",
-        "name": "Nano Banana 2",
+        "name": "Nano Banana 2 (Vertex AI)",
         "family": "gemini-flash",
         "releasedAt": "2026-05-28",
         "knowledge": "2025-01",
@@ -78339,7 +78591,7 @@
       },
       {
         "id": "vertex/gemini-3.1-flash-lite",
-        "name": "Gemini 3.1 Flash Lite",
+        "name": "Gemini 3.1 Flash Lite (Vertex AI)",
         "family": "gemini-flash-lite",
         "releasedAt": "2026-05-07",
         "knowledge": "2025-01",
@@ -78387,7 +78639,7 @@
       },
       {
         "id": "vertex/gemini-3.1-flash-lite-image",
-        "name": "Nano Banana 2 Lite",
+        "name": "Nano Banana 2 Lite (Vertex AI)",
         "family": "gemini-flash-lite",
         "releasedAt": "2026-06-30",
         "knowledge": "2025-01",
@@ -78429,7 +78681,7 @@
       },
       {
         "id": "vertex/gemini-3.1-flash-lite@eu",
-        "name": "Gemini 3.1 Flash Lite (EU)",
+        "name": "Gemini 3.1 Flash Lite (Vertex AI, EU)",
         "family": "gemini-flash-lite",
         "releasedAt": "2026-05-07",
         "knowledge": "2025-01",
@@ -78477,7 +78729,7 @@
       },
       {
         "id": "vertex/gemini-3.1-flash-lite@us",
-        "name": "Gemini 3.1 Flash Lite (US)",
+        "name": "Gemini 3.1 Flash Lite (Vertex AI, US)",
         "family": "gemini-flash-lite",
         "releasedAt": "2026-05-07",
         "knowledge": "2025-01",
@@ -78525,7 +78777,7 @@
       },
       {
         "id": "vertex/gemini-3.1-pro-preview",
-        "name": "Gemini 3.1 Pro Preview",
+        "name": "Gemini 3.1 Pro Preview (Vertex AI)",
         "family": "gemini-pro",
         "releasedAt": "2026-02-19",
         "knowledge": "2025-01",
@@ -78589,7 +78841,7 @@
       },
       {
         "id": "vertex/gemini-3.5-flash",
-        "name": "Gemini 3.5 Flash",
+        "name": "Gemini 3.5 Flash (Vertex AI)",
         "family": "gemini-flash",
         "releasedAt": "2026-05-19",
         "knowledge": "2025-01",
@@ -78637,7 +78889,7 @@
       },
       {
         "id": "vertex/gemini-3.5-flash-lite",
-        "name": "Gemini 3.5 Flash Lite",
+        "name": "Gemini 3.5 Flash Lite (Vertex AI)",
         "family": "gemini-flash-lite",
         "releasedAt": "2026-07-21",
         "knowledge": "2026-03",
@@ -78685,7 +78937,7 @@
       },
       {
         "id": "vertex/gemini-3.5-flash-lite@eu",
-        "name": "Gemini 3.5 Flash Lite (EU)",
+        "name": "Gemini 3.5 Flash Lite (Vertex AI, EU)",
         "family": "gemini-flash-lite",
         "releasedAt": "2026-07-21",
         "knowledge": "2026-03",
@@ -78733,7 +78985,7 @@
       },
       {
         "id": "vertex/gemini-3.5-flash-lite@us",
-        "name": "Gemini 3.5 Flash Lite (US)",
+        "name": "Gemini 3.5 Flash Lite (Vertex AI, US)",
         "family": "gemini-flash-lite",
         "releasedAt": "2026-07-21",
         "knowledge": "2026-03",
@@ -78781,7 +79033,7 @@
       },
       {
         "id": "vertex/gemini-3.5-flash@eu",
-        "name": "Gemini 3.5 Flash (EU)",
+        "name": "Gemini 3.5 Flash (Vertex AI, EU)",
         "family": "gemini-flash",
         "releasedAt": "2026-05-19",
         "knowledge": "2025-01",
@@ -78829,7 +79081,7 @@
       },
       {
         "id": "vertex/gemini-3.5-flash@us",
-        "name": "Gemini 3.5 Flash (US)",
+        "name": "Gemini 3.5 Flash (Vertex AI, US)",
         "family": "gemini-flash",
         "releasedAt": "2026-05-19",
         "knowledge": "2025-01",
@@ -78877,7 +79129,7 @@
       },
       {
         "id": "vertex/gemini-3.6-flash",
-        "name": "Gemini 3.6 Flash",
+        "name": "Gemini 3.6 Flash (Vertex AI)",
         "family": "gemini-flash",
         "releasedAt": "2026-07-21",
         "knowledge": "2026-03",
@@ -78925,7 +79177,7 @@
       },
       {
         "id": "vertex/gemini-3.6-flash@eu",
-        "name": "Gemini 3.6 Flash (EU)",
+        "name": "Gemini 3.6 Flash (Vertex AI, EU)",
         "family": "gemini-flash",
         "releasedAt": "2026-07-21",
         "knowledge": "2026-03",
@@ -78973,7 +79225,7 @@
       },
       {
         "id": "vertex/gemini-3.6-flash@us",
-        "name": "Gemini 3.6 Flash (US)",
+        "name": "Gemini 3.6 Flash (Vertex AI, US)",
         "family": "gemini-flash",
         "releasedAt": "2026-07-21",
         "knowledge": "2026-03",
@@ -79021,7 +79273,7 @@
       },
       {
         "id": "vertex/gemini-3.7-flash",
-        "name": "Gemini 3.7 Flash",
+        "name": "Gemini 3.7 Flash (Vertex AI)",
         "family": "gemini-flash",
         "releasedAt": "2026-08-13",
         "knowledge": "2026-03",
@@ -79068,7 +79320,7 @@
       },
       {
         "id": "vertex/gemini-3.7-flash@eu",
-        "name": "Gemini 3.7 Flash (EU)",
+        "name": "Gemini 3.7 Flash (Vertex AI, EU)",
         "family": "gemini-flash",
         "releasedAt": "2026-08-13",
         "knowledge": "2026-03",
@@ -79115,7 +79367,7 @@
       },
       {
         "id": "vertex/gemini-3.7-flash@us",
-        "name": "Gemini 3.7 Flash (US)",
+        "name": "Gemini 3.7 Flash (Vertex AI, US)",
         "family": "gemini-flash",
         "releasedAt": "2026-08-13",
         "knowledge": "2026-03",
@@ -79162,7 +79414,7 @@
       },
       {
         "id": "vertex/gemini-3.8-flash",
-        "name": "Gemini 3.8 Flash",
+        "name": "Gemini 3.8 Flash (Vertex AI)",
         "family": "gemini-flash",
         "releasedAt": "2026-09-02",
         "openWeights": false,
@@ -79208,7 +79460,7 @@
       },
       {
         "id": "vertex/gemini-3.8-flash@eu",
-        "name": "Gemini 3.8 Flash (EU)",
+        "name": "Gemini 3.8 Flash (Vertex AI, EU)",
         "family": "gemini-flash",
         "releasedAt": "2026-09-02",
         "openWeights": false,
@@ -79254,7 +79506,7 @@
       },
       {
         "id": "vertex/gemini-3.8-flash@us",
-        "name": "Gemini 3.8 Flash (US)",
+        "name": "Gemini 3.8 Flash (Vertex AI, US)",
         "family": "gemini-flash",
         "releasedAt": "2026-09-02",
         "openWeights": false,
@@ -79300,7 +79552,7 @@
       },
       {
         "id": "vertex/gemini-flash-latest",
-        "name": "Gemini 3.8 Flash",
+        "name": "Gemini Flash Latest (Gemini 3.8 Flash, Vertex AI)",
         "family": "gemini-flash",
         "releasedAt": "2026-09-02",
         "openWeights": false,
@@ -79346,7 +79598,7 @@
       },
       {
         "id": "vertex/gemini-pro-latest",
-        "name": "Gemini 3.1 Pro Preview",
+        "name": "Gemini Pro Latest (Gemini 3.1 Pro Preview, Vertex AI)",
         "family": "gemini-pro",
         "releasedAt": "2026-02-19",
         "knowledge": "2025-01",
@@ -79744,7 +79996,7 @@
       },
       {
         "id": "xai/grok-latest",
-        "name": "Grok 4.6",
+        "name": "Grok Latest (Grok 4.6)",
         "family": "grok",
         "releasedAt": "2026-08-12",
         "knowledge": "2026-02-01",
@@ -83686,7 +83938,7 @@
       },
       {
         "id": "google/gemini-3-pro-image-preview",
-        "name": "Nano Banana Pro",
+        "name": "Nano Banana Pro Preview",
         "family": "gemini-pro",
         "releasedAt": "2025-11-20",
         "knowledge": "2025-01",
@@ -83721,7 +83973,7 @@
       },
       {
         "id": "google/gemini-3.1-flash-image-preview",
-        "name": "Nano Banana 2",
+        "name": "Nano Banana 2 Preview",
         "family": "gemini-flash",
         "releasedAt": "2026-02-26",
         "knowledge": "2025-01",
@@ -89425,6 +89677,7 @@
         "name": "GPT-6 Astra",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -90723,6 +90976,16 @@
         "releasedAt": "2026-07-09",
         "knowledge": "2026-02-16",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -90761,6 +91024,16 @@
         "releasedAt": "2026-07-09",
         "knowledge": "2026-02-16",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -90799,6 +91072,16 @@
         "releasedAt": "2026-07-09",
         "knowledge": "2026-02-16",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -91055,6 +91338,15 @@
         "releasedAt": "2026-05-28",
         "knowledge": "2026-01-31",
         "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -122898,7 +123190,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "maxOutput": 393216,
         "modalities": {
           "input": [
             "text"
@@ -122909,9 +123201,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.04998,
-            "textOutput": 0.09996,
-            "textInput_cacheRead": 0.009996
+            "textInput": 0.05,
+            "textOutput": 0.16,
+            "textInput_cacheRead": 0.013
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -123211,7 +123503,7 @@
           "vision": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 943718,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text",
@@ -123224,9 +123516,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.075,
-            "textOutput": 0.25,
-            "textInput_cacheRead": 0.015
+            "textInput": 0.07125,
+            "textOutput": 0.2375,
+            "textInput_cacheRead": 0.01425
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -123252,8 +123544,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 262144,
-        "maxOutput": 235929,
+        "contextWindow": 1048576,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text"
@@ -123264,9 +123556,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.17,
-            "textOutput": 3.96,
-            "textInput_cacheRead": 0.234
+            "textInput": 1.12,
+            "textOutput": 3.52,
+            "textInput_cacheRead": 0.208
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -125268,7 +125560,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 943718,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text"
@@ -125809,7 +126101,7 @@
       },
       {
         "id": "google/gemini-3-pro-image-preview",
-        "name": "Nano Banana Pro",
+        "name": "Nano Banana Pro Preview",
         "family": "gemini-pro",
         "releasedAt": "2025-11-20",
         "knowledge": "2025-01",
@@ -125897,7 +126189,7 @@
       },
       {
         "id": "google/gemini-3.1-flash-image-preview",
-        "name": "Nano Banana 2",
+        "name": "Nano Banana 2 Preview",
         "family": "gemini-flash",
         "releasedAt": "2026-02-26",
         "knowledge": "2025-01",
@@ -131875,6 +132167,7 @@
         "name": "GPT-6 Astra",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -133847,8 +134140,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 131072,
-        "maxOutput": 32768,
+        "contextWindow": 262144,
+        "maxOutput": 235929,
         "modalities": {
           "input": [
             "text"
@@ -134265,7 +134558,7 @@
           "vision": true
         },
         "contextWindow": 262144,
-        "maxOutput": 235929,
+        "maxOutput": 65536,
         "modalities": {
           "input": [
             "text",
@@ -135794,9 +136087,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.58,
-            "textInput_cacheRead": 0.035
+            "textInput": 0.132,
+            "textOutput": 0.528,
+            "textInput_cacheRead": 0.033
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -136823,8 +137116,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 204800,
-        "maxOutput": 131072,
+        "contextWindow": 198000,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text"
@@ -136835,9 +137128,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.55,
-            "textOutput": 2.2,
-            "textInput_cacheRead": 0.11
+            "textInput": 0.43,
+            "textOutput": 1.75,
+            "textInput_cacheRead": 0.08
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -137144,7 +137437,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 262144,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text"
@@ -150101,6 +150394,7 @@
         "name": "GPT-6 Astra (Azure)",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -151967,57 +152261,6 @@
             "textInput": 0.14,
             "textOutput": 0.58,
             "textInput_cacheRead": 0.035
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "deepinfra/kimi-k2.5",
-        "name": "Kimi K2.5 (DeepInfra)",
-        "family": "kimi-k2",
-        "releasedAt": "2026-01",
-        "knowledge": "2025-01",
-        "openWeights": true,
-        "reasoningEffort": {
-          "enum": [
-            "none",
-            "minimal",
-            "low",
-            "medium",
-            "high",
-            "xhigh",
-            "max"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": false,
-          "structuredOutput": false,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "video"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.45,
-            "textOutput": 2.25,
-            "textInput_cacheRead": 0.07
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -168594,6 +168837,7 @@
         "name": "GPT-6 Astra",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -175137,217 +175381,6 @@
     ],
     "moonshotai": [
       {
-        "id": "kimi-k2-0711-preview",
-        "name": "Kimi K2 0711",
-        "family": "kimi-k2",
-        "releasedAt": "2025-07-14",
-        "knowledge": "2024-10",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.5,
-            "textInput_cacheRead": 0.15
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "kimi-k2-0905-preview",
-        "name": "Kimi K2 0905",
-        "family": "kimi-k2",
-        "releasedAt": "2025-09-05",
-        "knowledge": "2024-10",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.5,
-            "textInput_cacheRead": 0.15
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "kimi-k2-thinking",
-        "name": "Kimi K2 Thinking",
-        "family": "kimi-thinking",
-        "releasedAt": "2025-11-06",
-        "knowledge": "2024-08",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.5,
-            "textInput_cacheRead": 0.15
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "kimi-k2-thinking-turbo",
-        "name": "Kimi K2 Thinking Turbo",
-        "family": "kimi-thinking",
-        "releasedAt": "2025-11-06",
-        "knowledge": "2024-08",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.15,
-            "textOutput": 8,
-            "textInput_cacheRead": 0.15
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "kimi-k2-turbo-preview",
-        "name": "Kimi K2 Turbo",
-        "family": "kimi-k2",
-        "releasedAt": "2025-09-05",
-        "knowledge": "2024-10",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 2.4,
-            "textOutput": 10,
-            "textInput_cacheRead": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "kimi-k2.5",
-        "name": "Kimi K2.5",
-        "family": "kimi-k2",
-        "releasedAt": "2026-01",
-        "knowledge": "2025-01",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": false,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "video"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 3,
-            "textInput_cacheRead": 0.1
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "kimi-k2.6",
         "name": "Kimi K2.6",
         "description": "Kimi K2.6 is Kimi's latest and most capable model, delivering stronger long-horizon coding, instruction following, and self-correction while supporting text, image, and video inputs plus chat and agent tasks.",
@@ -175527,217 +175560,6 @@
       }
     ],
     "moonshotai-cn": [
-      {
-        "id": "kimi-k2-0711-preview",
-        "name": "Kimi K2 0711",
-        "family": "kimi-k2",
-        "releasedAt": "2025-07-14",
-        "knowledge": "2024-10",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 131072,
-        "maxOutput": 16384,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.5,
-            "textInput_cacheRead": 0.15
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "kimi-k2-0905-preview",
-        "name": "Kimi K2 0905",
-        "family": "kimi-k2",
-        "releasedAt": "2025-09-05",
-        "knowledge": "2024-10",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.5,
-            "textInput_cacheRead": 0.15
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "kimi-k2-thinking",
-        "name": "Kimi K2 Thinking",
-        "family": "kimi-thinking",
-        "releasedAt": "2025-11-06",
-        "knowledge": "2024-08",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.5,
-            "textInput_cacheRead": 0.15
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "kimi-k2-thinking-turbo",
-        "name": "Kimi K2 Thinking Turbo",
-        "family": "kimi-thinking",
-        "releasedAt": "2025-11-06",
-        "knowledge": "2024-08",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          }
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.15,
-            "textOutput": 8,
-            "textInput_cacheRead": 0.15
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "kimi-k2-turbo-preview",
-        "name": "Kimi K2 Turbo",
-        "family": "kimi-k2",
-        "releasedAt": "2025-09-05",
-        "knowledge": "2024-10",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 2.4,
-            "textOutput": 10,
-            "textInput_cacheRead": 0.6
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "kimi-k2.5",
-        "name": "Kimi K2.5",
-        "family": "kimi-k2",
-        "releasedAt": "2026-01",
-        "knowledge": "2025-01",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": false,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "video"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 3,
-            "textInput_cacheRead": 0.1
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
       {
         "id": "kimi-k2.6",
         "name": "Kimi K2.6",
@@ -176679,7 +176501,10 @@
         "reasoningEffort": {
           "enum": [
             "none",
-            "high"
+            "low",
+            "medium",
+            "high",
+            "max"
           ]
         },
         "abilities": {
@@ -180434,9 +180259,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.22,
-            "textOutput": 0.66,
-            "textInput_cacheRead": 0.007
+            "textInput": 0.44,
+            "textOutput": 1.32,
+            "textInput_cacheRead": 0.014
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -188721,8 +188546,8 @@
           "attachment": false,
           "structuredOutput": true
         },
-        "contextWindow": 1000000,
-        "maxOutput": 32768,
+        "contextWindow": 400000,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text"
@@ -189034,7 +188859,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 922000,
+        "contextWindow": 1050000,
         "maxOutput": 128000,
         "modalities": {
           "input": [
@@ -189172,7 +188997,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 1050000,
         "maxOutput": 128000,
         "modalities": {
           "input": [
@@ -189487,6 +189312,7 @@
         "name": "GPT 6 Astra",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -194987,6 +194813,39 @@
         }
       },
       {
+        "id": "TheDrummer/Artemis-v1.1",
+        "name": "TheDrummer/Artemis v1.1",
+        "releasedAt": "2026-09-06",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "structuredOutput": false,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.1,
+            "textOutput": 0.45,
+            "textInput_cacheRead": 0.05
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "TheDrummer/Cydonia-24B-v2",
         "name": "The Drummer Cydonia 24B v2",
         "releasedAt": "2025-02-17",
@@ -199928,6 +199787,53 @@
         }
       },
       {
+        "id": "claude-fable-5-1",
+        "name": "Claude Fable 5.1",
+        "family": "claude-fable",
+        "releasedAt": "2026-09-01",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 0.25,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "claude-haiku-4-5",
         "name": "Claude Haiku 4.5 (latest)",
         "family": "claude-haiku",
@@ -200717,6 +200623,50 @@
         }
       },
       {
+        "id": "glm-5-3-flash",
+        "name": "GLM-5.3 Flash",
+        "family": "glm",
+        "releasedAt": "2026-08-26",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 0.5,
+            "textInput_cacheRead": 0.03
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "gpt-5",
         "name": "GPT-5",
         "family": "gpt",
@@ -201465,6 +201415,71 @@
         }
       },
       {
+        "id": "gpt-6-astra",
+        "name": "GPT-6 Astra",
+        "family": "gpt-astra",
+        "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text",
+            "image"
+          ]
+        },
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 1.5,
+                "textInput_cacheRead": 2,
+                "textInput_cacheWrite": 2
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "gpt-oss-120b",
         "name": "GPT OSS 120B",
         "family": "gpt-oss",
@@ -201540,6 +201555,41 @@
           },
           "currency": "USD",
           "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "grok-4-6",
+        "name": "Grok 4.6",
+        "family": "grok",
+        "releasedAt": "2026-08-12",
+        "knowledge": "2026-02-01",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 500000,
+        "maxOutput": 524288,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
         }
       },
       {
@@ -213582,6 +213632,53 @@
         }
       },
       {
+        "id": "openai/gpt-6-astra",
+        "name": "GPT-6 Astra",
+        "family": "gpt-astra",
+        "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "volcengine/doubao-seed-1-6",
         "name": "Seed 1.6",
         "family": "seed",
@@ -217967,6 +218064,7 @@
         "type": "chat",
         "family": "gpt-astra",
         "releasedAt": "2026-09-03",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -221874,6 +221972,7 @@
         "name": "GPT-6 Astra",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -226785,7 +226884,7 @@
           "temperature": false
         },
         "contextWindow": 1310720,
-        "maxOutput": 131072,
+        "maxOutput": 393216,
         "modalities": {
           "input": [
             "text"
@@ -226798,9 +226897,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.04998,
-            "textOutput": 0.09996,
-            "textInput_cacheRead": 0.009996
+            "textInput": 0.05,
+            "textOutput": 0.16,
+            "textInput_cacheRead": 0.013
           }
         }
       },
@@ -227132,7 +227231,7 @@
           "temperature": true
         },
         "contextWindow": 1310720,
-        "maxOutput": 943718,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text",
@@ -227147,9 +227246,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.075,
-            "textOutput": 0.25,
-            "textInput_cacheRead": 0.015
+            "textInput": 0.07125,
+            "textOutput": 0.2375,
+            "textInput_cacheRead": 0.01425
           }
         }
       },
@@ -227180,7 +227279,7 @@
           "temperature": true
         },
         "contextWindow": 1310720,
-        "maxOutput": 235929,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text"
@@ -227193,9 +227292,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1.17,
-            "textOutput": 3.96,
-            "textInput_cacheRead": 0.234
+            "textInput": 1.12,
+            "textOutput": 3.52,
+            "textInput_cacheRead": 0.208
           }
         }
       },
@@ -229799,9 +229898,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.08134,
-            "textOutput": 0.16268,
-            "textInput_cacheRead": 0.016268
+            "textInput": 0.088606,
+            "textOutput": 0.177212,
+            "textInput_cacheRead": 0.0177212
           }
         }
       },
@@ -229845,9 +229944,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.04998,
-            "textOutput": 0.09996,
-            "textInput_cacheRead": 0.009996
+            "textInput": 0.14,
+            "textOutput": 0.28,
+            "textInput_cacheRead": 0.028
           }
         }
       },
@@ -229929,9 +230028,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.22,
-            "textOutput": 0.66,
-            "textInput_cacheRead": 0.007
+            "textInput": 0.44,
+            "textOutput": 1.32,
+            "textInput_cacheRead": 0.014
           }
         }
       },
@@ -229977,9 +230076,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.717924,
-            "textOutput": 1.435848,
-            "textInput_cacheRead": 0.059827
+            "textInput": 0.95526,
+            "textOutput": 1.91052,
+            "textInput_cacheRead": 0.079605
           }
         }
       },
@@ -230023,9 +230122,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1.12068,
-            "textOutput": 3.36204,
-            "textInput_cacheRead": 0.037356
+            "textInput": 1.0494,
+            "textOutput": 3.1482,
+            "textInput_cacheRead": 0.03498
           }
         }
       },
@@ -238609,7 +238708,7 @@
         "description": "GPT-6 Astra is OpenAI's flagship model for demanding end-to-end work. It is suited for advanced analysis, software engineering, deep research, scientific work, and document creation, with particular strengths in long-horizon...",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
-        "knowledge": null,
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -241102,7 +241201,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 32768,
+        "maxOutput": 235929,
         "modalities": {
           "input": [
             "text"
@@ -241535,7 +241634,7 @@
           "temperature": true
         },
         "contextWindow": 262144,
-        "maxOutput": 235929,
+        "maxOutput": 65536,
         "modalities": {
           "input": [
             "text",
@@ -241550,9 +241649,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.55,
-            "textOutput": 3.5,
-            "textInput_cacheRead": 0.225
+            "textInput": 0.39,
+            "textOutput": 2.34
           }
         }
       },
@@ -244126,7 +244224,7 @@
           "temperature": true
         },
         "contextWindow": 204800,
-        "maxOutput": 131072,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text"
@@ -244139,9 +244237,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.55,
-            "textOutput": 2.2,
-            "textInput_cacheRead": 0.11
+            "textInput": 0.43,
+            "textOutput": 1.75,
+            "textInput_cacheRead": 0.08
           }
         }
       },
@@ -244445,50 +244543,6 @@
         }
       },
       {
-        "id": "z-ai/glm-5.2:free",
-        "name": "Z.ai: GLM 5.2 (free)",
-        "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,...",
-        "family": "glm",
-        "releasedAt": "2026-06-16",
-        "knowledge": null,
-        "openWeights": true,
-        "reasoningEffort": {
-          "enum": [
-            "high",
-            "xhigh"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": false,
-          "structuredOutput": true,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 230400,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          }
-        }
-      },
-      {
         "id": "z-ai/glm-5.3",
         "name": "Z.ai: GLM 5.3",
         "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
@@ -244515,7 +244569,7 @@
           "temperature": true
         },
         "contextWindow": 1310720,
-        "maxOutput": 262144,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text"
@@ -244530,7 +244584,7 @@
           "basePricing": {
             "textInput": 1.4,
             "textOutput": 4.4,
-            "textInput_cacheRead": 0.14
+            "textInput_cacheRead": 0.26
           }
         }
       },
@@ -282540,6 +282594,48 @@
         }
       },
       {
+        "id": "deepseek-v4-pro",
+        "name": "DeepSeek V4 Pro",
+        "family": "deepseek-thinking",
+        "releasedAt": "2026-08-12",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "glm-5.2",
         "name": "GLM-5.2",
         "family": "glm",
@@ -282566,6 +282662,51 @@
         "modalities": {
           "input": [
             "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0,
+            "textInput_cacheRead": 0
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "kimi-k3",
+        "name": "Kimi K3",
+        "family": "kimi-k3",
+        "releasedAt": "2026-07-16",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
           ],
           "output": [
             "text"
@@ -292414,16 +292555,9 @@
         "releasedAt": "2025-10-29",
         "knowledge": "2024-06",
         "openWeights": true,
-        "reasoningEffort": {
-          "enum": [
-            "low",
-            "medium",
-            "high"
-          ]
-        },
         "abilities": {
           "toolCall": true,
-          "reasoning": true,
+          "reasoning": false,
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
@@ -296477,6 +296611,30 @@
         }
       }
     ],
+    "unsloth": [
+      {
+        "id": "unsloth/gemma-3-4b-it-GGUF",
+        "name": "Gemma 3 4B",
+        "description": "Gemma 3 is a lightweight open model family from Google, supporting multimodal input and strong instruction following.",
+        "type": "chat",
+        "abilities": {
+          "toolCall": true,
+          "vision": true
+        },
+        "contextWindow": 128000
+      },
+      {
+        "id": "unsloth/Qwen3-1.7B-GGUF",
+        "name": "Qwen3 1.7B",
+        "description": "Qwen3 is the latest generation of the Qwen series, supporting seamless switching between thinking and non-thinking modes.",
+        "type": "chat",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true
+        },
+        "contextWindow": 40960
+      }
+    ],
     "upstage": [
       {
         "id": "solar-mini",
@@ -300369,6 +300527,7 @@
         "name": "GPT-6 Astra",
         "family": "gpt",
         "releasedAt": "2026-09-05",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -308772,44 +308931,6 @@
         }
       },
       {
-        "id": "minimax/minimax-m2.7-free",
-        "name": "MiniMax M2.7 (Free)",
-        "description": "M2.7 delivers outstanding performance in real-world software engineering, including end-to-end full project delivery, log analysis and bug troubleshooting, code security, machine learning, and more.",
-        "type": "language",
-        "family": "minimax",
-        "releasedAt": "2026-03-18",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 196608,
-        "maxOutput": 196608,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          }
-        }
-      },
-      {
         "id": "minimax/minimax-m2.7-highspeed",
         "name": "MiniMax M2.7 High Speed",
         "description": "M2.7 Highspeed: Same performance, faster and more agile (output speed approximately 100 tps)",
@@ -308887,45 +309008,6 @@
             "textInput": 0.3,
             "textOutput": 1.2,
             "textInput_cacheRead": 0.06
-          }
-        }
-      },
-      {
-        "id": "minimax/minimax-m3-free",
-        "name": "MiniMax M3 (Free)",
-        "description": "MiniMax-M3 is a frontier-class foundation model that unites the three capabilities defining today's frontier: a 1M-token context window, frontier coding and agentic performance, and native multimodality — the first open-weight model to deliver all three in a single system.",
-        "type": "language",
-        "family": "minimax",
-        "releasedAt": "2026-05-31",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": true,
-          "temperature": true
-        },
-        "contextWindow": 1048576,
-        "maxOutput": 1048576,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
           }
         }
       },
@@ -312362,6 +312444,7 @@
         "type": "language",
         "family": "gpt-astra",
         "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
@@ -317627,6 +317710,70 @@
             "textOutput": 15,
             "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 3.125
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gpt-6-astra",
+        "name": "GPT-6 Astra",
+        "family": "gpt-astra",
+        "releasedAt": "2026-09-04",
+        "knowledge": "2026-04-30",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 2,
+                "textOutput": 1.5,
+                "textInput_cacheRead": 2,
+                "textInput_cacheWrite": 2
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 10,
+            "textOutput": 50,
+            "textInput_cacheRead": 1,
+            "textInput_cacheWrite": 12.5
           },
           "currency": "USD",
           "unit": "millionTokens"
