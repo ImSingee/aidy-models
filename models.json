@@ -1,15 +1,15 @@
 {
   "_meta": {
-    "generatedAt": "2026-09-20T08:50:18.848Z",
+    "generatedAt": "2026-09-21T09:19:32.495Z",
     "sources": {
       "modelsDev": {
         "providerCount": 222,
-        "modelCount": 7869
+        "modelCount": 7865
       },
       "lobehub": {
-        "commitHash": "ad172668b1124a93a4fda6631a2a58491c586358",
+        "commitHash": "23fd4917d01425e8c9dd631da383f00c99ee8873",
         "providerCount": 84,
-        "modelCount": 1850
+        "modelCount": 1851
       },
       "openRouter": {
         "providerCount": 1,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 268,
-      "modelCount": 9382
+      "modelCount": 9380
     },
     "overridesApplied": 81
   },
@@ -2983,7 +2983,7 @@
       "featured": false,
       "api": "openai-completions",
       "baseUrl": "https://opencode.ai/zen/go/v1",
-      "doc": "https://opencode.ai/docs/zen",
+      "doc": "https://opencode.ai/docs/go",
       "_": {
         "env": [
           "OPENCODE_API_KEY"
@@ -55220,38 +55220,6 @@
         }
       },
       {
-        "id": "typesafe/jev",
-        "name": "Jev",
-        "releasedAt": "2026-09-15",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": false,
-          "structuredOutput": true
-        },
-        "contextWindow": 32000,
-        "maxOutput": 0,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.042,
-            "textOutput": 0,
-            "textInput_cacheRead": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "unbiased/pareto",
         "name": "Pareto",
         "releasedAt": "2026-09-17",
@@ -61070,8 +61038,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 32000,
-        "maxOutput": 32000,
+        "contextWindow": 16384,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text"
@@ -61082,8 +61050,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.089,
-            "textOutput": 0.312
+            "textInput": 0.179,
+            "textOutput": 0.697
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -64748,6 +64716,49 @@
             "textOutput": 5.63,
             "textInput_cacheRead": 0.23,
             "textInput_cacheWrite": 2.35
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen/qwen3.8-omni-flash",
+        "name": "Qwen3.8 Omni Flash",
+        "family": "qwen",
+        "releasedAt": "2026-09-17",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "audio",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.13,
+            "textOutput": 0.43,
+            "textInput_cacheRead": 0.016,
+            "textInput_cacheWrite": 0.13
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -76580,7 +76591,7 @@
           "reasoning": false,
           "attachment": false,
           "temperature": true,
-          "structuredOutput": false
+          "structuredOutput": true
         },
         "contextWindow": 32768,
         "maxOutput": 8192,
@@ -130863,9 +130874,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.13,
-            "textOutput": 0.52,
-            "textInput_cacheRead": 0.0026
+            "textInput": 0.12,
+            "textOutput": 0.48,
+            "textInput_cacheRead": 0.0036
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -130893,7 +130904,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 393216,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text"
@@ -130904,9 +130915,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.57024,
-            "textOutput": 1.71072,
-            "textInput_cacheRead": 0.018144
+            "textInput": 0.7,
+            "textOutput": 2.88,
+            "textInput_cacheRead": 0.088
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -130946,7 +130957,7 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.04,
-            "textOutput": 0.08,
+            "textOutput": 0.16,
             "textInput_cacheRead": 0.016
           },
           "currency": "USD",
@@ -131429,7 +131440,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text"
@@ -131440,9 +131451,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.8442,
-            "textOutput": 2.6532,
-            "textInput_cacheRead": 0.15678
+            "textInput": 0.7735,
+            "textOutput": 2.431,
+            "textInput_cacheRead": 0.127075
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -133486,7 +133497,7 @@
           "vision": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 262144,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text",
@@ -135731,7 +135742,7 @@
           "structuredOutput": true
         },
         "contextWindow": 131072,
-        "maxOutput": 16384,
+        "maxOutput": 8192,
         "modalities": {
           "input": [
             "text"
@@ -135893,7 +135904,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 128000,
+        "contextWindow": 1048576,
         "maxOutput": 16384,
         "modalities": {
           "input": [
@@ -138125,7 +138136,7 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.04,
+            "textInput": 0.065,
             "textOutput": 0.18
           },
           "currency": "USD",
@@ -142659,8 +142670,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.9,
+            "textInput": 0.15,
+            "textOutput": 1,
             "textInput_cacheRead": 0.05
           },
           "currency": "USD",
@@ -142981,7 +142992,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 262144,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -159315,7 +159326,7 @@
           "basePricing": {
             "textInput": 0.44,
             "textOutput": 1.32,
-            "textInput_cacheRead": 0.044
+            "textInput_cacheRead": 0.014
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -159363,7 +159374,54 @@
           "basePricing": {
             "textInput": 1.32,
             "textOutput": 3.96,
-            "textInput_cacheRead": 0.132
+            "textInput_cacheRead": 0.042
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "baidu/deepseek-v4.1-flash",
+        "name": "DeepSeek V4.1 Flash (Baidu)",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-09-10",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 393216,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.3,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.006
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -168464,6 +168522,40 @@
             "textInput": 5,
             "textOutput": 30,
             "textInput_cacheRead": 0.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "scx-ai-gp/deepseek-v4.1-flash",
+        "name": "DeepSeek V4.1 Flash (SCX.ai)",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-09-10",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 0.6,
+            "textInput_cacheRead": 0.01
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -190354,9 +190446,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.22,
-            "textOutput": 0.66,
-            "textInput_cacheRead": 0.007
+            "textInput": 0.44,
+            "textOutput": 1.32,
+            "textInput_cacheRead": 0.014
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -190603,9 +190695,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.4,
-            "textInput_cacheRead": 0.003
+            "textInput": 0.13,
+            "textOutput": 0.52,
+            "textInput_cacheRead": 0.006
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -190647,9 +190739,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.4,
-            "textInput_cacheRead": 0.003
+            "textInput": 0.13,
+            "textOutput": 0.52,
+            "textInput_cacheRead": 0.006
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -200998,7 +201090,7 @@
         "releasedAt": "2024-01-01",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "attachment": false,
           "structuredOutput": false
@@ -201198,7 +201290,7 @@
         "releasedAt": "2024-01-01",
         "openWeights": true,
         "abilities": {
-          "toolCall": false,
+          "toolCall": true,
           "reasoning": false,
           "attachment": false,
           "structuredOutput": false
@@ -202727,6 +202819,40 @@
         }
       },
       {
+        "id": "qwen/qwen3.8-27b-hemmingway",
+        "name": "Qwen 3.8 27B Hemingway",
+        "family": "qwen",
+        "releasedAt": "2026-09-21",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "structuredOutput": false,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.25,
+            "textOutput": 1.5,
+            "textInput_cacheRead": 0.125
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "qwen/qwen3.8-27b-obliterated",
         "name": "Qwen 3.8 27B Obliterated",
         "family": "qwen",
@@ -202854,9 +202980,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 1.7,
-            "textInput_cacheRead": 0.18
+            "textInput": 0.15,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.125
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -202888,9 +203014,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 1.7,
-            "textInput_cacheRead": 0.18
+            "textInput": 0.15,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.125
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -204030,6 +204156,48 @@
         }
       },
       {
+        "id": "stepfun/step-5-preview",
+        "name": "Step 5 Preview",
+        "family": "step",
+        "releasedAt": "2026-09-20",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 1000000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1,
+            "textOutput": 2.7,
+            "textInput_cacheRead": 0.05
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "TEE/deepseek-v3.2",
         "name": "DeepSeek V3.2 TEE",
         "family": "deepseek",
@@ -204058,40 +204226,6 @@
             "textInput": 0.5,
             "textOutput": 1,
             "textInput_cacheRead": 0.25
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "TEE/deepseek-v4-flash",
-        "name": "DeepSeek V4 Flash TEE",
-        "family": "deepseek-flash",
-        "releasedAt": "2026-04-24",
-        "knowledge": "2025-05",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 1048576,
-        "maxOutput": 393216,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 0.4,
-            "textInput_cacheRead": 0.04
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -207004,70 +207138,6 @@
           "attachment": false,
           "temperature": true,
           "structuredOutput": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.07,
-            "textOutput": 0.4,
-            "textInput_cacheRead": 0.035
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "z-ai/glm-4.7-flash-original",
-        "name": "GLM 4.7 Flash Original",
-        "family": "glm-flash",
-        "releasedAt": "2026-01-19",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "structuredOutput": true
-        },
-        "contextWindow": 200000,
-        "maxOutput": 128000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.07,
-            "textOutput": 0.4,
-            "textInput_cacheRead": 0.035
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "z-ai/glm-4.7-flash-original:thinking",
-        "name": "GLM 4.7 Flash Original Thinking",
-        "family": "glm-flash",
-        "releasedAt": "2026-01-19",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "structuredOutput": false
         },
         "contextWindow": 200000,
         "maxOutput": 128000,
@@ -234389,105 +234459,6 @@
         "baseUrl": "https://opencode.ai/zen/v1"
       },
       {
-        "id": "jev-1.13",
-        "name": "Jev 1.13",
-        "releasedAt": "2026-09-15",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": false,
-          "structuredOutput": true
-        },
-        "contextWindow": 64000,
-        "maxOutput": 0,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.042,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "openai-completions",
-        "baseUrl": "https://opencode.ai/zen/v1"
-      },
-      {
-        "id": "jev-1.13-free",
-        "name": "Jev 1.13 Free",
-        "releasedAt": "2026-09-15",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": false,
-          "structuredOutput": true
-        },
-        "contextWindow": 64000,
-        "maxOutput": 0,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "openai-completions",
-        "baseUrl": "https://opencode.ai/zen/v1"
-      },
-      {
-        "id": "jev-latest",
-        "name": "Jev",
-        "releasedAt": "2026-09-15",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": false,
-          "structuredOutput": true
-        },
-        "contextWindow": 64000,
-        "maxOutput": 0,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.042,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        },
-        "api": "openai-completions",
-        "baseUrl": "https://opencode.ai/zen/v1"
-      },
-      {
         "id": "kimi-k2",
         "name": "Kimi K2",
         "family": "kimi-k2",
@@ -237149,7 +237120,8 @@
           "basePricing": {
             "textInput": 0.3,
             "textOutput": 1.2,
-            "textInput_cacheRead": 0.03
+            "textInput_cacheRead": 0.06,
+            "textInput_cacheWrite": 0.375
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -237182,7 +237154,8 @@
           "basePricing": {
             "textInput": 0.3,
             "textOutput": 1.2,
-            "textInput_cacheRead": 0.06
+            "textInput_cacheRead": 0.06,
+            "textInput_cacheWrite": 0.375
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -239214,9 +239187,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.13,
-            "textOutput": 0.52,
-            "textInput_cacheRead": 0.0026
+            "textInput": 0.12,
+            "textOutput": 0.48,
+            "textInput_cacheRead": 0.0036
           }
         }
       },
@@ -239247,7 +239220,7 @@
           "temperature": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 384000,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text"
@@ -239260,9 +239233,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.56892,
-            "textOutput": 1.70676,
-            "textInput_cacheRead": 0.018964
+            "textInput": 0.7,
+            "textOutput": 2.88,
+            "textInput_cacheRead": 0.088
           }
         }
       },
@@ -239307,7 +239280,7 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.04,
-            "textOutput": 0.08,
+            "textOutput": 0.16,
             "textInput_cacheRead": 0.016
           }
         }
@@ -239843,7 +239816,7 @@
           "temperature": true
         },
         "contextWindow": 1310720,
-        "maxOutput": 131072,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text"
@@ -239856,9 +239829,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.8442,
-            "textOutput": 2.6532,
-            "textInput_cacheRead": 0.15678
+            "textInput": 0.7735,
+            "textOutput": 2.431,
+            "textInput_cacheRead": 0.127075
           }
         }
       },
@@ -242462,9 +242435,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.0364,
-            "textOutput": 0.0728,
-            "textInput_cacheRead": 0.00728
+            "textInput": 0.088606,
+            "textOutput": 0.177212,
+            "textInput_cacheRead": 0.0177212
           }
         }
       },
@@ -242509,7 +242482,7 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.04,
-            "textOutput": 0.08,
+            "textOutput": 0.16,
             "textInput_cacheRead": 0.016
           }
         }
@@ -242578,7 +242551,7 @@
           "temperature": false
         },
         "contextWindow": 1048576,
-        "maxOutput": 262144,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text",
@@ -242592,9 +242565,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.2156,
-            "textOutput": 0.6468,
-            "textInput_cacheRead": 0.00686
+            "textInput": 0.22,
+            "textOutput": 0.66,
+            "textInput_cacheRead": 0.007
           }
         }
       },
@@ -242678,9 +242651,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.422298,
-            "textOutput": 0.844596,
-            "textInput_cacheRead": 0.0351915
+            "textInput": 0.95526,
+            "textOutput": 1.91052,
+            "textInput_cacheRead": 0.079605
           }
         }
       },
@@ -242724,9 +242697,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.66,
-            "textOutput": 1.98,
-            "textInput_cacheRead": 0.022
+            "textInput": 1.32,
+            "textOutput": 3.96,
+            "textInput_cacheRead": 0.044
           }
         }
       },
@@ -242808,9 +242781,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.6,
-            "textInput_cacheRead": 0.003
+            "textInput": 0.3,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.006
           }
         }
       },
@@ -244787,9 +244760,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.06,
-            "textOutput": 0.25,
-            "textInput_cacheRead": 0.015
+            "textInput": 0.1,
+            "textOutput": 0.15,
+            "textInput_cacheRead": 0.05
           }
         }
       },
@@ -245411,7 +245384,7 @@
           "temperature": false
         },
         "contextWindow": 131072,
-        "maxOutput": 16384,
+        "maxOutput": 8192,
         "modalities": {
           "input": [
             "text"
@@ -245424,8 +245397,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 0.4
+            "textInput": 0.72,
+            "textOutput": 0.72
           }
         }
       },
@@ -245617,8 +245590,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.1875,
-            "textOutput": 0.6525
+            "textInput": 0.2,
+            "textOutput": 0.8
           }
         }
       },
@@ -253120,7 +253093,7 @@
           "toolCall": false,
           "reasoning": false,
           "vision": false,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "search": false,
           "imageOutput": false,
           "video": false,
@@ -254672,8 +254645,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.9,
+            "textInput": 0.15,
+            "textOutput": 1,
             "textInput_cacheRead": 0.05
           }
         }
@@ -255047,9 +255020,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.42,
-            "textOutput": 3,
-            "textInput_cacheRead": 0.085
+            "textInput": 0.2,
+            "textOutput": 2.5,
+            "textInput_cacheRead": 0.05
           }
         }
       },
@@ -257568,9 +257541,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.896,
-            "textOutput": 2.816,
-            "textInput_cacheRead": 0.1664
+            "textInput": 0.91,
+            "textOutput": 2.86,
+            "textInput_cacheRead": 0.169
           }
         }
       },
@@ -302137,6 +302110,29 @@
         }
       },
       {
+        "id": "step-5-preview",
+        "name": "Step 5 Preview",
+        "description": "StepFun’s new-generation flagship base model for real-world tasks, focused on coding and professional knowledge work. It natively supports text, image, and video input with a 1M-token context window, and is built for tasks that need to process large amounts of information, call tools, and keep pushing through to a delivered result.",
+        "type": "chat",
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "video": true
+        },
+        "contextWindow": 1000000,
+        "pricing": {
+          "basePricing": {
+            "textInput_cacheRead": 0.35,
+            "textInput": 7,
+            "textOutput": 20
+          },
+          "currency": "CNY",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "step-image-edit-2",
         "name": "Step Image Edit 2",
         "description": "A lightweight editing model from Stepfun’s latest iteration that supports both text-to-image generation and image editing within a single model. Despite having fewer than 6 billion parameters, it achieves state-of-the-art performance at its scale, rivaling open-source models in the 12B–20B parameter range across tiers. Each editing task takes only 1–2 seconds, redefining the experience of real-time interactive image editing.",
@@ -329508,7 +329504,6 @@
         "description": "Jev is TypeSafe AI’s System One evaluation model for fast, structured decisions in software. It evaluates shared state against typed questions and returns choices, scores, and boolean probabilities, supporting classification, routing, rubric-based assessment, and automated verification. Multiple questions can be evaluated in parallel within a single request.",
         "type": "evaluation",
         "releasedAt": "2026-09-15",
-        "openWeights": false,
         "abilities": {
           "toolCall": false,
           "reasoning": false,
@@ -329516,20 +329511,10 @@
           "structuredOutput": false,
           "search": false,
           "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": false
+          "video": false
         },
         "contextWindow": 32000,
         "maxOutput": 0,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "pricing": {
           "currency": "USD",
           "unit": "millionTokens",
@@ -332171,37 +332156,6 @@
             "textOutput": 50,
             "textInput_cacheRead": 1,
             "textInput_cacheWrite": 12.5
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "jev",
-        "name": "Jev",
-        "releasedAt": "2026-09-15",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": false,
-          "structuredOutput": true
-        },
-        "contextWindow": 64000,
-        "maxOutput": 0,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.042,
-            "textOutput": 0
           },
           "currency": "USD",
           "unit": "millionTokens"
