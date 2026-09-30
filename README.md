@@ -45,8 +45,6 @@ Release-specific corrections live in `src/generate/recent-models.ts` and
 `src/generate/overrides.ts`; update these rather than editing generated JSON.
 Only explicitly verified releases are matched. Upstream catalogs still determine
 model availability, and first-party price corrections do not replace gateway rates.
-See [September 2026 model updates](docs/model-updates-2026-09.md) for sources and
-runtime limitations.
 
 ## Output Shape
 
