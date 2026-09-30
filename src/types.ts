@@ -32,7 +32,7 @@ export interface ModelPricing {
 }
 
 export type CompatReasoningLevel = "minimal" | "low" | "medium" | "high";
-export type OpenAIServiceTier = "flex" | "priority" | "fast" | "ultrafast";
+export type OpenAIServiceTier = "flex" | "fast" | "ultrafast";
 
 export interface OpenRouterRouting {
   only?: string[];

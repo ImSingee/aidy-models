@@ -290,15 +290,15 @@ function createOpenAIServiceTierAdjustments(
   targets: string[],
   serviceTiers: OpenAIServiceTier[],
   options?: {
-    priorityMultiplier?: number;
+    fastMultiplier?: number;
   },
 ): NonNullable<ModelPricing["adjustments"]> {
   const adjustments: NonNullable<ModelPricing["adjustments"]> = [];
 
   for (const serviceTier of serviceTiers) {
     const multiplier =
-      (serviceTier === "priority" || serviceTier === "fast")
-        ? (options?.priorityMultiplier ?? 2)
+      serviceTier === "fast"
+        ? (options?.fastMultiplier ?? 2)
         : serviceTier === "ultrafast" ? 6 : 0.5;
 
     adjustments.push({
@@ -317,7 +317,7 @@ function createOpenAIServiceTierAdjustments(
 function createOpenAIServiceTierOverride(
   serviceTiers: OpenAIServiceTier[],
   options?: {
-    priorityMultiplier?: number;
+    fastMultiplier?: number;
   },
 ): ModelOverride {
   return (prev: Model) => {
@@ -473,9 +473,9 @@ const openAILongContextModels: Array<[string, ModelOverride]> = [
 const openAIServiceTierModels: Array<[string, ModelOverride]> = [
   ...mapModelIdsToOverride(
     GPT6_MODEL_IDS.filter((id) => id !== "gpt-6-astra").map((id) => `openai/${id}`),
-    createOpenAIServiceTierOverride(["flex", "priority", "fast"]),
+    createOpenAIServiceTierOverride(["flex", "fast"]),
   ),
-  ["openai/gpt-6-astra", createOpenAIServiceTierOverride(["flex", "priority", "fast", "ultrafast"])],
+  ["openai/gpt-6-astra", createOpenAIServiceTierOverride(["flex", "fast", "ultrafast"])],
   ...mapModelIdsToOverride(
     [
       "openai/gpt-5.4",
@@ -487,12 +487,12 @@ const openAIServiceTierModels: Array<[string, ModelOverride]> = [
       "openai/o3",
       "openai/o4-mini",
     ],
-    createOpenAIServiceTierOverride(["flex", "priority"]),
+    createOpenAIServiceTierOverride(["flex", "fast"]),
   ),
   ...mapModelIdsToOverride(
     ["openai/gpt-5.5"],
-    createOpenAIServiceTierOverride(["flex", "priority"], {
-      priorityMultiplier: 2.5,
+    createOpenAIServiceTierOverride(["flex", "fast"], {
+      fastMultiplier: 2.5,
     }),
   ),
   ...mapModelIdsToOverride(
@@ -509,7 +509,7 @@ const openAIServiceTierModels: Array<[string, ModelOverride]> = [
       "openai/gpt-4o-2024-05-13",
       "openai/gpt-4o-mini",
     ],
-    createOpenAIServiceTierOverride(["priority"]),
+    createOpenAIServiceTierOverride(["fast"]),
   ),
   ...mapModelIdsToOverride(
     [
@@ -531,8 +531,6 @@ function currentClaudePricing(input: number, output: number, cacheRead: number, 
     Object.keys(pricing.basePricing).map((key) => [key, factor]),
   );
   pricing.adjustments!.push(
-    { mode: "multiplier", when: { batch: true }, unless: { fastMode: true }, values: factors(0.5) },
-    { mode: "multiplier", when: { inferenceGeo: "us" }, values: factors(1.1) },
     ...(fast ? [{ mode: "multiplier" as const, when: { fastMode: true }, values: factors(2) }] : []),
   );
   return {
@@ -580,21 +578,6 @@ const currentOpenAIModels: Array<[string, ModelOverride]> = GPT6_MODEL_IDS.map((
   },
 ]);
 
-function currentOpenAIProcessingOverride(prev: Model): DeepPartial<Model> {
-  const targets = getOpenAIAdjustmentTargets(prev);
-  const factors = (factor: number) => Object.fromEntries(targets.map((target) => [target, factor]));
-  return { pricing: {
-    ...prev.pricing,
-    adjustments: [
-      ...(prev.pricing?.adjustments ?? []),
-      { mode: "multiplier", when: { batch: true }, unless: [
-        { serviceTier: "flex" }, { serviceTier: "priority" }, { serviceTier: "fast" }, { serviceTier: "ultrafast" },
-      ], values: factors(0.5) },
-      { mode: "multiplier", when: { regionalProcessing: true }, values: factors(1.1) },
-    ],
-  } };
-}
-
 export const overrides: Overrides = {
   providers: createProviderFlagOverrides(),
   models: createModelOverrideRecord([
@@ -602,7 +585,6 @@ export const overrides: Overrides = {
     ...openAIProModeModels,
     ...openAILongContextModels,
     ...openAIServiceTierModels,
-    ...mapModelIdsToOverride(GPT6_MODEL_IDS.map((id) => `openai/${id}`), currentOpenAIProcessingOverride),
     ...anthropicAdaptiveThinkingModels,
     ...anthropicPromptCachingModels,
     ...anthropicLongContextModels,

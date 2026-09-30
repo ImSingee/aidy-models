@@ -36,11 +36,11 @@ function createTextPricingWithoutCacheWrite(
   };
 }
 
-function createOpenAIPriorityPricing(
+function createOpenAIFastPricing(
   input: number,
   output: number,
   cacheRead: number,
-  priorityMultiplier: number,
+  fastMultiplier: number,
 ): ModelPricing {
   return {
     ...createTextPricingWithoutCacheWrite(input, output, cacheRead),
@@ -59,12 +59,12 @@ function createOpenAIPriorityPricing(
       {
         mode: "multiplier",
         values: {
-          textInput: priorityMultiplier,
-          textOutput: priorityMultiplier,
-          textInput_cacheRead: priorityMultiplier,
+          textInput: fastMultiplier,
+          textOutput: fastMultiplier,
+          textInput_cacheRead: fastMultiplier,
         },
         when: {
-          serviceTier: "priority",
+          serviceTier: "fast",
         },
       },
     ],
@@ -201,7 +201,7 @@ export const manualModels: Record<string, Model[]> = {
         enum: ["low", "medium", "high", "xhigh", "max"],
         default: id === "gpt-6-astra" || id === "gpt-6.1-sol" ? "low" : "medium",
       },
-      compat: { openaiResponses: { supportsAdditionalServiceTiers: ["priority"] } },
+      compat: { openaiResponses: { supportsAdditionalServiceTiers: ["fast"] } },
       _: {
         maxContextWindow: 872000,
         // Ultra orchestrates subagents; it is not an API reasoning effort.
@@ -214,7 +214,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.6 Sol",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createOpenAIPriorityPricing(4, 20, 0.4, 2),
+      pricing: createOpenAIFastPricing(4, 20, 0.4, 2),
       input: ["text", "image"],
       reasoning: true,
       reasoningEffort: {
@@ -223,7 +223,7 @@ export const manualModels: Record<string, Model[]> = {
       },
       compat: {
         openaiResponses: {
-          supportsAdditionalServiceTiers: ["priority"],
+          supportsAdditionalServiceTiers: ["fast"],
         },
       },
     }),
@@ -258,7 +258,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.5",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createOpenAIPriorityPricing(5, 30, 0.5, 2.5),
+      pricing: createOpenAIFastPricing(5, 30, 0.5, 2.5),
       input: ["text", "image"],
       reasoning: true,
       reasoningEffort: {
@@ -267,7 +267,7 @@ export const manualModels: Record<string, Model[]> = {
       },
       compat: {
         openaiResponses: {
-          supportsAdditionalServiceTiers: ["priority"],
+          supportsAdditionalServiceTiers: ["fast"],
         },
       },
     }),
@@ -276,7 +276,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.4",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createOpenAIPriorityPricing(2.5, 15, 0.25, 2),
+      pricing: createOpenAIFastPricing(2.5, 15, 0.25, 2),
       input: ["text", "image"],
       reasoning: true,
       reasoningEffort: {
@@ -285,7 +285,7 @@ export const manualModels: Record<string, Model[]> = {
       },
       compat: {
         openaiResponses: {
-          supportsAdditionalServiceTiers: ["priority"],
+          supportsAdditionalServiceTiers: ["fast"],
         },
       },
     }),

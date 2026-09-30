@@ -33,12 +33,11 @@ The current generator merges:
 bun run generate
 ```
 
-This rewrites `models.json`. Run the offline regression suite and type checker with:
+This rewrites `models.json`. Run the type checker with:
 
 ```bash
 bun install --frozen-lockfile
 bun run check
-bun test
 ```
 
 Release-specific corrections live in `src/generate/recent-models.ts` and
@@ -285,10 +284,7 @@ The `when` object uses condition keys to describe when an adjustment applies.
 | --- | --- | --- |
 | `cacheTtl` | `string` | prompt cache TTL such as `5m`, `1h`, or `24h` |
 | `fastMode` | `boolean` | whether provider fast mode is enabled |
-| `serviceTier` | `"flex" \| "priority" \| "fast" \| "ultrafast"` | OpenAI service tier selector |
-| `batch` | `boolean` | Batch API processing (not a service tier) |
-| `inferenceGeo` | `"us"` | Claude first-party US-only inference |
-| `regionalProcessing` | `boolean` | OpenAI regional processing premium, where supported |
+| `serviceTier` | `"flex" \| "fast" \| "ultrafast"` | OpenAI service tier selector |
 | `textTotalInput` | `[number, number \| "infinity"]` | total input-token bucket, including `textInput` + `textInput_cacheRead` + `textInput_cacheWrite`, using `pricing.unit` as the denominator |
 | `textOutput` | `[number, number \| "infinity"]` | output-token bucket, using `pricing.unit` as the denominator |
 | `quality` | `string` | image quality variant such as `standard` or `hd` |
@@ -303,15 +299,12 @@ When that happens, the value type still follows `PricingConditionValue`.
 known values are:
 
 - `flex`: lower-cost background or latency-tolerant service tier
-- `priority`: premium higher-priority service tier (alias of `fast` where supported)
 - `fast`: lower-latency processing
 - `ultrafast`: fastest processing, currently declared only for GPT-6 Astra
 
-Use one service tier per request. `batch` is mutually exclusive with Flex/Fast/
-Ultrafast; the adjustments avoid applying the Batch discount a second time.
-Pricing metadata describes rates, not endpoint or account eligibility. Apply
-regional premiums only on supported endpoints, and use the actual service tier
-returned by the API when a requested tier falls back to standard processing.
+Use one service tier per request. Pricing metadata describes rates, not endpoint
+or account eligibility. Use the actual service tier returned by the API when a
+requested tier falls back to standard processing.
 
 For token threshold buckets, the lower bound is exclusive and the upper bound
 inclusive: `[0.272, "infinity"]` means **more than** 272,000 total input tokens,
@@ -369,7 +362,7 @@ The keys in `basePricing` and `adjustments.values` use the same enum:
     {
       "mode": "multiplier",
       "when": {
-        "serviceTier": "priority"
+        "serviceTier": "fast"
       },
       "values": {
         "textInput": 2,
@@ -460,7 +453,7 @@ For OpenAI Responses-style APIs.
 - `longPromptCacheTtl`: currently `24h`
 - `supportsProMode`
 - `supportsServiceTier`
-- `supportsAdditionalServiceTiers`: array of `flex` or `priority`
+- `supportsAdditionalServiceTiers`: array of `flex`, `fast`, or `ultrafast`
 
 ### `anthropic`
 
