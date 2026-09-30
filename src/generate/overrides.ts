@@ -5,6 +5,7 @@ import type {
   OpenAIServiceTier,
   Provider,
 } from "../types.ts";
+import { CLAUDE_ADAPTIVE_MODEL_IDS, GPT6_MODEL_IDS, OPENAI_272K_MODEL_IDS } from "./recent-models.ts";
 import { clone, deepAssign } from "./utils.ts";
 
 type DeepPartial<T> = PartialDeep<T, { recurseIntoArrays: true }>;
@@ -296,7 +297,9 @@ function createOpenAIServiceTierAdjustments(
 
   for (const serviceTier of serviceTiers) {
     const multiplier =
-      serviceTier === "priority" ? (options?.priorityMultiplier ?? 2) : 0.5;
+      (serviceTier === "priority" || serviceTier === "fast")
+        ? (options?.priorityMultiplier ?? 2)
+        : serviceTier === "ultrafast" ? 6 : 0.5;
 
     adjustments.push({
       mode: "multiplier",
@@ -365,6 +368,9 @@ function createOpenAILongContextOverride(): ModelOverride {
               textTotalInput: [0.272, "infinity"],
             },
           },
+          ...(prev.pricing.adjustments ?? []).filter(
+            (adjustment) => adjustment.when.textTotalInput === undefined,
+          ),
         ],
       },
     };
@@ -408,7 +414,6 @@ const anthropicLongContextModels: Array<[string, ModelOverride]> = [
   [
     "anthropic/claude-opus-4-6",
     anthropicLongContextOverride(5, 25, {
-      supportsFastMode: true,
       longContextSurcharge: false,
     }),
   ],
@@ -424,15 +429,9 @@ const anthropicLongContextModels: Array<[string, ModelOverride]> = [
   ],
 ];
 
-const anthropicAdaptiveThinkingModelIds = [
-  "anthropic/claude-opus-4-6",
-  "anthropic/claude-sonnet-4-6",
-  "anthropic/claude-fable-5",
-  "anthropic/claude-opus-4-7",
-  "anthropic/claude-opus-4-8",
-  "anthropic/claude-opus-5",
-  "anthropic/claude-sonnet-5",
-];
+const anthropicAdaptiveThinkingModelIds = CLAUDE_ADAPTIVE_MODEL_IDS.map(
+  (id) => `anthropic/${id}`,
+);
 
 const anthropicAdaptiveThinkingModels: Array<[string, ModelOverride]> =
   mapModelIdsToOverride(
@@ -453,6 +452,7 @@ const openAIProModeModels: Array<[string, ModelOverride]> =
       "openai/gpt-5.6-sol",
       "openai/gpt-5.6-terra",
       "openai/gpt-5.6-luna",
+      ...GPT6_MODEL_IDS.map((id) => `openai/${id}`),
     ],
     {
       compat: {
@@ -465,12 +465,17 @@ const openAIProModeModels: Array<[string, ModelOverride]> =
 
 const openAILongContextModels: Array<[string, ModelOverride]> = [
   ...mapModelIdsToOverride(
-    ["openai/gpt-5.4", "openai/gpt-5.4-pro"],
+    OPENAI_272K_MODEL_IDS.map((id) => `openai/${id}`),
     createOpenAILongContextOverride(),
   ),
 ];
 
 const openAIServiceTierModels: Array<[string, ModelOverride]> = [
+  ...mapModelIdsToOverride(
+    GPT6_MODEL_IDS.filter((id) => id !== "gpt-6-astra").map((id) => `openai/${id}`),
+    createOpenAIServiceTierOverride(["flex", "priority", "fast"]),
+  ),
+  ["openai/gpt-6-astra", createOpenAIServiceTierOverride(["flex", "priority", "fast", "ultrafast"])],
   ...mapModelIdsToOverride(
     [
       "openai/gpt-5.4",
@@ -517,14 +522,90 @@ const openAIServiceTierModels: Array<[string, ModelOverride]> = [
   ),
 ];
 
+// Current first-party pricing only. Do not copy these rates or speed tiers to
+// Bedrock, Vertex, OpenRouter, Azure, or ChatGPT-authenticated Codex.
+// https://platform.claude.com/docs/en/about-claude/pricing
+function currentClaudePricing(input: number, output: number, cacheRead: number, fast = false): ModelOverride {
+  const pricing = anthropicPromptCachingPricing(input, output, { cacheRead });
+  const factors = (factor: number) => Object.fromEntries(
+    Object.keys(pricing.basePricing).map((key) => [key, factor]),
+  );
+  pricing.adjustments!.push(
+    { mode: "multiplier", when: { batch: true }, unless: { fastMode: true }, values: factors(0.5) },
+    { mode: "multiplier", when: { inferenceGeo: "us" }, values: factors(1.1) },
+    ...(fast ? [{ mode: "multiplier" as const, when: { fastMode: true }, values: factors(2) }] : []),
+  );
+  return {
+    contextWindow: 1_000_000,
+    maxOutput: 128_000,
+    pricing,
+    compat: { anthropic: { supportsFastMode: fast, longPromptCacheTtl: "1h" } },
+  };
+}
+
+const currentClaudeModels: Array<[string, ModelOverride]> = [
+  ["anthropic/claude-fable-5-1", currentClaudePricing(10, 50, 0.25)],
+  ["anthropic/claude-opus-5-5", currentClaudePricing(4, 20, 0.2, true)],
+  ["anthropic/claude-sonnet-5-5", currentClaudePricing(2, 10, 0.2)],
+  ["anthropic/claude-opus-5", currentClaudePricing(5, 25, 0.5, true)],
+  ["anthropic/claude-opus-4-8", currentClaudePricing(5, 25, 0.5, true)],
+  // Opus 4.6 fast requests now fall back to standard speed and standard prices.
+  ["anthropic/claude-opus-4-6", { _: { supportsFastMode: false }, compat: { anthropic: { supportsFastMode: false } } }],
+];
+
+// https://developers.openai.com/api/docs/models/gpt-6.1-sol
+const currentOpenAIModels: Array<[string, ModelOverride]> = GPT6_MODEL_IDS.map((id) => [
+  `openai/${id}`,
+  (prev: Model) => {
+    const rates = {
+      "gpt-6-astra": [10, 50, 1],
+      "gpt-6-sol": [2, 10, 0.2],
+      "gpt-6-luna": [0.1, 0.5, 0.01],
+      "gpt-6.1-sol": [2, 10, 0.1],
+    }[id];
+    return {
+      api: "openai-responses",
+      contextWindow: 1_050_000,
+      maxOutput: 128_000,
+      reasoningEffort: {
+        enum: [...(id === "gpt-6-sol" || id === "gpt-6-luna" ? ["none" as const] : []), "low", "medium", "high", "xhigh", "max"],
+        default: "medium",
+      },
+      abilities: { ...prev.abilities, reasoning: true, toolCall: true, vision: true, structuredOutput: true, temperature: false },
+      pricing: {
+        currency: "USD", unit: "millionTokens",
+        basePricing: { textInput: rates[0], textOutput: rates[1], textInput_cacheRead: rates[2], textInput_cacheWrite: rates[0] * 1.25 },
+      },
+    };
+  },
+]);
+
+function currentOpenAIProcessingOverride(prev: Model): DeepPartial<Model> {
+  const targets = getOpenAIAdjustmentTargets(prev);
+  const factors = (factor: number) => Object.fromEntries(targets.map((target) => [target, factor]));
+  return { pricing: {
+    ...prev.pricing,
+    adjustments: [
+      ...(prev.pricing?.adjustments ?? []),
+      { mode: "multiplier", when: { batch: true }, unless: [
+        { serviceTier: "flex" }, { serviceTier: "priority" }, { serviceTier: "fast" }, { serviceTier: "ultrafast" },
+      ], values: factors(0.5) },
+      { mode: "multiplier", when: { regionalProcessing: true }, values: factors(1.1) },
+    ],
+  } };
+}
+
 export const overrides: Overrides = {
   providers: createProviderFlagOverrides(),
   models: createModelOverrideRecord([
+    ...currentOpenAIModels,
     ...openAIProModeModels,
     ...openAILongContextModels,
     ...openAIServiceTierModels,
+    ...mapModelIdsToOverride(GPT6_MODEL_IDS.map((id) => `openai/${id}`), currentOpenAIProcessingOverride),
     ...anthropicAdaptiveThinkingModels,
     ...anthropicPromptCachingModels,
     ...anthropicLongContextModels,
+    ...currentClaudeModels,
   ]),
 };

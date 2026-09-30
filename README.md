@@ -33,7 +33,20 @@ The current generator merges:
 bun run generate
 ```
 
-This rewrites `models.json`.
+This rewrites `models.json`. Run the offline regression suite and type checker with:
+
+```bash
+bun install --frozen-lockfile
+bun run check
+bun test
+```
+
+Release-specific corrections live in `src/generate/recent-models.ts` and
+`src/generate/overrides.ts`; update these rather than editing generated JSON.
+Only explicitly verified releases are matched. Upstream catalogs still determine
+model availability, and first-party price corrections do not replace gateway rates.
+See [September 2026 model updates](docs/model-updates-2026-09.md) for sources and
+runtime limitations.
 
 ## Output Shape
 
@@ -274,7 +287,10 @@ The `when` object uses condition keys to describe when an adjustment applies.
 | --- | --- | --- |
 | `cacheTtl` | `string` | prompt cache TTL such as `5m`, `1h`, or `24h` |
 | `fastMode` | `boolean` | whether provider fast mode is enabled |
-| `serviceTier` | `"flex" \| "priority"` | OpenAI service tier selector |
+| `serviceTier` | `"flex" \| "priority" \| "fast" \| "ultrafast"` | OpenAI service tier selector |
+| `batch` | `boolean` | Batch API processing (not a service tier) |
+| `inferenceGeo` | `"us"` | Claude first-party US-only inference |
+| `regionalProcessing` | `boolean` | OpenAI regional processing premium, where supported |
 | `textTotalInput` | `[number, number \| "infinity"]` | total input-token bucket, including `textInput` + `textInput_cacheRead` + `textInput_cacheWrite`, using `pricing.unit` as the denominator |
 | `textOutput` | `[number, number \| "infinity"]` | output-token bucket, using `pricing.unit` as the denominator |
 | `quality` | `string` | image quality variant such as `standard` or `hd` |
@@ -289,7 +305,20 @@ When that happens, the value type still follows `PricingConditionValue`.
 known values are:
 
 - `flex`: lower-cost background or latency-tolerant service tier
-- `priority`: premium higher-priority service tier
+- `priority`: premium higher-priority service tier (alias of `fast` where supported)
+- `fast`: lower-latency processing
+- `ultrafast`: fastest processing, currently declared only for GPT-6 Astra
+
+Use one service tier per request. `batch` is mutually exclusive with Flex/Fast/
+Ultrafast; the adjustments avoid applying the Batch discount a second time.
+Pricing metadata describes rates, not endpoint or account eligibility. Apply
+regional premiums only on supported endpoints, and use the actual service tier
+returned by the API when a requested tier falls back to standard processing.
+
+For token threshold buckets, the lower bound is exclusive and the upper bound
+inclusive: `[0.272, "infinity"]` means **more than** 272,000 total input tokens,
+not 272,000 or more. Token counts use the pricing denominator, so `0.272` means
+272K with `millionTokens`.
 
 ### `values` key enum
 
@@ -485,3 +514,13 @@ Current `api` values used in this registry include:
 - Some upstream fields and local override metadata that are useful but not yet
   normalized may live under `_`. These fields are unstable and may change at
   any time.
+
+### Current Claude thinking restrictions
+
+`compat.anthropic.supportsThinkingDisabled: false` means callers must not send
+`thinking.type = "disabled"`. Opus 5.5 and Fable 5.1 always use adaptive thinking.
+Sonnet 5.5 accepts `between_tools` only at the efforts listed in
+`compat.anthropic.betweenToolsEffort` (`low`, `medium`, `high`); that mode does not
+accept a thinking budget or display options. `supportsForcedToolChoice: false`
+means `tool_choice` must use `auto` or `none`, rather than `any` or a named tool.
+Absent compatibility fields mean unknown, not an assertion of support.

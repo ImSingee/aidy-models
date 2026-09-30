@@ -5,6 +5,7 @@ import type {
   PricingConditionValue,
   PricingRange,
 } from "../types.ts";
+import { OPENAI_272K_MODEL_IDS } from "./recent-models.ts";
 import { roundNumber } from "./utils.ts";
 
 type LobehubPricingTier = {
@@ -54,10 +55,8 @@ const MULTIPLIER_FRIENDLY_CONDITIONS = new Set([
   "thinkingMode",
 ]);
 
-const FLAT_COST_LONG_CONTEXT_THRESHOLD_OVERRIDES: Record<string, number> = {
-  "gpt-5.4": 272_000,
-  "gpt-5.4-pro": 272_000,
-};
+const FLAT_COST_LONG_CONTEXT_THRESHOLD_OVERRIDES: Record<string, number> =
+  Object.fromEntries(OPENAI_272K_MODEL_IDS.map((id) => [id, 272_000]));
 
 function resolveSinglePricingUnit(units: LobehubPricingUnit[], modelId: string): string {
   const uniqueUnits = [...new Set(units.map((unit) => unit.unit).filter(Boolean))];
@@ -472,10 +471,13 @@ export function convertLobehubPricing(
 function resolveFlatCostLongContextThreshold(
   rawModel: Record<string, any> | undefined,
   unit: string,
+  providerId?: string,
 ): number {
   const modelId = rawModel?.id;
   if (typeof modelId === "string") {
-    const threshold = FLAT_COST_LONG_CONTEXT_THRESHOLD_OVERRIDES[modelId];
+    const threshold = providerId === "openai"
+      ? FLAT_COST_LONG_CONTEXT_THRESHOLD_OVERRIDES[modelId]
+      : (["gpt-5.4", "gpt-5.4-pro"].includes(modelId) ? 272_000 : undefined);
     if (typeof threshold === "number") {
       return normalizeThresholdNumber(threshold, unit);
     }
@@ -487,6 +489,7 @@ function resolveFlatCostLongContextThreshold(
 export function convertFlatCostPricing(
   cost: Record<string, any> | undefined,
   rawModel: Record<string, any> | undefined,
+  providerId?: string,
 ): ModelPricing | undefined {
   if (!cost) return undefined;
 
@@ -515,7 +518,7 @@ export function convertFlatCostPricing(
 
   const when = {
     textTotalInput: [
-      resolveFlatCostLongContextThreshold(rawModel, unit),
+      resolveFlatCostLongContextThreshold(rawModel, unit, providerId),
       "infinity",
     ] satisfies PricingRange,
   };

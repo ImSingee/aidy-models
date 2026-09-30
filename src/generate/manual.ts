@@ -1,4 +1,5 @@
 import type { Model, ModelPricing, Provider } from "../types.ts";
+import { GPT6_MODEL_IDS } from "./recent-models.ts";
 import { VERCEL_AI_GATEWAY_BASE_URL } from "./shared.ts";
 
 function createTextPricing(
@@ -188,6 +189,26 @@ export const manualModels: Record<string, Model[]> = {
     }),
   ],
   "openai-codex": [
+    // Codex's defaults/limits are not the public API defaults. See
+    // https://github.com/openai/codex/blob/main/codex-rs/models-manager/models.json
+    ...GPT6_MODEL_IDS.map<Model>((id) => ({
+      id,
+      name: id.replace("gpt-", "GPT-").replace("-astra", " Astra").replace("-sol", " Sol").replace("-luna", " Luna"),
+      abilities: { toolCall: true, reasoning: true, vision: true },
+      contextWindow: codexContextWindow,
+      modalities: { input: ["text", "image"], output: ["text"] },
+      reasoningEffort: {
+        enum: ["low", "medium", "high", "xhigh", "max"],
+        default: id === "gpt-6-astra" || id === "gpt-6.1-sol" ? "low" : "medium",
+      },
+      compat: { openaiResponses: { supportsAdditionalServiceTiers: ["priority"] } },
+      _: {
+        maxContextWindow: 872000,
+        // Ultra orchestrates subagents; it is not an API reasoning effort.
+        supportsUltraMode: id !== "gpt-6-luna",
+      },
+      // ChatGPT credits/quota are not public API USD token prices.
+    })),
     createManualModel({
       id: "gpt-5.6-sol",
       name: "GPT-5.6 Sol",

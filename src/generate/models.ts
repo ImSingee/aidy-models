@@ -5,6 +5,7 @@ import type {
   ModelPricing,
   Provider,
 } from "../types.ts";
+import { recentClaudeProfile, supportsClaudeAdaptiveThinking } from "./recent-models.ts";
 import {
   COPILOT_BASE_URL,
   OPENCODE_ANTHROPIC_BASE_URL,
@@ -77,7 +78,7 @@ export function normalizeModelsDevModel(
     contextWindow: rawModel.limit?.context,
     maxOutput: rawModel.limit?.output,
     modalities: rawModel.modalities,
-    pricing: convertFlatCostPricing(rawModel.cost, rawModel),
+    pricing: convertFlatCostPricing(rawModel.cost, rawModel, providerId),
   };
 
   if (providerId === "opencode") {
@@ -190,7 +191,7 @@ export function mergeAuthoritativeModel(
     openWeights: supplementalModel.openWeights ?? authoritativeModel.openWeights,
     deprecated: authoritativeModel.deprecated ?? supplementalModel.deprecated,
     reasoningEffort:
-      supplementalModel.reasoningEffort ?? authoritativeModel.reasoningEffort,
+      authoritativeModel.reasoningEffort ?? supplementalModel.reasoningEffort,
     abilities: {
       toolCall:
         authoritativeModel.abilities.toolCall ??
@@ -240,16 +241,12 @@ function hasPromptCachingPricing(model: Model): boolean {
 
 function createBedrockModelCompat(model: Model): ModelCompat | undefined {
   const normalized = model.id.toLowerCase();
-  const supportsAdaptiveThinking =
-    normalized.includes("opus-4-6") ||
-    normalized.includes("opus-4.6") ||
-    normalized.includes("sonnet-4-6") ||
-    normalized.includes("sonnet-4.6");
+  const supportsAdaptiveThinking = supportsClaudeAdaptiveThinking(model.id);
   const supportsThinkingSignature =
     normalized.includes("anthropic.claude") ||
     normalized.includes("anthropic/claude");
   const supportsPromptCaching =
-    hasPromptCachingPricing(model) ||
+    hasPromptCachingPricing(model) || supportsAdaptiveThinking ||
     ((normalized.includes("anthropic.claude") ||
       normalized.includes("anthropic/claude")) &&
       ((normalized.includes("-4-") || normalized.includes("-4.")) ||
@@ -333,11 +330,11 @@ function createGoogleGeminiCliReasoningCompat(
 function resolveGitHubCopilotModelRuntime(
   modelId: string,
 ): Pick<Model, "api" | "baseUrl"> {
-  const isClaude4 = /^claude-(haiku|sonnet|opus)-4([.-]|$)/.test(modelId);
+  const isClaude = /^claude-(haiku|sonnet|opus|fable)-(?:4|5)([.-]|$)/.test(modelId);
   const needsResponsesApi =
-    modelId.startsWith("gpt-5") || modelId.startsWith("oswe");
+    /^gpt-(?:5|6)(?:[.-]|$)/.test(modelId) || modelId.startsWith("oswe");
 
-  if (isClaude4) {
+  if (isClaude) {
     return {
       api: "anthropic-messages",
       baseUrl: COPILOT_BASE_URL,
@@ -379,6 +376,18 @@ export function finalizeModel(
       ? createGoogleGeminiCliReasoningCompat(finalized.id)
       : undefined,
   );
+  // Native Claude platforms share these model restrictions, but gateway pricing
+  // and wrapper-specific defaults are deliberately left to their own catalogs.
+  if (["anthropic", "google-vertex-anthropic", "amazon-bedrock"].includes(providerId)) {
+    const profile = recentClaudeProfile(finalized.id);
+    if (profile) {
+      finalized.reasoningEffort = profile.reasoningEffort;
+      finalized.abilities.temperature = false;
+      if (providerId !== "amazon-bedrock") {
+        finalized.compat = mergeCompat(finalized.compat, { anthropic: profile.compat });
+      }
+    }
+  }
   applyReasoningEffortDefault(providerId, finalized);
 
   return finalized;

@@ -32,7 +32,7 @@ export interface ModelPricing {
 }
 
 export type CompatReasoningLevel = "minimal" | "low" | "medium" | "high";
-export type OpenAIServiceTier = "flex" | "priority";
+export type OpenAIServiceTier = "flex" | "priority" | "fast" | "ultrafast";
 
 export interface OpenRouterRouting {
   only?: string[];
@@ -71,6 +71,10 @@ export interface OpenAIResponsesCompat {
 }
 
 export interface AnthropicCompat {
+  supportsThinkingDisabled?: boolean;
+  supportsForcedToolChoice?: boolean;
+  /** Efforts accepting thinking.type=between_tools instead of disabled. */
+  betweenToolsEffort?: readonly ReasoningEffort[];
   longPromptCacheTtl?: "1h";
   supportsFastMode?: boolean;
   supportsAdaptiveThinking?: boolean;
