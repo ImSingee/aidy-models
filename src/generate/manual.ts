@@ -1,4 +1,5 @@
 import type { Model, ModelPricing, Provider } from "../types.ts";
+import { GPT6_MODEL_IDS } from "./recent-models.ts";
 import { VERCEL_AI_GATEWAY_BASE_URL } from "./shared.ts";
 
 function createTextPricing(
@@ -35,11 +36,11 @@ function createTextPricingWithoutCacheWrite(
   };
 }
 
-function createOpenAIPriorityPricing(
+function createOpenAIFastPricing(
   input: number,
   output: number,
   cacheRead: number,
-  priorityMultiplier: number,
+  fastMultiplier: number,
 ): ModelPricing {
   return {
     ...createTextPricingWithoutCacheWrite(input, output, cacheRead),
@@ -58,12 +59,12 @@ function createOpenAIPriorityPricing(
       {
         mode: "multiplier",
         values: {
-          textInput: priorityMultiplier,
-          textOutput: priorityMultiplier,
-          textInput_cacheRead: priorityMultiplier,
+          textInput: fastMultiplier,
+          textOutput: fastMultiplier,
+          textInput_cacheRead: fastMultiplier,
         },
         when: {
-          serviceTier: "priority",
+          serviceTier: "fast",
         },
       },
     ],
@@ -188,12 +189,32 @@ export const manualModels: Record<string, Model[]> = {
     }),
   ],
   "openai-codex": [
+    // Codex's defaults/limits are not the public API defaults. See
+    // https://github.com/openai/codex/blob/main/codex-rs/models-manager/models.json
+    ...GPT6_MODEL_IDS.map<Model>((id) => ({
+      id,
+      name: id.replace("gpt-", "GPT-").replace("-astra", " Astra").replace("-sol", " Sol").replace("-luna", " Luna"),
+      abilities: { toolCall: true, reasoning: true, vision: true },
+      contextWindow: codexContextWindow,
+      modalities: { input: ["text", "image"], output: ["text"] },
+      reasoningEffort: {
+        enum: ["low", "medium", "high", "xhigh", "max"],
+        default: id === "gpt-6-astra" || id === "gpt-6.1-sol" ? "low" : "medium",
+      },
+      compat: { openaiResponses: { supportsAdditionalServiceTiers: ["fast"] } },
+      _: {
+        maxContextWindow: 872000,
+        // Ultra orchestrates subagents; it is not an API reasoning effort.
+        supportsUltraMode: id !== "gpt-6-luna",
+      },
+      // ChatGPT credits/quota are not public API USD token prices.
+    })),
     createManualModel({
       id: "gpt-5.6-sol",
       name: "GPT-5.6 Sol",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createOpenAIPriorityPricing(4, 20, 0.4, 2),
+      pricing: createOpenAIFastPricing(4, 20, 0.4, 2),
       input: ["text", "image"],
       reasoning: true,
       reasoningEffort: {
@@ -202,7 +223,7 @@ export const manualModels: Record<string, Model[]> = {
       },
       compat: {
         openaiResponses: {
-          supportsAdditionalServiceTiers: ["priority"],
+          supportsAdditionalServiceTiers: ["fast"],
         },
       },
     }),
@@ -237,7 +258,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.5",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createOpenAIPriorityPricing(5, 30, 0.5, 2.5),
+      pricing: createOpenAIFastPricing(5, 30, 0.5, 2.5),
       input: ["text", "image"],
       reasoning: true,
       reasoningEffort: {
@@ -246,7 +267,7 @@ export const manualModels: Record<string, Model[]> = {
       },
       compat: {
         openaiResponses: {
-          supportsAdditionalServiceTiers: ["priority"],
+          supportsAdditionalServiceTiers: ["fast"],
         },
       },
     }),
@@ -255,7 +276,7 @@ export const manualModels: Record<string, Model[]> = {
       name: "GPT-5.4",
       contextWindow: codexContextWindow,
       maxOutput: codexMaxOutput,
-      pricing: createOpenAIPriorityPricing(2.5, 15, 0.25, 2),
+      pricing: createOpenAIFastPricing(2.5, 15, 0.25, 2),
       input: ["text", "image"],
       reasoning: true,
       reasoningEffort: {
@@ -264,7 +285,7 @@ export const manualModels: Record<string, Model[]> = {
       },
       compat: {
         openaiResponses: {
-          supportsAdditionalServiceTiers: ["priority"],
+          supportsAdditionalServiceTiers: ["fast"],
         },
       },
     }),
