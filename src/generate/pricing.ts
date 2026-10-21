@@ -58,20 +58,36 @@ const MULTIPLIER_FRIENDLY_CONDITIONS = new Set([
 const FLAT_COST_LONG_CONTEXT_THRESHOLD_OVERRIDES: Record<string, number> =
   Object.fromEntries(OPENAI_272K_MODEL_IDS.map((id) => [id, 272_000]));
 
-function resolveSinglePricingUnit(units: LobehubPricingUnit[], modelId: string): string {
+const PREFERRED_PRICING_UNIT = "millionTokens";
+
+function resolvePricingUnits(
+  units: LobehubPricingUnit[],
+  modelId: string,
+): { pricingUnit: string; units: LobehubPricingUnit[] } | undefined {
   const uniqueUnits = [...new Set(units.map((unit) => unit.unit).filter(Boolean))];
 
   if (uniqueUnits.length === 0) {
     throw new Error(`Missing pricing unit for ${modelId}`);
   }
 
-  if (uniqueUnits.length > 1) {
-    throw new Error(
-      `Mixed pricing units are not supported for ${modelId}: ${uniqueUnits.join(", ")}`,
-    );
+  if (uniqueUnits.length === 1) {
+    return { pricingUnit: uniqueUnits[0], units };
   }
 
-  return uniqueUnits[0];
+  if (uniqueUnits.includes(PREFERRED_PRICING_UNIT)) {
+    console.warn(
+      `Mixed pricing units for ${modelId} (${uniqueUnits.join(", ")}), using ${PREFERRED_PRICING_UNIT} only`,
+    );
+    return {
+      pricingUnit: PREFERRED_PRICING_UNIT,
+      units: units.filter((unit) => unit.unit === PREFERRED_PRICING_UNIT),
+    };
+  }
+
+  console.warn(
+    `Mixed pricing units for ${modelId} (${uniqueUnits.join(", ")}), skipping pricing`,
+  );
+  return undefined;
 }
 
 function normalizeThresholdNumber(value: number, unit: string): number {
@@ -414,10 +430,13 @@ export function convertLobehubPricing(
   rawModel: Record<string, any> | undefined,
   modelId: string,
 ): ModelPricing | undefined {
-  const units = pricing?.units?.filter(Boolean) ?? [];
-  if (units.length === 0) return undefined;
+  const allUnits = pricing?.units?.filter(Boolean) ?? [];
+  if (allUnits.length === 0) return undefined;
 
-  const pricingUnit = resolveSinglePricingUnit(units, modelId);
+  const resolved = resolvePricingUnits(allUnits, modelId);
+  if (!resolved) return undefined;
+
+  const { pricingUnit, units } = resolved;
   const basePricing: Record<string, number> = {};
   const adjustments = new Map<string, PricingAdjustment>();
 
