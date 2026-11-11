@@ -1,23 +1,23 @@
 {
   "_meta": {
-    "generatedAt": "2026-11-10T11:52:35.323Z",
+    "generatedAt": "2026-11-11T11:28:55.114Z",
     "sources": {
       "modelsDev": {
         "providerCount": 235,
-        "modelCount": 8967
+        "modelCount": 9000
       },
       "lobehub": {
-        "commitHash": "3e750d654b4b9ee00bf791c6aa72b39f0d8d7b05",
+        "commitHash": "600005e618d23425b6c935ed70b5a6a90a0d3811",
         "providerCount": 85,
-        "modelCount": 1906
+        "modelCount": 1910
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 465
+        "modelCount": 469
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 505
+        "modelCount": 506
       },
       "manual": {
         "providerCount": 7,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 282,
-      "modelCount": 10656
+      "modelCount": 10692
     },
     "overridesApplied": 87
   },
@@ -51158,6 +51158,8 @@
       {
         "id": "claude-fable-5-2",
         "name": "Claude Fable 5.2",
+        "description": "Claude Fable 5.2 is Anthropic's latest model for demanding reasoning and long-horizon agentic work, priced below Fable 5.1.",
+        "type": "chat",
         "family": "claude-fable",
         "releasedAt": "2026-11-09",
         "knowledge": "2026-06",
@@ -51175,10 +51177,11 @@
         "abilities": {
           "toolCall": true,
           "reasoning": true,
-          "attachment": true,
-          "temperature": false,
+          "vision": true,
           "structuredOutput": true,
-          "vision": true
+          "search": true,
+          "attachment": true,
+          "temperature": false
         },
         "contextWindow": 1000000,
         "maxOutput": 128000,
@@ -51193,10 +51196,21 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput_cacheWrite": 1.6
+              },
+              "when": {
+                "cacheTtl": "1h"
+              }
+            }
+          ],
           "basePricing": {
+            "textInput_cacheRead": 0.2,
             "textInput": 8,
             "textOutput": 40,
-            "textInput_cacheRead": 0.2,
             "textInput_cacheWrite": 10
           },
           "currency": "USD",
@@ -51878,6 +51892,7 @@
         "releasedAt": "2025-09-29",
         "knowledge": "2025-07-31",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -51944,6 +51959,7 @@
         "releasedAt": "2025-09-29",
         "knowledge": "2025-07-31",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -71375,6 +71391,53 @@
         }
       },
       {
+        "id": "anthropic/claude-fable-5.2",
+        "name": "Claude Fable 5.2",
+        "family": "claude-fable",
+        "releasedAt": "2026-11-09",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 8,
+            "textOutput": 40,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 10
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "anthropic/claude-haiku-4.5",
         "name": "Claude Haiku 4.5 (latest)",
         "family": "claude-haiku",
@@ -72580,6 +72643,53 @@
         }
       },
       {
+        "id": "meta/muse-ember-1.0",
+        "name": "Muse Ember",
+        "family": "muse",
+        "releasedAt": "2026-11-09",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 524288,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "pdf",
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.1,
+            "textOutput": 0.5,
+            "textInput_cacheRead": 0.004
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "meta/muse-spark-1.1",
         "name": "Muse Spark 1.1",
         "family": "muse",
@@ -73007,7 +73117,7 @@
           "basePricing": {
             "textInput": 0.1,
             "textOutput": 0.4,
-            "textInput_cacheRead": 0.025
+            "textInput_cacheRead": 0.03
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -103576,6 +103686,53 @@
         }
       },
       {
+        "id": "google/gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 4,
+            "textOutput": 20,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 0.375
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "google/gemini-flash-latest",
         "name": "Gemini Flash Latest (Gemini 3.8 Flash)",
         "family": "gemini-flash",
@@ -103831,9 +103988,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.156702,
-            "textOutput": 0.391755,
-            "textInput_cacheRead": 0.044772
+            "textInput": 0.156996,
+            "textOutput": 0.39249,
+            "textInput_cacheRead": 0.044856
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -103875,9 +104032,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.246246,
-            "textOutput": 1.231229,
-            "textInput_cacheRead": 0.012312
+            "textInput": 0.246708,
+            "textOutput": 1.233541,
+            "textInput_cacheRead": 0.012335
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -103916,8 +104073,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.22386,
-            "textOutput": 0.78351
+            "textInput": 0.22428,
+            "textOutput": 0.78498
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -103949,8 +104106,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.231229,
-            "textOutput": 1.231229
+            "textInput": 1.233541,
+            "textOutput": 1.233541
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -103981,8 +104138,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.007369,
-            "textOutput": 3.022108
+            "textInput": 1.009261,
+            "textOutput": 3.027782
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -104203,8 +104360,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.33579,
-            "textOutput": 0.44772
+            "textInput": 0.33642,
+            "textOutput": 0.44856
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -104236,8 +104393,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.727545,
-            "textOutput": 0.727545
+            "textInput": 0.72891,
+            "textOutput": 0.72891
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -104276,8 +104433,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.167895,
-            "textOutput": 0.727545
+            "textInput": 0.16821,
+            "textOutput": 0.72891
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -104309,8 +104466,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.167895,
-            "textOutput": 0.89544
+            "textInput": 0.16821,
+            "textOutput": 0.89712
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -108890,7 +109047,7 @@
           "basePricing": {
             "textInput": 0.15,
             "textOutput": 0.6,
-            "textInput_cacheRead": 0.015
+            "textInput_cacheRead": 0.003
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -108934,7 +109091,7 @@
           "basePricing": {
             "textInput": 0.15,
             "textOutput": 0.6,
-            "textInput_cacheRead": 0.015
+            "textInput_cacheRead": 0.003
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -109340,9 +109497,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.44772,
-            "textOutput": 0.89544,
-            "textInput_cacheRead": 0.089544
+            "textInput": 0.44856,
+            "textOutput": 0.89712,
+            "textInput_cacheRead": 0.089712
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -109428,9 +109585,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.67158,
-            "textOutput": 2.014739,
-            "textInput_cacheRead": 0.134316
+            "textInput": 0.67284,
+            "textOutput": 2.018521,
+            "textInput_cacheRead": 0.134568
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -109504,8 +109661,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.167895,
-            "textOutput": 0.67158
+            "textInput": 0.16821,
+            "textOutput": 0.67284
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -109537,8 +109694,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.007369,
-            "textOutput": 1.007369
+            "textInput": 1.009261,
+            "textOutput": 1.009261
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -109569,8 +109726,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.839475,
-            "textOutput": 2.518424
+            "textInput": 0.84105,
+            "textOutput": 2.523151
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -111762,6 +111919,147 @@
         "name": "Gemini 4 Argon (Vertex AI, US)",
         "family": "gemini",
         "releasedAt": "2026-10-13",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 4,
+            "textOutput": 20,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 0.375
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "vertex/gemini-4-carbon",
+        "name": "Gemini 4 Carbon (Vertex AI)",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 4,
+            "textOutput": 20,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 0.375
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "vertex/gemini-4-carbon@eu",
+        "name": "Gemini 4 Carbon (Vertex AI, EU)",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 4,
+            "textOutput": 20,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 0.375
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "vertex/gemini-4-carbon@us",
+        "name": "Gemini 4 Carbon (Vertex AI, US)",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
         "knowledge": "2026-03",
         "openWeights": false,
         "reasoningEffort": {
@@ -121871,6 +122169,55 @@
         "baseUrl": "https://api.individual.githubcopilot.com"
       },
       {
+        "id": "claude-fable-5.2",
+        "name": "Claude Fable 5.2",
+        "family": "claude-fable",
+        "releasedAt": "2026-11-09",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 8,
+            "textOutput": 40,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 10
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "api": "anthropic-messages",
+        "baseUrl": "https://api.individual.githubcopilot.com"
+      },
+      {
         "id": "claude-haiku-4.5",
         "name": "Claude Haiku 4.5",
         "api": "anthropic-messages",
@@ -122624,6 +122971,52 @@
         "name": "Gemini 4 Argon",
         "family": "gemini",
         "releasedAt": "2026-10-13",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "api": "openai-completions",
+        "baseUrl": "https://api.individual.githubcopilot.com"
+      },
+      {
+        "id": "gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
         "knowledge": "2026-03",
         "openWeights": false,
         "reasoningEffort": {
@@ -128326,6 +128719,59 @@
         }
       },
       {
+        "id": "gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "description": "Gemini 4 Carbon is Google's strongest model, with state-of-the-art cybersecurity and long-horizon capabilities for sustained agentic coding, multimodal knowledge work, and scientific reasoning.",
+        "type": "chat",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput_cacheRead": 0.1,
+            "textInput": 2,
+            "imageInput": 2,
+            "videoInput": 2,
+            "audioInput": 2,
+            "textOutput": 10
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "gemini-embedding-001",
         "name": "Gemini Embedding 001",
         "family": "gemini",
@@ -131842,6 +132288,59 @@
             "textInput": 2,
             "textOutput": 10,
             "textInput_cacheRead": 0.1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "description": "Gemini 4 Carbon is Google's strongest model, with state-of-the-art cybersecurity and long-horizon capabilities for sustained agentic coding, multimodal knowledge work, and scientific reasoning.",
+        "type": "chat",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "video": true,
+          "attachment": true,
+          "temperature": false
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput_cacheRead": 0.1,
+            "textInput": 2,
+            "imageInput": 2,
+            "videoInput": 2,
+            "audioInput": 2,
+            "textOutput": 10
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -146558,9 +147057,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 3.2664,
-            "textOutput": 16.332,
-            "textInput_cacheRead": 0.32664
+            "textInput": 2.2,
+            "textOutput": 11,
+            "textInput_cacheRead": 0.22
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -150460,7 +150959,7 @@
           "basePricing": {
             "textInput": 1.4,
             "textOutput": 4.4,
-            "textInput_cacheRead": 0.19,
+            "textInput_cacheRead": 0.26,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -159845,7 +160344,7 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.1824,
-            "textOutput": 10.5601,
+            "textOutput": 11.0055,
             "textInput_cacheRead": 0.18
           },
           "currency": "USD",
@@ -160197,8 +160696,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.0335,
-            "textOutput": 0.083,
+            "textInput": 0.0399,
+            "textOutput": 0.0784,
             "textInput_cacheRead": 0.03
           },
           "currency": "USD",
@@ -161429,6 +161928,85 @@
         }
       },
       {
+        "id": "baidu/ernie-5.5-flash-preview",
+        "name": "Baidu: ERNIE-5.5-Flash-Preview",
+        "family": "ernie",
+        "releasedAt": "2026-11-10",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1024000,
+        "maxOutput": 921600,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.28,
+            "textOutput": 1.13,
+            "textInput_cacheRead": 0.028
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "baidu/ernie-light-dt-1.0-intl",
+        "name": "Baidu: ERNIE-Light-DT-1.0",
+        "family": "ernie",
+        "releasedAt": "2026-11-10",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1024000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 1.13,
+            "textOutput": 3.94,
+            "textInput_cacheRead": 0.113
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "bytedance-seed/seed-1.6",
         "name": "ByteDance Seed: Seed 1.6 (retires Nov 11)",
         "family": "seed",
@@ -162247,8 +162825,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 1048575,
-        "maxOutput": 943717,
+        "contextWindow": 1048576,
+        "maxOutput": 393216,
         "modalities": {
           "input": [
             "text"
@@ -162259,9 +162837,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.091,
-            "textOutput": 0.182,
-            "textInput_cacheRead": 0.0182
+            "textInput": 0.09,
+            "textOutput": 0.18,
+            "textInput_cacheRead": 0.018
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -163613,6 +164191,53 @@
         }
       },
       {
+        "id": "google/gemini-4-carbon",
+        "name": "Google: Gemini 4 Carbon",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 943718,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.1,
+            "textInput_cacheWrite": 0.1875
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "google/gemini-nano-banana-2.1",
         "name": "Nano Banana 2.1",
         "family": "gemini-flash",
@@ -163914,9 +164539,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.029,
-            "textOutput": 0.086,
-            "textInput_cacheRead": 0.014
+            "textInput": 0.01,
+            "textOutput": 0.031,
+            "textInput_cacheRead": 0.005
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -164243,7 +164868,7 @@
           "reasoning": true,
           "attachment": false,
           "temperature": true,
-          "structuredOutput": false
+          "structuredOutput": true
         },
         "contextWindow": 1000000,
         "maxOutput": 262144,
@@ -164508,6 +165133,44 @@
         }
       },
       {
+        "id": "kt/midm-k-3.0-pro",
+        "name": "KT: Mi:dm K 3.0 Pro",
+        "releasedAt": "2026-11-05",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": false,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 261795,
+        "maxOutput": 235615,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.2,
+            "textOutput": 0.8,
+            "textInput_cacheRead": 0.04
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "liquid/lfm-2.5-2.6b",
         "name": "LiquidAI: LFM2.5-2.6B (retires Nov 13)",
         "family": "liquid",
@@ -164684,9 +165347,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 0.75,
-            "textInput_cacheRead": 0.4
+            "textInput": 0.3,
+            "textOutput": 0.5,
+            "textInput_cacheRead": 0.3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -165043,8 +165706,7 @@
           "basePricing": {
             "textInput": 0.1,
             "textOutput": 0.5,
-            "textInput_cacheRead": 0.004,
-            "textInput_cacheWrite": 0.125
+            "textInput_cacheRead": 0.004
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -165350,8 +166012,8 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "contextWindow": 1000000,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text",
@@ -166793,6 +167455,45 @@
           "basePricing": {
             "textInput": 0.9,
             "textOutput": 1.9
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "motif-technologies/motif-3",
+        "name": "Motif Technologies: Motif 3",
+        "family": "motif",
+        "releasedAt": "2026-11-02",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": false,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 235929,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.3,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.06
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -170358,38 +171059,6 @@
         }
       },
       {
-        "id": "qwen/qwen-2.5-7b-instruct",
-        "name": "Qwen: Qwen2.5 7B Instruct",
-        "family": "qwen",
-        "releasedAt": "2024-10-16",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 29491,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "qwen/qwen-2.5-coder-32b-instruct",
         "name": "Qwen2.5 Coder 32B Instruct",
         "family": "qwen",
@@ -173217,9 +173886,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.35,
-            "textOutput": 0.65,
-            "textInput_cacheRead": 0.35
+            "textInput": 0.3,
+            "textOutput": 0.5,
+            "textInput_cacheRead": 0.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -173813,7 +174482,7 @@
           "basePricing": {
             "textInput": 0.1,
             "textOutput": 0.28,
-            "textInput_cacheRead": 0.05
+            "textInput_cacheRead": 0.003
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -174286,7 +174955,7 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 202752,
+        "contextWindow": 202745,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -174407,8 +175076,8 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1048575,
-        "maxOutput": 943717,
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text",
@@ -176611,13 +177280,24 @@
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
         "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 1000000,
+        "contextWindow": 1050000,
         "maxOutput": 384000,
         "modalities": {
           "input": [
@@ -176629,9 +177309,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.44,
-            "textOutput": 1.32,
-            "textInput_cacheRead": 0.04
+            "textInput": 0.08,
+            "textOutput": 0.18,
+            "textInput_cacheRead": 0.016
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -177433,6 +178113,51 @@
             "text",
             "image",
             "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 4,
+            "textOutput": 20,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 0.375
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
           ],
           "output": [
             "text"
@@ -184289,6 +185014,51 @@
         }
       },
       {
+        "id": "alibaba/deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731 (Alibaba Cloud)",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-07-31",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 393216,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.2,
+            "textOutput": 0.4,
+            "textInput_cacheRead": 0.04
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "alibaba/deepseek-v4-pro",
         "name": "DeepSeek V4 Pro (Alibaba Cloud)",
         "family": "deepseek-thinking",
@@ -189552,6 +190322,51 @@
         }
       },
       {
+        "id": "baidu/deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731 (Baidu)",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-07-31",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.44,
+            "textOutput": 1.32,
+            "textInput_cacheRead": 0.014
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "baidu/deepseek-v4-pro",
         "name": "DeepSeek V4 Pro (Baidu)",
         "family": "deepseek-thinking",
@@ -189977,6 +190792,51 @@
           "interleaved": {
             "field": "reasoning_content"
           }
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 393216,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.44,
+            "textOutput": 1.32,
+            "textInput_cacheRead": 0.014
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "bytedance/deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731 (ByteDance)",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-07-31",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
         },
         "contextWindow": 1048576,
         "maxOutput": 393216,
@@ -190522,6 +191382,17 @@
         "releasedAt": "2026-07-31",
         "knowledge": "2025-05",
         "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -190899,6 +191770,51 @@
           "interleaved": {
             "field": "reasoning_content"
           }
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 393216,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.44,
+            "textOutput": 1.32,
+            "textInput_cacheRead": 0.014
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "cloudflare/deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731 (Cloudflare)",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-07-31",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
         },
         "contextWindow": 1048576,
         "maxOutput": 393216,
@@ -191449,6 +192365,7 @@
           "enum": [
             "none",
             "low",
+            "medium",
             "high",
             "max"
           ]
@@ -191458,10 +192375,52 @@
           "reasoning": true,
           "attachment": false,
           "temperature": true,
-          "structuredOutput": false,
+          "structuredOutput": true,
           "interleaved": {
             "field": "reasoning_content"
           }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 393216,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.09,
+            "textOutput": 0.18,
+            "textInput_cacheRead": 0.018
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "deepinfra/deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731 (DeepInfra)",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-07-31",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
         },
         "contextWindow": 1000000,
         "maxOutput": 393216,
@@ -193150,6 +194109,52 @@
         }
       },
       {
+        "id": "google-ai-studio/gemini-4-carbon",
+        "name": "Gemini 4 Carbon (Google AI Studio)",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 1048576,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 4,
+            "textOutput": 20,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 0.375
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "google-ai-studio/gemini-pro-latest",
         "name": "Gemini Pro Latest (Google AI Studio)",
         "family": "gemini-pro",
@@ -193632,6 +194637,52 @@
         }
       },
       {
+        "id": "google-vertex/gemini-4-carbon",
+        "name": "Gemini 4 Carbon (Google Vertex AI)",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 1048576,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 4,
+            "textOutput": 20,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 0.375
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "greenference/glm-5.3-flash",
         "name": "GLM-5.3 Flash (greenference)",
         "family": "glm-flash",
@@ -193845,6 +194896,40 @@
           "basePricing": {
             "textInput": 0.1,
             "textOutput": 0.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "inference.net/deepseek-v4-flash",
+        "name": "DeepSeek V4 Flash (Inference.net)",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-04-24",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 384000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.23,
+            "textOutput": 0.62,
+            "textInput_cacheRead": 0.0028
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -195752,6 +196837,51 @@
           "interleaved": {
             "field": "reasoning_content"
           }
+        },
+        "contextWindow": 1050000,
+        "maxOutput": 393216,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.14,
+            "textOutput": 0.28,
+            "textInput_cacheRead": 0.028
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "novita/deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731 (NovitaAI)",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-07-31",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
         },
         "contextWindow": 1050000,
         "maxOutput": 393216,
@@ -200360,6 +201490,51 @@
           "interleaved": {
             "field": "reasoning_content"
           }
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 393216,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 0.6,
+            "textInput_cacheRead": 0.003
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "tencent/deepseek-v4-flash-0731",
+        "name": "DeepSeek V4 Flash 0731 (Tencent Cloud)",
+        "family": "deepseek-flash",
+        "releasedAt": "2026-07-31",
+        "knowledge": "2025-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
         },
         "contextWindow": 1000000,
         "maxOutput": 393216,
@@ -208779,7 +209954,7 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1000000,
         "maxOutput": 384000,
         "modalities": {
           "input": [
@@ -208791,9 +209966,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.035,
-            "textOutput": 0.07,
-            "textInput_cacheRead": 0.007
+            "textInput": 0.13,
+            "textOutput": 0.26,
+            "textInput_cacheRead": 0.028
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -209742,6 +210917,45 @@
         "name": "Gemini 4 Argon",
         "family": "gemini",
         "releasedAt": "2026-10-13",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "google/gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
         "knowledge": "2026-03",
         "openWeights": false,
         "abilities": {
@@ -223511,8 +224725,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 2.006,
-            "textOutput": 2.992,
+            "textInput": 2.65,
+            "textOutput": 5.3,
             "textInput_cacheRead": 1.003
           },
           "currency": "USD",
@@ -225103,39 +226317,6 @@
         }
       },
       {
-        "id": "arcee-ai/trinity-large-thinking",
-        "name": "Trinity Large Thinking",
-        "family": "trinity",
-        "releasedAt": "2026-04-01",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": false
-        },
-        "contextWindow": 262144,
-        "maxOutput": 80000,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.25,
-            "textOutput": 0.9,
-            "textInput_cacheRead": 0.125
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "auto-model",
         "name": "Auto model",
         "family": "auto",
@@ -226060,8 +227241,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.66,
-            "textOutput": 1.98,
-            "textInput_cacheRead": 0.022
+            "textOutput": 4.0139,
+            "textInput_cacheRead": 0.105
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -226172,7 +227353,7 @@
           "basePricing": {
             "textInput": 0.14,
             "textOutput": 0.28,
-            "textInput_cacheRead": 0.0028
+            "textInput_cacheRead": 0.028
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -226466,7 +227647,7 @@
           "basePricing": {
             "textInput": 0.14,
             "textOutput": 0.28,
-            "textInput_cacheRead": 0.0028
+            "textInput_cacheRead": 0.028
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -226505,9 +227686,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.7,
-            "textOutput": 1.4,
-            "textInput_cacheRead": 0.07
+            "textInput": 0.86979,
+            "textOutput": 1.77565,
+            "textInput_cacheRead": 0.08873
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -226547,8 +227728,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.66,
-            "textOutput": 1.98,
-            "textInput_cacheRead": 0.022
+            "textOutput": 4.1267,
+            "textInput_cacheRead": 0.0921
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -226588,8 +227769,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.66,
-            "textOutput": 1.98,
-            "textInput_cacheRead": 0.022
+            "textOutput": 4.0139,
+            "textInput_cacheRead": 0.105
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -226628,9 +227809,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.7,
-            "textOutput": 1.4,
-            "textInput_cacheRead": 0.07
+            "textInput": 0.95124,
+            "textOutput": 1.79607,
+            "textInput_cacheRead": 0.17925
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -226719,6 +227900,90 @@
             "textInput": 0.1,
             "textOutput": 0.6,
             "textInput_cacheRead": 0.0042
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "deepseek/deepseek-v4.1-flash-1017-uncensored",
+        "name": "DeepSeek V4.1 Flash 1017 Uncensored",
+        "family": "deepseek",
+        "releasedAt": "2026-10-27",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "structuredOutput": false,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.33,
+            "textOutput": 1.32,
+            "textInput_cacheRead": 0.011
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "deepseek/deepseek-v4.1-flash-1017-uncensored:thinking",
+        "name": "DeepSeek V4.1 Flash 1017 Uncensored Thinking",
+        "family": "deepseek",
+        "releasedAt": "2026-10-27",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "structuredOutput": false,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.33,
+            "textOutput": 1.32,
+            "textInput_cacheRead": 0.011
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -230491,6 +231756,52 @@
         }
       },
       {
+        "id": "google/gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "google/gemini-flash-latest",
         "name": "Gemini Flash Latest",
         "family": "gemini-flash",
@@ -230658,9 +231969,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.022,
-            "textOutput": 0.066,
-            "textInput_cacheRead": 0.011
+            "textInput": 0.011,
+            "textOutput": 0.034,
+            "textInput_cacheRead": 0.006
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -230728,9 +232039,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.022,
-            "textOutput": 0.066,
-            "textInput_cacheRead": 0.011
+            "textInput": 0.011,
+            "textOutput": 0.034,
+            "textInput_cacheRead": 0.006
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -234435,9 +235746,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.39,
-            "textOutput": 1.8,
-            "textInput_cacheRead": 0.039
+            "textInput": 0.88,
+            "textOutput": 4.13,
+            "textInput_cacheRead": 0.231
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -237426,9 +238737,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.02,
-            "textOutput": 0.03,
-            "textInput_cacheRead": 0.018
+            "textInput": 0.018,
+            "textOutput": 0.09,
+            "textInput_cacheRead": 0.009
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -238868,8 +240179,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.0875,
-            "textOutput": 0.35,
+            "textInput": 0.09,
+            "textOutput": 0.55,
             "textInput_cacheRead": 0.0175
           },
           "currency": "USD",
@@ -238901,8 +240212,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.0875,
-            "textOutput": 0.35,
+            "textInput": 0.09,
+            "textOutput": 0.55,
             "textInput_cacheRead": 0.0175
           },
           "currency": "USD",
@@ -243404,7 +244715,7 @@
           "attachment": false,
           "structuredOutput": false
         },
-        "contextWindow": 32000,
+        "contextWindow": 32768,
         "maxOutput": 16384,
         "modalities": {
           "input": [
@@ -243594,7 +244905,7 @@
           "attachment": false,
           "structuredOutput": false
         },
-        "contextWindow": 131072,
+        "contextWindow": 65536,
         "maxOutput": 32768,
         "modalities": {
           "input": [
@@ -248777,44 +250088,6 @@
             "textInput": 0.15,
             "textOutput": 0.55,
             "textInput_cacheRead": 0.03
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "qwen/qwen3.5-397b-a17b",
-        "name": "Qwen3.5 397B-A17B",
-        "family": "qwen",
-        "releasedAt": "2026-02-15",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "interleaved": {
-            "field": "reasoning_content"
-          },
-          "vision": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 3.3,
-            "textInput_cacheRead": 0.25
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -260679,6 +261952,52 @@
             "textOutput": 50,
             "textInput_cacheRead": 0.25,
             "textInput_cacheWrite": 12.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "anthropic/claude-fable-5.2",
+        "name": "Claude Fable 5.2",
+        "family": "claude-fable",
+        "releasedAt": "2026-11-09",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 8,
+            "textOutput": 40,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 10
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -273683,9 +275002,9 @@
       },
       {
         "id": "deepseek-v4.1-flash",
-        "name": "DeepSeek V4.1 Flash",
+        "name": "DeepSeek V4.1 Flash 1017",
         "family": "deepseek-flash",
-        "releasedAt": "2026-09-10",
+        "releasedAt": "2026-10-17",
         "knowledge": "2025-05",
         "openWeights": true,
         "reasoningEffort": {
@@ -273733,7 +275052,7 @@
         "id": "deepseek-v4.1-flash-free",
         "name": "DeepSeek V4.1 Flash Free",
         "family": "deepseek-flash",
-        "releasedAt": "2026-09-10",
+        "releasedAt": "2026-10-17",
         "knowledge": "2025-05",
         "openWeights": true,
         "reasoningEffort": {
@@ -274331,6 +275650,54 @@
         "name": "Gemini 4 Argon",
         "family": "gemini",
         "releasedAt": "2026-10-13",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        },
+        "api": "google-generative-ai",
+        "baseUrl": "https://opencode.ai/zen/v1"
+      },
+      {
+        "id": "gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
         "knowledge": "2026-03",
         "openWeights": false,
         "reasoningEffort": {
@@ -277783,6 +279150,22 @@
           ]
         },
         "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 3,
+                "textOutput": 3,
+                "textInput_cacheRead": 3
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
           "basePricing": {
             "textInput": 0.1,
             "textOutput": 0.5,
@@ -278989,9 +280372,9 @@
       },
       {
         "id": "deepseek-v4.1-flash",
-        "name": "DeepSeek V4.1 Flash",
+        "name": "DeepSeek V4.1 Flash 1017",
         "family": "deepseek-flash",
-        "releasedAt": "2026-09-10",
+        "releasedAt": "2026-10-17",
         "knowledge": "2025-05",
         "openWeights": true,
         "reasoningEffort": {
@@ -282329,7 +283712,7 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.1824,
-            "textOutput": 9.3388,
+            "textOutput": 11.0055,
             "textInput_cacheRead": 0.18
           }
         }
@@ -284711,6 +286094,89 @@
         }
       },
       {
+        "id": "baidu/ernie-5.5-flash-preview:free",
+        "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
+        "description": "ERNIE 5.5 Flash Preview is the latest foundation model in the ERNIE family, with comprehensive improvements in coding, agentic capabilities, knowledge work, and deep research. It has 280 billion total...",
+        "releasedAt": "2026-11-10",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 1024000,
+        "maxOutput": 921600,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0,
+            "textOutput": 0
+          }
+        }
+      },
+      {
+        "id": "baidu/ernie-light-dt-1.0-intl",
+        "name": "Baidu: ERNIE-Light-DT-1.0",
+        "description": "ERNIE-Light-DT-1.0 is based on open-source GLM models and includes research findings from Baidu Search's Lightning large model. It features Baidu Sparse Attention (BSA), a unique sparse attention mechanism developed by...",
+        "family": "ernie",
+        "releasedAt": "2026-11-10",
+        "knowledge": null,
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 1024000,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 1.13,
+            "textOutput": 3.94,
+            "textInput_cacheRead": 0.113
+          }
+        }
+      },
+      {
         "id": "bytedance-seed/seed-1.6",
         "name": "ByteDance Seed: Seed 1.6",
         "description": "Seed 1.6 is a general-purpose model released by the ByteDance Seed team. It incorporates multimodal capabilities and adaptive deep thinking with a 256K context window.",
@@ -285589,7 +287055,7 @@
           }
         },
         "contextWindow": 1048576,
-        "maxOutput": 943717,
+        "maxOutput": 393216,
         "modalities": {
           "input": [
             "text"
@@ -285602,9 +287068,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.091,
-            "textOutput": 0.182,
-            "textInput_cacheRead": 0.0182
+            "textInput": 0.09,
+            "textOutput": 0.18,
+            "textInput_cacheRead": 0.018
           }
         }
       },
@@ -285878,9 +287344,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.006,
-            "textOutput": 0.5,
-            "textInput_cacheRead": 0.005
+            "textInput": 0.051,
+            "textOutput": 0.567,
+            "textInput_cacheRead": 0.018
           }
         }
       },
@@ -287536,6 +289002,100 @@
         }
       },
       {
+        "id": "google/gemini-4-carbon",
+        "name": "Google: Gemini 4 Carbon",
+        "description": "Gemini 4 Carbon is a frontier Gemini 4 model from Google for coding, agentic and complex reasoning work. It takes text, image, audio, video and file input, supports long decode...",
+        "type": "chat",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 943718,
+        "modalities": {
+          "input": [
+            "audio",
+            "file",
+            "image",
+            "text",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.1,
+            "textInput_cacheWrite": 0.1875
+          }
+        }
+      },
+      {
+        "id": "google/gemini-4-carbon:batch",
+        "name": "Google: Gemini 4 Carbon (batch)",
+        "description": "Gemini 4 Carbon is a frontier Gemini 4 model from Google for coding, agentic and complex reasoning work. It takes text, image, audio, video and file input, supports long decode...",
+        "releasedAt": "2026-11-10",
+        "knowledge": null,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": true,
+          "imageOutput": false,
+          "video": true,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 943718,
+        "modalities": {
+          "input": [
+            "audio",
+            "file",
+            "image",
+            "text",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 1,
+            "textOutput": 5,
+            "textInput_cacheRead": 0.05,
+            "textInput_cacheWrite": 0.1875
+          }
+        }
+      },
+      {
         "id": "google/gemini-nano-banana-2.1",
         "name": "Google: Nano Banana 2.1",
         "description": "Nano Banana 2.1 (Gemini Nano Banana 2.1) is Google's image generation and editing model on the Flash tier, succeeding Nano Banana 2 and Nano Banana Pro. It improves product recontextualization,...",
@@ -288391,6 +289951,44 @@
         }
       },
       {
+        "id": "kt/midm-k-3.0-pro",
+        "name": "KT: Mi:dm K 3.0 Pro",
+        "description": "Mi:dm K 3.0 Pro is a Mixture-of-Experts reasoning model from KT, with 120B total and 12B active parameters. It uses a hybrid architecture that mixes Mamba, MoE and attention layers.",
+        "releasedAt": "2026-11-05",
+        "knowledge": null,
+        "openWeights": false,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 261795,
+        "maxOutput": 235615,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.2,
+            "textOutput": 0.8,
+            "textInput_cacheRead": 0.04
+          }
+        }
+      },
+      {
         "id": "liquid/lfm-2.5-2.6b",
         "name": "LiquidAI: LFM2.5-2.6B",
         "description": "LFM2.5-2.6B is a compact reasoning model from Liquid AI. It is suited for agent workflows, data extraction, RAG, and long-context processing. Liquid advises against using it for agentic coding or...",
@@ -288616,9 +290214,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 0.75,
-            "textInput_cacheRead": 0.4
+            "textInput": 0.3,
+            "textOutput": 0.5,
+            "textInput_cacheRead": 0.3
           }
         }
       },
@@ -289396,7 +290994,7 @@
           "temperature": false
         },
         "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text",
@@ -289533,7 +291131,7 @@
           }
         },
         "contextWindow": 200000,
-        "maxOutput": 58982,
+        "maxOutput": 128000,
         "modalities": {
           "input": [
             "text"
@@ -289546,9 +291144,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 1.2,
-            "textInput_cacheRead": 0.06
+            "textInput": 0.27,
+            "textOutput": 1.08,
+            "textInput_cacheRead": 0.027
           }
         }
       },
@@ -291183,6 +292781,45 @@
         }
       },
       {
+        "id": "motif-technologies/motif-3",
+        "name": "Motif Technologies: Motif 3",
+        "description": "Motif 3 is a Mixture-of-Experts language model from Motif Technologies, with 314B total and 13.2B active parameters. It is a general-purpose multilingual model for English and Korean, particularly strong at...",
+        "family": "motif",
+        "releasedAt": "2026-11-02",
+        "knowledge": null,
+        "openWeights": true,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": true,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 262144,
+        "maxOutput": 235929,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.3,
+            "textOutput": 1.2,
+            "textInput_cacheRead": 0.06
+          }
+        }
+      },
+      {
         "id": "nex-agi/nex-n2.5-mini",
         "name": "Nex AGI: Nex-N2.5-Mini",
         "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
@@ -291467,7 +293104,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 1048576,
+        "contextWindow": 262144,
         "maxOutput": 16384,
         "modalities": {
           "input": [
@@ -295786,9 +297423,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.03,
-            "textOutput": 0.13,
-            "textInput_cacheRead": 0.03
+            "textInput": 0.018,
+            "textOutput": 0.09,
+            "textInput_cacheRead": 0.009
           }
         }
       },
@@ -296799,44 +298436,6 @@
           "basePricing": {
             "textInput": 0.36,
             "textOutput": 0.4
-          }
-        }
-      },
-      {
-        "id": "qwen/qwen-2.5-7b-instruct",
-        "name": "Qwen: Qwen2.5 7B Instruct",
-        "description": "Qwen2.5 7B is the latest series of Qwen large language models. Qwen2.5 brings the following improvements upon Qwen2: - Significantly more knowledge and has greatly improved capabilities in coding and...",
-        "family": "qwen",
-        "releasedAt": "2024-10-16",
-        "knowledge": "2024-06-30",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": true,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 32768,
-        "maxOutput": 29491,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.2
           }
         }
       },
@@ -300086,9 +301685,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.35,
-            "textOutput": 0.65,
-            "textInput_cacheRead": 0.35
+            "textInput": 0.3,
+            "textOutput": 0.5,
+            "textInput_cacheRead": 0.2
           }
         }
       },
@@ -300893,44 +302492,6 @@
         }
       },
       {
-        "id": "xingchen-agi/xing4.0-29b-a4b:free",
-        "name": "XingChen: Xing4.0 29B A4B (free)",
-        "description": "Xing4.0-29B-A4B is an open-weight mixture-of-experts language model from China Telecom's AI team (TeleAI) and the successor to the TeleChat series. It has 29B total parameters with 4B active per token...",
-        "family": "agi",
-        "releasedAt": "2026-10-16",
-        "knowledge": null,
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": false,
-          "structuredOutput": true,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 235929,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          }
-        }
-      },
-      {
         "id": "z-ai/glm-4.5",
         "name": "Z.ai: GLM 4.5",
         "description": "GLM-4.5 is our latest flagship foundation model, purpose-built for agent-based applications. It leverages a Mixture-of-Experts (MoE) architecture and supports a context length of up to 128k tokens. GLM-4.5 delivers significantly...",
@@ -301332,9 +302893,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 1.4,
-            "textOutput": 4.4,
-            "textInput_cacheRead": 0.26
+            "textInput": 1.33,
+            "textOutput": 4.18,
+            "textInput_cacheRead": 0.247
           }
         }
       },
@@ -301381,9 +302942,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.01,
+            "textInput": 0.007,
             "textOutput": 6.8,
-            "textInput_cacheRead": 0.009
+            "textInput_cacheRead": 0.006
           }
         }
       },
@@ -301497,7 +303058,7 @@
           "temperature": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 943717,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text",
@@ -301512,8 +303073,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.15,
-            "textOutput": 0.5,
+            "textInput": 0.0399,
+            "textOutput": 0.0784,
             "textInput_cacheRead": 0.03
           }
         }
@@ -301551,9 +303112,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.03,
+            "textInput": 0.047,
             "textOutput": 0.061,
-            "textInput_cacheRead": 0.013
+            "textInput_cacheRead": 0.02
           }
         }
       },
@@ -318603,6 +320164,50 @@
         }
       },
       {
+        "id": "anthropic/claude-fable-5.2",
+        "name": "Claude Fable 5.2",
+        "family": "claude-fable",
+        "releasedAt": "2026-11-09",
+        "knowledge": "2026-06",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 8,
+            "textOutput": 40
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "anthropic/claude-opus-4.6",
         "name": "Claude Opus 4.6",
         "family": "claude-opus",
@@ -318980,7 +320585,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 943717,
+        "maxOutput": 393216,
         "modalities": {
           "input": [
             "text"
@@ -319481,6 +321086,50 @@
         }
       },
       {
+        "id": "google/gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 943718,
+        "modalities": {
+          "input": [
+            "audio",
+            "image",
+            "text",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "google/gemma-3-27b-it",
         "name": "Gemma 3 27B",
         "family": "gemma",
@@ -319572,7 +321221,7 @@
           "vision": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text",
@@ -372646,6 +374295,45 @@
         }
       },
       {
+        "id": "alibaba/qwen3.6-35b-a3b",
+        "name": "Qwen 3.6 35B A3B",
+        "description": "Qwen 3.6 35B A3B is a mixture-of-experts model with 35 billion total parameters and 3 billion active parameters, built for coding, reasoning, and tool-based workflows.",
+        "type": "language",
+        "family": "qwen",
+        "releasedAt": "2026-04-27",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.375,
+            "textOutput": 2.25
+          }
+        }
+      },
+      {
         "id": "alibaba/qwen3.6-plus",
         "name": "Qwen 3.6 Plus",
         "description": "The Qwen3.6 native vision-language Plus series models demonstrate exceptional performance on par with the current state-of-the-art models, with a significant improvement in overall results compared to the 3.5 series. The models have been markedly enhanced in code-related capabilities such as agentic coding, front-end programming, and Vibe coding, as well as in multi-modal general object recognition, OCR, and object localization.",
@@ -372948,7 +374636,7 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.06,
-            "textOutput": 2.3,
+            "textOutput": 2.2,
             "textInput_cacheRead": 0.059
           }
         }
@@ -375598,94 +377286,6 @@
         }
       },
       {
-        "id": "bytedance/seed-1.6",
-        "name": "Seed 1.6",
-        "description": "ByteDance's new multimodal deep-thinking model, supporting both text and visual inputs with enhanced reasoning capabilities.",
-        "type": "language",
-        "family": "seed",
-        "releasedAt": "2025-09-01",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": true,
-          "temperature": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 32000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.25,
-            "textOutput": 2,
-            "textInput_cacheRead": 0.05
-          }
-        }
-      },
-      {
-        "id": "bytedance/seed-1.8",
-        "name": "Bytedance Seed 1.8",
-        "description": "Bytedance Seed 1.8 features stronger multimodal understanding and agent capabilities. The model delivers superior performance across a wide range of complex real-world tasks, helping enterprises create greater value.",
-        "type": "language",
-        "family": "seed",
-        "releasedAt": "2025-09-01",
-        "openWeights": false,
-        "reasoningEffort": {
-          "enum": [
-            "minimal",
-            "low",
-            "medium",
-            "high"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "vision": true,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": false,
-          "attachment": true,
-          "temperature": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 64000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "currency": "USD",
-          "unit": "millionTokens",
-          "basePricing": {
-            "textInput": 0.25,
-            "textOutput": 2,
-            "textInput_cacheRead": 0.05
-          }
-        }
-      },
-      {
         "id": "bytedance/seed-2.1-turbo",
         "name": "Seed 2.1 Turbo",
         "description": "Seed 2.1 Turbo is ByteDance’s multimodal language model supporting text, image, and video inputs with text output. It offers a 262,144-token context window, reasoning, function calling, and structured JSON output.",
@@ -375898,37 +377498,6 @@
         "type": "video",
         "family": "seed",
         "releasedAt": "2025-10-24",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": false,
-          "reasoning": false,
-          "vision": false,
-          "structuredOutput": false,
-          "search": false,
-          "imageOutput": false,
-          "video": true,
-          "attachment": true,
-          "temperature": false
-        },
-        "contextWindow": 0,
-        "maxOutput": 0,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "video"
-          ]
-        }
-      },
-      {
-        "id": "bytedance/seedance-v1.5-pro",
-        "name": "Seedance v1.5 Pro",
-        "description": "ByteDance's Seedance 1.5 Pro is a professional video model using V2A native generation for integrated, synced audio-visual output, enhancing efficiency of professional video creation.",
-        "type": "video",
-        "family": "seed",
-        "releasedAt": "2025-12-16",
         "openWeights": false,
         "abilities": {
           "toolCall": false,
@@ -378909,6 +380478,55 @@
         }
       },
       {
+        "id": "google/gemini-4-carbon",
+        "name": "Gemini 4 Carbon",
+        "description": "Gemini 4 Carbon is Google’s reasoning model for complex software engineering, sustained agentic workflows, and cybersecurity defense. It combines a 1M-token context window with multimodal understanding, tool calling, and structured outputs for working across large codebases and documents. Carbon emphasizes reliable execution of multi-step plans, clearer handling of uncertainty, and identifying, validating, and remediating security vulnerabilities.",
+        "type": "language",
+        "family": "gemini",
+        "releasedAt": "2026-11-10",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": true,
+          "temperature": false
+        },
+        "contextWindow": 1000000,
+        "maxOutput": 1000000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.1
+          }
+        }
+      },
+      {
         "id": "google/gemini-embedding-001",
         "name": "Gemini Embedding 001",
         "description": "State-of-the-art embedding model with excellent performance across English, multilingual and code tasks.",
@@ -379056,7 +380674,8 @@
           "search": false,
           "imageOutput": false,
           "video": false,
-          "attachment": true
+          "attachment": true,
+          "temperature": false
         },
         "contextWindow": 131072,
         "maxOutput": 260640,
@@ -381416,6 +383035,58 @@
           "output": [
             "video"
           ]
+        }
+      },
+      {
+        "id": "minimax/minimax-h3-image",
+        "name": "MiniMax H3 Image",
+        "description": "MiniMax H3 Image generates images from text and edits images using up to 16 reference images. It supports custom dimensions and aspect ratios, outputs up to 20 megapixels, and JPEG, PNG, and WebP formats.",
+        "type": "image",
+        "releasedAt": "2026-11-10",
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": true,
+          "video": false
+        },
+        "contextWindow": 0,
+        "maxOutput": 0,
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2.3,
+            "textOutput": 3.8
+          }
+        }
+      },
+      {
+        "id": "minimax/minimax-h3-image-highspeed",
+        "name": "MiniMax H3 Image Highspeed",
+        "description": "MiniMax H3 Image Highspeed is the faster variant of MiniMax H3 Image for text-to-image generation and image editing. It supports up to 16 reference images, custom dimensions and aspect ratios, outputs up to 20 megapixels, and JPEG, PNG, and WebP formats.",
+        "type": "image",
+        "releasedAt": "2026-11-10",
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "vision": true,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": true,
+          "video": false
+        },
+        "contextWindow": 0,
+        "maxOutput": 0,
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 2.3,
+            "textOutput": 7.6
+          }
         }
       },
       {
