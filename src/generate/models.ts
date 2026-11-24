@@ -15,12 +15,14 @@ import {
   applyReasoningEffortDefault,
   normalizeModelsDevReasoningEffort,
 } from "./reasoning.ts";
+import { inferModelType, normalizeModelType } from "./model-types.ts";
 import { convertFlatCostPricing, convertLobehubPricing } from "./pricing.ts";
 import {
   clone,
   compactObject,
   mergeCompat,
   mergeHeaders,
+  mergeRecords,
 } from "./utils.ts";
 
 function resolveOpencodeRuntime(rawModel: Record<string, any>): Partial<Model> {
@@ -49,17 +51,52 @@ function resolveOpencodeRuntime(rawModel: Record<string, any>): Partial<Model> {
   };
 }
 
+function positiveOrUndefined(value: unknown): number | undefined {
+  return typeof value === "number" && value > 0 ? value : undefined;
+}
+
+/**
+ * models.dev types Gemini/GPT-5 image models as `image` because of their
+ * purpose, but they are LLMs served through the chat protocol (Vercel and
+ * lobehub list them as chat). They are the only image/video entries that emit
+ * text and have a token context; Images API models such as gpt-image report a
+ * zero context.
+ */
+function resolveModelsDevType(
+  rawModel: Record<string, any>,
+  context: string,
+): Model["type"] {
+  const type = normalizeModelType(rawModel.type, context);
+  const output: unknown[] = rawModel.modalities?.output ?? [];
+  if (
+    (type === "image" || type === "video") &&
+    output.includes("text") &&
+    positiveOrUndefined(rawModel.limit?.context) !== undefined
+  ) {
+    return "chat";
+  }
+  return type;
+}
+
 export function normalizeModelsDevModel(
   providerId: string,
   rawModel: Record<string, any>,
 ): Model {
-  const reasoningEffort = normalizeModelsDevReasoningEffort(
-    rawModel,
-    `${providerId}/${rawModel.id}`,
-  );
+  const context = `${providerId}/${rawModel.id}`;
+  const reasoningEffort = normalizeModelsDevReasoningEffort(rawModel, context);
+  const type = resolveModelsDevType(rawModel, context);
+  const output: unknown[] = rawModel.modalities?.output ?? [];
+  const isEmbedding = type === "embedding";
+  // models.dev stores embedding dimensions in `limit.output`; `1` is a
+  // placeholder for variable-dimension models.
+  const maxDimension = isEmbedding && rawModel.limit?.output > 1
+    ? rawModel.limit.output
+    : undefined;
   const model: Model = {
     id: rawModel.id,
     name: rawModel.name || rawModel.id,
+    description: rawModel.description,
+    type,
     family: rawModel.family,
     releasedAt: rawModel.release_date,
     knowledge: rawModel.knowledge,
@@ -74,11 +111,13 @@ export function normalizeModelsDevModel(
       structuredOutput: rawModel.structured_output ?? undefined,
       interleaved: rawModel.interleaved ?? undefined,
       vision: rawModel.modalities?.input?.includes("image") || undefined,
+      imageOutput: output.includes("image") || undefined,
     },
-    contextWindow: rawModel.limit?.context,
-    maxOutput: rawModel.limit?.output,
+    contextWindow: positiveOrUndefined(rawModel.limit?.context),
+    maxOutput: isEmbedding ? undefined : positiveOrUndefined(rawModel.limit?.output),
     modalities: rawModel.modalities,
     pricing: convertFlatCostPricing(rawModel.cost, rawModel, providerId),
+    _: maxDimension !== undefined ? { maxDimension } : undefined,
   };
 
   if (providerId === "opencode") {
@@ -88,12 +127,25 @@ export function normalizeModelsDevModel(
   return model;
 }
 
-export function normalizeLobehubModel(rawModel: Record<string, any>): Model {
+function lobehubPrivateMeta(rawModel: Record<string, any>): Model["_"] {
+  // Generation parameter schemas (image/video/tts/music), TTS voices and
+  // embedding dimensions have no first-class field yet.
+  return compactObject({
+    ...(rawModel.parameters != null ? { parameters: rawModel.parameters } : {}),
+    ...(rawModel.voices != null ? { voices: rawModel.voices } : {}),
+    ...(rawModel.maxDimension != null ? { maxDimension: rawModel.maxDimension } : {}),
+  });
+}
+
+export function normalizeLobehubModel(
+  rawModel: Record<string, any>,
+  providerId: string,
+): Model {
   return {
     id: rawModel.id,
     name: rawModel.displayName || rawModel.id,
     description: rawModel.description,
-    type: rawModel.type,
+    type: normalizeModelType(rawModel.type, `lobehub:${providerId}/${rawModel.id}`),
     releasedAt: rawModel.releasedAt,
     abilities: {
       toolCall: rawModel.abilities?.functionCall ?? undefined,
@@ -107,6 +159,7 @@ export function normalizeLobehubModel(rawModel: Record<string, any>): Model {
     contextWindow: rawModel.contextWindowTokens,
     maxOutput: rawModel.maxOutput,
     pricing: convertLobehubPricing(rawModel.pricing, rawModel, rawModel.id),
+    _: lobehubPrivateMeta(rawModel),
   };
 }
 
@@ -155,7 +208,8 @@ export function mergeModels(
         lobehubModel.abilities.structuredOutput ??
         modelsDevModel.abilities.structuredOutput,
       search: lobehubModel.abilities.search,
-      imageOutput: lobehubModel.abilities.imageOutput,
+      imageOutput:
+        lobehubModel.abilities.imageOutput ?? modelsDevModel.abilities.imageOutput,
       video: lobehubModel.abilities.video,
       attachment: modelsDevModel.abilities.attachment,
       temperature: modelsDevModel.abilities.temperature,
@@ -166,6 +220,7 @@ export function mergeModels(
     modalities: modelsDevModel.modalities ?? lobehubModel.modalities,
     pricing: mergePricing(lobehubModel.pricing, modelsDevModel.pricing),
     compat: mergeCompat(lobehubModel.compat, modelsDevModel.compat),
+    _: mergeRecords(modelsDevModel._, lobehubModel._),
   };
 }
 
@@ -227,6 +282,7 @@ export function mergeAuthoritativeModel(
     modalities: authoritativeModel.modalities ?? supplementalModel.modalities,
     pricing: authoritativeModel.pricing ?? supplementalModel.pricing,
     compat: mergeCompat(supplementalModel.compat, authoritativeModel.compat),
+    _: mergeRecords(supplementalModel._, authoritativeModel._),
   };
 }
 
@@ -389,6 +445,17 @@ export function finalizeModel(
     }
   }
   applyReasoningEffortDefault(providerId, finalized);
+
+  finalized.type = finalized.type ?? inferModelType(finalized);
+  if (finalized.type !== "chat") {
+    // `api` and `compat` describe the chat protocol. An explicit null keeps
+    // non-chat models from inheriting the provider's chat `api`.
+    finalized.api = null;
+    delete finalized.compat;
+    if (finalized.type === "embedding") {
+      delete finalized.maxOutput;
+    }
+  }
 
   return finalized;
 }

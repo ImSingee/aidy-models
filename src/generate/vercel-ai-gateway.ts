@@ -1,4 +1,5 @@
 import type { Model } from "../types.ts";
+import { normalizeModelType } from "./model-types.ts";
 import { VERCEL_AI_GATEWAY_BASE_URL } from "./shared.ts";
 import {
   createPricing,
@@ -30,7 +31,7 @@ function normalizeModel(rawModel: RawVercelModel): Model {
     id: rawModel.id,
     name: rawModel.name || rawModel.id,
     description: rawModel.description,
-    type: rawModel.type,
+    type: normalizeModelType(rawModel.type, `vercel-ai-gateway/${rawModel.id}`),
     releasedAt: normalizeReleasedAt(rawModel.released ?? rawModel.created),
     abilities: {
       toolCall: tags.includes("tool-use"),
@@ -45,8 +46,9 @@ function normalizeModel(rawModel: RawVercelModel): Model {
         tags.includes("video-output") ||
         rawModel.type?.includes("video") === true,
     },
-    contextWindow: rawModel.context_window,
-    maxOutput: rawModel.max_tokens,
+    // The catalog reports 0 for unknown limits (e.g. embedding models).
+    contextWindow: rawModel.context_window || undefined,
+    maxOutput: rawModel.max_tokens || undefined,
     pricing: createPricing(
       parsePrice(rawModel.pricing?.input),
       parsePrice(rawModel.pricing?.output),
