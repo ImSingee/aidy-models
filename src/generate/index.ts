@@ -12,6 +12,7 @@ import {
   normalizeLobehubModel,
   normalizeModelsDevModel,
 } from "./models.ts";
+import { resolveModelType } from "./model-types.ts";
 import { overrides } from "./overrides.ts";
 import { validatePricing } from "./pricing.ts";
 import { mergeProviders } from "./providers.ts";
@@ -204,7 +205,7 @@ function buildBaseModels(input: {
     const lhMap = new Map<string, Model>();
     for (const rawModel of lhModelsRaw) {
       if (rawModel.id) {
-        lhMap.set(rawModel.id, normalizeLobehubModel(rawModel));
+        lhMap.set(rawModel.id, normalizeLobehubModel(rawModel, lobehubProviderId));
       }
     }
 
@@ -273,6 +274,7 @@ function resolveModelApi(
   provider: Provider | undefined,
   model: Model,
 ): string | undefined {
+  if (model.api === null) return undefined;
   return model.api ?? provider?.api;
 }
 
@@ -297,9 +299,12 @@ function deriveAzureOpenAIResponses(input: {
   derivedProvider.baseUrl = "";
   mergedProviders["azure-openai-responses"] = derivedProvider;
 
+  // Only chat models belong to this Responses-protocol provider.
   const derivedModels = (mergedModels["openai"] ?? [])
     .filter(
-      (model) => resolveModelApi(openAIProvider, model) === "openai-responses",
+      (model) =>
+        resolveModelType(model) === "chat" &&
+        resolveModelApi(openAIProvider, model) === "openai-responses",
     )
     .map((model) => ({
       ...clone(model),

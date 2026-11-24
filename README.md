@@ -93,6 +93,12 @@ Recommended precedence:
 2. Apply `model`
 3. For nested `compat`, merge `provider.compat` first and then `model.compat`
 
+Provider `api` and `compat` describe the default **chat** protocol and only
+apply to models with `type: "chat"`. Non-chat models carry an explicit
+`api: null` and no `compat`; treat `null` as "no chat protocol" and do not fall
+back to `provider.api` (a plain `model.api ?? provider.api` merge would
+re-inherit it). `baseUrl` and `headers` still apply to every model type.
+
 This matters for fields such as:
 
 - `api`
@@ -141,7 +147,7 @@ Example:
 
 - `id`: model id used by the provider API
 - `name`: display name
-- `api`: optional model-level API override
+- `api`: optional model-level API override; `null` on non-chat models
 - `baseUrl`: optional model-level base URL override
 - `headers`: optional model-level static headers
 - `compat`: optional model-level compatibility overrides
@@ -150,7 +156,7 @@ Example:
 ### Descriptive fields
 
 - `description`: model description
-- `type`: upstream type such as `chat`
+- `type`: model type, always present; see [Model types](#model-types)
 - `family`: model family
 - `releasedAt`: release date string
 - `knowledge`: knowledge cutoff string if available
@@ -182,7 +188,7 @@ The enum and default are provider- and model-specific. Schema values are `none`,
 ### Token and modality fields
 
 - `contextWindow`: max input context
-- `maxOutput`: max output tokens
+- `maxOutput`: max output tokens (omitted for embedding models)
 - `modalities.input`: accepted input modalities
 - `modalities.output`: supported output modalities
 
@@ -190,6 +196,45 @@ The enum and default are provider- and model-specific. Schema values are `none`,
 
 `_` is reserved for unstable local metadata that is useful to runtime consumers
 but not normalized as first-class schema yet.
+
+Keys currently populated for non-chat models:
+
+- `_.parameters`: generation parameter schema from Lobehub for image, video,
+  TTS and music models, such as `size`, `quality`, `voice` or `sampleRate`, each
+  with `default` and `enum` or `min`/`max`/`step`
+- `_.voices`: available TTS voices from Lobehub
+- `_.maxDimension`: maximum embedding dimension, from Lobehub or models.dev
+
+### Model types
+
+`type` is normalized to one vocabulary and is never empty:
+
+| `type` | Meaning | Normalized from |
+| --- | --- | --- |
+| `chat` | text generation through a chat protocol (`api`), including multimodal LLMs that also output images | `language` (Vercel), untyped models.dev / OpenRouter entries |
+| `embedding` | text or multimodal embeddings | |
+| `reranking` | document reranking | `rerank` |
+| `image` | image generation or editing endpoints | |
+| `video` | video generation | `text2video` |
+| `tts` | text to speech | `speech` (models.dev, Vercel) |
+| `asr` | speech recognition / transcription | `transcription` (models.dev, Vercel), `stt` |
+| `realtime` | realtime speech or multimodal sessions | |
+| `text2music` | music generation | `music` |
+| `decision` | typed answers with probabilities instead of free text | `evaluation` (Vercel) |
+| `extraction` | structured document extraction | |
+
+Type is a call-surface classification. models.dev types Gemini/GPT-5 image
+models and Gemini Omni video models as `image` / `video`, but they are LLMs
+served through the chat protocol (they emit text and have a token context), so
+they are `chat` here; image output is flagged by `abilities.imageOutput`. Image
+API models such as `gpt-image-*` stay `image`.
+
+When no source declares a type, the generator defaults to `chat`, except for
+untyped entries that are clearly embedding, reranking or transcription models by
+id, or that output only image, video or audio.
+
+Unknown upstream types are kept (trimmed and lowercased), and the generator
+logs a warning for them.
 
 ### Pricing fields
 
@@ -267,6 +312,8 @@ This means adjustment order is significant:
 | `image` | price per image |
 | `megapixel` | price per megapixel |
 | `second` | price per second |
+| `video` | price per generated video |
+| `song` | price per generated song |
 
 Use the billing denominator that matches the provider's published pricing. For
 example:

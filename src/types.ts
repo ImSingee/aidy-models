@@ -132,14 +132,35 @@ export interface ModelReasoningEffort {
 
 export type ModelPrivateMeta = Record<string, unknown>;
 
+export type KnownModelType =
+  | "chat"
+  | "embedding"
+  | "reranking"
+  | "image"
+  | "video"
+  | "tts"
+  | "asr"
+  | "realtime"
+  | "text2music"
+  | "decision"
+  | "extraction";
+
+/** Known values are normalized; unknown upstream categories pass through. */
+export type ModelType = KnownModelType | (string & {});
+
 export interface Model {
   id: string;
   name: string;
-  api?: string;
+  /**
+   * Chat protocol. `null` on non-chat models: they must not inherit the
+   * provider's chat `api`.
+   */
+  api?: string | null;
   baseUrl?: string;
   headers?: Record<string, string>;
   description?: string;
-  type?: string;
+  /** Always set in generated output. */
+  type?: ModelType;
   family?: string;
   releasedAt?: string;
   knowledge?: string;

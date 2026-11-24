@@ -47,7 +47,7 @@ If a local `models.json` is present in the repo, read it the same way: query wit
 3. Resolve models by provider id, model id, or display name. If a query matches multiple models, ask for clarification or show the close matches.
 4. Read pricing from each model's `pricing` object:
    - `currency`: pricing currency, such as `USD` or `CNY`
-   - `unit`: billing denominator, such as `millionTokens`, `image`, `megapixel`, or `second`
+   - `unit`: billing denominator, such as `millionTokens`, `millionCharacters`, `image`, `megapixel`, `second`, `video`, or `song`
    - `basePricing`: default rates by target, such as `textInput` and `textOutput`
    - `adjustments`: conditional pricing changes
 5. Apply `adjustments` only when the user's scenario includes the matching conditions. If conditions are unknown, present base pricing and list relevant conditional adjustments separately.
