@@ -1,23 +1,23 @@
 {
   "_meta": {
-    "generatedAt": "2026-11-26T13:15:19.973Z",
+    "generatedAt": "2026-11-27T13:12:54.570Z",
     "sources": {
       "modelsDev": {
         "providerCount": 326,
-        "modelCount": 10046
+        "modelCount": 10066
       },
       "lobehub": {
-        "commitHash": "796c4a3219d01e2cc1218acb13fe359c24b57de2",
+        "commitHash": "b58afeb79362d6eb87e4f9dec6d852f8035d534b",
         "providerCount": 88,
         "modelCount": 1942
       },
       "openRouter": {
         "providerCount": 1,
-        "modelCount": 474
+        "modelCount": 477
       },
       "vercelAiGateway": {
         "providerCount": 1,
-        "modelCount": 518
+        "modelCount": 519
       },
       "manual": {
         "providerCount": 7,
@@ -30,7 +30,7 @@
     },
     "merged": {
       "providerCount": 376,
-      "modelCount": 11792
+      "modelCount": 11813
     },
     "overridesApplied": 87
   },
@@ -29681,7 +29681,7 @@
           "vision": true
         },
         "contextWindow": 200000,
-        "maxOutput": 128000,
+        "maxOutput": 64000,
         "modalities": {
           "input": [
             "text",
@@ -31988,9 +31988,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 3,
+            "textInput": 0.6,
             "textOutput": 15,
-            "textInput_cacheRead": 0.3
+            "textInput_cacheRead": 0.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -35162,9 +35162,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.4,
-            "textOutput": 4.4,
-            "textInput_cacheRead": 0.26
+            "textInput": 0.31,
+            "textOutput": 2.4,
+            "textInput_cacheRead": 0.075
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -54969,9 +54969,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.09,
-            "textOutput": 0.3,
-            "textInput_cacheRead": 0.09,
+            "textInput": 0.045,
+            "textOutput": 0.62,
+            "textInput_cacheRead": 0.02,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -55043,9 +55043,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.9,
-            "textInput_cacheRead": 0.04,
+            "textInput": 0.05,
+            "textOutput": 0.69,
+            "textInput_cacheRead": 0.024,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -83101,6 +83101,55 @@
         }
       },
       {
+        "id": "google/gemini-4-neon",
+        "name": "Gemini 4 Neon",
+        "description": "Google's Gemini 4 model for fast, frontier-level coding, knowledge work and science workflows, with four thinking levels and a 1M-token context window",
+        "type": "chat",
+        "family": "gemini",
+        "releasedAt": "2026-11-18",
+        "knowledge": "2026-03",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video",
+            "audio",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 3,
+            "textOutput": 15,
+            "textInput_cacheRead": 0.15
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "meta/muse-ember-1.0",
         "name": "Muse Ember",
         "description": "Muse Ember is Meta's smallest and most efficient reasoning model, built for the work agents repeat all day: tool calls, coding subtasks, routing, extraction, and long-document parsing. It pairs with Muse Wonder or Muse Spark, which plan while Muse Ember handles the volume.",
@@ -92106,39 +92155,6 @@
     ],
     "concentrate": [
       {
-        "id": "apodex-1.1-mini",
-        "name": "Apodex 1.1 Mini",
-        "description": "Open-weight 35B MoE model for long-horizon research, forecasting, and tool-assisted work",
-        "type": "chat",
-        "family": "apodex-mini",
-        "releasedAt": "2026-08-24",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 32768,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "beam-1.0-501b-a23b",
         "name": "Beam 1.0 501B A23B",
         "description": "Sparse mixture-of-experts reasoning model with 23B active parameters for coding and agentic workflows",
@@ -92925,7 +92941,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.3,
-            "textOutput": 0.9
+            "textOutput": 0.9,
+            "textInput_cacheRead": 0.03
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -92994,8 +93011,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.7,
-            "textOutput": 2.5,
+            "textInput": 0.5,
+            "textOutput": 2.15,
             "textInput_cacheRead": 0.35
           },
           "currency": "USD",
@@ -94084,8 +94101,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.13,
-            "textOutput": 0.4
+            "textInput": 0.1,
+            "textOutput": 0.34
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96131,59 +96148,6 @@
         }
       },
       {
-        "id": "grok-build-0.1",
-        "name": "Grok Build 0.1",
-        "description": "Fast Grok coding model tuned for agentic engineering and iterative edits",
-        "type": "chat",
-        "family": "grok-build",
-        "releasedAt": "2026-04-16",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 64000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "adjustments": [
-            {
-              "mode": "multiplier",
-              "values": {
-                "textInput": 2,
-                "textOutput": 2,
-                "textInput_cacheRead": 2
-              },
-              "when": {
-                "textTotalInput": [
-                  0.2,
-                  "infinity"
-                ]
-              }
-            }
-          ],
-          "basePricing": {
-            "textInput": 1,
-            "textOutput": 2,
-            "textInput_cacheRead": 0.2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "hy3",
         "name": "Hy3",
         "description": "Tencent Hy reasoning model for coding, instruction following, and agent tasks",
@@ -96453,8 +96417,7 @@
         "modalities": {
           "input": [
             "text",
-            "image",
-            "pdf"
+            "image"
           ],
           "output": [
             "text"
@@ -96775,7 +96738,7 @@
           "structuredOutput": true
         },
         "contextWindow": 204800,
-        "maxOutput": 131072,
+        "maxOutput": 8192,
         "modalities": {
           "input": [
             "text",
@@ -96788,9 +96751,7 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.3,
-            "textOutput": 1.2,
-            "textInput_cacheRead": 0.03,
-            "textInput_cacheWrite": 0.375
+            "textOutput": 1.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96810,8 +96771,8 @@
           "attachment": true,
           "temperature": true
         },
-        "contextWindow": 204800,
-        "maxOutput": 51200,
+        "contextWindow": 196608,
+        "maxOutput": 8192,
         "modalities": {
           "input": [
             "text",
@@ -96824,153 +96785,7 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.3,
-            "textOutput": 1.2,
-            "textInput_cacheRead": 0.03,
-            "textInput_cacheWrite": 0.375
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "minimax-m2-1-highspeed",
-        "name": "MiniMax-M2.1",
-        "description": "Earlier MiniMax agent model for practical coding and productivity tasks",
-        "type": "chat",
-        "family": "minimax-m",
-        "releasedAt": "2025-12-23",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true
-        },
-        "contextWindow": 204800,
-        "maxOutput": 51200,
-        "modalities": {
-          "input": [
-            "text",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.4,
-            "textInput_cacheRead": 0.03,
-            "textInput_cacheWrite": 0.375
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "minimax-m2-5",
-        "name": "MiniMax-M2.5",
-        "description": "Prior MiniMax coding model for agent workflows, office edits, and automation",
-        "type": "chat",
-        "family": "minimax-m",
-        "releasedAt": "2026-02-12",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true
-        },
-        "contextWindow": 204800,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 1.2,
-            "textInput_cacheRead": 0.03,
-            "textInput_cacheWrite": 0.375
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "minimax-m2-5-highspeed",
-        "name": "MiniMax-M2.5-highspeed",
-        "description": "High-speed MiniMax model for low-latency coding and agent workflows",
-        "type": "chat",
-        "family": "minimax-m",
-        "releasedAt": "2026-02-13",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true
-        },
-        "contextWindow": 204800,
-        "maxOutput": 51200,
-        "modalities": {
-          "input": [
-            "text",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.4,
-            "textInput_cacheRead": 0.03,
-            "textInput_cacheWrite": 0.375
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "minimax-m2-7",
-        "name": "MiniMax-M2.7",
-        "description": "Open MiniMax flagship for coding agents, office automation, and complex environments",
-        "type": "chat",
-        "family": "minimax-m",
-        "releasedAt": "2026-03-18",
-        "openWeights": true,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true
-        },
-        "contextWindow": 204800,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.3,
-            "textOutput": 1.2,
-            "textInput_cacheRead": 0.06,
-            "textInput_cacheWrite": 0.375
+            "textOutput": 1.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -96990,7 +96805,7 @@
           "attachment": true,
           "temperature": true
         },
-        "contextWindow": 204800,
+        "contextWindow": 196608,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -97003,10 +96818,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 2.4,
-            "textInput_cacheRead": 0.07,
-            "textInput_cacheWrite": 0.375
+            "textInput": 0.38,
+            "textOutput": 1.7,
+            "textInput_cacheRead": 0.07
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97144,7 +96958,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.1,
-            "textOutput": 0.1
+            "textOutput": 0.1,
+            "textInput_cacheRead": 0.01
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97181,7 +96996,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.15,
-            "textOutput": 0.15
+            "textOutput": 0.15,
+            "textInput_cacheRead": 0.015
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -97195,6 +97011,13 @@
         "family": "mistral-large",
         "releasedAt": "2026-10-05",
         "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -97208,7 +97031,8 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "pdf"
           ],
           "output": [
             "text"
@@ -97219,82 +97043,6 @@
             "textInput": 0.7,
             "textOutput": 2.1,
             "textInput_cacheRead": 0.07
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "mistral-medium-3",
-        "name": "Mistral Medium 3",
-        "description": "Mistral model for multilingual chat, reasoning, and tool-assisted workflows",
-        "type": "chat",
-        "family": "mistral-medium",
-        "releasedAt": "2025-05-07",
-        "knowledge": "2025-03-31",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 32000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 2
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "mistral-medium-3.1",
-        "name": "Mistral Medium 3.1",
-        "description": "Mistral model for multilingual chat, reasoning, and tool-assisted workflows",
-        "type": "chat",
-        "family": "mistral-medium",
-        "releasedAt": "2025-08-12",
-        "knowledge": "2025-06-30",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": false,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 128000,
-        "maxOutput": 32000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.4,
-            "textOutput": 2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -98686,8 +98434,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.6,
-            "textOutput": 3.6,
+            "textInput": 0.45,
+            "textOutput": 3,
             "textInput_cacheRead": 0.22
           },
           "currency": "USD",
@@ -103592,8 +103340,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 262000,
-        "maxOutput": 262000,
+        "contextWindow": 250000,
+        "maxOutput": 8192,
         "modalities": {
           "input": [
             "text"
@@ -103604,8 +103352,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.199,
-            "textOutput": 0.598,
+            "textInput": 0.836,
+            "textOutput": 2.507,
             "textInput_cacheRead": 0.018
           },
           "currency": "USD",
@@ -111889,51 +111637,6 @@
         }
       },
       {
-        "id": "ByteDance/Seed-1.8",
-        "name": "Seed 1.8",
-        "description": "ByteDance Seed model for multimodal reasoning, long-context analysis, and agent workflows",
-        "type": "chat",
-        "family": "seed",
-        "releasedAt": "2025-12-28",
-        "openWeights": false,
-        "reasoningEffort": {
-          "enum": [
-            "none",
-            "low",
-            "medium",
-            "high"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 64000,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.25,
-            "textOutput": 2,
-            "textInput_cacheRead": 0.05
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "ByteDance/Seed-2.0-code",
         "name": "Seed 2.0 Code",
         "description": "ByteDance Seed coding model for multimodal software engineering and long-running agents",
@@ -111973,43 +111676,6 @@
             "textInput": 0.5,
             "textOutput": 3,
             "textInput_cacheRead": 0.1
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "ByteDance/Seed-2.0-mini",
-        "name": "Seed 2.0 Mini",
-        "description": "Lightweight ByteDance Seed 2.0 model for low-latency multimodal reasoning and high-volume tasks",
-        "type": "chat",
-        "family": "seed-mini",
-        "releasedAt": "2026-02-14",
-        "openWeights": false,
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 256000,
-        "maxOutput": 131072,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.4,
-            "textInput_cacheRead": 0.02
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -112892,6 +112558,44 @@
         }
       },
       {
+        "id": "inclusionAI/LingSante-3.1-air-VL",
+        "name": "LingSante 3.1 Air VL",
+        "description": "Open multimodal MoE model for medical imaging reports, health assessment, evidence search, and GUI agents",
+        "type": "chat",
+        "family": "lingsante",
+        "releasedAt": "2026-11-19",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.06,
+            "textOutput": 0.18,
+            "textInput_cacheRead": 0.012
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
         "name": "Llama 3.3 70B Turbo",
         "description": "Compact Llama instruction model for fast chat and local deployment",
@@ -113471,6 +113175,51 @@
             "textInput": 0.06,
             "textOutput": 0.16,
             "textInput_cacheRead": 0.03
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+        "name": "Nemotron 3.5 Super VL 120B A12B",
+        "description": "NVIDIA vision-language reasoning model for text, image, and video understanding and agentic tool use",
+        "type": "chat",
+        "family": "nemotron-super",
+        "releasedAt": "2026-10-15",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 8192,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 0.5,
+            "textInput_cacheRead": 0.02
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -114276,6 +114025,76 @@
             "textInput": 1.413,
             "textOutput": 4.24,
             "textInput_cacheRead": 0.071
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "Sao10K/L3-8B-Lunaris-v1-Turbo",
+        "name": "Llama 3 8B Lunaris",
+        "description": "Open Llama instruction model for multilingual chat, reasoning, and coding",
+        "type": "chat",
+        "family": "lunaris",
+        "releasedAt": "2024-08-13",
+        "knowledge": "2023-12-31",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 8192,
+        "maxOutput": 7372,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.04,
+            "textOutput": 0.05
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "Sao10K/L3.1-70B-Euryale-v2.2",
+        "name": "Llama 3.1 Euryale 70B v2.2",
+        "description": "Open Llama instruction model for multilingual chat, reasoning, and coding",
+        "type": "chat",
+        "family": "euryale",
+        "releasedAt": "2024-08-28",
+        "knowledge": "2023-12-31",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 16384,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.85,
+            "textOutput": 0.85
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -128932,8 +128751,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.6561,
-            "textOutput": 3.280499
+            "textInput": 0.6585,
+            "textOutput": 3.292499
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -129923,8 +129742,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.32805,
-            "textOutput": 0.4374
+            "textInput": 0.32925,
+            "textOutput": 0.439
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -131668,8 +131487,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.164025,
-            "textOutput": 0.8748
+            "textInput": 0.164625,
+            "textOutput": 0.878
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -136852,7 +136671,8 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "video"
           ],
           "output": [
             "text"
@@ -141603,6 +141423,107 @@
         }
       },
       {
+        "id": "accounts/fireworks/models/inkling-2-mini",
+        "name": "Inkling 2 Mini",
+        "description": "Looped MoE reasoning model (26.4B total, 3.4B active) for agentic coding, vision, and knowledge work",
+        "type": "chat",
+        "family": "inkling-mini",
+        "releasedAt": "2026-11-20",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 0.5,
+            "textInput_cacheRead": 0.015
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "accounts/fireworks/models/inkling-2-small",
+        "name": "Inkling 2 Small",
+        "description": "Multimodal MoE reasoning model (594B total, 17B active) for agentic coding, vision, and knowledge work",
+        "type": "chat",
+        "family": "inkling-small",
+        "releasedAt": "2026-11-05",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.3,
+            "textOutput": 1,
+            "textInput_cacheRead": 0.03
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "accounts/fireworks/models/kimi-k3",
         "name": "Kimi K3",
         "description": "Multimodal Kimi model with 1M context and always-on thinking for long-horizon agent work",
@@ -142067,6 +141988,93 @@
           "basePricing": {
             "textInput": 0.2,
             "textOutput": 0.2
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "accounts/fireworks/models/nemotron-3-ultra-nvfp4",
+        "name": "Nemotron 3 Ultra 550B A55B",
+        "description": "Largest Nemotron 3 model for maximum open-weight reasoning and agent accuracy",
+        "type": "chat",
+        "family": "nemotron-ultra",
+        "releasedAt": "2026-06-04",
+        "knowledge": "2025-09",
+        "openWeights": true,
+        "deprecated": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 262144,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.6,
+            "textOutput": 2.4,
+            "textInput_cacheRead": 0.12
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "accounts/fireworks/models/nemotron-lightning-3p5-30b-a3b",
+        "name": "Nemotron 3.5 Lightning 30B A3B",
+        "description": "Fast NVIDIA Nemotron MoE for reliable agentic tasks across enterprise workloads",
+        "type": "chat",
+        "family": "nemotron-lightning",
+        "releasedAt": "2026-08-11",
+        "knowledge": "2025-09",
+        "openWeights": true,
+        "deprecated": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 262144,
+        "maxOutput": 262144,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.05,
+            "textOutput": 0.2,
+            "textInput_cacheRead": 0.01
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -143182,6 +143190,54 @@
             "textInput": 4.5,
             "textOutput": 22.5,
             "textInput_cacheRead": 0.45
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "accounts/fireworks/routers/kimi-k3p1-pro-ultrafast",
+        "name": "Kimi K3.1 Pro Ultra-fast",
+        "description": "Multimodal Kimi model with a 1M-token context window and always-on reasoning, for coding, 3D creation and financial research",
+        "type": "chat",
+        "family": "kimi-pro",
+        "releasedAt": "2026-10-23",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 1048576,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 5,
+            "textOutput": 25,
+            "textInput_cacheRead": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -173463,6 +173519,42 @@
         }
       },
       {
+        "id": "inclusionAI/LingSante-3.1-air-VL",
+        "name": "LingSante 3.1 Air VL",
+        "description": "Open multimodal MoE model for medical imaging reports, health assessment, evidence search, and GUI agents",
+        "type": "chat",
+        "family": "lingsante",
+        "releasedAt": "2026-11-19",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.06,
+            "textOutput": 0.18
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "meta-llama/Llama-3.1-70B-Instruct",
         "name": "Llama-3.1-70B-Instruct",
         "description": "Open Llama instruction model for multilingual chat, reasoning, and coding",
@@ -173628,8 +173720,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.32
+            "textInput": 0.22,
+            "textOutput": 0.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -174000,7 +174092,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 524288,
+        "contextWindow": 1048576,
         "maxOutput": 512000,
         "modalities": {
           "input": [
@@ -174897,6 +174989,43 @@
         }
       },
       {
+        "id": "Qwen/Qwen2.5-VL-72B-Instruct",
+        "name": "Qwen2.5-VL 72B Instruct",
+        "description": "Qwen vision-language model for visual reasoning, documents, and agent tasks",
+        "type": "chat",
+        "family": "qwen-vl",
+        "releasedAt": "2025-01-26",
+        "knowledge": "2024-04",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 128000,
+        "maxOutput": 8192,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.8,
+            "textOutput": 1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
         "name": "Qwen3 235B-A22B Instruct 2507",
         "description": "Qwen instruction model for multilingual chat, reasoning, and tool use",
@@ -174911,7 +175040,7 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 262144,
+        "contextWindow": 131072,
         "maxOutput": 16384,
         "modalities": {
           "input": [
@@ -174923,8 +175052,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.09,
-            "textOutput": 0.55
+            "textInput": 0.14,
+            "textOutput": 0.8
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -175571,8 +175700,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.1,
-            "textOutput": 0.15
+            "textInput": 0.085,
+            "textOutput": 0.125
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -175868,6 +175997,77 @@
           "basePricing": {
             "textInput": 0.25,
             "textOutput": 1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "RekaAI/reka-edge-2603",
+        "name": "Reka Edge",
+        "description": "Multimodal model for analyzing text, images, documents, and rich media",
+        "type": "chat",
+        "family": "reka",
+        "releasedAt": "2026-03-11",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 16384,
+        "maxOutput": 14745,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.1,
+            "textOutput": 0.1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "Sao10K/L3-8B-Lunaris-v1",
+        "name": "Llama 3 8B Lunaris",
+        "description": "Open Llama instruction model for multilingual chat, reasoning, and coding",
+        "type": "chat",
+        "family": "lunaris",
+        "releasedAt": "2024-08-13",
+        "knowledge": "2023-12-31",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 8192,
+        "maxOutput": 7372,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.04,
+            "textOutput": 0.05
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -176204,8 +176404,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.075,
-            "textOutput": 0.3
+            "textInput": 0.06,
+            "textOutput": 0.24
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -176416,6 +176616,135 @@
           "basePricing": {
             "textInput": 1,
             "textOutput": 3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "XiaomiMiMo/MiMo-V2.6-Flash-MOPD",
+        "name": "MiMo-V2.6-Flash-MOPD",
+        "description": "MiMo Flash checkpoint distilled from domain teachers to cut repeated tool calls in agent workflows",
+        "type": "chat",
+        "family": "mimo-flash",
+        "releasedAt": "2026-09-27",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.5,
+            "textOutput": 1
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+        "name": "MiMo-V2.6-Flash",
+        "description": "MiMo Flash model for multimodal coding agents and long-context automation",
+        "type": "chat",
+        "family": "mimo-flash",
+        "releasedAt": "2026-09-22",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.14,
+            "textOutput": 0.28
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "XiaomiMiMo/MiMo-V2.6-Pro-RL",
+        "name": "MiMo-V2.6-Pro",
+        "description": "Stronger MiMo Pro tier for multimodal reasoning and coding-agent execution",
+        "type": "chat",
+        "family": "mimo-pro",
+        "releasedAt": "2026-09-22",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.387,
+            "textOutput": 0.783
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -176839,8 +177168,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.643,
-            "textOutput": 1.978
+            "textInput": 0.5625,
+            "textOutput": 1.8
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -178030,49 +178359,6 @@
             "textInput": 0.178,
             "textOutput": 0.68,
             "textInput_cacheRead": 0.089
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "inkling",
-        "name": "Inkling",
-        "description": "Multimodal MoE reasoning model (975B total, 41B active) for text, image, and audio",
-        "type": "chat",
-        "family": "inkling",
-        "releasedAt": "2026-07-15",
-        "openWeights": true,
-        "reasoningEffort": {
-          "enum": [
-            "low",
-            "medium",
-            "high"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "vision": true
-        },
-        "contextWindow": 1048576,
-        "maxOutput": 65536,
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 1.0888,
-            "textOutput": 4.40964,
-            "textInput_cacheRead": 0.185096
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -182376,8 +182662,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.5655,
-            "textOutput": 3.42,
+            "textInput": 0.585,
+            "textOutput": 3.384,
             "textInput_cacheRead": 0.15,
             "textInput_cacheWrite": 0
           },
@@ -182510,9 +182796,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.185,
-            "textOutput": 0.5,
-            "textInput_cacheRead": 0.07,
+            "textInput": 0.13,
+            "textOutput": 0.3,
+            "textInput_cacheRead": 0.03,
             "textInput_cacheWrite": 0
           },
           "currency": "USD",
@@ -197413,7 +197699,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 943718,
+        "maxOutput": 393216,
         "modalities": {
           "input": [
             "text"
@@ -197424,9 +197710,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.111,
-            "textOutput": 4.44,
-            "textInput_cacheRead": 0.097
+            "textInput": 0.0999,
+            "textOutput": 5,
+            "textInput_cacheRead": 0.0999
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -199360,6 +199646,9 @@
         "openWeights": false,
         "reasoningEffort": {
           "enum": [
+            "none",
+            "low",
+            "medium",
             "high"
           ]
         },
@@ -200337,7 +200626,7 @@
           "vision": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 393216,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text",
@@ -200349,9 +200638,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.44,
-            "textOutput": 1.32,
-            "textInput_cacheRead": 0.028
+            "textInput": 0.2156,
+            "textOutput": 0.6468,
+            "textInput_cacheRead": 0.00686
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -200424,7 +200713,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 943718,
+        "maxOutput": 393216,
         "modalities": {
           "input": [
             "text"
@@ -200435,9 +200724,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.111,
-            "textOutput": 4.44,
-            "textInput_cacheRead": 0.097
+            "textInput": 0.0999,
+            "textOutput": 5,
+            "textInput_cacheRead": 0.0999
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -202297,7 +202586,7 @@
           "vision": true
         },
         "contextWindow": 131072,
-        "maxOutput": 117964,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text",
@@ -202334,7 +202623,7 @@
           "vision": true
         },
         "contextWindow": 131072,
-        "maxOutput": 117964,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text",
@@ -202391,7 +202680,7 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.047,
-            "textOutput": 0.168,
+            "textOutput": 0.169,
             "textInput_cacheRead": 0.023
           },
           "currency": "USD",
@@ -202684,7 +202973,7 @@
         "type": "chat",
         "family": "ling-flash",
         "releasedAt": "2026-08-27",
-        "openWeights": false,
+        "openWeights": true,
         "reasoningEffort": {
           "enum": [
             "none",
@@ -202809,8 +203098,8 @@
         "description": "Ling 3.0 Tiny is a mixture-of-experts model from InclusionAI, with 1.3B active parameters out of 7.9B total. It is designed for responsive agents, instruction following, and multi-turn conversations, with switchable...",
         "type": "chat",
         "family": "ling-tiny",
-        "releasedAt": "2026-08-06",
-        "openWeights": false,
+        "releasedAt": "2026-08-07",
+        "openWeights": true,
         "reasoningEffort": {
           "enum": [
             "none",
@@ -202927,13 +203216,13 @@
         }
       },
       {
-        "id": "inclusionai/ling-3.2-flash:free",
-        "name": "inclusionAI: Ling 3.2 Flash (free)",
-        "description": "Ling 3.2 Flash is a hybrid reasoning model from inclusionAI that accepts text and image input, with a 1M-token context window and up to 200 images per request. Thinking can...",
+        "id": "inclusionai/lingsante-3.1-air-vl",
+        "name": "inclusionAI: LingSante 3.1 Air VL",
+        "description": "LingSante 3.1 Air VL is inclusionAI's medical vision-language model, a 124B total / 5.5B active MoE. It takes text and up to 16 images (scans, skin and meal photos, lab...",
         "type": "chat",
-        "family": "ling-flash-free",
-        "releasedAt": "2026-11-13",
-        "openWeights": false,
+        "family": "lingsante",
+        "releasedAt": "2026-11-19",
+        "openWeights": true,
         "reasoningEffort": {
           "enum": [
             "none",
@@ -202948,8 +203237,8 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1048576,
-        "maxOutput": 262144,
+        "contextWindow": 131072,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text",
@@ -202961,8 +203250,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
+            "textInput": 0.06,
+            "textOutput": 0.18,
+            "textInput_cacheRead": 0.012
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -203628,8 +203918,8 @@
           "temperature": true,
           "structuredOutput": true
         },
-        "contextWindow": 128000,
-        "maxOutput": 115200,
+        "contextWindow": 131072,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -203834,7 +204124,7 @@
           "vision": true
         },
         "contextWindow": 131072,
-        "maxOutput": 117964,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text",
@@ -205480,7 +205770,7 @@
           "structuredOutput": false
         },
         "contextWindow": 131072,
-        "maxOutput": 131072,
+        "maxOutput": 98304,
         "modalities": {
           "input": [
             "text"
@@ -205493,6 +205783,40 @@
           "basePricing": {
             "textInput": 0.57,
             "textOutput": 2.3
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "moonshotai/kimi-k2-0905",
+        "name": "MoonshotAI: Kimi K2 0905",
+        "description": "Kimi K2 0905 is the September update of [Kimi K2 0711](moonshotai/kimi-k2). It is a large-scale Mixture-of-Experts (MoE) language model developed by Moonshot AI, featuring 1 trillion total parameters with 32...",
+        "type": "chat",
+        "family": "kimi",
+        "releasedAt": "2025-09-05",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 98304,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.6,
+            "textOutput": 2.5
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -205522,7 +205846,7 @@
           "vision": true
         },
         "contextWindow": 262144,
-        "maxOutput": 235929,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text",
@@ -210403,9 +210727,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.017,
-            "textOutput": 0.085,
-            "textInput_cacheRead": 0.0085
+            "textInput": 0.0153,
+            "textOutput": 0.0765,
+            "textInput_cacheRead": 0.00765
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -210974,7 +211298,7 @@
           "vision": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text",
@@ -211022,7 +211346,7 @@
           "vision": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text",
@@ -212781,8 +213105,8 @@
         "pricing": {
           "basePricing": {
             "textInput": 0.05,
-            "textOutput": 0.7,
-            "textInput_cacheRead": 0.025
+            "textOutput": 0.69,
+            "textInput_cacheRead": 0.024
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -215806,12 +216130,12 @@
       },
       {
         "id": "xiaomi/mimo-v2.6-flash-mopd",
-        "name": "Xiaomi: MiMo-V2.6-Flash-MOPD",
+        "name": "MiMo-V2.6-Flash-MOPD",
         "description": "MiMo-V2.6-Flash-MOPD is an updated checkpoint of Xiaomi's MiMo-V2.6-Flash, a Mixture-of-Experts model with 309B total and 15B active parameters, a 1M-token context window, and native multimodal input. It adds a multi-teacher...",
         "type": "chat",
-        "family": "mimo",
-        "releasedAt": "2026-11-23",
-        "openWeights": false,
+        "family": "mimo-flash",
+        "releasedAt": "2026-09-27",
+        "openWeights": true,
         "reasoningEffort": {
           "enum": [
             "none",
@@ -215832,8 +216156,8 @@
           "input": [
             "text",
             "image",
-            "video",
-            "audio"
+            "audio",
+            "video"
           ],
           "output": [
             "text"
@@ -234394,6 +234718,118 @@
         }
       },
       {
+        "id": "aws-mantle/gpt-5.4",
+        "name": "GPT-5.4 (AWS Bedrock (OpenAI))",
+        "description": "Agent-ready GPT for coding and computer-use workflows at a lower cost",
+        "type": "chat",
+        "family": "gpt",
+        "releasedAt": "2026-03-05",
+        "knowledge": "2025-08-31",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 921600,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2.75,
+            "textOutput": 16.5,
+            "textInput_cacheRead": 0.275
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "aws-mantle/gpt-5.5",
+        "name": "GPT-5.5 (AWS Bedrock (OpenAI))",
+        "description": "Default frontier GPT for coding, computer use, research, and knowledge work",
+        "type": "chat",
+        "family": "gpt",
+        "releasedAt": "2026-04-23",
+        "knowledge": "2025-12-01",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 921600,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "adjustments": [
+            {
+              "mode": "multiplier",
+              "values": {
+                "textInput": 1.818181818182,
+                "textOutput": 1.363636363636,
+                "textInput_cacheRead": 1.818181818182
+              },
+              "when": {
+                "textTotalInput": [
+                  0.2,
+                  "infinity"
+                ]
+              }
+            }
+          ],
+          "basePricing": {
+            "textInput": 5.5,
+            "textOutput": 33,
+            "textInput_cacheRead": 0.55
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "aws-mantle/gpt-5.6-luna",
         "name": "GPT-5.6 Luna (AWS Mantle)",
         "description": "Cost-efficient GPT-5.6 model for fast, high-volume workloads",
@@ -234569,7 +235005,7 @@
           "structuredOutput": true,
           "vision": true
         },
-        "contextWindow": 1050000,
+        "contextWindow": 921600,
         "maxOutput": 128000,
         "modalities": {
           "input": [
@@ -234786,6 +235222,188 @@
             "textOutput": 5,
             "textInput_cacheRead": 0.05,
             "textInput_cacheWrite": 1.25
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "aws-mantle/gpt-6.2-astra",
+        "name": "GPT-6.2 Astra (AWS Bedrock (OpenAI))",
+        "description": "A frontier reasoning model for coding, computer use, and professional work such as slides, spreadsheets, and documents.",
+        "type": "chat",
+        "family": "gpt-astra",
+        "releasedAt": "2026-11-17",
+        "knowledge": "2026-05-18",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 921600,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 8,
+            "textOutput": 40,
+            "textInput_cacheRead": 0.4,
+            "textInput_cacheWrite": 10
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "aws-mantle/gpt-6.2-sol",
+        "name": "GPT-6.2 Sol (AWS Bedrock (OpenAI))",
+        "description": "An efficient reasoning model for everyday work, multistep agentic workflows, and coding.",
+        "type": "chat",
+        "family": "gpt-sol",
+        "releasedAt": "2026-11-17",
+        "knowledge": "2026-06-01",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 921600,
+        "maxOutput": 128000,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.1,
+            "textInput_cacheWrite": 2.5
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "aws-mantle/gpt-oss-120b",
+        "name": "GPT OSS 120B (AWS Bedrock (OpenAI))",
+        "description": "Open GPT reasoning model for self-hosted agents and controllable deployments",
+        "type": "chat",
+        "family": "gpt-oss",
+        "releasedAt": "2025-08-05",
+        "knowledge": "2024-06",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 131072,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.15,
+            "textOutput": 0.6
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "aws-mantle/gpt-oss-20b",
+        "name": "GPT OSS 20B (AWS Bedrock (OpenAI))",
+        "description": "Open GPT reasoning model for self-hosted agents and controllable deployments",
+        "type": "chat",
+        "family": "gpt-oss",
+        "releasedAt": "2025-08-05",
+        "knowledge": "2024-06",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 131072,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.07,
+            "textOutput": 0.3
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -237942,9 +238560,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 1.4,
-            "textOutput": 4.4,
-            "textInput_cacheRead": 0.26
+            "textInput": 0.84,
+            "textOutput": 2.64,
+            "textInput_cacheRead": 0.156
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -248317,6 +248935,55 @@
             "textInput": 0.11,
             "textOutput": 0.3,
             "textInput_cacheRead": 0.02
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "reka-ai/kimi-k3.1-pro",
+        "name": "Kimi K3.1 Pro (reka-ai)",
+        "description": "Multimodal Kimi model with a 1M-token context window and always-on reasoning, for coding, 3D creation and financial research",
+        "type": "chat",
+        "family": "kimi-pro",
+        "releasedAt": "2026-10-23",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "minimal",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 1048576,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 2,
+            "textOutput": 10,
+            "textInput_cacheRead": 0.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -281657,8 +282324,8 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.2156,
-            "textOutput": 0.6468,
+            "textInput": 0.238238,
+            "textOutput": 0.714714,
             "textInput_cacheRead": 0.00686
           },
           "currency": "USD",
@@ -286734,6 +287401,49 @@
         }
       },
       {
+        "id": "inclusionai/ling-3.0-flash-sante",
+        "name": "Ling-3.0-flash-Sante",
+        "description": "Health and medicine specialization of Ling 3.0 Flash for medical reasoning and evidence-based retrieval",
+        "type": "chat",
+        "family": "ling-flash",
+        "releasedAt": "2026-09-04",
+        "openWeights": false,
+        "reasoningEffort": {
+          "enum": [
+            "none",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": false
+        },
+        "contextWindow": 262144,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.075,
+            "textOutput": 0.22,
+            "textInput_cacheRead": 0.015
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "inclusionai/ling-3.0-flash-vl",
         "name": "Ling 3.0 Flash VL",
         "description": "Native multimodal hybrid MoE model for image and video understanding, reasoning, and visual agents",
@@ -286942,6 +287652,43 @@
             "textInput": 0.075,
             "textOutput": 0.22,
             "textInput_cacheRead": 0.015
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "inclusionai/lingsante-3.1-air-vl",
+        "name": "LingSante 3.1 Air VL",
+        "description": "Open multimodal MoE model for medical imaging reports, health assessment, evidence search, and GUI agents",
+        "type": "chat",
+        "family": "lingsante",
+        "releasedAt": "2026-11-19",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 131072,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.06,
+            "textOutput": 0.18,
+            "textInput_cacheRead": 0.012
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -289762,7 +290509,7 @@
           "structuredOutput": false,
           "vision": true
         },
-        "contextWindow": 262144,
+        "contextWindow": 256000,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -289800,7 +290547,7 @@
           "structuredOutput": false,
           "vision": true
         },
-        "contextWindow": 262144,
+        "contextWindow": 256000,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -295298,9 +296045,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.26,
-            "textOutput": 2.08,
-            "textInput_cacheRead": 0.13
+            "textInput": 0.4,
+            "textOutput": 3.2,
+            "textInput_cacheRead": 0.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -295333,9 +296080,9 @@
         },
         "pricing": {
           "basePricing": {
-            "textInput": 0.26,
-            "textOutput": 2.08,
-            "textInput_cacheRead": 0.13
+            "textInput": 0.4,
+            "textOutput": 3.2,
+            "textInput_cacheRead": 0.2
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -342446,7 +343193,7 @@
           "temperature": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 943718,
+        "maxOutput": 393216,
         "modalities": {
           "input": [
             "text"
@@ -342459,9 +343206,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.111,
-            "textOutput": 4.44,
-            "textInput_cacheRead": 0.097
+            "textInput": 0.0999,
+            "textOutput": 5,
+            "textInput_cacheRead": 0.0999
           }
         }
       },
@@ -342507,7 +343254,7 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.047,
+            "textInput": 0.0456,
             "textOutput": 0.3,
             "textInput_cacheRead": 0.035
           }
@@ -345109,6 +345856,9 @@
         "openWeights": true,
         "reasoningEffort": {
           "enum": [
+            "none",
+            "low",
+            "medium",
             "high"
           ]
         },
@@ -345974,7 +346724,7 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.047,
+            "textInput": 0.0456,
             "textOutput": 0.3,
             "textInput_cacheRead": 0.035
           }
@@ -346047,7 +346797,7 @@
           "temperature": false
         },
         "contextWindow": 1048576,
-        "maxOutput": 393216,
+        "maxOutput": 262144,
         "modalities": {
           "input": [
             "text",
@@ -346061,9 +346811,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.44,
-            "textOutput": 1.32,
-            "textInput_cacheRead": 0.028
+            "textInput": 0.2156,
+            "textOutput": 0.6468,
+            "textInput_cacheRead": 0.00686
           }
         }
       },
@@ -346146,7 +346896,7 @@
           "temperature": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 943718,
+        "maxOutput": 393216,
         "modalities": {
           "input": [
             "text"
@@ -346159,9 +346909,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.111,
-            "textOutput": 4.44,
-            "textInput_cacheRead": 0.097
+            "textInput": 0.0999,
+            "textOutput": 5,
+            "textInput_cacheRead": 0.0999
           }
         }
       },
@@ -348388,7 +349138,7 @@
           "temperature": true
         },
         "contextWindow": 131072,
-        "maxOutput": 117964,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text",
@@ -348403,8 +349153,7 @@
           "unit": "millionTokens",
           "basePricing": {
             "textInput": 0.08,
-            "textOutput": 0.45,
-            "textInput_cacheRead": 0.04
+            "textOutput": 0.16
           }
         }
       },
@@ -348429,7 +349178,7 @@
           "temperature": false
         },
         "contextWindow": 131072,
-        "maxOutput": 117964,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text",
@@ -348443,9 +349192,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.04,
-            "textOutput": 0.05,
-            "textInput_cacheRead": 0.02
+            "textInput": 0.05,
+            "textOutput": 0.1
           }
         }
       },
@@ -348946,14 +349694,14 @@
         }
       },
       {
-        "id": "inclusionai/ling-3.2-flash:free",
-        "name": "inclusionAI: Ling 3.2 Flash (free)",
+        "id": "inclusionai/ling-3.2-flash",
+        "name": "inclusionAI: Ling 3.2 Flash",
         "description": "Ling 3.2 Flash is a hybrid reasoning model from inclusionAI that accepts text and image input, with a 1M-token context window and up to 200 images per request. Thinking can...",
         "type": "chat",
-        "family": "ling-flash-free",
+        "family": "ling-flash",
         "releasedAt": "2026-11-13",
         "knowledge": null,
-        "openWeights": true,
+        "openWeights": false,
         "abilities": {
           "toolCall": true,
           "reasoning": true,
@@ -348980,8 +349728,50 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0,
-            "textOutput": 0
+            "textInput": 0.3,
+            "textOutput": 0.9,
+            "textInput_cacheRead": 0.06
+          }
+        }
+      },
+      {
+        "id": "inclusionai/lingsante-3.1-air-vl",
+        "name": "inclusionAI: LingSante 3.1 Air VL",
+        "description": "LingSante 3.1 Air VL is inclusionAI's medical vision-language model, a 124B total / 5.5B active MoE. It takes text and up to 16 images (scans, skin and meal photos, lab...",
+        "type": "chat",
+        "family": "lingsante",
+        "releasedAt": "2026-11-26",
+        "knowledge": null,
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "vision": true,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 131072,
+        "maxOutput": 32768,
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.06,
+            "textOutput": 0.18,
+            "textInput_cacheRead": 0.012
           }
         }
       },
@@ -349402,7 +350192,7 @@
           "temperature": false
         },
         "contextWindow": 131072,
-        "maxOutput": 115200,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -349415,9 +350205,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.71,
-            "textOutput": 0.71,
-            "textInput_cacheRead": 0.71
+            "textInput": 0.59,
+            "textOutput": 0.79,
+            "textInput_cacheRead": 0.295
           }
         }
       },
@@ -349626,7 +350416,7 @@
           "temperature": true
         },
         "contextWindow": 131072,
-        "maxOutput": 117964,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text",
@@ -349640,8 +350430,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.35,
-            "textOutput": 1.5,
+            "textInput": 0.3,
+            "textOutput": 1.2,
             "textInput_cacheRead": 0.04
           }
         }
@@ -351375,6 +352165,84 @@
         }
       },
       {
+        "id": "moonshotai/kimi-k2",
+        "name": "MoonshotAI: Kimi K2 0711",
+        "description": "Kimi K2 Instruct is a large-scale Mixture-of-Experts (MoE) language model developed by Moonshot AI, featuring 1 trillion total parameters with 32 billion active per forward pass. It is optimized for...",
+        "type": "chat",
+        "family": "kimi",
+        "releasedAt": "2025-07-11",
+        "knowledge": "2024-12-31",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 131072,
+        "maxOutput": 98304,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.57,
+            "textOutput": 2.3
+          }
+        }
+      },
+      {
+        "id": "moonshotai/kimi-k2-0905",
+        "name": "MoonshotAI: Kimi K2 0905",
+        "description": "Kimi K2 0905 is the September update of [Kimi K2 0711](moonshotai/kimi-k2). It is a large-scale Mixture-of-Experts (MoE) language model developed by Moonshot AI, featuring 1 trillion total parameters with 32...",
+        "type": "chat",
+        "family": "kimi",
+        "releasedAt": "2025-09-04",
+        "knowledge": "2024-12-31",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": false,
+          "vision": false,
+          "structuredOutput": true,
+          "search": false,
+          "imageOutput": false,
+          "video": false,
+          "attachment": false,
+          "temperature": false
+        },
+        "contextWindow": 262144,
+        "maxOutput": 98304,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "currency": "USD",
+          "unit": "millionTokens",
+          "basePricing": {
+            "textInput": 0.6,
+            "textOutput": 2.5
+          }
+        }
+      },
+      {
         "id": "moonshotai/kimi-k2.5",
         "name": "MoonshotAI: Kimi K2.5",
         "description": "Kimi K2.5 is Moonshot AI's native multimodal model, delivering state-of-the-art visual coding capability and a self-directed agent swarm paradigm. Built on Kimi K2 with continued pretraining over approximately 15T mixed...",
@@ -351398,7 +352266,7 @@
           }
         },
         "contextWindow": 262144,
-        "maxOutput": 235929,
+        "maxOutput": 131072,
         "modalities": {
           "input": [
             "text",
@@ -351412,9 +352280,8 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.5,
-            "textOutput": 2.5,
-            "textInput_cacheRead": 0.15
+            "textInput": 0.6,
+            "textOutput": 3
           }
         }
       },
@@ -357555,7 +358422,7 @@
           "temperature": false
         },
         "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text",
@@ -357607,7 +358474,7 @@
           "temperature": false
         },
         "contextWindow": 1048576,
-        "maxOutput": 131072,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text",
@@ -359411,7 +360278,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 1048576,
+        "contextWindow": 1000000,
         "maxOutput": 65536,
         "modalities": {
           "input": [
@@ -361103,9 +361970,9 @@
           "currency": "USD",
           "unit": "millionTokens",
           "basePricing": {
-            "textInput": 0.075,
-            "textOutput": 0.3,
-            "textInput_cacheRead": 0.015
+            "textInput": 0.06,
+            "textOutput": 0.24,
+            "textInput_cacheRead": 0.012
           }
         }
       },
@@ -362080,7 +362947,7 @@
         "name": "Xiaomi: MiMo-V2.6-Flash-MOPD",
         "description": "MiMo-V2.6-Flash-MOPD is an updated checkpoint of Xiaomi's MiMo-V2.6-Flash, a Mixture-of-Experts model with 309B total and 15B active parameters, a 1M-token context window, and native multimodal input. It adds a multi-teacher...",
         "type": "chat",
-        "family": "mimo",
+        "family": "mimo-flash",
         "releasedAt": "2026-11-23",
         "knowledge": null,
         "openWeights": true,
@@ -362346,7 +363213,7 @@
           "attachment": false,
           "temperature": true
         },
-        "contextWindow": 204800,
+        "contextWindow": 202752,
         "maxOutput": 131072,
         "modalities": {
           "input": [
@@ -384170,7 +385037,7 @@
           "structuredOutput": true
         },
         "contextWindow": 1048576,
-        "maxOutput": 384000,
+        "maxOutput": 943718,
         "modalities": {
           "input": [
             "text"
@@ -384713,7 +385580,7 @@
           "vision": true
         },
         "contextWindow": 131072,
-        "maxOutput": 117964,
+        "maxOutput": 16384,
         "modalities": {
           "input": [
             "text",
@@ -384749,7 +385616,7 @@
           "structuredOutput": true
         },
         "contextWindow": 131072,
-        "maxOutput": 115200,
+        "maxOutput": 32768,
         "modalities": {
           "input": [
             "text"
@@ -386466,6 +387333,51 @@
       {
         "id": "qwen/qwen3.8-27b",
         "name": "Qwen3.8 27B",
+        "description": "Dense 27B vision-language model for coding, agent tasks, and image and video understanding",
+        "type": "chat",
+        "family": "qwen",
+        "releasedAt": "2026-08-14",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "xhigh"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": true,
+          "structuredOutput": true,
+          "vision": true
+        },
+        "contextWindow": 262144,
+        "maxOutput": 65536,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.24,
+            "textOutput": 2.2,
+            "textInput_cacheRead": 0.05
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "qwen/qwen3.8-27b-fast",
+        "name": "Qwen3.8 27B (fast)",
         "description": "Dense 27B vision-language model for coding, agent tasks, and image and video understanding",
         "type": "chat",
         "family": "qwen",
@@ -405103,50 +406015,6 @@
         }
       },
       {
-        "id": "hy3",
-        "name": "Hy3",
-        "description": "Tencent Hy reasoning model for coding, instruction following, and agent tasks",
-        "type": "chat",
-        "family": "hy",
-        "releasedAt": "2026-07-06",
-        "openWeights": true,
-        "reasoningEffort": {
-          "enum": [
-            "none",
-            "low",
-            "medium",
-            "high",
-            "max"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": false,
-          "temperature": true,
-          "structuredOutput": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 262144,
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.14,
-            "textOutput": 0.58,
-            "textInput_cacheRead": 0.035
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
         "id": "inkling",
         "name": "Inkling",
         "description": "Multimodal MoE reasoning model (975B total, 41B active) for text, image, and audio",
@@ -405531,7 +406399,7 @@
       {
         "id": "kimi-k3.1-pro-highspeed",
         "name": "Kimi K3.1 Pro Highspeed",
-        "description": "Multimodal Kimi model with a 1M-token context window and always-on reasoning, for coding, 3D creation and financial research",
+        "description": "Faster-serving Kimi K3.1 Pro with a 1M-token context window and always-on reasoning",
         "type": "chat",
         "family": "kimi-pro",
         "releasedAt": "2026-10-23",
@@ -407718,54 +408586,6 @@
             "textInput": 0.5,
             "textOutput": 3,
             "textInput_cacheRead": 0.1
-          },
-          "currency": "USD",
-          "unit": "millionTokens"
-        }
-      },
-      {
-        "id": "step-3.7-flash",
-        "name": "Step 3.7 Flash",
-        "description": "Newer StepFun flash model for faster agents, coding, and multimodal prompts",
-        "type": "chat",
-        "family": "step-flash",
-        "releasedAt": "2026-05-29",
-        "knowledge": "2026-03-01",
-        "openWeights": true,
-        "reasoningEffort": {
-          "enum": [
-            "none",
-            "low",
-            "medium",
-            "high",
-            "max"
-          ]
-        },
-        "abilities": {
-          "toolCall": true,
-          "reasoning": true,
-          "attachment": true,
-          "temperature": true,
-          "structuredOutput": true,
-          "vision": true
-        },
-        "contextWindow": 262144,
-        "maxOutput": 256000,
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "video"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "pricing": {
-          "basePricing": {
-            "textInput": 0.2,
-            "textOutput": 1.15,
-            "textInput_cacheRead": 0.04
           },
           "currency": "USD",
           "unit": "millionTokens"
@@ -432469,6 +433289,94 @@
         }
       },
       {
+        "id": "kimi-k3.1-pro-highspeed",
+        "name": "Kimi K3.1 Pro Highspeed",
+        "description": "Faster-serving Kimi K3.1 Pro with a 1M-token context window and always-on reasoning",
+        "type": "chat",
+        "family": "kimi-pro",
+        "releasedAt": "2026-10-23",
+        "openWeights": true,
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": true,
+          "temperature": false,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          },
+          "vision": true
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 1048576,
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 4,
+            "textOutput": 20,
+            "textInput_cacheRead": 0.2,
+            "textInput_cacheWrite": 4
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
+        "id": "mimo-v2.5-pro",
+        "name": "MiMo-V2.5-Pro",
+        "description": "Stronger MiMo Pro tier for multimodal reasoning and coding-agent execution",
+        "type": "chat",
+        "family": "mimo-pro",
+        "releasedAt": "2026-04-22",
+        "knowledge": "2024-12",
+        "openWeights": true,
+        "abilities": {
+          "toolCall": true,
+          "reasoning": true,
+          "attachment": false,
+          "temperature": true,
+          "structuredOutput": true,
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        },
+        "contextWindow": 1048576,
+        "maxOutput": 131072,
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "pricing": {
+          "basePricing": {
+            "textInput": 0.435,
+            "textOutput": 0.87,
+            "textInput_cacheRead": 0.0036
+          },
+          "currency": "USD",
+          "unit": "millionTokens"
+        }
+      },
+      {
         "id": "mimo-v2.6-flash",
         "name": "MiMo-V2.6-Flash",
         "description": "MiMo Flash model for multimodal coding agents and long-context automation",
@@ -448182,6 +449090,7 @@
         "family": "pareto",
         "releasedAt": "2026-09-17",
         "openWeights": false,
+        "deprecated": true,
         "abilities": {
           "toolCall": true,
           "reasoning": false,
@@ -466223,6 +467132,23 @@
             "image"
           ]
         }
+      },
+      {
+        "id": "recraft/recraft-v4.1-flash-v2",
+        "name": "Recraft V4.1 Flash V2",
+        "description": "Recraft V4.1 Flash V2 is the next version of Recraft's Flash line: a fast, low-cost raster image model with quality close to Recraft V4.1, built for high-volume generation and rapid iteration. It generates raster images only and does not support styles.",
+        "type": "image",
+        "releasedAt": "2026-11-26",
+        "abilities": {
+          "toolCall": false,
+          "reasoning": false,
+          "vision": false,
+          "structuredOutput": false,
+          "search": false,
+          "imageOutput": true,
+          "video": false
+        },
+        "api": null
       },
       {
         "id": "recraft/recraft-v4.1-pro",
